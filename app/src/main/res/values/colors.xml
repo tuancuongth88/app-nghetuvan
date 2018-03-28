@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+
+
+    <color name="backgroundAuth">#888888</color>
+    <color name="bgSelectProfile">#f6f6f6</color>
+    <color name="textLabel">#131313</color>
+    <color name="textHintColor">#bec1cb</color>
+    <color name="textEdit">#131313</color>
+    <color name="textLabelForgotPassword">#ff3451</color>
+    <color name="viewBgLine">#eeeeee</color>
+    <color name="textEmailProfile">#555555</color>
+    <color name="textDialogChangeImage">#5fa0ec</color>
+    <color name="textCancel">#9b9b9b</color>
+    <color name="textItemMyCourse">#666666</color>
+    <color name="bgNavItem">#4c000000</color>
+    <color name="viewBgLineOverallPath">#cccccc</color>
+    <color name="textItemName">#4a90e2</color>
+    <color name="assignmentTitle">#15b8ca</color>
+    <color name="textTitlePollResult">#15b8ca</color>
+    <color name="bgChartOne">#fbad5a</color>
+</resources>

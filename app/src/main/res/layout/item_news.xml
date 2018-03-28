@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <consultant.com.haiphat.consultant.utils.RippleView
+        style="@style/matchWrap"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_radius_white">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/rivLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_defaut_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius_bottom_left="3dp"
+            app:riv_corner_radius_top_left="3dp" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:textColor="@color/textLabel"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rivLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="What You Need To Know About Oil Fondue" />
+
+        <TextView
+            android:id="@+id/tvSubTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="3"
+            android:textColor="@color/textItemMyCourse"
+            android:textSize="11sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="Chiều 09/02/2018, 137 Nguyễn Ngọc Vũ, Cầu Giấy, Hà Nội. Dựa vào các tiêu chí đánh giá hoạt động trong năm 2017 của các Sàn liên kết, nghemoigioi.vn đã tìm ra 10 đơn" />
+
+
+    </consultant.com.haiphat.consultant.utils.RippleView>
+</layout>

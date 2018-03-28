@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        style="@style/matchParent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clHeader"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/clContent">
+
+            <consultant.com.haiphat.consultant.utils.RippleView
+                android:id="@+id/rippleBack"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </consultant.com.haiphat.consultant.utils.RippleView>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/wrapContent"
+                android:layout_width="0dp"
+                android:layout_marginLeft="16dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/rippleBack"
+                app:layout_constraintStart_toEndOf="@+id/rippleBack"
+                app:layout_constraintTop_toTopOf="@+id/rippleBack" />
+
+        </android.support.constraint.ConstraintLayout>
+        <View
+            android:id="@+id/viewLine"
+            style="@style/viewLine"/>
+
+        <LinearLayout
+            android:id="@+id/clContent"
+            style="@style/matchParent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/clHeader" />
+    </LinearLayout>
+
+</layout>

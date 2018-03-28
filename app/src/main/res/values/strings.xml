@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Consultant</string>
+    <string name="alert_title_success">Thành công</string>
+    <string name="text_dialog_ok">Đồng ý</string>
+    <string name="text_cancel">Hủy</string>
+    <string name="alert_title_confirm">Xác nhận</string>
+    <string name="alert_title_error">Có lỗi xảy tra</string>
+    <string name="alert_title_inform">Thông báo</string>
+    <string name="text_no_internet_connection">Không có kết nối mạng, vui lòng kiểm tra kết nối mạng và thử lại</string>
+    <string name="text_cannot_connect_to_server">Không thể kết nối với máy chủ</string>
+    <string name="text_error">Có lỗi xảy ra trong quá trình xử lý.</string>
+    <string name="text_processing">Đang tải...</string>
+    <string name="profile_logout_confirm">Bạn có thực sự muốn đăng xuất không?</string>
+
+
+    <string name="log_out">Thoát</string>
+    <string name="title_action_bar_home">Trang chủ</string>
+    <string name="title_screen_news">Tin tức chung</string>
+</resources>

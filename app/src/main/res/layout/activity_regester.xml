@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/matchParent"
+        tools:context="consultant.com.haiphat.consultant.view.auth.RegisterActivity">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/withWrap"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetEmail"
+                style="@style/matchWrap"
+                android:hint="Nhập Email" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilName"
+            style="@style/withWrap"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetName"
+                style="@style/matchWrap"
+                android:hint="Nhập họ và tên" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPhone"
+            style="@style/withWrap"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilName">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetPhone"
+                style="@style/matchWrap"
+                android:hint="Nhập số điện thoại" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPassword"
+            style="@style/withWrap"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilPhone">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetPassword"
+                style="@style/matchWrap"
+                android:hint="Nhập password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilConfirmPassword"
+            style="@style/withWrap"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilPassword">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetConfirmPassword"
+                style="@style/matchWrap"
+                android:hint="Nhập password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnRegister"
+            style="@style/withWrap"
+            android:layout_marginTop="10dp"
+            android:text="Đăng Ký"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilConfirmPassword" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

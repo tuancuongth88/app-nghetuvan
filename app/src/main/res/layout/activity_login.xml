@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="consultant.com.haiphat.consultant.view.auth.LoginActivity">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/withWrap"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetEmail"
+                style="@style/matchWrap"
+                android:hint="Nhập Email" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPassword"
+            style="@style/withWrap"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetPassword"
+                style="@style/matchWrap"
+                android:hint="Nhập password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/btnLogin"
+            style="@style/withWrap"
+            android:text="Đăng nhập"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilPassword"/>
+        <Button
+            android:id="@+id/btnRegister"
+            style="@style/withWrap"
+            android:text="Đăng ký"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin"/>
+        <TextView
+            android:id="@+id/txtForgotPassword"
+            style="@style/wrapContent"
+            android:text="Quên mật khẩu"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister"/>
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
