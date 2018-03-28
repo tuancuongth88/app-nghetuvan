@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <consultant.com.haiphat.consultant.utils.RippleView
+    <haiphat.com.bds.nghetuvan.utils.RippleView
         android:id="@+id/rippleItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -37,5 +37,5 @@
             app:layout_constraintTop_toTopOf="@+id/imgInfoAccount"
             tools:text="Trang chủ" />
 
-    </consultant.com.haiphat.consultant.utils.RippleView>
+    </haiphat.com.bds.nghetuvan.utils.RippleView>
 </layout>

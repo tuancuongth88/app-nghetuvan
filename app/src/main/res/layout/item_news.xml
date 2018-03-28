@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <consultant.com.haiphat.consultant.utils.RippleView
+    <haiphat.com.bds.nghetuvan.utils.RippleView
         style="@style/matchWrap"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_radius_white">
@@ -55,5 +55,5 @@
             tools:text="Chiều 09/02/2018, 137 Nguyễn Ngọc Vũ, Cầu Giấy, Hà Nội. Dựa vào các tiêu chí đánh giá hoạt động trong năm 2017 của các Sàn liên kết, nghemoigioi.vn đã tìm ra 10 đơn" />
 
 
-    </consultant.com.haiphat.consultant.utils.RippleView>
+    </haiphat.com.bds.nghetuvan.utils.RippleView>
 </layout>

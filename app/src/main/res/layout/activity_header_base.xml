@@ -15,7 +15,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/clContent">
 
-            <consultant.com.haiphat.consultant.utils.RippleView
+            <haiphat.com.bds.nghetuvan.utils.RippleView
                 android:id="@+id/rippleBack"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
@@ -31,7 +31,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-            </consultant.com.haiphat.consultant.utils.RippleView>
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
 
             <TextView
                 android:id="@+id/tvTitle"

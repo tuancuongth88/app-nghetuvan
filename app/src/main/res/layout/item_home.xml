@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <consultant.com.haiphat.consultant.utils.RippleView
+    <haiphat.com.bds.nghetuvan.utils.RippleView
         android:id="@+id/rippleItem"
         style="@style/wrapContent"
         android:padding="5dp">
@@ -26,5 +26,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imgCategory" />
-    </consultant.com.haiphat.consultant.utils.RippleView>
+    </haiphat.com.bds.nghetuvan.utils.RippleView>
 </layout>
