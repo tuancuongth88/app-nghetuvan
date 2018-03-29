@@ -16,4 +16,14 @@
     <string name="log_out">Thoát</string>
     <string name="title_action_bar_home">Trang chủ</string>
     <string name="title_screen_news">Tin tức chung</string>
+    <string name="title_screen_partner">Đối tác</string>
+    <string name="text_partner_price">%s USD</string>
+
+    <string name="text_investor">Chủ đầu tư</string>
+    <string name="text_consultants">Chuyên viên tư vấn</string>
+    <string name="text_bank">Ngần hàng</string>
+    <string name="text_general_news">Tin tức chung</string>
+    <string name="text_news_open_sale">Tin mở bán</string>
+    <string name="text_event_news">Tin sự kiện</string>
+
 </resources>

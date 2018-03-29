@@ -18,6 +18,7 @@ import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.news.NewsActivity
+import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.viewmodel.HomePageViewModel
 
 /**
@@ -42,9 +43,9 @@ class HomeFragment : BaseFragment() {
                     startActivity(Intent(activity, NewsActivity::class.java))
                 }
                 HomePageCategoryType.HomeInvestor -> {
-
+                    startActivity(Intent(activity, PartnerActivity::class.java))
                 }
-                else ->{
+                else -> {
                     startActivity(Intent(activity, NewsActivity::class.java))
                 }
             }

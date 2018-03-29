@@ -4,135 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <haiphat.com.bds.nghetuvan.utils.RippleView
-        style="@style/matchWrap">
+        style="@style/matchWrap"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/bg_radius_white">
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="2dp"
-            android:layout_height="@dimen/margin_20"
-            android:background="@color/textHintColor"
-            app:layout_constraintEnd_toEndOf="@+id/vRadius"
-            app:layout_constraintStart_toStartOf="@+id/vRadius"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/vRadius"
-            android:layout_width="8dp"
-            android:layout_height="8dp"
-            android:background="@drawable/bg_view_item_activities_radius"
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/rivAvatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_defaut_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius_bottom_left="3dp"
+            app:riv_corner_radius_top_left="3dp" />
 
         <TextView
-            android:id="@+id/tvDate"
+            android:id="@+id/tvName"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:textColor="@color/textLabel"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rivAvatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="What You Need To Know About Oil Fondue" />
+
+        <ImageView
+            android:id="@+id/imgTimeSpent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:fontFamily="sans-serif"
-            android:textColor="@color/textLabel"
-            android:textSize="12sp"
+            android:textColor="@color/textItemMyCourse"
+            android:textSize="11sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/vRadius"
-            app:layout_constraintStart_toEndOf="@+id/vRadius"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            tools:text="16/01/2018" />
+            app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
+            app:layout_constraintStart_toEndOf="@+id/imgTimeSpent"
+            app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
+            tools:text="50 minutes" />
 
-        <View
-            android:id="@+id/vBottom"
-            android:layout_width="2dp"
-            android:layout_height="0dp"
-            android:background="@color/textHintColor"
-            app:layout_constraintBottom_toBottomOf="@+id/clContent"
-            app:layout_constraintEnd_toEndOf="@+id/vRadius"
-            app:layout_constraintStart_toStartOf="@+id/vRadius"
-            app:layout_constraintTop_toBottomOf="@+id/vRadius" />
+        <ImageView
+            android:id="@+id/imgPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTime"
+            app:layout_constraintStart_toEndOf="@+id/tvTime"
+            app:layout_constraintTop_toTopOf="@+id/tvTime" />
 
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/textItemMyCourse"
+            android:textSize="11sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
+            app:layout_constraintStart_toEndOf="@+id/imgPrice"
+            app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
+            tools:text="12000USD" />
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/clContent"
-            style="@style/matchWrap"
-            android:layout_width="0dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/bg_radius_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvDate"
-            app:layout_constraintTop_toBottomOf="@+id/tvDate">
+        <ImageView
+            android:id="@+id/imgType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+            app:layout_constraintStart_toEndOf="@+id/tvPrice"
+            app:layout_constraintTop_toTopOf="@+id/tvPrice" />
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/rivAvatar"
-                android:layout_height="80dp"
-                android:layout_width="80dp"
-                android:src="@drawable/ic_defaut_avatar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:riv_corner_radius_bottom_left="3dp"
-                app:riv_corner_radius_top_left="3dp"/>
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="265dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:ellipsize="end"
-                android:fontFamily="sans-serif"
-                android:maxLines="2"
-                android:textColor="@color/textLabel"
-                android:textSize="15sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/rivAvatar"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="What You Need To Know About Oil Fondue" />
-            <ImageView
-                android:id="@+id/imgTimeSpent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_clock"
-                app:layout_constraintStart_toStartOf="@+id/tvName"
-                app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
-            <TextView
-                android:id="@+id/tvTimeSpent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/textItemMyCourse"
-                android:textSize="11sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
-                app:layout_constraintStart_toEndOf="@+id/imgTimeSpent"
-                app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
-                tools:text="50 minutes" />
-
-            <ImageView
-                android:id="@+id/imgType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_clock"
-                app:layout_constraintBottom_toBottomOf="@+id/tvTimeSpent"
-                app:layout_constraintStart_toEndOf="@+id/tvTimeSpent"
-                app:layout_constraintTop_toTopOf="@+id/tvTimeSpent" />
-
-            <TextView
-                android:id="@+id/tvCourseType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/textItemMyCourse"
-                android:textSize="11sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
-                app:layout_constraintStart_toEndOf="@+id/imgType"
-                app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
-                tools:text="Quiz" />
-
-        </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvCourseType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/textItemMyCourse"
+            android:textSize="11sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
+            app:layout_constraintStart_toEndOf="@+id/imgType"
+            app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
+            tools:text="Chủ đầu tư" />
 
     </haiphat.com.bds.nghetuvan.utils.RippleView>
 </layout>
