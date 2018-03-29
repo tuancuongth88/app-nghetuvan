@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.partner
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
@@ -38,7 +39,7 @@ class PartnerActivity : BaseActivity() {
     private fun initPartnerAdapter(list : ArrayList<PartnerResponse>){
         var recyclerView = dataBindingPartner.rvPartner
         var adapter = PartnerAdapter(list, onClick = {
-
+            startActivity(Intent(this@PartnerActivity, PartnerDetailActivity::class.java))
         })
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter

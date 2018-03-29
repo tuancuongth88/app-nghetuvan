@@ -40,13 +40,13 @@ class DetailNewsActivity : BaseActivity() {
         getDetailNews()
     }
 
-
     private fun getDetailNews(){
         ShowLoading.show(this)
         detailNewsViewMode.getDetailNews(onSuccess = {
             Handler(Looper.getMainLooper()).postDelayed({
                 ShowLoading.dismiss()
                 dataBindingDetailNews.tvTitle.text = it.name
+                dataBindingDetailNews.tvNameCourse.text = it.name
             }, 1000)
 
         }, onFailed = {
