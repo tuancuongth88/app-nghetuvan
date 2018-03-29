@@ -33,7 +33,8 @@
             android:label="@string/title_action_bar_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.news.NewsActivity" />
-        <activity android:name=".view.partner.PartnerActivity"></activity>
+        <activity android:name=".view.partner.PartnerActivity" />
+        <activity android:name=".view.news.DetailNewsActivity"></activity>
     </application>
 
 </manifest>

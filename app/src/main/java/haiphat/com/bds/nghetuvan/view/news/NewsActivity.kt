@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.news
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
@@ -38,7 +39,7 @@ class NewsActivity : BaseActivity() {
     private fun initNewsAdapter(list : ArrayList<NewsResponse>){
         var recyclerView = dataBindingNews.rvNews
         var adapter = NewsAdapter(list, onClick = {
-
+            startActivity(Intent(this@NewsActivity, DetailNewsActivity::class.java))
         })
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
