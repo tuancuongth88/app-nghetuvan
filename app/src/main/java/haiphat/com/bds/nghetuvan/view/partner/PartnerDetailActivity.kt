@@ -33,6 +33,13 @@ class PartnerDetailActivity : BaseActivity() {
                 dataBindingDetailPartner.tvNameCourse.visibility = View.VISIBLE
             }
         })
+        dataBindingDetailPartner.rippleBack.setOnRippleCompleteListener {
+            onBackPressed()
+        }
+        dataBindingDetailPartner.rippleSetting.setOnRippleCompleteListener {
+            //Intent share facebook
+
+        }
         return dataBindingDetailPartner.root
     }
 

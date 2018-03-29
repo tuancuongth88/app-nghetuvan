@@ -25,5 +25,7 @@
     <string name="text_general_news">Tin tức chung</string>
     <string name="text_news_open_sale">Tin mở bán</string>
     <string name="text_event_news">Tin sự kiện</string>
+    <string name="text_tab_news_info">Thông tin</string>
+    <string name="text_tab_news_comment">Bình luận</string>
 
 </resources>
