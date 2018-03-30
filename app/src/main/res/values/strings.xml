@@ -29,6 +29,9 @@
     <string name="text_tab_news_comment">Bình luận</string>
     <string name="discussion_training_course_detail_news_comment_placeholder">Nhập nội dung bình luận</string>
     <string name="title_screen_reply_create_discussion">Bình luận</string>
-    <string name="discussion_training_course_detail_comment_successfully">Gửi bình luận thành công</string>
+    <string name="discussion_training_course_detail_comment_successfully">Gửi email thành công</string>
+    <string name="title_action_bar_contact">Liên hệ</string>
+    <string name="title_action_bar_news">Tin tức</string>
+    <string name="title_action_bar_partner">Đối tác</string>
 
 </resources>

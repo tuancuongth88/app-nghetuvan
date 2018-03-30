@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout style="@style/matchParent">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/widgetTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edTitle"
+                    style="@style/matchWrap"
+                    android:hint="Nhập địa chỉ Email"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/widgetContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="@+id/widgetTitle"
+                app:layout_constraintStart_toStartOf="@+id/widgetTitle"
+                app:layout_constraintTop_toBottomOf="@+id/widgetTitle">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edContent"
+                    style="@style/matchWrap"
+                    android:hint="Nội dung"
+                    android:inputType="textMultiLine" />
+            </android.support.design.widget.TextInputLayout>
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gửi email"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/widgetTitle"
+                app:layout_constraintStart_toStartOf="@+id/widgetTitle"
+                app:layout_constraintTop_toBottomOf="@+id/widgetContent"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

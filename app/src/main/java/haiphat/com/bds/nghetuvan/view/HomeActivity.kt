@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -17,6 +18,9 @@ import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.extensions.hideSoftKeyboard
 import haiphat.com.bds.nghetuvan.utils.extensions.showSoftKeyboard
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
+import haiphat.com.bds.nghetuvan.view.news.NewsActivity
+import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
+import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
@@ -61,6 +65,15 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 getString(R.string.title_action_bar_home) -> {
                     fragment = HomeFragment.newInstance()
                     toolbar.title = getString(R.string.title_action_bar_home)
+                }
+                getString(R.string.title_action_bar_partner) -> {
+                    startActivity(Intent(this@HomeActivity, PartnerActivity::class.java))
+                }
+                getString(R.string.title_action_bar_news) -> {
+                    startActivity(Intent(this@HomeActivity, NewsActivity::class.java))
+                }
+                getString(R.string.title_action_bar_contact) -> {
+                    startActivity(Intent(this@HomeActivity, ContactEmailActivity::class.java))
                 }
 
                 getString(R.string.log_out) ->{
