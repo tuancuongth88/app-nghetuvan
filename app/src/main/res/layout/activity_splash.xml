@@ -7,7 +7,6 @@
         style="@style/matchParent"
         android:background="@drawable/ic_background_auth">
 
-
         <View
             style="@style/matchParent"
             android:alpha="0.5"

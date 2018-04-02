@@ -36,15 +36,16 @@
             <TextView
                 android:id="@+id/tvTitle"
                 style="@style/wrapContent"
-                android:layout_width="0dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginRight="50dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif"
                 android:maxLines="1"
+                android:text="Title"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/rippleBack"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/rippleBack"
                 app:layout_constraintTop_toTopOf="@+id/rippleBack" />
 
