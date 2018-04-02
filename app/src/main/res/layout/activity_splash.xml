@@ -10,7 +10,7 @@
 
         <View
             style="@style/matchParent"
-            android:alpha="0.3"
+            android:alpha="0.5"
             android:background="#6069a5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
             }, 1000)
         }
-        dataBindingLogin.btnRegister.setOnClickListener {
+        dataBindingLogin.tvRegister.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
         dataBindingLogin.txtForgotPassword.setOnClickListener {
