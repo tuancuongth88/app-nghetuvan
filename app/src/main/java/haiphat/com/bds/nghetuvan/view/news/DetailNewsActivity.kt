@@ -43,7 +43,7 @@ class DetailNewsActivity : BaseActivity() {
         val sectionsPagerAdapter = SectionsPagerNewsAdapter(supportFragmentManager)
         dataBindingDetailNews.container.adapter = sectionsPagerAdapter
         dataBindingDetailNews.tabs.setupWithViewPager(dataBindingDetailNews.container)
-        dataBindingDetailNews.tabs.setTabTextColors(ContextCompat.getColor(this, R.color.textLabel), ContextCompat.getColor(this, R.color.colorPrimary))
+        dataBindingDetailNews.tabs.setTabTextColors(ContextCompat.getColor(this, R.color.colorWhite), ContextCompat.getColor(this, R.color.colorWhite))
     }
 
 
