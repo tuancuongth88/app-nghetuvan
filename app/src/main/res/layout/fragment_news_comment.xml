@@ -6,14 +6,44 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorWhite"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="haiphat.com.bds.nghetuvan.view.HomeActivity"
         tools:showIn="@layout/app_bar_home">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvNewsComment"
-            style="@style/matchParent"
-            android:padding="5dp" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/bgSelectProfile"
+            app:layout_constraintBottom_toTopOf="@+id/viewBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/viewBottom"
+            style="@style/viewLine"
+            app:layout_constraintBottom_toTopOf="@+id/imgReply" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edComment"
+            style="@style/withWrap"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/imgReply"
+            app:layout_constraintEnd_toStartOf="@+id/imgReply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgReply" />
+
+        <ImageView
+            android:id="@+id/imgReply"
+            style="@style/wrapContent"
+            android:alpha="0.5"
+            android:padding="10dp"
+            android:src="@drawable/ic_send_b"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
 
     </android.support.constraint.ConstraintLayout>
 </layout>
