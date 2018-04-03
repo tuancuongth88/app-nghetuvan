@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view.fragment.news
+package haiphat.com.bds.nghetuvan.view.fragment.news.detail
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsDetailCommentAdapter
-import haiphat.com.bds.nghetuvan.databinding.FragmentHomeBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsCommentBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsCommentResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading

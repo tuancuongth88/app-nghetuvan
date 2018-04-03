@@ -28,7 +28,6 @@ class DetailNewsActivity : BaseActivity() {
         dataBindingDetailNews.rippleSetting.setOnRippleCompleteListener {
             //Intent share facebook
         }
-
         return dataBindingDetailNews.root
     }
 

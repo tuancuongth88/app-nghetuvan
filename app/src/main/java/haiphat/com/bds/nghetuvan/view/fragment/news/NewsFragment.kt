@@ -2,6 +2,7 @@ package haiphat.com.bds.nghetuvan.view.fragment.news
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,11 +12,13 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsAdapter
+import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
+import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.view.news.DetailNewsActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 
@@ -56,11 +59,11 @@ class NewsFragment : BaseFragment() {
     }
 
 
-    companion object {
-        fun newInstance(arguments: Bundle? = null): NewsFragment {
-            val fragment = NewsFragment()
-            fragment.arguments = arguments
-            return fragment
-        }
-    }
+//    companion object {
+//        fun newInstance(arguments: Bundle? = null): NewsFragment {
+//            val fragment = NewsFragment()
+//            fragment.arguments = arguments
+//            return fragment
+//        }
+//    }
 }

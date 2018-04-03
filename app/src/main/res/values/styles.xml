@@ -73,6 +73,7 @@
         <item name="android:background">@color/viewBgLine</item>
 
     </style>
+
     <style name="DetailPressReleaseTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>

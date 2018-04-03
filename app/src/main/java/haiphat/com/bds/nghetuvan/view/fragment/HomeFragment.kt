@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import haiphat.com.bds.nghetuvan.models.HomePageResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
+import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.view.news.NewsActivity
 import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.viewmodel.HomePageViewModel
@@ -31,6 +33,9 @@ class HomeFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentHome = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         getItemHomePage()
+        context?.let{
+            (activity as HomeActivity).setBackgroundColor(ContextCompat.getColor(it, R.color.colorAccent))
+        }
         return dataBindingFragmentHome.root
     }
 

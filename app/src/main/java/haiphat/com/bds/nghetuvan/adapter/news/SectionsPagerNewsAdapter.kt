@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.view.fragment.news.NewsCommentFragment
-import haiphat.com.bds.nghetuvan.view.fragment.news.NewsInfoFragment
+import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsCommentFragment
+import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsInfoFragment
 
 /**
  * Created by HUONG HA^P on 3/29/2018.

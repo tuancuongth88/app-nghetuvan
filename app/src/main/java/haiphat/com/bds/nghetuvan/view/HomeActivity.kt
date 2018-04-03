@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
@@ -15,11 +16,8 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.NavItemProfileAdapter
 import haiphat.com.bds.nghetuvan.databinding.ActivityHomeBinding
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
-import haiphat.com.bds.nghetuvan.utils.extensions.hideSoftKeyboard
-import haiphat.com.bds.nghetuvan.utils.extensions.showSoftKeyboard
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
-import haiphat.com.bds.nghetuvan.view.fragment.news.NewsFragment
-import haiphat.com.bds.nghetuvan.view.news.NewsActivity
+import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
@@ -45,12 +43,8 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setNavigationIcon(R.drawable.ic_home_nav)
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(Gravity.LEFT)
-            edSearch.hideSoftKeyboard(this@HomeActivity)
         }
         imgSearch.setOnClickListener { clickSearch() }
-        imgClear.setOnClickListener { clickClear() }
-        edSearch.addTextChangedListener(this)
-        edSearch.setOnEditorActionListener(this)
         supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment.newInstance()).commitAllowingStateLoss()
         initView()
     }
@@ -60,18 +54,17 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         val recyclerView = navigationLayout.rvNavItem
         var adapter = NavItemProfileAdapter(navItemViewModel.listNavItemProfile(this), onClick = {
             var fragment: Fragment? = null
-            clActionBar.visibility = View.GONE
-            imgSearch.visibility = View.GONE
             when (it.name) {
                 getString(R.string.title_action_bar_home) -> {
                     fragment = HomeFragment.newInstance()
                     toolbar.title = getString(R.string.title_action_bar_home)
+
                 }
                 getString(R.string.title_action_bar_partner) -> {
                     startActivity(Intent(this@HomeActivity, PartnerActivity::class.java))
                 }
                 getString(R.string.title_action_bar_news) -> {
-                    fragment = NewsFragment.newInstance()
+                    fragment = BaseNewsFragment.newInstance()
                     toolbar.title = getString(R.string.title_action_bar_news)
                 }
                 getString(R.string.title_action_bar_contact) -> {
@@ -93,20 +86,13 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         recyclerView?.adapter = adapter
         val dm = resources.displayMetrics
         this.bindingMain.navView.addView(navigationLayout, dm.widthPixels * (3 / 2), ViewGroup.LayoutParams.MATCH_PARENT)
+        toolbar.setTitleTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
     }
 
     private fun clickSearch() {
         imgSearch.visibility = View.GONE
-        clActionBar.visibility = View.VISIBLE
-        edSearch.showSoftKeyboard(this@HomeActivity)
     }
 
-    private fun clickClear() {
-        imgSearch.visibility = View.VISIBLE
-        clActionBar.visibility = View.GONE
-        edSearch.text.clear()
-        edSearch.hideSoftKeyboard(this@HomeActivity)
-    }
 
     fun showDialogLogOut() {
         ShowAlert.confirm(this@HomeActivity, message = getString(R.string.profile_logout_confirm), onClick = {
@@ -114,13 +100,16 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         })
     }
 
+    fun setBackgroundColor(color : Int){
+        toolbar.setBackgroundColor(color)
+    }
+
     override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
         //TODO call api search course
         val currentFragment = getCurrentFragment()
         if (currentFragment != null && currentFragment?.isAdded && currentFragment?.isVisible && currentFragment is BaseFragment) {
-            (currentFragment as BaseFragment).onSearchClick(edSearch.text.toString())
+//            (currentFragment as BaseFragment).onSearchClick(edSearch.text.toString())
         }
-        edSearch.hideSoftKeyboard(this@HomeActivity)
         return true
     }
 

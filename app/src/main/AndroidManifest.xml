@@ -36,7 +36,10 @@
         <activity android:name=".view.partner.PartnerActivity" />
         <activity android:name=".view.news.DetailNewsActivity" />
         <activity android:name=".view.partner.PartnerDetailActivity" />
-        <activity android:name=".view.profile.ContactEmailActivity"></activity>
+        <activity android:name=".view.profile.ContactEmailActivity" />
+        <activity
+            android:name=".view.fragment.contact.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
