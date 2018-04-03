@@ -5,37 +5,38 @@
 
     <haiphat.com.bds.nghetuvan.utils.RippleView
         android:id="@+id/rippleItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        style="@style/matchWrap">
 
         <ImageView
             android:id="@+id/imgInfoAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
+            style="@style/wrapContent"
+            android:layout_marginTop="20dp"
             android:src="@drawable/ic_nav_contact"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvInfoAccount"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
+            style="@style/withWrap"
+            android:layout_marginLeft="32dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif"
             android:maxLines="1"
-            android:textSize="15sp"
+            android:textAllCaps="true"
             android:textColor="@color/textLabel"
+            android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/imgInfoAccount"
-            app:layout_constraintEnd_toStartOf="@+id/imgInfoNext"
-            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgInfoAccount"
             app:layout_constraintTop_toTopOf="@+id/imgInfoAccount"
             tools:text="Trang chủ" />
+
+        <View
+            android:id="@+id/view"
+            style="@style/viewLine"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/imgInfoAccount" />
 
     </haiphat.com.bds.nghetuvan.utils.RippleView>
 </layout>

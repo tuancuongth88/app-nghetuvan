@@ -91,7 +91,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         recyclerView?.adapter = adapter
         val dm = resources.displayMetrics
         this.bindingMain.navView.addView(navigationLayout, dm.widthPixels * (3 / 2), ViewGroup.LayoutParams.MATCH_PARENT)
-
     }
 
     private fun clickSearch() {

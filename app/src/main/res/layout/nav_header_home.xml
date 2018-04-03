@@ -9,70 +9,72 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/navContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/matchParent"
             android:descendantFocusability="blocksDescendants"
-            android:paddingLeft="40dp"
-            android:paddingTop="75dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/rivAvatar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_defaut_avatar"
-                app:riv_corner_radius="500dp" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clUser"
+                style="@style/matchWrap"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"
+                android:background="#db6927">
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
-                android:ellipsize="end"
-                android:fontFamily="sans-serif"
-                android:maxLines="1"
-                android:textColor="@color/textLabel"
-                android:textSize="24sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/rivAvatar"
-                app:layout_constraintTop_toTopOf="@+id/rivAvatar"
-                android:text="Vinh tran" />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/rivAvatar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="60dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_defaut_avatar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:riv_corner_radius="80dp" />
 
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="sans-serif"
-                android:letterSpacing="0.04"
-                android:textColor="@color/textEmailProfile"
-                android:textSize="12sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toStartOf="@+id/tvName"
-                app:layout_constraintTop_toBottomOf="@+id/tvName"
-                android:text="vinh.tran@digimed.vn" />
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:maxLines="1"
+                    android:text="Vinh tran"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="@+id/rivAvatar"
+                    app:layout_constraintStart_toStartOf="@+id/rivAvatar"
+                    app:layout_constraintTop_toBottomOf="@+id/rivAvatar" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@color/textEmailProfile"
-                app:layout_constraintEnd_toEndOf="@+id/tvEmail"
-                app:layout_constraintStart_toStartOf="@+id/rivAvatar"
-                app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:letterSpacing="0.04"
+                    android:text="vinh.tran@digimed.vn"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="@+id/tvName"
+                    app:layout_constraintHorizontal_bias="0.285"
+                    app:layout_constraintStart_toStartOf="@+id/tvName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+            </android.support.constraint.ConstraintLayout>
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvNavItem"
                 style="@style/matchWrap"
                 android:layout_marginTop="25dp"
+                android:layout_marginLeft="40dp"
                 android:focusable="false"
+
                 android:focusableInTouchMode="false"
                 android:nestedScrollingEnabled="false"
-                app:layout_constraintStart_toStartOf="@+id/rivAvatar"
-                app:layout_constraintTop_toBottomOf="@+id/view" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clUser" />
 
 
         </android.support.constraint.ConstraintLayout>
