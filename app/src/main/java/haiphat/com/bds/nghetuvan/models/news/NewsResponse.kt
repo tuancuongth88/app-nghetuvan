@@ -5,4 +5,7 @@ package haiphat.com.bds.nghetuvan.models.news
  */
 data class NewsResponse(var title: String? = null,
                         var subTitle: String? = null,
-                        var url: String? = null)
+                        var url: String? = null,
+                        var type : Int? =0,
+                        var totalFeedback : Int? =0
+)

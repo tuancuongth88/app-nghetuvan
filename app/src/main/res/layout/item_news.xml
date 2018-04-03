@@ -29,7 +29,7 @@
             android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif"
-            android:maxLines="2"
+            android:maxLines="3"
             android:textColor="@color/textLabel"
             android:textSize="15sp"
             android:textStyle="normal"
@@ -38,22 +38,59 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="What You Need To Know About Oil Fondue" />
 
-        <TextView
-            android:id="@+id/tvSubTitle"
-            android:layout_width="0dp"
+        <ImageView
+            android:id="@+id/imgNewsType"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif"
-            android:maxLines="3"
-            android:textColor="@color/textItemMyCourse"
-            android:textSize="11sp"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            android:src="@drawable/ic_time"
             app:layout_constraintStart_toStartOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
-            tools:text="Chiều 09/02/2018, 137 Nguyễn Ngọc Vũ, Cầu Giấy, Hà Nội. Dựa vào các tiêu chí đánh giá hoạt động trong năm 2017 của các Sàn liên kết, nghemoigioi.vn đã tìm ra 10 đơn" />
+            android:layout_marginTop="10dp"
+            />
 
+        <TextView
+            android:id="@+id/tvNewsType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/textItemMyCourse"
+            android:textSize="10sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imgNewsType"
+            app:layout_constraintStart_toEndOf="@+id/imgNewsType"
+            app:layout_constraintTop_toTopOf="@+id/imgNewsType"
+            tools:text="50 minutes" />
+
+
+        <ImageView
+            android:id="@+id/imgFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_time"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgNewsType"
+            app:layout_constraintStart_toEndOf="@+id/tvNewsType"
+            app:layout_constraintTop_toTopOf="@+id/imgNewsType"
+            />
+
+        <TextView
+            android:id="@+id/tvFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/textItemMyCourse"
+            android:textSize="10sp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFeedback"
+            app:layout_constraintStart_toEndOf="@+id/imgFeedback"
+            app:layout_constraintTop_toTopOf="@+id/imgFeedback"
+            tools:text="50 minutes" />
 
     </haiphat.com.bds.nghetuvan.utils.RippleView>
 </layout>

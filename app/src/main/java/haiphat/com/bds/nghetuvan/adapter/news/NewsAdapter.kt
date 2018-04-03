@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.models.convertCourseType
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
+import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import kotlinx.android.synthetic.main.item_news.view.*
 
@@ -36,7 +38,8 @@ class NewsAdapter(private var listMyCourse: ArrayList<NewsResponse>, private var
         fun bindItem(newsResponse: NewsResponse) {
             itemView.rivLogo.fromUrl(newsResponse.url, placeHolder = R.drawable.ic_defaut_avatar)
             itemView.tvName.text = newsResponse.title
-            itemView.tvSubTitle.text = newsResponse.subTitle
+            itemView.tvNewsType.text = CommonUtil.toCategoryType(newsResponse.type).convertCourseType()
+            itemView.tvFeedback.text = itemView.context.getString(R.string.text_news_total_feedback, newsResponse.totalFeedback.toString())
         }
     }
 }

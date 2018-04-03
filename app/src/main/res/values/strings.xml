@@ -37,4 +37,5 @@
     <string name="title_action_bar_duan">Kho dự án</string>
     <string name="title_action_bar_bh_online">Bán hàng online</string>
     <string name="title_action_bar_daotao">Đào tạo</string>
+    <string name="text_news_total_feedback">%s Phản hồi</string>
 </resources>
