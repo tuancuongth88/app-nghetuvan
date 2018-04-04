@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view.fragment.news
+package haiphat.com.bds.nghetuvan.view.fragment.partner
 
 import android.databinding.DataBindingUtil
 import android.graphics.Color
@@ -15,25 +15,27 @@ import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
+import haiphat.com.bds.nghetuvan.databinding.FragmentBasePartnerBinding
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
+import haiphat.com.bds.nghetuvan.view.fragment.news.NewsFragment
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
  */
-class BaseNewsFragment : BaseFragment() {
-    private lateinit var dataBindingFragmentNews: FragmentBaseNewsBinding
+class BasePartnerFragment : BaseFragment() {
+    private lateinit var dataBindingFragmentPartner: FragmentBasePartnerBinding
     private var newsViewModel = NewsViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dataBindingFragmentNews = DataBindingUtil.inflate(inflater, R.layout.fragment_base_news, container, false)
+        dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_base_partner, container, false)
         getCategory()
         (activity as HomeActivity).setBackgroundColor(Color.TRANSPARENT)
         initViewPager()
-        return dataBindingFragmentNews.root
+        return dataBindingFragmentPartner.root
     }
 
     private fun getCategory() {
@@ -50,13 +52,13 @@ class BaseNewsFragment : BaseFragment() {
 
 
     private fun initViewPager() {
-        val sectionsPagerAdapter = SectionsPagerNewsAdapter(childFragmentManager)
-        dataBindingFragmentNews.container.adapter = sectionsPagerAdapter
-        dataBindingFragmentNews.tabs.setupWithViewPager(dataBindingFragmentNews.container)
-        dataBindingFragmentNews.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
+        val sectionsPagerAdapter = SectionsPagerPartnerAdapter(childFragmentManager)
+        dataBindingFragmentPartner.container.adapter = sectionsPagerAdapter
+        dataBindingFragmentPartner.tabs.setupWithViewPager(dataBindingFragmentPartner.container)
+        dataBindingFragmentPartner.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
     }
 
-    inner class SectionsPagerNewsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+    inner class SectionsPagerPartnerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
             return NewsFragment()
@@ -68,8 +70,8 @@ class BaseNewsFragment : BaseFragment() {
 
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
-                0 -> return "Tin thị trường"
-                1 -> return "Tin mở bán"
+                0 -> return "Chủ đầu tư"
+                1 -> return "Ngân hàng"
             }
             return null
         }

@@ -18,6 +18,7 @@ import haiphat.com.bds.nghetuvan.databinding.ActivityHomeBinding
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
+import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
 import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
@@ -61,7 +62,8 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
                 }
                 getString(R.string.title_action_bar_partner) -> {
-                    startActivity(Intent(this@HomeActivity, PartnerActivity::class.java))
+                    fragment = BasePartnerFragment()
+                    toolbar.title = getString(R.string.title_action_bar_partner)
                 }
                 getString(R.string.title_action_bar_news) -> {
                     fragment = BaseNewsFragment()
