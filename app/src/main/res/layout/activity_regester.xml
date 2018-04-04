@@ -52,6 +52,7 @@
             android:id="@+id/tilEmail"
             style="@style/withWrap"
             android:layout_marginTop="32dp"
+            android:theme="@style/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle">
@@ -60,6 +61,7 @@
                 android:id="@+id/tetEmail"
                 style="@style/matchWrap"
                 android:gravity="center"
+                android:inputType="textEmailAddress"
                 android:hint="Nhập Email"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
@@ -68,6 +70,7 @@
             android:id="@+id/tilName"
             style="@style/withWrap"
             android:layout_marginTop="32dp"
+            android:theme="@style/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/tilEmail"
             app:layout_constraintStart_toStartOf="@+id/tilEmail"
             app:layout_constraintTop_toBottomOf="@+id/tilEmail">
@@ -76,6 +79,7 @@
                 android:id="@+id/tetName"
                 style="@style/matchWrap"
                 android:gravity="center"
+                android:inputType="textFilter"
                 android:hint="Nhập họ và tên"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
@@ -84,6 +88,7 @@
             android:id="@+id/tilPhone"
             style="@style/withWrap"
             android:layout_marginTop="32dp"
+            android:theme="@style/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/tilEmail"
             app:layout_constraintStart_toStartOf="@+id/tilEmail"
             app:layout_constraintTop_toBottomOf="@+id/tilName">
@@ -92,6 +97,7 @@
                 android:id="@+id/tetPhone"
                 style="@style/matchWrap"
                 android:gravity="center"
+                android:inputType="number"
                 android:hint="Nhập số điện thoại"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
@@ -100,6 +106,7 @@
             android:id="@+id/tilPassword"
             style="@style/withWrap"
             android:layout_marginTop="10dp"
+            android:theme="@style/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/tilEmail"
             app:layout_constraintStart_toStartOf="@+id/tilEmail"
             app:layout_constraintTop_toBottomOf="@+id/tilPhone">
@@ -117,6 +124,7 @@
             android:id="@+id/tilConfirmPassword"
             style="@style/withWrap"
             android:layout_marginTop="10dp"
+            android:theme="@style/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/tilEmail"
             app:layout_constraintStart_toStartOf="@+id/tilEmail"
             app:layout_constraintTop_toBottomOf="@+id/tilPassword">

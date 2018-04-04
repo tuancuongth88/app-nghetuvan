@@ -80,4 +80,12 @@
         <item name="textAllCaps">false</item>
     </style>
 
+
+    <style name="textInputLayout" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColorHint">@color/textHintColor</item>
+        <item name="android:textSize">14sp</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/textHintColor</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
 </resources>
