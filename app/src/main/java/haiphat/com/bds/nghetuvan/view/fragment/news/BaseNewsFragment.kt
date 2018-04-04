@@ -50,18 +50,10 @@ class BaseNewsFragment : BaseFragment() {
 
 
     private fun initViewPager() {
-        val sectionsPagerAdapter = activity?.supportFragmentManager?.let { SectionsPagerNewsAdapter(it) }
+        val sectionsPagerAdapter = SectionsPagerNewsAdapter(childFragmentManager)
         dataBindingFragmentNews.container.adapter = sectionsPagerAdapter
         dataBindingFragmentNews.tabs.setupWithViewPager(dataBindingFragmentNews.container)
         dataBindingFragmentNews.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
-    }
-
-    companion object {
-        fun newInstance(arguments: Bundle? = null): BaseNewsFragment {
-            val fragment = BaseNewsFragment()
-            fragment.arguments = arguments
-            return fragment
-        }
     }
 
     inner class SectionsPagerNewsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

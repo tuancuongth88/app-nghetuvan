@@ -64,7 +64,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     startActivity(Intent(this@HomeActivity, PartnerActivity::class.java))
                 }
                 getString(R.string.title_action_bar_news) -> {
-                    fragment = BaseNewsFragment.newInstance()
+                    fragment = BaseNewsFragment()
                     toolbar.title = getString(R.string.title_action_bar_news)
                 }
                 getString(R.string.title_action_bar_contact) -> {

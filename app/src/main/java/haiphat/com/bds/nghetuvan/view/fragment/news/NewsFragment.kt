@@ -57,13 +57,4 @@ class NewsFragment : BaseFragment() {
             ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
         })
     }
-
-
-//    companion object {
-//        fun newInstance(arguments: Bundle? = null): NewsFragment {
-//            val fragment = NewsFragment()
-//            fragment.arguments = arguments
-//            return fragment
-//        }
-//    }
 }
