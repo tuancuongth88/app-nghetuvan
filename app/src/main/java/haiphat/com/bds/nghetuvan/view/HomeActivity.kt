@@ -16,6 +16,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.NavItemProfileAdapter
 import haiphat.com.bds.nghetuvan.databinding.ActivityHomeBinding
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
+import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
@@ -41,7 +42,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onCreate(savedInstanceState)
         setHeaderVisibility(View.GONE)
         setSupportActionBar(toolbar)
-        toolbar.setNavigationIcon(R.drawable.ic_home_nav)
+        toolbar.setNavigationIcon(R.drawable.ic_menu)
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(Gravity.LEFT)
         }
@@ -98,7 +99,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     fun showDialogLogOut() {
         ShowAlert.confirm(this@HomeActivity, message = getString(R.string.profile_logout_confirm), onClick = {
-
+//            startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
         })
     }
 

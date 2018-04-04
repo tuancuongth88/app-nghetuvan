@@ -30,7 +30,8 @@ class RegisterActivity : AppCompatActivity() {
             registerViewModel.register(onSuccess = {
                 Handler(Looper.getMainLooper()).postDelayed({
                     startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
-                }, 2000)
+                    finish()
+                }, 1000)
                 ShowLoading.dismiss()
             }, onFailed = {
                 ShowLoading.dismiss()
