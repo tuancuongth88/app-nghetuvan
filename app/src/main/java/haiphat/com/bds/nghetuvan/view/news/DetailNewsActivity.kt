@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.SectionsPagerNewsAdapter
+import haiphat.com.bds.nghetuvan.databinding.ActivityDetailNewBinding
 import haiphat.com.bds.nghetuvan.databinding.ActivityDetailNewsBinding
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
@@ -16,10 +17,10 @@ import haiphat.com.bds.nghetuvan.viewmodel.news.DetailNewsViewModel
 
 class DetailNewsActivity : BaseActivity() {
 
-    private lateinit var dataBindingDetailNews: ActivityDetailNewsBinding
+    private lateinit var dataBindingDetailNews: ActivityDetailNewBinding
     private var detailNewsViewMode = DetailNewsViewModel()
     override fun getContentView(): View {
-        dataBindingDetailNews = DataBindingUtil.inflate(layoutInflater, R.layout.activity_detail_news, null, false)
+        dataBindingDetailNews = DataBindingUtil.inflate(layoutInflater, R.layout.activity_detail_new, null, false)
         setSupportActionBar(dataBindingDetailNews.toolbar)
         dataBindingDetailNews.lnSplashBackground.visibility = View.VISIBLE
         dataBindingDetailNews.rippleBack.setOnRippleCompleteListener {
