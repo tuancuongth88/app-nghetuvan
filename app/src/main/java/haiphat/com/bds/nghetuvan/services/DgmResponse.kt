@@ -1,14 +1,17 @@
 package haiphat.com.bds.nghetuvan.services
 
+import android.text.TextUtils
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.ErrorModel
 import okhttp3.Response
+import java.net.SocketTimeoutException
+import java.util.concurrent.TimeoutException
 
 /**
  * Created by DEV-01 on 12/19/2017.
  */
-open class DgmResponse{
+open class DgmResponse {
     var status: Boolean? = false
     var responseContent: String? = null
     var exception: Exception? = null
@@ -34,10 +37,7 @@ open class DgmResponse{
     }
 
     fun getErrorMessage(): String? {
-//        if (!isSuccess()) {
-//            return null
-//        }
-//        if (TextUtils.isEmpty(responseContent)) {
+        if (TextUtils.isEmpty(responseContent)) {
 //            return if (statusCode == 0) {
 //                if (exception is TimeoutException || exception is SocketTimeoutException) {
 //                    BaseApplication.context.getString(R.string.text_cannot_connect_to_server)
@@ -47,7 +47,7 @@ open class DgmResponse{
 //            } else {
 //                null
 //            }
-//        }
+        }
         val errorModel = GsonUtil.fromJson(responseContent, ErrorModel::class.java)
         return errorModel?.let { it.getErrorMessage() } ?: BaseApplication.context.getString(R.string.text_error)
     }

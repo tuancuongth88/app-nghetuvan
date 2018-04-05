@@ -15,27 +15,26 @@ import haiphat.com.bds.nghetuvan.viewmodel.auth.RegisterViewModel
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var dataBindingRegister : ActivityRegesterBinding
+    private lateinit var dataBindingRegister: ActivityRegesterBinding
     private var registerViewModel = RegisterViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBindingRegister = DataBindingUtil.setContentView(this@RegisterActivity, R.layout.activity_regester)
-        dataBindingRegister.btnRegister.setOnClickListener{
+        dataBindingRegister.btnRegister.setOnClickListener {
             registerViewModel.email = dataBindingRegister.tetEmail.text.toString()
             registerViewModel.fullName = dataBindingRegister.tetName.text.toString()
             registerViewModel.phone = dataBindingRegister.tetPhone.text.toString()
             registerViewModel.password = dataBindingRegister.tetPassword.text.toString()
+            registerViewModel.confirmPassword = dataBindingRegister.tetConfirmPassword.text.toString()
             ShowLoading.show(this@RegisterActivity)
             registerViewModel.register(onSuccess = {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
-                    finish()
-                }, 1000)
+                startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
+                finish()
                 ShowLoading.dismiss()
             }, onFailed = {
                 ShowLoading.dismiss()
-                ShowAlert.fail(pContext = this@RegisterActivity, message  = it)
+                ShowAlert.fail(pContext = this@RegisterActivity, message = it)
             })
         }
     }

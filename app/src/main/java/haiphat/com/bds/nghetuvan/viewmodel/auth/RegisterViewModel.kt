@@ -13,8 +13,12 @@ class RegisterViewModel {
     var confirmPassword :String? = null
 
     fun register(onSuccess : () ->Unit, onFailed : (String?) -> Unit){
-        AuthApi().register(email, fullName, phone, password, onResponse = {
-            onSuccess()
+        AuthApi().register(email, fullName, password, confirmPassword, onResponse = {
+            if (it?.isSuccess()?: false){
+                onSuccess()
+            }else{
+                onFailed(it.getErrorMessage())
+            }
         })
     }
 }

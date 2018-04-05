@@ -10,7 +10,7 @@ import java.util.*
  */
 class AuthApi : BaseApi() {
     override fun apiUrl(): String? {
-        return "api/administrator"
+        return "api/"
     }
 
     override fun getEndPoint(): String? {
@@ -21,15 +21,15 @@ class AuthApi : BaseApi() {
         val data = HashMap<String, String>()
         data.put("email", email ?: "")
         data.put("password", password ?: "")
-        this.postUrlEncoded("/login", data, onResponse)
+        this.postUrlEncoded("administrator/login", data, onResponse)
     }
 
-    fun register(email: String?, name: String?, phone: String?, password: String?, onResponse: (DgmResponse) -> Unit) {
+    fun register(email: String?, fullName: String?, password: String?, confirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
         data.put("email", email ?: "")
-        data.put("name", name ?: "")
-        data.put("phone", phone ?: "")
+        data.put("fullname", fullName ?: "")
         data.put("password", password ?: "")
-        this.postUrlEncoded("/token", data, onResponse)
+        data.put("password_confirmation", confirmPassword ?: "")
+        this.postUrlEncoded("signup", data, onResponse)
     }
 }
