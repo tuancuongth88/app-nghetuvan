@@ -99,7 +99,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     fun showDialogLogOut() {
         ShowAlert.confirm(this@HomeActivity, message = getString(R.string.profile_logout_confirm), onClick = {
-//            startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+            startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
         })
     }
 

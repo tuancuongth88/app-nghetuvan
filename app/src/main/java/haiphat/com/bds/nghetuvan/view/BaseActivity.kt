@@ -24,11 +24,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
     private val logoutBroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            if (!this@BaseActivity.isFinishing) {
-                val pIntent = Intent(this@BaseActivity, LoginActivity::class.java)
-                startActivity(pIntent)
-                finish()
-            }
+//            if (!this@BaseActivity.isFinishing) {
+//                val pIntent = Intent(this@BaseActivity, LoginActivity::class.java)
+//                startActivity(pIntent)
+//                finish()
+//            }
         }
     }
 
