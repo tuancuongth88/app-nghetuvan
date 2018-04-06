@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="registerViewModel"
+            type="haiphat.com.bds.nghetuvan.viewmodel.auth.RegisterViewModel"/>
+    </data>
 
     <android.support.constraint.ConstraintLayout
         style="@style/matchParent"
@@ -63,7 +68,10 @@
                 android:gravity="center"
                 android:inputType="textEmailAddress"
                 android:hint="Nhập Email"
-                android:textColor="@color/colorWhite" />
+                android:text="@{registerViewModel.email}"
+                android:textColor="@color/colorWhite"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_email}"
+                app:validateEmailErrorMessage="@{@string/text_validate_email_invalid}"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -81,6 +89,8 @@
                 android:gravity="center"
                 android:inputType="textFilter"
                 android:hint="Nhập họ và tên"
+                android:text="@{registerViewModel.fullName}"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_name}"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
@@ -98,6 +108,9 @@
                 style="@style/matchWrap"
                 android:gravity="center"
                 android:inputType="number"
+                android:text="@{registerViewModel.phone}"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_phone}"
+                app:validatePhoneErrorMessage="@{@string/text_validate_phone_invalid}"
                 android:hint="Nhập số điện thoại"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
@@ -117,6 +130,8 @@
                 android:gravity="center"
                 android:hint="Nhập mật khẩu"
                 android:inputType="textPassword"
+                android:text="@{registerViewModel.password}"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_password}"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 
@@ -135,6 +150,10 @@
                 android:gravity="center"
                 android:hint="Nhập lại mật khẩu"
                 android:inputType="textPassword"
+                android:text="@{registerViewModel.confirmPassword}"
+                app:validateComparableView="@{tetPassword}"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_confirm_password}"
+                app:validateMatchTextErrorMessage="@{@string/change_password_error_new_password_not_equal}"
                 android:textColor="@color/colorWhite" />
         </android.support.design.widget.TextInputLayout>
 

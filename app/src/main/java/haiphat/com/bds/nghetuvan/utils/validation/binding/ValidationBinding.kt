@@ -5,6 +5,7 @@ import android.widget.TextView
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.utils.helper.TagViewHelpler
 import haiphat.com.bds.nghetuvan.utils.validation.rule.FormatEmailRule
+import haiphat.com.bds.nghetuvan.utils.validation.rule.FormatPhoneRule
 import haiphat.com.bds.nghetuvan.utils.validation.rule.MatchTextRule
 import haiphat.com.bds.nghetuvan.utils.validation.rule.RequiredRule
 
@@ -28,6 +29,12 @@ object ValidationBinding {
     @BindingAdapter("validateComparableView", "validateMatchTextErrorMessage", requireAll = false)
     fun bindingMatchText(view: TextView, comparableView: TextView, errorMessage: String) {
         TagViewHelpler().appendValue(R.id.validation, view, MatchTextRule(view, comparableView, errorMessage))
+    }
+
+    @JvmStatic
+    @BindingAdapter("validatePhoneErrorMessage")
+    fun bindingPhoneFormatField(view: TextView, errorMessage: String) {
+        TagViewHelpler().appendValue(R.id.validation, view, FormatPhoneRule(view, errorMessage))
     }
 
 }

@@ -10,6 +10,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.ActivityRegesterBinding
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
+import haiphat.com.bds.nghetuvan.utils.validation.Validator
 import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.auth.RegisterViewModel
 
@@ -22,6 +23,12 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         dataBindingRegister = DataBindingUtil.setContentView(this@RegisterActivity, R.layout.activity_regester)
         dataBindingRegister.btnRegister.setOnClickListener {
+            register()
+        }
+    }
+
+    private fun register(){
+        if (Validator().validate(dataBindingRegister)){
             registerViewModel.email = dataBindingRegister.tetEmail.text.toString()
             registerViewModel.fullName = dataBindingRegister.tetName.text.toString()
             registerViewModel.phone = dataBindingRegister.tetPhone.text.toString()
@@ -36,5 +43,6 @@ class RegisterActivity : AppCompatActivity() {
                 ShowAlert.fail(pContext = this@RegisterActivity, message = it)
             })
         }
+
     }
 }

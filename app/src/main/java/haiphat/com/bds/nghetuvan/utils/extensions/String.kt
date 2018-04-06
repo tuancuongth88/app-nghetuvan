@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.utils.extensions
 
+import android.util.Patterns
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -10,6 +11,13 @@ fun String.isEmail(): Boolean {
     var emailRegex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]"
     return this.matches(emailRegex.toRegex())
 }
+
+//fun String.isPhone() : Boolean{
+//    var phoneRegex = "^\+[0-9]{10,13}$"
+//
+//    Patterns.PHONE.matcher(phoneRegex).matches()
+//    return this.matches()
+//}
 
 fun String.formatDate(): String {
     val date = Date()
