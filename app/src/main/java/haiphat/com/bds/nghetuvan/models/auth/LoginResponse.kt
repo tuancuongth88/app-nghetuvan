@@ -6,5 +6,4 @@ package haiphat.com.bds.nghetuvan.models.auth
 class LoginResponse {
     var token: String? = null
     var user: UserResponse? = null
-    var message: String? = null
 }

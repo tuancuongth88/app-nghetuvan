@@ -29,8 +29,7 @@ class RegisterActivity : AppCompatActivity() {
             registerViewModel.confirmPassword = dataBindingRegister.tetConfirmPassword.text.toString()
             ShowLoading.show(this@RegisterActivity)
             registerViewModel.register(onSuccess = {
-                startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
-                finish()
+                ShowAlert.confirm(pContext = this, message = "thành công!")
                 ShowLoading.dismiss()
             }, onFailed = {
                 ShowLoading.dismiss()

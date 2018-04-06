@@ -1,7 +1,9 @@
 package haiphat.com.bds.nghetuvan.viewmodel.auth
 
+import haiphat.com.bds.nghetuvan.models.auth.AuthResponse
 import haiphat.com.bds.nghetuvan.models.auth.LoginResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
 
 /**
@@ -13,13 +15,18 @@ class LoginViewModel {
 
     fun loginEmail(onSuccess : () ->Unit, onFailed : (String?) -> Unit){
         AuthApi().login(email, password, onResponse = {
-            val loginResponse = GsonUtil.fromJson(it?.responseContent, LoginResponse::class.java)
-            if (it?.isSuccess()?: false){
-                print("success: " + GsonUtil.toJson(it))
-               onSuccess()
-            }else{
-                loginResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
-            }
+            val authResponse = GsonUtil.fromJson(it?.responseContent, AuthResponse::class.java)
+            it?.isSuccess()?.let {
+                UserServices.saveUserInfo(authResponse?.data)
+                onSuccess()
+            } ?: authResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
+
+//            if (it?.isSuccess()?: false){
+//                UserServices.saveUserInfo(authResponse?.data)
+//               onSuccess()
+//            }else{
+//                authResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
+//            }
         })
     }
 }
