@@ -30,6 +30,6 @@ class AuthApi : BaseApi() {
         data.put("fullname", fullName ?: "")
         data.put("password", password ?: "")
         data.put("password_confirmation", confirmPassword ?: "")
-        this.postUrlEncoded("signup", data, onResponse)
+        this.upload("signup", data, onResponse)
     }
 }
