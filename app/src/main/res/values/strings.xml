@@ -11,6 +11,10 @@
     <string name="text_error">Có lỗi xảy ra trong quá trình xử lý.</string>
     <string name="text_processing">Đang tải...</string>
     <string name="profile_logout_confirm">Bạn có thực sự muốn đăng xuất không?</string>
+    <string name="text_validate_require_field_email">Email không được để trống</string>
+    <string name="text_validate_email_invalid">Email không đúng định dạng</string>
+    <string name="text_validate_require_field_password">Mật khẩu không được để trống</string>
+    <string name="text_validate_require_field_name">Tên không được để trống</string>
 
 
     <string name="log_out">Thoát</string>
