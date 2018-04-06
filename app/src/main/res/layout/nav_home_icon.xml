@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/wrapContent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <haiphat.com.bds.nghetuvan.utils.RippleView
+        android:id="@+id/rippleWallet"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher_round">
+
+        <ImageView
+            style="@style/wrapContent"
+            android:src="@drawable/ic_control_exo_setting"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </haiphat.com.bds.nghetuvan.utils.RippleView>
+</LinearLayout>
