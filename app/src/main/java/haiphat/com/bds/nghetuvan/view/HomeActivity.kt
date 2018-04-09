@@ -15,7 +15,10 @@ import android.widget.TextView
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.NavItemProfileAdapter
 import haiphat.com.bds.nghetuvan.databinding.ActivityHomeBinding
+import haiphat.com.bds.nghetuvan.models.auth.UserResponse
+import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
+import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
@@ -30,7 +33,7 @@ import kotlinx.android.synthetic.main.nav_header_home.view.*
 class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, TextWatcher, TextView.OnEditorActionListener {
 
     private lateinit var bindingMain: ActivityHomeBinding
-    private lateinit var navigationLayout : View
+    private lateinit var navigationLayout: View
     private var navItemViewModel = NavItemViewModel()
 
     override fun getContentView(): View {
@@ -45,6 +48,9 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setNavigationIcon(R.drawable.ic_menu)
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(Gravity.LEFT)
+            UserServices.userInfo?.let {
+                updateUINavigation(it)
+            }
         }
         imgSearch.setOnClickListener { clickSearch() }
         supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment.newInstance()).commitAllowingStateLoss()
@@ -74,7 +80,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     startActivity(Intent(this@HomeActivity, ContactEmailActivity::class.java))
                 }
 
-                getString(R.string.log_out) ->{
+                getString(R.string.log_out) -> {
                     showDialogLogOut()
                 }
             }
@@ -92,6 +98,13 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setTitleTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
     }
 
+    private fun updateUINavigation(userResponse: UserResponse?) {
+        navigationLayout.rivAvatar.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
+        navigationLayout.tvName.text = userResponse?.fullname
+        navigationLayout.tvEmail.text = userResponse?.email
+    }
+
+
     private fun clickSearch() {
         imgSearch.visibility = View.GONE
     }
@@ -99,11 +112,11 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     fun showDialogLogOut() {
         ShowAlert.confirm(this@HomeActivity, message = getString(R.string.profile_logout_confirm), onClick = {
-            startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+            UserServices.logout()
         })
     }
 
-    fun setBackgroundColor(color : Int){
+    fun setBackgroundColor(color: Int) {
         toolbar.setBackgroundColor(color)
     }
 
