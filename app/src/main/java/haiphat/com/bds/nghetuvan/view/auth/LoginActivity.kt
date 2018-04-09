@@ -45,9 +45,6 @@ class LoginActivity : AppCompatActivity() {
                 ShowLoading.dismiss()
                 ShowAlert.fail(pContext = this@LoginActivity, message = it)
             })
-//            Handler(Looper.getMainLooper()).postDelayed({
-//                startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-//            }, 1000)
         }
     }
 

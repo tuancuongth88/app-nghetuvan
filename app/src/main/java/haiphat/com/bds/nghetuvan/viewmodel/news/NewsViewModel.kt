@@ -4,6 +4,7 @@ import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 
 class NewsViewModel {
     fun getItemNews(onSuccess : (ArrayList<NewsResponse>) ->Unit, onFailed : (String?) -> Unit) {
+
         onSuccess(mockDataItem())
     }
 
