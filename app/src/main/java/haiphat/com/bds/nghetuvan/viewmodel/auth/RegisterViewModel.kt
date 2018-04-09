@@ -1,5 +1,7 @@
 package haiphat.com.bds.nghetuvan.viewmodel.auth
 
+import haiphat.com.bds.nghetuvan.models.BaseResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
 
 /**
@@ -12,13 +14,12 @@ class RegisterViewModel {
     var phone : String? = null
     var confirmPassword :String? = null
 
-    fun register(onSuccess : () ->Unit, onFailed : (String?) -> Unit){
+    fun register(onSuccess : (String) ->Unit, onFailed : (String?) -> Unit){
         AuthApi().register(email, fullName, password, confirmPassword, onResponse = {
-            if (it?.isSuccess()?: false){
-                onSuccess()
-            }else{
-                onFailed(it.getErrorMessage())
-            }
+            val registerResponse = GsonUtil.fromJson(it.responseContent, BaseResponse::class.java)
+            it?.isSuccess()?.let {
+                registerResponse?.message?.let { it1 -> onSuccess(it1) }
+            } ?: onFailed(it.getErrorMessage())
         })
     }
 }
