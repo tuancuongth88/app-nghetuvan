@@ -3,8 +3,6 @@ package haiphat.com.bds.nghetuvan.view.fragment.news
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
@@ -12,16 +10,14 @@ import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
@@ -56,7 +52,7 @@ class BaseNewsFragment : BaseFragment() {
         var listItemNews = ArrayList<CategoryNewsResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return NewsFragment()
+            return NewsFragment.newInstance(listItemNews?.get(position).id)
         }
 
         override fun getCount(): Int {
