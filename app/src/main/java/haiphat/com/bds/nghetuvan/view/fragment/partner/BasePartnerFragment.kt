@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.content.ContextCompat
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import haiphat.com.bds.nghetuvan.adapter.partner.PartnerAdapter
 import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentBasePartnerBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsBinding
+import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
@@ -38,7 +40,7 @@ import haiphat.com.bds.nghetuvan.viewmodel.partner.PartnerViewModel
  */
 class BasePartnerFragment : BaseFragment() {
     private lateinit var dataBindingFragmentPartner: FragmentBasePartnerBinding
-    private var newsViewModel = NewsViewModel()
+    private var partnerViewModel = PartnerViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_base_partner, container, false)
@@ -50,7 +52,7 @@ class BasePartnerFragment : BaseFragment() {
 
     private fun getCategory() {
         ShowLoading.show(activity)
-        newsViewModel.getItemNews(onSuccess = {
+        partnerViewModel.getCategoryPartner(onSuccess = {
             Handler(Looper.getMainLooper()).postDelayed({
                 ShowLoading.dismiss()
             }, 1000)
@@ -87,18 +89,19 @@ class BasePartnerFragment : BaseFragment() {
         }
     }
 
-    class ContentFragment : BaseFragment() {
-        private lateinit var dataBindingFragmentNews: FragmentNewsBinding
+    class ContentFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
+        private lateinit var dataBindingFragmentPartner: FragmentPartnerBinding
         private var partnerViewModel = PartnerViewModel()
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            dataBindingFragmentNews = DataBindingUtil.inflate(inflater, R.layout.fragment_news, container, false)
+            dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_partner, container, false)
             getItemPartner()
-            return dataBindingFragmentNews.root
+            dataBindingFragmentPartner.swipeRefreshLayout.setOnRefreshListener(this)
+            return dataBindingFragmentPartner.root
         }
 
         private fun initPartnerAdapter(list : ArrayList<PartnerResponse>){
-            var recyclerView = dataBindingFragmentNews.rvNews
+            var recyclerView = dataBindingFragmentPartner.rvNews
             var adapter = PartnerAdapter(list, onClick = {
                 startActivity(Intent(activity, PartnerDetailActivity::class.java))
             })
@@ -111,12 +114,19 @@ class BasePartnerFragment : BaseFragment() {
             partnerViewModel.getItemPartner(onSuccess = {
                 Handler(Looper.getMainLooper()).postDelayed({
                     ShowLoading.dismiss()
+                    dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
                     initPartnerAdapter(it)
                 }, 1000)
             }, onFailed = {
                 ShowLoading.dismiss()
+                dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
                 ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
             })
+        }
+
+        override fun onRefresh() {
+            dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = true
+            getItemPartner()
         }
 
 

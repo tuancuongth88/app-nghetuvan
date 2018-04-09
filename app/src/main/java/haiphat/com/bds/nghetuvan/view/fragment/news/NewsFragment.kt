@@ -57,12 +57,13 @@ class NewsFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
             initNewsAdapter(it)
         }, onFailed = {
             ShowLoading.dismiss()
+            dataBindingFragmentNews.swipeRefreshLayout.isRefreshing = false
             ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
         })
     }
 
     override fun onRefresh() {
-        dataBindingFragmentNews.swipeRefreshLayout.isRefreshing = false
+        dataBindingFragmentNews.swipeRefreshLayout.isRefreshing = true
         getItemNews()
     }
 
