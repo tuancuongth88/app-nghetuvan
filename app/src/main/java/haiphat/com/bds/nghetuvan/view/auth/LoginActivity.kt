@@ -8,6 +8,7 @@ import android.os.Looper
 import android.support.v7.app.AppCompatActivity
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.ActivityLoginBinding
+import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.utils.validation.Validator
 import haiphat.com.bds.nghetuvan.view.HomeActivity
@@ -36,11 +37,17 @@ class LoginActivity : AppCompatActivity() {
         if (Validator().validate(dataBindingLogin)){
             loginViewModel.email = dataBindingLogin.tetEmail.text.toString().trim()
             loginViewModel.password = dataBindingLogin.tetPassword.text.toString().trim()
-
             ShowLoading.show(this@LoginActivity)
-            Handler(Looper.getMainLooper()).postDelayed({
+            loginViewModel.loginEmail(onSuccess = {
                 startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-            }, 1000)
+                ShowLoading.dismiss()
+            }, onFailed = {
+                ShowLoading.dismiss()
+                ShowAlert.fail(pContext = this@LoginActivity, message = it)
+            })
+//            Handler(Looper.getMainLooper()).postDelayed({
+//                startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+//            }, 1000)
         }
     }
 

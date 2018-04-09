@@ -21,12 +21,6 @@ class LoginViewModel {
                 onSuccess()
             } ?: authResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
 
-//            if (it?.isSuccess()?: false){
-//                UserServices.saveUserInfo(authResponse?.data)
-//               onSuccess()
-//            }else{
-//                authResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
-//            }
         })
     }
 }

@@ -21,7 +21,7 @@ class AuthApi : BaseApi() {
         val data = HashMap<String, String>()
         data.put("email", email ?: "")
         data.put("password", password ?: "")
-        this.postUrlEncoded("administrator/login", data, onResponse)
+        this.upload("administrator/login", data, onResponse)
     }
 
     fun register(email: String?, fullName: String?, password: String?, confirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
