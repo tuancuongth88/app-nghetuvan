@@ -49,17 +49,17 @@ class DetailNewsActivity : BaseActivity() {
 
     private fun getDetailNews() {
         ShowLoading.show(this)
-        detailNewsViewMode.getDetailNews(onSuccess = {
-            Handler(Looper.getMainLooper()).postDelayed({
-                ShowLoading.dismiss()
-                dataBindingDetailNews.lnSplashBackground.visibility = View.GONE
-                dataBindingDetailNews.tvTitle.text = it.name
-            }, 1000)
-
-        }, onFailed = {
-            ShowLoading.dismiss()
-            ShowAlert.fail(pContext = this@DetailNewsActivity, message = getString(R.string.text_error))
-        })
+//        detailNewsViewMode.getDetailNews(onSuccess = {
+//            Handler(Looper.getMainLooper()).postDelayed({
+//                ShowLoading.dismiss()
+//                dataBindingDetailNews.lnSplashBackground.visibility = View.GONE
+//                dataBindingDetailNews.tvTitle.text = it.name
+//            }, 1000)
+//
+//        }, onFailed = {
+//            ShowLoading.dismiss()
+//            ShowAlert.fail(pContext = this@DetailNewsActivity, message = getString(R.string.text_error))
+//        })
     }
 
 }

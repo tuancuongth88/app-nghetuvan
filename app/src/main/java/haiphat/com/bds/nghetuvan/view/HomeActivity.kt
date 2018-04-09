@@ -25,6 +25,7 @@ import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
 import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
+import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*

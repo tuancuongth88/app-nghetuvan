@@ -1,6 +1,5 @@
 package haiphat.com.bds.nghetuvan.viewmodel.partner
 
-import haiphat.com.bds.nghetuvan.models.news.DetailNewsResponse
 import haiphat.com.bds.nghetuvan.models.partner.DetailPartnerResponse
 
 /**

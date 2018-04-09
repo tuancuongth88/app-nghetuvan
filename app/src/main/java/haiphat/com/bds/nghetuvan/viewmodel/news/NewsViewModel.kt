@@ -1,14 +1,27 @@
 package haiphat.com.bds.nghetuvan.viewmodel.news
 
+import haiphat.com.bds.nghetuvan.models.BaseResponse
+import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
+import haiphat.com.bds.nghetuvan.models.news.ListCategory
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.services.api.news.NewsApi
 
 class NewsViewModel {
-    fun getItemNews(onSuccess : (ArrayList<NewsResponse>) ->Unit, onFailed : (String?) -> Unit) {
-
+    fun getItemNews(onSuccess: (ArrayList<NewsResponse>) -> Unit, onFailed: (String?) -> Unit) {
         onSuccess(mockDataItem())
     }
 
-    private fun mockDataItem() : ArrayList<NewsResponse>{
+    fun getCategoryNews(onSuccess: (ArrayList<CategoryNewsResponse>) -> Unit, onFailed: (String?) -> Unit) {
+        NewsApi().getCategory {
+            var itemCategoryNews = GsonUtil.fromJson(it.responseContent, ListCategory::class.java)
+            it?.isSuccess()?.let {
+                itemCategoryNews?.data?.let { it1 -> onSuccess(it1) }
+            } ?: onFailed(it.getErrorMessage())
+        }
+    }
+
+    private fun mockDataItem(): ArrayList<NewsResponse> {
         var listData = ArrayList<NewsResponse>()
         listData.add(NewsResponse(type = 4, totalFeedback = 10, title = "HoREA “phản pháo” đề xuất quy định diện tích ở tối thiểu nhập hộ khẩu", url = "http://channel.mediacdn.vn/prupload/164/2017/06/img20170604223648469.jpg", subTitle = "Chiều 09/02/2018, sự kiện Tổng kết nghemoigioi.vn năm 2017 đã được diễn ra tại phòng Hội thảo tầng 2"))
         listData.add(NewsResponse(type = 5, totalFeedback = 1, title = "Đầu tư Bất động sản 2018 – Cơ hội cho những nhà đầu tư thông thái", url = "http://channel.mediacdn.vn/prupload/164/2017/06/img20170604223648469.jpg", subTitle = "37 Nguyễn Ngọc Vũ, Cầu Giấy, Hà Nội. Dựa vào các tiêu chí đánh giá hoạt"))

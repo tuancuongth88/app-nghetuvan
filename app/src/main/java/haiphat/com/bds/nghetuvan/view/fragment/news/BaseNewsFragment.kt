@@ -15,11 +15,13 @@ import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
+import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
+import java.util.ArrayList
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
@@ -30,48 +32,39 @@ class BaseNewsFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentNews = DataBindingUtil.inflate(inflater, R.layout.fragment_base_news, container, false)
-        getCategory()
         (activity as HomeActivity).setBackgroundColor(Color.TRANSPARENT)
-        initViewPager()
+        getCategory()
         return dataBindingFragmentNews.root
     }
 
     private fun getCategory() {
         ShowLoading.show(activity)
-        newsViewModel.getItemNews(onSuccess = {
-            Handler(Looper.getMainLooper()).postDelayed({
-                ShowLoading.dismiss()
-            }, 1000)
+        newsViewModel.getCategoryNews(onSuccess = {
+            val sectionsPagerAdapter = SectionsPagerNewsAdapter(childFragmentManager)
+            sectionsPagerAdapter.listItemNews = it
+            dataBindingFragmentNews.container.adapter = sectionsPagerAdapter
+            dataBindingFragmentNews.tabs.setupWithViewPager(dataBindingFragmentNews.container)
+            dataBindingFragmentNews.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
+            ShowLoading.dismiss()
         }, onFailed = {
             ShowLoading.dismiss()
-            ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
         })
     }
 
-
-    private fun initViewPager() {
-        val sectionsPagerAdapter = SectionsPagerNewsAdapter(childFragmentManager)
-        dataBindingFragmentNews.container.adapter = sectionsPagerAdapter
-        dataBindingFragmentNews.tabs.setupWithViewPager(dataBindingFragmentNews.container)
-        dataBindingFragmentNews.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
-    }
-
     inner class SectionsPagerNewsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+        var listItemNews = ArrayList<CategoryNewsResponse>()
 
         override fun getItem(position: Int): Fragment {
             return NewsFragment()
         }
 
         override fun getCount(): Int {
-            return 2
+            return listItemNews.size
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            when (position) {
-                0 -> return "Tin thị trường"
-                1 -> return "Tin mở bán"
-            }
-            return null
+            return listItemNews?.get(position).name
         }
     }
 }

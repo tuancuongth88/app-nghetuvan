@@ -11,7 +11,6 @@ import haiphat.com.bds.nghetuvan.databinding.ActivityPartnerDetailBinding
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseActivity
-import haiphat.com.bds.nghetuvan.viewmodel.news.DetailNewsViewModel
 import haiphat.com.bds.nghetuvan.viewmodel.partner.DetailPartnerViewModel
 
 class PartnerDetailActivity : BaseActivity() {

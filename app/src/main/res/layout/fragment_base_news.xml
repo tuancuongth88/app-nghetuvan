@@ -75,7 +75,7 @@
                 style="@style/matchWrap"
                 android:background="@color/colorAccent"
                 app:tabIndicatorColor="@color/colorWhite"
-                app:tabMode="fixed"
+                app:tabMode="scrollable"
                 app:tabTextAppearance="@style/DetailPressReleaseTabText" />
         </android.support.design.widget.AppBarLayout>
 
