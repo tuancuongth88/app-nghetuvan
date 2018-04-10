@@ -2,6 +2,7 @@ package haiphat.com.bds.nghetuvan.view.news
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
 import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
@@ -20,6 +21,22 @@ class DetailNewsActivity : BaseActivity() {
     override fun getContentView(): View {
         dataBindingDetailNews = DataBindingUtil.inflate(layoutInflater, R.layout.activity_detail_new, null, false)
         setSupportActionBar(dataBindingDetailNews.toolbar)
+
+
+        dataBindingDetailNews.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBar, verticalOffset ->
+            if (verticalOffset == 0) {
+                dataBindingDetailNews.tvTitle.visibility = View.GONE
+            } else if (Math.abs(verticalOffset) >= appBar.totalScrollRange) {
+                dataBindingDetailNews.tvName.visibility = View.GONE
+                dataBindingDetailNews.tvTime.visibility = View.GONE
+                dataBindingDetailNews.tvTitle.visibility = View.VISIBLE
+            } else {
+                dataBindingDetailNews.tvTitle.visibility = View.GONE
+                dataBindingDetailNews.tvName.visibility = View.VISIBLE
+                dataBindingDetailNews.tvTime.visibility = View.VISIBLE
+            }
+        })
+
         dataBindingDetailNews.rippleBack.setOnRippleCompleteListener {
             onBackPressed()
         }
@@ -36,6 +53,7 @@ class DetailNewsActivity : BaseActivity() {
         var newsResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_DETAIL_NEWS), NewsResponse::class.java)
         dataBindingDetailNews.imCovert.fromUrl(newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
         dataBindingDetailNews.tvName.text = newsResponse?.title
+        dataBindingDetailNews.tvTitle.text = newsResponse?.title
         val sectionsPagerAdapter = SectionsPagerNewsAdapter(supportFragmentManager)
         sectionsPagerAdapter.newsResponse = newsResponse
                 dataBindingDetailNews.container.adapter = sectionsPagerAdapter
