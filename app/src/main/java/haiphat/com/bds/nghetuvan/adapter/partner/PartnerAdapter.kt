@@ -40,10 +40,10 @@ class PartnerAdapter(private var listMyCourse: ArrayList<PartnerResponse>, priva
     class PartnerViewHolder(itemView: ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
         fun bindItem(partnerResponse: PartnerResponse) {
             itemView.tvName.text = partnerResponse.name
-            itemView.rivAvatar.fromUrl(partnerResponse.url, placeHolder = R.drawable.ic_defaut_avatar)
-            itemView.tvPrice.text = itemView.context.getString(R.string.text_partner_price, partnerResponse.price.toString())
-            itemView.tvCourseType.text = CommonUtil.toCategoryType(partnerResponse.type).convertCourseType()
-            itemView.tvTime.text = partnerResponse.time?.formatDateTime("dd/MM/yyyy")
+            itemView.rivAvatar.fromUrl(partnerResponse.image_url, placeHolder = R.drawable.ic_defaut_avatar)
+//            itemView.tvPrice.text = itemView.context.getString(R.string.text_partner_price, partnerResponse.price.toString())
+//            itemView.tvCourseType.text = CommonUtil.toCategoryType(partnerResponse.type).convertCourseType()
+//            itemView.tvTime.text = partnerResponse.time?.formatDateTime("dd/MM/yyyy")
 
         }
     }

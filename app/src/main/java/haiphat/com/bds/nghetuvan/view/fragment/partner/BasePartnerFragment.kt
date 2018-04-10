@@ -23,7 +23,9 @@ import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentBasePartnerBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
+import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
+import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
@@ -46,16 +48,18 @@ class BasePartnerFragment : BaseFragment() {
         dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_base_partner, container, false)
         getCategory()
         (activity as HomeActivity).setBackgroundColor(Color.TRANSPARENT)
-        initViewPager()
         return dataBindingFragmentPartner.root
     }
 
     private fun getCategory() {
         ShowLoading.show(activity)
         partnerViewModel.getCategoryPartner(onSuccess = {
-            Handler(Looper.getMainLooper()).postDelayed({
-                ShowLoading.dismiss()
-            }, 1000)
+            val sectionsPagerAdapter = SectionsPagerPartnerAdapter(childFragmentManager)
+            sectionsPagerAdapter.listCategoryPartner = it
+            dataBindingFragmentPartner.container.adapter = sectionsPagerAdapter
+            dataBindingFragmentPartner.tabs.setupWithViewPager(dataBindingFragmentPartner.container)
+            dataBindingFragmentPartner.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
+            ShowLoading.dismiss()
         }, onFailed = {
             ShowLoading.dismiss()
             ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
@@ -63,33 +67,24 @@ class BasePartnerFragment : BaseFragment() {
     }
 
 
-    private fun initViewPager() {
-        val sectionsPagerAdapter = SectionsPagerPartnerAdapter(childFragmentManager)
-        dataBindingFragmentPartner.container.adapter = sectionsPagerAdapter
-        dataBindingFragmentPartner.tabs.setupWithViewPager(dataBindingFragmentPartner.container)
-        dataBindingFragmentPartner.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
-    }
-
     inner class SectionsPagerPartnerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
+        var listCategoryPartner = ArrayList<CategoryPartnerResponse>()
+
         override fun getItem(position: Int): Fragment {
-            return ContentFragment()
+            return ContentFragment.newInstance(listCategoryPartner?.get(position)?.id)
         }
 
         override fun getCount(): Int {
-            return 2
+            return listCategoryPartner.size
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            when (position) {
-                0 -> return "Chủ đầu tư"
-                1 -> return "Ngân hàng"
-            }
-            return null
+            return return listCategoryPartner?.get(position).name
         }
     }
 
-    class ContentFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
+    class ContentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
         private lateinit var dataBindingFragmentPartner: FragmentPartnerBinding
         private var partnerViewModel = PartnerViewModel()
 
@@ -100,7 +95,7 @@ class BasePartnerFragment : BaseFragment() {
             return dataBindingFragmentPartner.root
         }
 
-        private fun initPartnerAdapter(list : ArrayList<PartnerResponse>){
+        private fun initPartnerAdapter(list: ArrayList<PartnerResponse>) {
             var recyclerView = dataBindingFragmentPartner.rvNews
             var adapter = PartnerAdapter(list, onClick = {
                 startActivity(Intent(activity, PartnerDetailActivity::class.java))
@@ -109,14 +104,12 @@ class BasePartnerFragment : BaseFragment() {
             recyclerView.adapter = adapter
         }
 
-        private fun getItemPartner(){
+        private fun getItemPartner() {
             ShowLoading.show(activity)
             partnerViewModel.getItemPartner(onSuccess = {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    ShowLoading.dismiss()
-                    dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
-                    initPartnerAdapter(it)
-                }, 1000)
+                ShowLoading.dismiss()
+                dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
+                initPartnerAdapter(it)
             }, onFailed = {
                 ShowLoading.dismiss()
                 dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
@@ -129,6 +122,14 @@ class BasePartnerFragment : BaseFragment() {
             getItemPartner()
         }
 
+        companion object {
+            fun newInstance(id: String?, arguments: Bundle? = null): ContentFragment {
+                val fragment = ContentFragment()
+                fragment.arguments = arguments
+                fragment.partnerViewModel.id = id
+                return fragment
+            }
+        }
 
     }
 }

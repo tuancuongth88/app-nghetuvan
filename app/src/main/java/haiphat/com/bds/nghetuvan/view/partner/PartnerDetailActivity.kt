@@ -53,7 +53,7 @@ class PartnerDetailActivity : BaseActivity() {
         detailNewsViewMode.getDetailPartner(onSuccess = {
             Handler(Looper.getMainLooper()).postDelayed({
                 ShowLoading.dismiss()
-                dataBindingDetailPartner.tvTitle.text = it.name
+//                dataBindingDetailPartner.tvTitle.text = it.name
             }, 1000)
 
         }, onFailed = {

@@ -10,7 +10,7 @@ import java.util.HashMap
  */
 class PartnerApi : BaseApi() {
     override fun apiUrl(): String? {
-        return "api/"
+        return "partner/"
     }
 
     override fun getEndPoint(): String? {
@@ -18,13 +18,13 @@ class PartnerApi : BaseApi() {
     }
 
     fun getCategory(onResponse: (DgmResponse) -> Unit) {
-        this.get("category-news", onResponse)
+        this.get("category-partner", onResponse)
     }
 
     fun getItemNews(id: String?, onResponse: (DgmResponse) -> Unit) {
         val params = HashMap<String, String>()
         params.put("id", id ?: "")
-        val queryString = this.parseUrlWithParams("news/{id}", params)
+        val queryString = this.parseUrlWithParams("partner-by-category/{id}", params)
         this.get(queryString, onResponse)
     }
 
