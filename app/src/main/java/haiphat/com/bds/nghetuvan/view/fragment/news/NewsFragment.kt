@@ -13,15 +13,18 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.news.DetailNewsActivity
+import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 
 /**
@@ -43,7 +46,9 @@ class NewsFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
     private fun initNewsAdapter(list: ArrayList<NewsResponse>) {
         var recyclerView = dataBindingFragmentNews.rvNews
         var adapter = NewsAdapter(list, onClick = {
-            startActivity(Intent(activity, DetailNewsActivity::class.java))
+            var intent = Intent(activity, DetailNewsActivity::class.java)
+            intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
+            startActivity(intent)
         })
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter

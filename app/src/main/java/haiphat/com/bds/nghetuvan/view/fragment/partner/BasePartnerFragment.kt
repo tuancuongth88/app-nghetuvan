@@ -19,6 +19,7 @@ import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsAdapter
 import haiphat.com.bds.nghetuvan.adapter.partner.PartnerAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentBasePartnerBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsBinding
@@ -27,6 +28,7 @@ import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
@@ -98,7 +100,9 @@ class BasePartnerFragment : BaseFragment() {
         private fun initPartnerAdapter(list: ArrayList<PartnerResponse>) {
             var recyclerView = dataBindingFragmentPartner.rvNews
             var adapter = PartnerAdapter(list, onClick = {
-                startActivity(Intent(activity, PartnerDetailActivity::class.java))
+                var intent = Intent(activity, PartnerDetailActivity::class.java)
+                intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
+                startActivity(intent)
             })
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.adapter = adapter

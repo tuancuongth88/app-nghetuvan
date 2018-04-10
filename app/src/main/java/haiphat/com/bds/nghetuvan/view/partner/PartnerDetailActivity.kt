@@ -2,22 +2,21 @@ package haiphat.com.bds.nghetuvan.view.partner
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.support.design.widget.AppBarLayout
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityPartnerDetailBinding
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
+import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
-import haiphat.com.bds.nghetuvan.viewmodel.partner.DetailPartnerViewModel
+import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
 
 class PartnerDetailActivity : BaseActivity() {
 
-    private lateinit var dataBindingDetailPartner : ActivityPartnerDetailBinding
-    private var detailNewsViewMode = DetailPartnerViewModel()
-    
+    private lateinit var dataBindingDetailPartner: ActivityPartnerDetailBinding
+
     override fun getContentView(): View {
         dataBindingDetailPartner = DataBindingUtil.inflate(layoutInflater, R.layout.activity_partner_detail, null, false)
         setSupportActionBar(dataBindingDetailPartner.toolbar)
@@ -45,21 +44,12 @@ class PartnerDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHeaderVisibility(View.GONE)
-        getDetailPartner()
-    }
-
-    private fun getDetailPartner(){
-        ShowLoading.show(this)
-        detailNewsViewMode.getDetailPartner(onSuccess = {
-            Handler(Looper.getMainLooper()).postDelayed({
-                ShowLoading.dismiss()
-//                dataBindingDetailPartner.tvTitle.text = it.name
-            }, 1000)
-
-        }, onFailed = {
-            ShowLoading.dismiss()
-            ShowAlert.fail(pContext = this@PartnerDetailActivity, message = getString(R.string.text_error))
-        })
+        var bundle = intent.extras
+        var partnerResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_DETAIL_NEWS), PartnerResponse::class.java)
+        dataBindingDetailPartner.tvTitle.text = partnerResponse?.name
+        dataBindingDetailPartner.imCovert.fromUrl(partnerResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
+        dataBindingDetailPartner.tvNameCourse.text = partnerResponse?.name
+        partnerResponse?.detail?.let { dataBindingDetailPartner.htmTextContent.setHtml(it, HtmlHttpImageGetter(dataBindingDetailPartner.htmTextContent)) }
     }
 
 }

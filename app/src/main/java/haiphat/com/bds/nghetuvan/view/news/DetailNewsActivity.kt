@@ -2,27 +2,24 @@ package haiphat.com.bds.nghetuvan.view.news
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.SectionsPagerNewsAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityDetailNewBinding
-import haiphat.com.bds.nghetuvan.databinding.ActivityDetailNewsBinding
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
+import haiphat.com.bds.nghetuvan.models.news.NewsResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.DetailNewsViewModel
 
 class DetailNewsActivity : BaseActivity() {
 
     private lateinit var dataBindingDetailNews: ActivityDetailNewBinding
-    private var detailNewsViewMode = DetailNewsViewModel()
     override fun getContentView(): View {
         dataBindingDetailNews = DataBindingUtil.inflate(layoutInflater, R.layout.activity_detail_new, null, false)
         setSupportActionBar(dataBindingDetailNews.toolbar)
-        dataBindingDetailNews.lnSplashBackground.visibility = View.VISIBLE
         dataBindingDetailNews.rippleBack.setOnRippleCompleteListener {
             onBackPressed()
         }
@@ -35,31 +32,15 @@ class DetailNewsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHeaderVisibility(View.GONE)
-        getDetailNews()
-        initViewPager()
-    }
-
-    private fun initViewPager() {
+        var bundle = intent.extras
+        var newsResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_DETAIL_NEWS), NewsResponse::class.java)
+        dataBindingDetailNews.imCovert.fromUrl(newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
+        dataBindingDetailNews.tvName.text = newsResponse?.title
         val sectionsPagerAdapter = SectionsPagerNewsAdapter(supportFragmentManager)
-        dataBindingDetailNews.container.adapter = sectionsPagerAdapter
+        sectionsPagerAdapter.newsResponse = newsResponse
+                dataBindingDetailNews.container.adapter = sectionsPagerAdapter
         dataBindingDetailNews.tabs.setupWithViewPager(dataBindingDetailNews.container)
         dataBindingDetailNews.tabs.setTabTextColors(ContextCompat.getColor(this, R.color.colorWhite), ContextCompat.getColor(this, R.color.colorWhite))
+
     }
-
-
-    private fun getDetailNews() {
-        ShowLoading.show(this)
-//        detailNewsViewMode.getDetailNews(onSuccess = {
-//            Handler(Looper.getMainLooper()).postDelayed({
-//                ShowLoading.dismiss()
-//                dataBindingDetailNews.lnSplashBackground.visibility = View.GONE
-//                dataBindingDetailNews.tvTitle.text = it.name
-//            }, 1000)
-//
-//        }, onFailed = {
-//            ShowLoading.dismiss()
-//            ShowAlert.fail(pContext = this@DetailNewsActivity, message = getString(R.string.text_error))
-//        })
-    }
-
 }

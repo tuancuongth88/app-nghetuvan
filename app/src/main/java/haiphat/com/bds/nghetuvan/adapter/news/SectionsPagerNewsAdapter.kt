@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsCommentFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsInfoFragment
 
@@ -12,18 +13,19 @@ import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsInfoFragment
  * Created by HUONG HA^P on 3/29/2018.
  */
 class SectionsPagerNewsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+    var newsResponse : NewsResponse? =null
 
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
             0 -> {
-                fragment = NewsInfoFragment.newInstance()
+                fragment = NewsInfoFragment.newInstance(newsResponse?.content)
             }
             1 -> {
                 fragment = NewsCommentFragment.newInstance()
             }
         }
-        return fragment ?: NewsInfoFragment.newInstance()
+        return fragment ?: NewsInfoFragment.newInstance(newsResponse?.content)
     }
 
     override fun getCount(): Int {

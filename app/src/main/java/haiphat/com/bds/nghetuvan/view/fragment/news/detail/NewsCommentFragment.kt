@@ -25,7 +25,7 @@ class NewsCommentFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentNewsComment = DataBindingUtil.inflate(inflater, R.layout.fragment_news_comment, container, false)
-        getItem()
+//        getItem()
         return dataBindingFragmentNewsComment.root
     }
 
@@ -36,16 +36,16 @@ class NewsCommentFragment : BaseFragment() {
         recyclerview.adapter = adapter
     }
 
-    private fun getItem() {
-        ShowLoading.show(activity)
-        newsCommentViewModel.getItemNewsComment(onSuccess = {
-            Handler(Looper.getMainLooper()).postDelayed({
-                initNewsCommentAdapter(it)
-            }, 1000)
-        }, onFailed = {
-
-        })
-    }
+//    private fun getItem() {
+//        ShowLoading.show(activity)
+//        newsCommentViewModel.getItemNewsComment(onSuccess = {
+//            Handler(Looper.getMainLooper()).postDelayed({
+//                initNewsCommentAdapter(it)
+//            }, 1000)
+//        }, onFailed = {
+//
+//        })
+//    }
 
 
     companion object {
