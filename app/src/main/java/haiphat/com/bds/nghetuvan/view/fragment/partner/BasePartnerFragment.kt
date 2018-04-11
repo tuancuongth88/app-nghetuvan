@@ -94,6 +94,7 @@ class BasePartnerFragment : BaseFragment() {
             dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_partner, container, false)
             getItemPartner()
             dataBindingFragmentPartner.swipeRefreshLayout.setOnRefreshListener(this)
+            dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = true
             return dataBindingFragmentPartner.root
         }
 
@@ -109,13 +110,10 @@ class BasePartnerFragment : BaseFragment() {
         }
 
         private fun getItemPartner() {
-            ShowLoading.show(activity)
             partnerViewModel.getItemPartner(onSuccess = {
-                ShowLoading.dismiss()
                 dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
                 initPartnerAdapter(it)
             }, onFailed = {
-                ShowLoading.dismiss()
                 dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
                 ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
             })

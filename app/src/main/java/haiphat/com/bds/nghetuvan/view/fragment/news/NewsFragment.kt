@@ -39,7 +39,8 @@ class NewsFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
         dataBindingFragmentNews = DataBindingUtil.inflate(inflater, R.layout.fragment_news, container, false)
         getItemNews()
         dataBindingFragmentNews.swipeRefreshLayout.setOnRefreshListener(this)
-        return dataBindingFragmentNews.root
+        dataBindingFragmentNews.swipeRefreshLayout.isRefreshing = true
+                return dataBindingFragmentNews.root
     }
 
 
@@ -55,13 +56,10 @@ class NewsFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
     }
 
     private fun getItemNews() {
-        ShowLoading.show(activity)
         newsViewModel.getItemNews(onSuccess = {
-            ShowLoading.dismiss()
             dataBindingFragmentNews.swipeRefreshLayout.isRefreshing = false
             initNewsAdapter(it)
         }, onFailed = {
-            ShowLoading.dismiss()
             dataBindingFragmentNews.swipeRefreshLayout.isRefreshing = false
             ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
         })
