@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -20,13 +21,15 @@ import haiphat.com.bds.nghetuvan.viewmodel.news.NewsCommentViewModel
 /**
  * Created by HUONG HA^P on 3/27/2018.
  */
-class NewsCommentFragment : BaseFragment() {
+class NewsCommentFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
+
     private lateinit var dataBindingFragmentNewsComment: FragmentNewsCommentBinding
     private var newsCommentViewModel = NewsCommentViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentNewsComment = DataBindingUtil.inflate(inflater, R.layout.fragment_news_comment, container, false)
         getItemComment()
+        dataBindingFragmentNewsComment.swipeRefreshLayout.setOnRefreshListener(this)
         return dataBindingFragmentNewsComment.root
     }
 
@@ -42,13 +45,18 @@ class NewsCommentFragment : BaseFragment() {
         newsCommentViewModel.getListComment(onSuccess = {
             initNewsCommentAdapter(it)
             ShowLoading.dismiss()
+            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
         }, onFailed = {
             ShowLoading.dismiss()
             ShowAlert.fail(pContext = activity, message = it)
+            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
         })
     }
 
-
+    override fun onRefresh() {
+        dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = true
+        getItemComment()
+    }
     companion object {
         fun newInstance(id: String?, arguments: Bundle? = null): NewsCommentFragment {
             val fragment = NewsCommentFragment()
