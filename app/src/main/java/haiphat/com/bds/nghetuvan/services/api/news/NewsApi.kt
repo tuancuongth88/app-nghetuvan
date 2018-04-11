@@ -21,12 +21,19 @@ class NewsApi : BaseApi() {
         this.get("category-news", onResponse)
     }
 
-    fun getItemNews(id: String?, onResponse: (DgmResponse) -> Unit) {
+    fun getItemNews(id: String?, current: String?, perpages : String, onResponse: (DgmResponse) -> Unit) {
         val params = HashMap<String, String>()
-        params.put("id", id ?: "")
-        val queryString = this.parseUrlWithParams("news-by-category/{id}", params)
+        params.put("current", current ?: "")
+        params.put("perpages", perpages ?: "")
+        val queryString = this.parseUrlQueryStringWithParams("news-by-category/"+id+"?{current}&{perpages}", params)
         this.get(queryString, onResponse)
     }
 
+    fun getListComment(id: String?, onResponse: (DgmResponse) -> Unit){
+        val params = HashMap<String, String>()
+        params.put("id", id ?: "")
+        val queryString = this.parseUrlWithParams("list-comment-by-news/{id}", params)
+        this.get(queryString, onResponse)
+    }
 
 }

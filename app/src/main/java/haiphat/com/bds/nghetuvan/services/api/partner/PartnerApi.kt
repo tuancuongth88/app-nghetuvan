@@ -21,10 +21,11 @@ class PartnerApi : BaseApi() {
         this.get("category-partner", onResponse)
     }
 
-    fun getItemNews(id: String?, onResponse: (DgmResponse) -> Unit) {
+    fun getItemNews(id: String?, current: String?, perPages : String,  onResponse: (DgmResponse) -> Unit) {
         val params = HashMap<String, String>()
-        params.put("id", id ?: "")
-        val queryString = this.parseUrlWithParams("partner-by-category/{id}", params)
+        params.put("current", current ?: "")
+        params.put("perpages", perPages ?: "")
+        val queryString = this.parseUrlQueryStringWithParams("partner-by-category/" +id+ "?{current}&{perpages}", params)
         this.get(queryString, onResponse)
     }
 

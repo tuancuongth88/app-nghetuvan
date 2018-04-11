@@ -35,10 +35,10 @@ class NewsDetailCommentAdapter(private val list: ArrayList<NewsCommentResponse>)
 
     class NewsCommentViewHolder(itemView: ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
         fun bindItem(newsCommentResponse: NewsCommentResponse) {
-            itemView.rivAvatar.fromUrl(newsCommentResponse.urlAvatar, placeHolder = R.drawable.ic_defaut_avatar)
-            itemView.tvName.text = newsCommentResponse.name
-            itemView.tvTime.text = newsCommentResponse.date?.formatDateTime("dd/MM/yyyy")
-            itemView.tvContent.text = newsCommentResponse.content
+            itemView.rivAvatar.fromUrl(newsCommentResponse?.user?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
+            itemView.tvName.text = newsCommentResponse?.user?.fullname
+//            itemView.tvTime.text = newsCommentResponse.date?.formatDateTime("dd/MM/yyyy")
+            itemView.tvContent.text = newsCommentResponse?.comment
         }
     }
 }

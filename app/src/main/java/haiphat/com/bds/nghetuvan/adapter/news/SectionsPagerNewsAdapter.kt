@@ -22,7 +22,7 @@ class SectionsPagerNewsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 fragment = NewsInfoFragment.newInstance(newsResponse?.content)
             }
             1 -> {
-                fragment = NewsCommentFragment.newInstance()
+                fragment = NewsCommentFragment.newInstance(newsResponse?.id)
             }
         }
         return fragment ?: NewsInfoFragment.newInstance(newsResponse?.content)

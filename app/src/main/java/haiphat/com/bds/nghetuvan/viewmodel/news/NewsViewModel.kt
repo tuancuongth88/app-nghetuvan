@@ -1,6 +1,5 @@
 package haiphat.com.bds.nghetuvan.viewmodel.news
 
-import haiphat.com.bds.nghetuvan.models.BaseResponse
 import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
 import haiphat.com.bds.nghetuvan.models.news.ListCategory
 import haiphat.com.bds.nghetuvan.models.news.ListNewsResponse
@@ -10,8 +9,11 @@ import haiphat.com.bds.nghetuvan.services.api.news.NewsApi
 
 class NewsViewModel {
     var id: String? = null
+    var current: Int? = 0
+    var perPages: Int? = 10
+
     fun getItemNews(onSuccess: (ArrayList<NewsResponse>) -> Unit, onFailed: (String?) -> Unit) {
-        NewsApi().getItemNews(id, onResponse = {
+        NewsApi().getItemNews(id, current.toString(), perPages.toString(), onResponse = {
             var item = GsonUtil.fromJson(it.responseContent, ListNewsResponse::class.java)
             it.isSuccess()?.let {
                 item?.data?.let { it1 -> onSuccess(it1) }

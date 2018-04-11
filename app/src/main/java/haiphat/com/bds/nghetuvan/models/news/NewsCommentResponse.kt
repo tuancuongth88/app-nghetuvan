@@ -1,13 +1,15 @@
 package haiphat.com.bds.nghetuvan.models.news
 
+import haiphat.com.bds.nghetuvan.models.auth.UserResponse
+
 /**
  * Created by HUONG HA^P on 3/29/2018.
  */
 data class NewsCommentResponse(
         var id: String? = null,
-        var title: String? = null,
-        var urlAvatar: String? = null,
-        var name: String? = null,
-        var date: String? = null,
-        var content: String? = null
+        var news_id : String? = null,
+        var parent_id : String? = null,
+        var total_comment : Int? = 0,
+        var user : UserResponse? = null,
+        var comment: String? = null
 )

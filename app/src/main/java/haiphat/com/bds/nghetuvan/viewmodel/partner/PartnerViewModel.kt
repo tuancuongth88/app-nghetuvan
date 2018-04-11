@@ -12,8 +12,10 @@ import haiphat.com.bds.nghetuvan.services.api.partner.PartnerApi
  */
 class PartnerViewModel {
     var id : String? = null
+    var current : Int? = 0
+    var perPages : Int? =10
     fun getItemPartner(onSuccess : (ArrayList<PartnerResponse>) ->Unit, onFailed : (String?) -> Unit) {
-        PartnerApi().getItemNews(id, onResponse = {
+        PartnerApi().getItemNews(id, current.toString(), perPages.toString(), onResponse = {
             var listItemResponse = GsonUtil.fromJson(it.responseContent, ListPartnerResponse::class.java)
             it?.isSuccess()?.let {
                 listItemResponse?.data?.let { it1 ->onSuccess(it1) }

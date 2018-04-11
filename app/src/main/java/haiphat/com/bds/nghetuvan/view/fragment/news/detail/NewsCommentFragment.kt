@@ -12,6 +12,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsDetailCommentAdapter
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsCommentBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsCommentResponse
+import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsCommentViewModel
@@ -25,7 +26,7 @@ class NewsCommentFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentNewsComment = DataBindingUtil.inflate(inflater, R.layout.fragment_news_comment, container, false)
-//        getItem()
+        getItemComment()
         return dataBindingFragmentNewsComment.root
     }
 
@@ -36,21 +37,22 @@ class NewsCommentFragment : BaseFragment() {
         recyclerview.adapter = adapter
     }
 
-//    private fun getItem() {
-//        ShowLoading.show(activity)
-//        newsCommentViewModel.getItemNewsComment(onSuccess = {
-//            Handler(Looper.getMainLooper()).postDelayed({
-//                initNewsCommentAdapter(it)
-//            }, 1000)
-//        }, onFailed = {
-//
-//        })
-//    }
+    private fun getItemComment() {
+        ShowLoading.show(activity)
+        newsCommentViewModel.getListComment(onSuccess = {
+            initNewsCommentAdapter(it)
+            ShowLoading.dismiss()
+        }, onFailed = {
+            ShowLoading.dismiss()
+            ShowAlert.fail(pContext = activity, message = it)
+        })
+    }
 
 
     companion object {
-        fun newInstance(arguments: Bundle? = null): NewsCommentFragment {
+        fun newInstance(id: String?, arguments: Bundle? = null): NewsCommentFragment {
             val fragment = NewsCommentFragment()
+            fragment.newsCommentViewModel.id = id
             fragment.arguments = arguments
             return fragment
         }
