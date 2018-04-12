@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
         dataBindingRegister.btnRegister.setOnClickListener {
             register()
         }
-        dataBindingRegister.imgBack.setOnClickListener {
+        dataBindingRegister.rippleBack.setOnRippleCompleteListener {
             this.onBackPressed()
         }
     }
