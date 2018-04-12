@@ -23,6 +23,7 @@ import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
+import haiphat.com.bds.nghetuvan.view.fragment.profile.ProfileFragment
 import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
@@ -61,6 +62,13 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun initView() {
         navigationLayout = layoutInflater.inflate(R.layout.nav_header_home, null)
         val recyclerView = navigationLayout.rvNavItem
+        navigationLayout.clUser.setOnClickListener {
+            var fragmentProfile = ProfileFragment()
+            supportFragmentManager.beginTransaction().replace(R.id.flContent, fragmentProfile).commitAllowingStateLoss()
+            toolbar.title = ""
+            imgSearch.visibility = View.GONE
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
         var adapter = NavItemProfileAdapter(navItemViewModel.listNavItemProfile(this), onClick = {
             var fragment: Fragment? = null
             when (it.name) {

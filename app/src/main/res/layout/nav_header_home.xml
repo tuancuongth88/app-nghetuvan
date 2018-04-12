@@ -16,95 +16,104 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/clUser"
                 style="@style/matchWrap"
-                android:layout_height="180dp"
+                android:layout_height="150dp"
                 android:background="#db6927">
 
-                <haiphat.com.bds.nghetuvan.utils.RippleView
-                    android:id="@+id/rippleWallet"
-                    style="@style/navRipple"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
+                <!--android:id="@+id/rippleWallet"-->
+                <!--style="@style/navRipple"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toTopOf="parent">-->
 
-                    <ImageView
-                        style="@style/navImage"
-                        android:src="@drawable/ic_control_exo_setting" />
-                </haiphat.com.bds.nghetuvan.utils.RippleView>
+                <!--<ImageView-->
+                <!--style="@style/navImage"-->
+                <!--android:src="@drawable/ic_control_exo_setting" />-->
+                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
 
-                <haiphat.com.bds.nghetuvan.utils.RippleView
-                    android:id="@+id/rippleTransactionHistory"
-                    style="@style/navRipple"
-                    app:layout_constraintStart_toEndOf="@+id/rippleWallet"
-                    app:layout_constraintTop_toTopOf="@+id/rippleWallet">
+                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
+                <!--android:id="@+id/rippleTransactionHistory"-->
+                <!--style="@style/navRipple"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/rippleWallet"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/rippleWallet">-->
 
-                    <ImageView
-                        style="@style/navImage"
-                        android:src="@drawable/ic_control_exo_setting" />
-                </haiphat.com.bds.nghetuvan.utils.RippleView>
+                <!--<ImageView-->
+                <!--style="@style/navImage"-->
+                <!--android:src="@drawable/ic_control_exo_setting" />-->
+                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
 
-                <haiphat.com.bds.nghetuvan.utils.RippleView
-                    android:id="@+id/rippleProfile"
-                    style="@style/navRipple"
-                    app:layout_constraintStart_toEndOf="@+id/rippleTransactionHistory"
-                    app:layout_constraintTop_toTopOf="@+id/rippleWallet">
+                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
+                <!--android:id="@+id/rippleProfile"-->
+                <!--style="@style/navRipple"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/rippleTransactionHistory"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/rippleWallet">-->
 
-                    <ImageView
-                        style="@style/navImage"
-                        android:src="@drawable/ic_control_exo_setting" />
-                </haiphat.com.bds.nghetuvan.utils.RippleView>
+                <!--<ImageView-->
+                <!--style="@style/navImage"-->
+                <!--android:src="@drawable/ic_control_exo_setting" />-->
+                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
 
-                <haiphat.com.bds.nghetuvan.utils.RippleView
-                    android:id="@+id/rippleSetting"
-                    style="@style/navRipple"
-                    app:layout_constraintStart_toEndOf="@+id/rippleProfile"
-                    app:layout_constraintTop_toTopOf="@+id/rippleWallet">
+                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
+                <!--android:id="@+id/rippleSetting"-->
+                <!--style="@style/navRipple"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/rippleProfile"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/rippleWallet">-->
 
-                    <ImageView
-                        style="@style/navImage"
-                        android:src="@drawable/ic_control_exo_setting" />
-                </haiphat.com.bds.nghetuvan.utils.RippleView>
+                <!--<ImageView-->
+                <!--style="@style/navImage"-->
+                <!--android:src="@drawable/ic_control_exo_setting" />-->
+                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/rivAvatar"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="20dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_defaut_avatar"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:riv_corner_radius="80dp" />
 
-                <TextView
-                    android:id="@+id/tvName"
+                <android.support.constraint.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif"
-                    android:maxLines="1"
-                    android:text="Hải phat"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="24sp"
-                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/rivAvatar"
-                    app:layout_constraintTop_toTopOf="@+id/rivAvatar" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tvEmail"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:letterSpacing="0.04"
-                    android:text="hai.phat@haiphattech.com"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tvName"
-                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif"
+                        android:maxLines="1"
+                        android:text="Hải phat"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="24sp"
+                        android:textStyle="normal"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:letterSpacing="0.04"
+                        android:text="hai.phat@haiphattech.com"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                </android.support.constraint.ConstraintLayout>
             </android.support.constraint.ConstraintLayout>
 
 

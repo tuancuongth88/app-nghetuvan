@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <haiphat.com.bds.nghetuvan.utils.RippleView
+        android:id="@+id/clItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgInfoAccount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_profile_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:id="@+id/tvInfoAccount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="sans-serif"
+            android:maxLines="1"
+            tools:text="Thông tin tài khoản"
+            app:layout_constraintHorizontal_weight="1"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/imgInfoNext"
+            app:layout_constraintStart_toEndOf="@+id/imgInfoAccount"
+            app:layout_constraintTop_toTopOf="@+id/imgInfoAccount" />
+
+        <ImageView
+            android:id="@+id/imgInfoNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_next"
+            android:layout_marginRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvInfoAccount" />
+
+        <View
+            android:id="@+id/vInfoAccount"
+            style="@style/viewLine"
+            android:layout_width="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvInfoAccount"
+            app:layout_constraintTop_toBottomOf="@+id/tvInfoAccount" />
+    </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+</layout>

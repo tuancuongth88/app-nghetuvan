@@ -49,4 +49,7 @@
     <string name="text_post_comment_successfull">Gửi bình luận thành công!</string>
     <string name="text_forgot_password_send_email">Gửi Email</string>
     <string name="text_forgot_passwrord_successfull">Gửi Email thành công. vui lòng kiểm tra email!</string>
+    <string name="profile_info_account">Cập nhật thông tin</string>
+    <string name="profile_change_password">Đổi mật khẩu</string>
+    <string name="profile_history_transactions">Lịch sử giao dịch</string>
 </resources>

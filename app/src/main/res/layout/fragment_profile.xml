@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        style="@style/matchParent"
+        android:background="@color/colorWhite">
+
+
+        <android.support.constraint.ConstraintLayout
+            style="@style/matchParent"
+            tools:context="haiphat.com.bds.nghetuvan.view.news.NewsActivity">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clHeader"
+                android:layout_width="match_parent"
+                android:background="@color/colorAccent"
+                android:layout_height="230dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/rivAvatar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_defaut_avatar"
+                    app:layout_constraintBottom_toTopOf="@+id/tvName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:riv_corner_radius="500dp" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/wrapContent"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="Vinh Tran" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    style="@style/wrapContent"
+                    android:layout_marginBottom="30dp"
+                    android:letterSpacing="0.04"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="vinh.tran@digimed.vn" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvProfile"
+                style="@style/matchWrap"
+                app:layout_constraintTop_toBottomOf="@+id/clHeader" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</layout>
