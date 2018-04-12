@@ -47,4 +47,6 @@
     <string name="title_action_bar_daotao">Đào tạo</string>
     <string name="text_news_total_feedback">%s Phản hồi</string>
     <string name="text_post_comment_successfull">Gửi bình luận thành công!</string>
+    <string name="text_forgot_password_send_email">Gửi Email</string>
+    <string name="text_forgot_passwrord_successfull">Gửi Email thành công. vui lòng kiểm tra email!</string>
 </resources>

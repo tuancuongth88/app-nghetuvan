@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
             ShowLoading.show(this@LoginActivity)
             loginViewModel.loginEmail(onSuccess = {
                 startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                finish()
                 ShowLoading.dismiss()
             }, onFailed = {
                 ShowLoading.dismiss()

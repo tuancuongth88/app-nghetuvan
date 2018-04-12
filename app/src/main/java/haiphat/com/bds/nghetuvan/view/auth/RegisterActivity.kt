@@ -25,6 +25,9 @@ class RegisterActivity : AppCompatActivity() {
         dataBindingRegister.btnRegister.setOnClickListener {
             register()
         }
+        dataBindingRegister.imgBack.setOnClickListener {
+            this.onBackPressed()
+        }
     }
 
     private fun register(){
@@ -36,7 +39,9 @@ class RegisterActivity : AppCompatActivity() {
             registerViewModel.confirmPassword = dataBindingRegister.tetConfirmPassword.text.toString()
             ShowLoading.show(this@RegisterActivity)
             registerViewModel.register(onSuccess = {
-                ShowAlert.confirm(pContext = this, message = it)
+                ShowAlert.confirm(pContext = this, message = it, onClick = {
+                    finish()
+                })
                 ShowLoading.dismiss()
             }, onFailed = {
                 ShowLoading.dismiss()

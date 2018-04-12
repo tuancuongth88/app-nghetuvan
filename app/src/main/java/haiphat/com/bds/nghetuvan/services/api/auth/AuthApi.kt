@@ -32,4 +32,10 @@ class AuthApi : BaseApi() {
         data.put("password_confirmation", confirmPassword ?: "")
         this.upload("signup", data, onResponse)
     }
+
+    fun forgotPassword(email: String?, onResponse: (DgmResponse) -> Unit) {
+        val data = HashMap<String, String>()
+        data.put("email", email ?: "")
+        this.upload("forgotPassword", data, onResponse)
+    }
 }
