@@ -30,6 +30,7 @@ class PostCommentActivity : BaseActivity() {
         baseActivityBinding.imgBack.setImageResource(R.drawable.ic_back_b)
         var bundel = intent.extras
         newsCommentViewModel.newsId = bundel.getString(IntentActionKeys.KEY_NEWS_ID)
+        baseActivityBinding.rippleRight.visibility = View.VISIBLE
         baseActivityBinding.rippleRight.setOnRippleCompleteListener {
             postComment()
         }

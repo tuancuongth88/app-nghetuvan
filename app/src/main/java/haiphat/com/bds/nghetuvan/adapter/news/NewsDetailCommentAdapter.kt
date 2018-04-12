@@ -37,7 +37,7 @@ class NewsDetailCommentAdapter(private val list: ArrayList<NewsCommentResponse>)
         fun bindItem(newsCommentResponse: NewsCommentResponse) {
             itemView.rivAvatar.fromUrl(newsCommentResponse?.user?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
             itemView.tvName.text = newsCommentResponse?.user?.fullname
-//            itemView.tvTime.text = newsCommentResponse.date?.formatDateTime("dd/MM/yyyy")
+            itemView.tvTime.text = newsCommentResponse.created_at?.formatDateTime("dd/MM/yyyy")
             itemView.tvContent.text = newsCommentResponse?.comment
         }
     }

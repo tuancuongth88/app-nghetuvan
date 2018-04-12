@@ -12,13 +12,6 @@ fun String.isEmail(): Boolean {
     return this.matches(emailRegex.toRegex())
 }
 
-//fun String.isPhone() : Boolean{
-//    var phoneRegex = "^\+[0-9]{10,13}$"
-//
-//    Patterns.PHONE.matcher(phoneRegex).matches()
-//    return this.matches()
-//}
-
 fun String.formatDate(): String {
     val date = Date()
     val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")

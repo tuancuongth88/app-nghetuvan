@@ -11,5 +11,6 @@ data class NewsCommentResponse(
         var parent_id : String? = null,
         var total_comment : Int? = 0,
         var user : UserResponse? = null,
+        var created_at : String? =null,
         var comment: String? = null
 )
