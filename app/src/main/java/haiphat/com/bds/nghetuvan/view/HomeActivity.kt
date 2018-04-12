@@ -107,7 +107,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
 
     private fun clickSearch() {
-        imgSearch.visibility = View.GONE
+        //call api search
     }
 
 

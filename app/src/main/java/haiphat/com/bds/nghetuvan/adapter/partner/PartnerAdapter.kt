@@ -41,10 +41,8 @@ class PartnerAdapter(private var listMyCourse: ArrayList<PartnerResponse>, priva
         fun bindItem(partnerResponse: PartnerResponse) {
             itemView.tvName.text = partnerResponse.name
             itemView.rivAvatar.fromUrl(partnerResponse.image_url, placeHolder = R.drawable.ic_defaut_avatar)
-//            itemView.tvPrice.text = itemView.context.getString(R.string.text_partner_price, partnerResponse.price.toString())
-//            itemView.tvCourseType.text = CommonUtil.toCategoryType(partnerResponse.type).convertCourseType()
-//            itemView.tvTime.text = partnerResponse.time?.formatDateTime("dd/MM/yyyy")
-
+            itemView.tvPhone.text = partnerResponse.phone
+            itemView.tvEmail.text = partnerResponse.email
         }
     }
 }

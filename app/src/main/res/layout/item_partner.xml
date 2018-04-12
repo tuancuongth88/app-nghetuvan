@@ -39,7 +39,7 @@
             tools:text="What You Need To Know About Oil Fondue" />
 
         <ImageView
-            android:id="@+id/imgTimeSpent"
+            android:id="@+id/imgPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
         <TextView
-            android:id="@+id/tvTime"
+            android:id="@+id/tvPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -56,23 +56,23 @@
             android:textColor="@color/textItemMyCourse"
             android:textSize="11sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
-            app:layout_constraintStart_toEndOf="@+id/imgTimeSpent"
-            app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
+            app:layout_constraintBottom_toBottomOf="@+id/imgPhone"
+            app:layout_constraintStart_toEndOf="@+id/imgPhone"
+            app:layout_constraintTop_toTopOf="@+id/imgPhone"
             tools:text="50 minutes" />
 
         <ImageView
-            android:id="@+id/imgPrice"
+            android:id="@+id/imgEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="@+id/tvTime"
-            app:layout_constraintStart_toEndOf="@+id/tvTime"
-            app:layout_constraintTop_toTopOf="@+id/tvTime" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvPhone"
+            app:layout_constraintStart_toEndOf="@+id/tvPhone"
+            app:layout_constraintTop_toTopOf="@+id/tvPhone" />
 
         <TextView
-            android:id="@+id/tvPrice"
+            android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -80,33 +80,9 @@
             android:textColor="@color/textItemMyCourse"
             android:textSize="11sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
-            app:layout_constraintStart_toEndOf="@+id/imgPrice"
-            app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
-            tools:text="12000USD" />
-
-        <ImageView
-            android:id="@+id/imgType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_clock"
-            app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
-            app:layout_constraintStart_toEndOf="@+id/tvPrice"
-            app:layout_constraintTop_toTopOf="@+id/tvPrice" />
-
-        <TextView
-            android:id="@+id/tvCourseType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/textItemMyCourse"
-            android:textSize="11sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toBottomOf="@+id/imgTimeSpent"
-            app:layout_constraintStart_toEndOf="@+id/imgType"
-            app:layout_constraintTop_toTopOf="@+id/imgTimeSpent"
+            app:layout_constraintBottom_toBottomOf="@+id/imgEmail"
+            app:layout_constraintStart_toEndOf="@+id/imgEmail"
+            app:layout_constraintTop_toTopOf="@+id/imgEmail"
             tools:text="Chủ đầu tư" />
 
     </haiphat.com.bds.nghetuvan.utils.RippleView>
