@@ -7,6 +7,9 @@ class IntentActionKeys {
     companion object {
         const val FORCE_LOGOUT_ACTION = "FORCE_LOGOUT_ACTION"
         const val KEY_DETAIL_NEWS = "KEY_DETAIL_NEWS"
-        const val KEY_DETAIL_PARTNER = "KEY_DETAIL_PARTNER"
+        const val KEY_NEWS_ID = "KEY_NEWS_ID"
+
+        const val SCREEN_POST_COMMENT = 110
+        const val KEY_RELOAD_DATA = 1124
     }
 }

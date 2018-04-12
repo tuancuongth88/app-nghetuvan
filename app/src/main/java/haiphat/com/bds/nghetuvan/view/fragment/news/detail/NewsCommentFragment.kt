@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.fragment.news.detail
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
@@ -11,11 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsDetailCommentAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsCommentBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsCommentResponse
+import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
+import haiphat.com.bds.nghetuvan.view.news.PostCommentActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsCommentViewModel
 
 /**
@@ -31,8 +35,13 @@ class NewsCommentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener
         getItemComment()
         dataBindingFragmentNewsComment.swipeRefreshLayout.setOnRefreshListener(this)
         dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = true
-        dataBindingFragmentNewsComment.imgReply.setOnClickListener {
-            postComment()
+        dataBindingFragmentNewsComment.rippleComment.setOnRippleCompleteListener {
+            var intent = Intent(activity, PostCommentActivity::class.java)
+            intent.putExtra(IntentActionKeys.KEY_NEWS_ID, newsCommentViewModel.newsId)
+            startActivityForResult(intent, IntentActionKeys.SCREEN_POST_COMMENT)
+        }
+        if (UserServices.userInfo == null) {
+            dataBindingFragmentNewsComment.rippleComment.visibility = View.GONE
         }
         return dataBindingFragmentNewsComment.root
     }
@@ -54,27 +63,23 @@ class NewsCommentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener
         })
     }
 
-    private fun postComment() {
-        ShowLoading.show(activity)
-        newsCommentViewModel.content = dataBindingFragmentNewsComment.edComment.text.toString()
-        newsCommentViewModel.postComment(onSuccess = {
-            ShowLoading.dismiss()
-            ShowAlert.fail(pContext = activity, dialogTitle = getString(R.string.alert_title_inform), message = it)
-        }, onFailed = {
-            ShowLoading.dismiss()
-            ShowAlert.fail(pContext = activity, message = it)
-        })
-    }
 
     override fun onRefresh() {
         dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = true
         getItemComment()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == IntentActionKeys.KEY_RELOAD_DATA){
+            onRefresh()
+        }
+    }
+
     companion object {
         fun newInstance(id: String?, arguments: Bundle? = null): NewsCommentFragment {
             val fragment = NewsCommentFragment()
-            fragment.newsCommentViewModel.id = id
+            fragment.newsCommentViewModel.newsId = id
             fragment.arguments = arguments
             return fragment
         }

@@ -49,6 +49,7 @@ abstract class BaseActivity : AppCompatActivity() {
         baseActivityBinding.clContent.addView(getContentView(), LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
         baseActivityBinding.clContent.getChildAt(0).bringToFront()
         baseActivityBinding.rippleBack.setOnRippleCompleteListener { this.onBackPressed() }
+        baseActivityBinding.rippleRight.visibility = View.GONE
     }
 
 

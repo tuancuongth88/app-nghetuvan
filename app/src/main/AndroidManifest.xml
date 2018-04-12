@@ -19,9 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.SplashActivity">
-
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -29,11 +29,10 @@
                     android:host="nghetuvan.cf"
                     android:scheme="http" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".view.auth.LoginActivity" />
@@ -50,13 +49,13 @@
         <activity android:name=".view.profile.ContactEmailActivity" />
         <activity
             android:name=".view.fragment.contact.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <!--<provider android:authorities="com.facebook.app.FacebookContentProvider1487886458000394"-->
-            <!--android:name="com.facebook.FacebookContentProvider"-->
-            <!--android:exported="true"/>-->
+        <!-- <provider android:authorities="com.facebook.app.FacebookContentProvider1487886458000394" -->
+        <!-- android:name="com.facebook.FacebookContentProvider" -->
+        <!-- android:exported="true"/> -->
 
-
+        <activity android:name=".view.news.PostCommentActivity"></activity>
     </application>
 
 </manifest>

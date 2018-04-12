@@ -36,7 +36,7 @@
             <TextView
                 android:id="@+id/tvTitle"
                 style="@style/wrapContent"
-                android:layout_marginRight="50dp"
+                android:layout_width="0dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif"
                 android:maxLines="1"
@@ -45,14 +45,32 @@
                 android:textSize="20sp"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="@+id/rippleBack"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/rippleRight"
                 app:layout_constraintStart_toEndOf="@+id/rippleBack"
                 app:layout_constraintTop_toTopOf="@+id/rippleBack" />
 
+            <haiphat.com.bds.nghetuvan.utils.RippleView
+                android:id="@+id/rippleRight"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_send_b"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
         </android.support.constraint.ConstraintLayout>
+
         <View
             android:id="@+id/viewLine"
-            style="@style/viewLine"/>
+            style="@style/viewLine" />
 
         <LinearLayout
             android:id="@+id/clContent"

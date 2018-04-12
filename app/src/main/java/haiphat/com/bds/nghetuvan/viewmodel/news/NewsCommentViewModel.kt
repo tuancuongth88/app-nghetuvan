@@ -13,11 +13,11 @@ import haiphat.com.bds.nghetuvan.services.api.news.NewsApi
  */
 class NewsCommentViewModel {
     var content: String? = null
-    var id: String? = null
+    var newsId: String? = null
     var parentId : Int? =0
 
     fun getListComment(onSuccess: (ArrayList<NewsCommentResponse>) -> Unit, onFailed: (String?) -> Unit) {
-        NewsApi().getListComment(id, onResponse = {
+        NewsApi().getListComment(newsId, onResponse = {
             var dataResponse = GsonUtil.fromJson(it.responseContent, ListCommentNewsResponse::class.java)
             it?.isSuccess()?.let {
                 dataResponse?.data?.let { it1 -> onSuccess(it1) }
@@ -26,7 +26,7 @@ class NewsCommentViewModel {
     }
 
     fun postComment(onSuccess: (String?) -> Unit, onFailed: (String?) -> Unit){
-        NewsApi().postComment(id, UserServices.userInfo?.id, parentId.toString(), content,onResponse = {
+        NewsApi().postComment(newsId, UserServices.userInfo?.id, parentId.toString(), content,onResponse = {
             it.isSuccess()?.let {
                 onSuccess(BaseApplication.context.getString(R.string.text_post_comment_successfull))
             }?: onFailed(it.getErrorMessage())
