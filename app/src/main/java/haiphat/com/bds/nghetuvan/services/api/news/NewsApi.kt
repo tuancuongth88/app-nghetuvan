@@ -36,4 +36,14 @@ class NewsApi : BaseApi() {
         this.get(queryString, onResponse)
     }
 
+    fun postComment(id: String?, userId : String?, parentId : String?, comment : String?, onResponse: (DgmResponse) -> Unit){
+        val params = HashMap<String, String>()
+        params.put("user_id", userId ?: "")
+        params.put("parent_id", parentId ?: "")
+        params.put("comment", comment ?: "")
+//        val queryString = this.parseUrlQueryStringWithParams("post-comment-by-news/"+id+"?{user_id}&{parent_id}&{comment}", params)
+        this.upload("post-comment-by-news/"+id, params, onResponse)
+
+    }
+
 }

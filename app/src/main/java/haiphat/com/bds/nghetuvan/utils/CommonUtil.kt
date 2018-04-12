@@ -1,7 +1,15 @@
 package haiphat.com.bds.nghetuvan.utils
 
+import android.app.Activity
 import android.content.pm.PackageManager
 import haiphat.com.bds.nghetuvan.models.HomePageCategoryType
+import android.support.v4.content.ContextCompat.startActivity
+import android.content.Intent
+import android.net.Uri
+import com.facebook.share.model.ShareLinkContent
+
+
+
 
 /**
  * Created by HUONG HA^P on 3/29/2018.
@@ -25,6 +33,12 @@ class CommonUtil {
                 ret = ret && (it == PackageManager.PERMISSION_GRANTED)
             }
             return ret
+        }
+
+        fun shareAppLinkViaFacebook(urlToShare: String) {
+            val content = ShareLinkContent.Builder()
+                    .setContentUrl(Uri.parse(urlToShare))
+                    .build()
         }
     }
 }

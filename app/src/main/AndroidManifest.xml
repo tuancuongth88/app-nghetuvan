@@ -51,6 +51,12 @@
         <activity
             android:name=".view.fragment.contact.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <!--<provider android:authorities="com.facebook.app.FacebookContentProvider1487886458000394"-->
+            <!--android:name="com.facebook.FacebookContentProvider"-->
+            <!--android:exported="true"/>-->
+
+
     </application>
 
 </manifest>

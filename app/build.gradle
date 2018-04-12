@@ -52,4 +52,5 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     // load html text view
     compile 'org.sufficientlysecure:html-textview:3.5'
+    compile 'com.facebook.android:facebook-android-sdk:4.29.0'
 }

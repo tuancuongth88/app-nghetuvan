@@ -11,6 +11,7 @@ import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityDetailNewBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.DetailNewsViewModel
@@ -41,7 +42,7 @@ class DetailNewsActivity : BaseActivity() {
             onBackPressed()
         }
         dataBindingDetailNews.rippleSetting.setOnRippleCompleteListener {
-            //Intent share facebook
+            CommonUtil.shareAppLinkViaFacebook("https://developers.facebook.com")
         }
         return dataBindingDetailNews.root
     }

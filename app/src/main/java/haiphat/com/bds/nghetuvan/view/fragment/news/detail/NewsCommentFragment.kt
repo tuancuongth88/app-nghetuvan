@@ -21,7 +21,7 @@ import haiphat.com.bds.nghetuvan.viewmodel.news.NewsCommentViewModel
 /**
  * Created by HUONG HA^P on 3/27/2018.
  */
-class NewsCommentFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
+class NewsCommentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var dataBindingFragmentNewsComment: FragmentNewsCommentBinding
     private var newsCommentViewModel = NewsCommentViewModel()
@@ -30,6 +30,10 @@ class NewsCommentFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListene
         dataBindingFragmentNewsComment = DataBindingUtil.inflate(inflater, R.layout.fragment_news_comment, container, false)
         getItemComment()
         dataBindingFragmentNewsComment.swipeRefreshLayout.setOnRefreshListener(this)
+        dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = true
+        dataBindingFragmentNewsComment.imgReply.setOnClickListener {
+            postComment()
+        }
         return dataBindingFragmentNewsComment.root
     }
 
@@ -41,15 +45,24 @@ class NewsCommentFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListene
     }
 
     private fun getItemComment() {
-        ShowLoading.show(activity)
         newsCommentViewModel.getListComment(onSuccess = {
             initNewsCommentAdapter(it)
-            ShowLoading.dismiss()
             dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
+        }, onFailed = {
+            ShowAlert.fail(pContext = activity, message = it)
+            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
+        })
+    }
+
+    private fun postComment() {
+        ShowLoading.show(activity)
+        newsCommentViewModel.content = dataBindingFragmentNewsComment.edComment.text.toString()
+        newsCommentViewModel.postComment(onSuccess = {
+            ShowLoading.dismiss()
+            ShowAlert.fail(pContext = activity, dialogTitle = getString(R.string.alert_title_inform), message = it)
         }, onFailed = {
             ShowLoading.dismiss()
             ShowAlert.fail(pContext = activity, message = it)
-            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
         })
     }
 
@@ -57,6 +70,7 @@ class NewsCommentFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListene
         dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = true
         getItemComment()
     }
+
     companion object {
         fun newInstance(id: String?, arguments: Bundle? = null): NewsCommentFragment {
             val fragment = NewsCommentFragment()

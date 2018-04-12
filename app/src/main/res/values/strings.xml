@@ -46,4 +46,5 @@
     <string name="title_action_bar_bh_online">Bán hàng online</string>
     <string name="title_action_bar_daotao">Đào tạo</string>
     <string name="text_news_total_feedback">%s Phản hồi</string>
+    <string name="text_post_comment_successfull">Gửi bình luận thành công!</string>
 </resources>
