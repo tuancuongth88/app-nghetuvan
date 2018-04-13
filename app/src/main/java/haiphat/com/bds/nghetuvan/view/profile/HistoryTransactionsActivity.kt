@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view.partner
+package haiphat.com.bds.nghetuvan.view.profile
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -10,20 +10,21 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.partner.PartnerAdapter
-import haiphat.com.bds.nghetuvan.databinding.ActivityPartnerBinding
+import haiphat.com.bds.nghetuvan.databinding.ActivityHistoryTransactionBinding
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseActivity
+import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.partner.PartnerViewModel
 
-class PartnerActivity : BaseActivity() {
+class HistoryTransactionsActivity : BaseActivity() {
 
-    private lateinit var dataBindingPartner : ActivityPartnerBinding
+    private lateinit var dataBindingPartner : ActivityHistoryTransactionBinding
     private var partnerViewModel = PartnerViewModel()
 
     override fun getContentView(): View {
-        dataBindingPartner = DataBindingUtil.inflate(layoutInflater, R.layout.activity_partner, null, false)
+        dataBindingPartner = DataBindingUtil.inflate(layoutInflater, R.layout.activity_history_transaction, null, false)
         getItemPartner()
         return dataBindingPartner.root
     }
@@ -39,7 +40,7 @@ class PartnerActivity : BaseActivity() {
     private fun initPartnerAdapter(list : ArrayList<PartnerResponse>){
         var recyclerView = dataBindingPartner.rvPartner
         var adapter = PartnerAdapter(list, onClick = {
-            startActivity(Intent(this@PartnerActivity, PartnerDetailActivity::class.java))
+            startActivity(Intent(this@HistoryTransactionsActivity, PartnerDetailActivity::class.java))
         })
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
@@ -54,7 +55,7 @@ class PartnerActivity : BaseActivity() {
             }, 1000)
         }, onFailed = {
             ShowLoading.dismiss()
-            ShowAlert.fail(pContext = this@PartnerActivity, message = getString(R.string.text_error))
+            ShowAlert.fail(pContext = this@HistoryTransactionsActivity, message = getString(R.string.text_error))
         })
     }
 }

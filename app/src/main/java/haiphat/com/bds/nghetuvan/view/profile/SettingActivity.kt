@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view.news
+package haiphat.com.bds.nghetuvan.view.profile
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -10,20 +10,21 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsAdapter
-import haiphat.com.bds.nghetuvan.databinding.ActivityNewsBinding
+import haiphat.com.bds.nghetuvan.databinding.ActivitySettingBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseActivity
+import haiphat.com.bds.nghetuvan.view.news.DetailNewsActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 
-class NewsActivity : BaseActivity() {
+class SettingActivity : BaseActivity() {
 
-    private lateinit var dataBindingNews : ActivityNewsBinding
+    private lateinit var dataBindingNews : ActivitySettingBinding
     private var newsViewModel = NewsViewModel()
 
     override fun getContentView(): View {
-        dataBindingNews = DataBindingUtil.inflate(layoutInflater, R.layout.activity_news, null, false)
+        dataBindingNews = DataBindingUtil.inflate(layoutInflater, R.layout.activity_setting, null, false)
         getItemNews()
         return dataBindingNews.root
     }
@@ -39,7 +40,7 @@ class NewsActivity : BaseActivity() {
     private fun initNewsAdapter(list : ArrayList<NewsResponse>){
         var recyclerView = dataBindingNews.rvNews
         var adapter = NewsAdapter(list, onClick = {
-            startActivity(Intent(this@NewsActivity, DetailNewsActivity::class.java))
+            startActivity(Intent(this@SettingActivity, DetailNewsActivity::class.java))
         })
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
@@ -54,7 +55,7 @@ class NewsActivity : BaseActivity() {
             }, 1000)
         }, onFailed = {
             ShowLoading.dismiss()
-            ShowAlert.fail(pContext = this@NewsActivity, message = getString(R.string.text_error))
+            ShowAlert.fail(pContext = this@SettingActivity, message = getString(R.string.text_error))
         })
     }
 }

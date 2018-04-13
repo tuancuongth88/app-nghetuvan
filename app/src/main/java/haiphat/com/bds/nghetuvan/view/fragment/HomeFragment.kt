@@ -1,6 +1,5 @@
 package haiphat.com.bds.nghetuvan.view.fragment
 
-import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
@@ -19,8 +18,6 @@ import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
-import haiphat.com.bds.nghetuvan.view.news.NewsActivity
-import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.viewmodel.HomePageViewModel
 
 /**
@@ -44,15 +41,7 @@ class HomeFragment : BaseFragment() {
         recyclerview.layoutManager = GridLayoutManager(activity, 2)
         var adapter = HomeAdapter(list, onClick = {
             when (it.type ?: HomePageCategoryType.HomeGeneralNews) {
-                HomePageCategoryType.HomeGeneralNews -> {
-                    startActivity(Intent(activity, NewsActivity::class.java))
-                }
-                HomePageCategoryType.HomeInvestor -> {
-                    startActivity(Intent(activity, PartnerActivity::class.java))
-                }
-                else -> {
-                    startActivity(Intent(activity, NewsActivity::class.java))
-                }
+                //open screen activity
             }
         })
         recyclerview.adapter = adapter

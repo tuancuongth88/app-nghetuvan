@@ -11,7 +11,7 @@
 
         <android.support.constraint.ConstraintLayout
             style="@style/matchParent"
-            tools:context="haiphat.com.bds.nghetuvan.view.news.NewsActivity">
+            tools:context="haiphat.com.bds.nghetuvan.view.profile.SettingActivity">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/clHeader"

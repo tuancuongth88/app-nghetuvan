@@ -19,14 +19,11 @@ import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
-import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
 import haiphat.com.bds.nghetuvan.view.fragment.profile.ProfileFragment
-import haiphat.com.bds.nghetuvan.view.partner.PartnerActivity
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
-import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*

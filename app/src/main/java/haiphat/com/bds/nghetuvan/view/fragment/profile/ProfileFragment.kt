@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.fragment.profile
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
@@ -9,12 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.ProfileAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentProfileBinding
 import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
+import haiphat.com.bds.nghetuvan.view.profile.ChangePasswordActivity
+import haiphat.com.bds.nghetuvan.view.profile.UpdateInformationActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
 
 /**
@@ -40,20 +44,14 @@ class ProfileFragment : BaseFragment(){
         var adapter = context?.let { profileViewModel.listProfile(it) }?.let {
             ProfileAdapter(it, onClick = {
                 when (it.name) {
-//                    getString(R.string.profile_info_account) -> {
-//                        startActivityForResult(Intent(activity, UpdateInformationActivity::class.java), IntentActionKeys.UPDATE_ACCOUNT_INFORMATION)
-//                    }
-//                    getString(R.string.profile_change_email) -> {
-//                        startActivityForResult(Intent(activity, ChangeEmailActivity::class.java), IntentActionKeys.PROFILE_CHANGE_EMAIL)
-//                    }
-//                    getString(R.string.profile_change_password) -> {
-//                        startActivity(Intent(activity, ChangePasswordActivity::class.java))
-//                    }
-//                    getString(R.string.profile_consultation_calendar) -> {
-//                    }
-//                    getString(R.string.profile_message) -> {
-//
-//                    }
+                    getString(R.string.profile_info_account) -> {
+                        startActivityForResult(Intent(activity, UpdateInformationActivity::class.java), IntentActionKeys.UPDATE_ACCOUNT_INFORMATION)
+                    }
+                    getString(R.string.profile_change_password) -> {
+                        startActivity(Intent(activity, ChangePasswordActivity::class.java))
+                    }
+                    getString(R.string.profile_history_transactions) -> {
+                    }
                     getString(R.string.log_out) -> {
                         (activity as HomeActivity).showDialogLogOut()
                     }

@@ -36,7 +36,7 @@ class ProfileViewModel{
     fun listProfile(context: Context): ArrayList<ProfileModel> {
         var arrayList = ArrayList<ProfileModel>()
         arrayList.add(ProfileModel(R.drawable.ic_profile_info_account, context.getString(R.string.profile_info_account), R.drawable.ic_next))
-//        arrayList.add(ProfileModel(R.drawable.ic_profile_email, context.getString(R.string.profile_change_email), R.drawable.ic_next))
+        arrayList.add(ProfileModel(R.drawable.ic_profile_email, context.getString(R.string.title_action_bar_contact), R.drawable.ic_next))
         arrayList.add(ProfileModel(R.drawable.ic_profile_change_pass, context.getString(R.string.profile_change_password), R.drawable.ic_next))
         arrayList.add(ProfileModel(R.drawable.ic_profile_consultation_calendar, context.getString(R.string.profile_history_transactions), R.drawable.ic_next))
 //        arrayList.add(ProfileModel(R.drawable.ic_profile_info_sms, context.getString(R.string.profile_message), R.drawable.ic_next))

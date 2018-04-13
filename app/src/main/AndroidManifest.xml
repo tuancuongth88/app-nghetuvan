@@ -42,8 +42,8 @@
             android:name=".view.HomeActivity"
             android:label="@string/title_action_bar_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.news.NewsActivity" />
-        <activity android:name=".view.partner.PartnerActivity" />
+        <activity android:name=".view.profile.SettingActivity" />
+        <activity android:name=".view.profile.HistoryTransactionsActivity" />
         <activity android:name=".view.news.DetailNewsActivity" />
         <activity android:name=".view.partner.PartnerDetailActivity" />
         <activity android:name=".view.profile.ContactEmailActivity" />
@@ -55,7 +55,9 @@
         <!-- android:name="com.facebook.FacebookContentProvider" -->
         <!-- android:exported="true"/> -->
 
-        <activity android:name=".view.news.PostCommentActivity"></activity>
+        <activity android:name=".view.news.PostCommentActivity" />
+        <activity android:name=".view.profile.UpdateInformationActivity" />
+        <activity android:name=".view.profile.ChangePasswordActivity"></activity>
     </application>
 
 </manifest>
