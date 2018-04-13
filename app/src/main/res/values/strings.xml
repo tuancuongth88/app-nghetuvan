@@ -24,7 +24,7 @@
     <string name="text_validate_require_field_old_password">Mật khẩu cũ không được để trống</string>
     <string name="text_validate_require_field_new_password">Mật khẩu mới không được để trống</string>
     <string name="text_validate_require_field_new_confirm_password">Xác nhận mật khẩu mới không được để trống</string>
-
+    <string name="text_validate_require_field_content">Nội dung không được để trống</string>
 
     <string name="log_out">Thoát</string>
 
@@ -59,4 +59,5 @@
     <string name="profile_history_transactions">Lịch sử giao dịch</string>
     <string name="update_information_successfull">Cập thông tin tài khoản thành công!</string>
     <string name="change_password_successfull">Đổi mật khẩu thành công!</string>
+    <string name="contact_email_successfull">Gửi liên hệ thành công!</string>
 </resources>

@@ -68,4 +68,10 @@ class AuthApi : BaseApi() {
         builder.addFormDataPart("file", fileUpload.getName(), fileRequestBody)
         this.upload("/profileImage", builder, onResponse)
     }
+
+    fun sendContact(email: String?, phone: String?, content:String?, onResponse: (DgmResponse) -> Unit) {
+        val data = HashMap<String, String>()
+        data.put("email", email ?: "")
+        this.upload("upload-information", data, onResponse)
+    }
 }

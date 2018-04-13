@@ -18,6 +18,7 @@ import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.view.profile.ChangePasswordActivity
+import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.view.profile.UpdateInformationActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
 
@@ -46,6 +47,9 @@ class ProfileFragment : BaseFragment(){
                 when (it.name) {
                     getString(R.string.profile_info_account) -> {
                         startActivityForResult(Intent(activity, UpdateInformationActivity::class.java), IntentActionKeys.UPDATE_ACCOUNT_INFORMATION)
+                    }
+                    getString(R.string.title_action_bar_contact) -> {
+                        startActivity(Intent(activity, ContactEmailActivity::class.java))
                     }
                     getString(R.string.profile_change_password) -> {
                         startActivity(Intent(activity, ChangePasswordActivity::class.java))
