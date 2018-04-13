@@ -9,4 +9,6 @@ class UserResponse {
     var fullname: String? = null
     var avatar: String? = null
     var phone: String? = null
+    var birthday : String? = null
+    var idNumber : String? = null
 }

@@ -38,4 +38,13 @@ class AuthApi : BaseApi() {
         data.put("email", email ?: "")
         this.upload("forgotPassword", data, onResponse)
     }
+
+    fun updateProfile(fullName: String?, phone: String?, birthDay: String?, idNumber: String?, onResponse: (DgmResponse) -> Unit) {
+        val data = HashMap<String, String>()
+        data.put("email", fullName ?: "")
+        data.put("phone", phone ?: "")
+        data.put("birthday", birthDay ?: "")
+        data.put("idnumber", idNumber ?: "")
+        this.upload("upload-information", data, onResponse)
+    }
 }

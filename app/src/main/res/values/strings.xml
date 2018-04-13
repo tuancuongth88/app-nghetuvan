@@ -19,6 +19,8 @@
     <string name="text_validate_require_field_name">Tên không được để trống</string>
     <string name="text_validate_require_field_phone">Số điện thoại không được để trống</string>
     <string name="text_validate_phone_invalid">Số điện thoại không đúng định dạng</string>
+    <string name="text_validate_birth_day">Ngày sinh không được để trống</string>
+    <string name="text_validate_id_number">Số CMTND không được để trống</string>
 
 
     <string name="log_out">Thoát</string>
@@ -52,4 +54,5 @@
     <string name="profile_info_account">Cập nhật thông tin</string>
     <string name="profile_change_password">Đổi mật khẩu</string>
     <string name="profile_history_transactions">Lịch sử giao dịch</string>
+    <string name="update_information_successfull">Cập thông tin tài khoản thành công!</string>
 </resources>
