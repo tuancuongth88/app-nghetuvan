@@ -3,6 +3,10 @@ package haiphat.com.bds.nghetuvan.services.api.auth
 import haiphat.com.bds.nghetuvan.services.Config
 import haiphat.com.bds.nghetuvan.services.DgmResponse
 import haiphat.com.bds.nghetuvan.services.api.BaseApi
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
 import java.util.*
 
 /**
@@ -46,5 +50,22 @@ class AuthApi : BaseApi() {
         data.put("birthday", birthDay ?: "")
         data.put("idnumber", idNumber ?: "")
         this.upload("upload-information", data, onResponse)
+    }
+
+    fun changePassword(oldPassword: String?, newPassword: String?, confirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
+        val data = HashMap<String, String>()
+        data.put("oldPassword", oldPassword ?: "")
+        data.put("newPassword", newPassword ?: "")
+        data.put("confirmPassword", confirmPassword ?: "")
+        this.upload("upload-information", data, onResponse)
+    }
+
+    fun changeAvatar(path: String?, onResponse: (DgmResponse) -> Unit) {
+        val builder = MultipartBody.Builder()
+        builder.setType(MultipartBody.FORM)
+        val fileUpload = File(path)
+        val fileRequestBody = RequestBody.create(MediaType.parse("image/*"), fileUpload)
+        builder.addFormDataPart("file", fileUpload.getName(), fileRequestBody)
+        this.upload("/profileImage", builder, onResponse)
     }
 }

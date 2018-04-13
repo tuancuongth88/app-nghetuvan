@@ -23,6 +23,7 @@ class UpdateInformationActivity : BaseActivity() {
         dataBindingUpdateInformation.rippleSave.setOnRippleCompleteListener {
             updateAccountInformation()
         }
+        dataBindingUpdateInformation.rippleBack.setOnRippleCompleteListener { this.onBackPressed() }
         return dataBindingUpdateInformation.root
     }
 
