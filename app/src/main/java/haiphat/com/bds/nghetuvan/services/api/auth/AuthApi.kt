@@ -43,13 +43,19 @@ class AuthApi : BaseApi() {
         this.upload("forgotPassword", data, onResponse)
     }
 
-    fun updateProfile(fullName: String?, phone: String?, birthDay: String?, idNumber: String?, onResponse: (DgmResponse) -> Unit) {
+    fun updateProfile(userId : String?, fullName: String?, phone: String?, birthDay: String?, idNumber: String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
-        data.put("email", fullName ?: "")
+        data.put("fullname", fullName ?: "")
         data.put("phone", phone ?: "")
         data.put("birthday", birthDay ?: "")
-        data.put("idnumber", idNumber ?: "")
-        this.upload("upload-information", data, onResponse)
+        data.put("identity", idNumber ?: "")
+        this.upload("update-info-user/" + userId, data, onResponse)
+    }
+
+    fun getProfile(id: String?, onResponse: (DgmResponse) -> Unit) {
+        val params = HashMap<String, String>()
+        val queryString = this.parseUrlQueryStringWithParams("getprofile/" +id, params)
+        this.get(queryString, onResponse)
     }
 
     fun changePassword(oldPassword: String?, newPassword: String?, confirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
@@ -66,7 +72,7 @@ class AuthApi : BaseApi() {
         val fileUpload = File(path)
         val fileRequestBody = RequestBody.create(MediaType.parse("image/*"), fileUpload)
         builder.addFormDataPart("file", fileUpload.getName(), fileRequestBody)
-        this.upload("/profileImage", builder, onResponse)
+        this.upload("/change-avatar", builder, onResponse)
     }
 
     fun sendContact(email: String?, phone: String?, content:String?, onResponse: (DgmResponse) -> Unit) {

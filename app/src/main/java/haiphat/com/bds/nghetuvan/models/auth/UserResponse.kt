@@ -10,5 +10,5 @@ class UserResponse {
     var avatar: String? = null
     var phone: String? = null
     var birthday : String? = null
-    var idNumber : String? = null
+    var identity : String? = null
 }

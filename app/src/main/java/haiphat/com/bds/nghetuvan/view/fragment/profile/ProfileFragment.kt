@@ -72,4 +72,13 @@ class ProfileFragment : BaseFragment(){
         dataBindingFragmentProfile?.tvName?.text = userResponse?.fullname
         dataBindingFragmentProfile?.tvEmail?.text = userResponse?.email
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == IntentActionKeys.KEY_RELOAD_DATA){
+            UserServices.userInfo?.let {
+                bindData(it)
+            }
+        }
+    }
 }

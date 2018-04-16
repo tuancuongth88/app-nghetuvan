@@ -30,7 +30,10 @@ object UserServices {
         this.userInfo = loginResponse?.user
         SharePreferencesLoaders.saveValue(SharePreferencesKeys.USER_INFO, userInfo?.let { GsonUtil.toJson(it) })
         SharePreferencesLoaders.saveValue(SharePreferencesKeys.ACCESS_TOKEN, this.accessToken)
-
+    }
+    fun saveProfile(userResponse: UserResponse?){
+        this.userInfo = userResponse
+        SharePreferencesLoaders.saveValue(SharePreferencesKeys.USER_INFO, userInfo?.let { GsonUtil.toJson(it) })
     }
 
     fun logout() {
