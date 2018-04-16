@@ -3,12 +3,15 @@ package haiphat.com.bds.nghetuvan.view.fragment.profile
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.support.v4.content.ContextCompat
 import android.support.v4.content.FileProvider
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -57,8 +60,11 @@ class ProfileFragment : BaseFragment(){
         }
         dataBindingFragmentProfile.rivAvatar.setOnClickListener {
             var dialogChangeImage = DialogChangeAvatar(activity, onSelectedCamera = {
-
-                requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA), IntentActionKeys.REQUEST_CAMERA_PERMISSION)
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA), IntentActionKeys.REQUEST_CAMERA_PERMISSION)
+                }else{
+                    openCamera()
+                }
             }, onSelectedGallery = {
                 requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), IntentActionKeys.REQUEST_SELECT_FILE_PERMISSION)
             })
@@ -107,7 +113,11 @@ class ProfileFragment : BaseFragment(){
         ShowLoading.show(activity)
         profileViewModel.updateAvatar(pathTofFile, onSuccess = {
             ShowLoading.dismiss()
-            ShowAlert.fail(pContext = context,dialogTitle = getString(R.string.alert_title_inform), message = it)
+            ShowAlert.fail(pContext = context,dialogTitle = getString(R.string.alert_title_inform), message = it, onClick = {
+                UserServices.userInfo?.let {
+                    bindData(it)
+                }
+            })
         }, onFailed = {
             ShowAlert.fail(pContext = context, message = it)
             ShowLoading.dismiss()
