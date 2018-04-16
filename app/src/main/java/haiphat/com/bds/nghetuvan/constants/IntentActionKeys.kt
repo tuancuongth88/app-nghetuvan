@@ -10,6 +10,8 @@ class IntentActionKeys {
         const val KEY_NEWS_ID = "KEY_NEWS_ID"
 
 
+        const val REQUEST_CAMERA_PERMISSION = 112
+        const val REQUEST_SELECT_FILE_PERMISSION = 113
         const val UPDATE_ACCOUNT_INFORMATION = 111
         const val SCREEN_POST_COMMENT = 110
         const val KEY_RELOAD_DATA = 1124

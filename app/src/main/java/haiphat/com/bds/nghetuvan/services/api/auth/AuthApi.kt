@@ -66,13 +66,13 @@ class AuthApi : BaseApi() {
         this.upload("upload-information", data, onResponse)
     }
 
-    fun changeAvatar(path: String?, onResponse: (DgmResponse) -> Unit) {
+    fun changeAvatar(userId: String?, path: String?, onResponse: (DgmResponse) -> Unit) {
         val builder = MultipartBody.Builder()
         builder.setType(MultipartBody.FORM)
         val fileUpload = File(path)
         val fileRequestBody = RequestBody.create(MediaType.parse("image/*"), fileUpload)
-        builder.addFormDataPart("file", fileUpload.getName(), fileRequestBody)
-        this.upload("/change-avatar", builder, onResponse)
+        builder.addFormDataPart("avatar", fileUpload.getName(), fileRequestBody)
+        this.upload("change-avatar/" + userId, builder, onResponse)
     }
 
     fun sendContact(email: String?, phone: String?, content:String?, onResponse: (DgmResponse) -> Unit) {

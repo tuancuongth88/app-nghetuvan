@@ -60,4 +60,8 @@
     <string name="update_information_successfull">Cập thông tin tài khoản thành công!</string>
     <string name="change_password_successfull">Đổi mật khẩu thành công!</string>
     <string name="contact_email_successfull">Gửi liên hệ thành công!</string>
+    <string name="change_image_select_file">Chọn ảnh</string>
+    <string name="change_image_title">Đổi ảnh đại diện</string>
+    <string name="change_image_camera">Sử dụng máy ảnh</string>
+    <string name="change_image_gallery">Sử dụng thư viện ảnh</string>
 </resources>

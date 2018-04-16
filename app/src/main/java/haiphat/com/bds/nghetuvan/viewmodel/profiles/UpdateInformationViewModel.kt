@@ -3,8 +3,7 @@ package haiphat.com.bds.nghetuvan.viewmodel.profiles
 import android.databinding.BaseObservable
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.models.auth.AuthResponse
-import haiphat.com.bds.nghetuvan.models.auth.UpdateInformationResponse
+import haiphat.com.bds.nghetuvan.models.auth.ProfileResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
@@ -21,13 +20,13 @@ class UpdateInformationViewModel : BaseObservable(){
 
     fun updateInformation(onSuccess: () -> Unit, onFailed: (String?) -> Unit) {
         AuthApi().updateProfile(UserServices?.userInfo?.id, fullName, phone, birthDay, idNumber, onResponse = {
-            val updateInformationResponse = GsonUtil.fromJson(it?.responseContent, UpdateInformationResponse::class.java)
+            val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
             it?.isSuccess()?.let {
-                updateInformationResponse?.data?.let {
-                    UserServices.saveProfile(updateInformationResponse?.data)
+                profileResponse?.data?.let {
+                    UserServices.saveProfile(profileResponse?.data)
                     onSuccess()
                 }?: onFailed(BaseApplication.context.getString(R.string.text_error))
-            } ?: updateInformationResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
+            } ?: profileResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
 
         })
     }

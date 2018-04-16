@@ -1,37 +1,38 @@
 package haiphat.com.bds.nghetuvan.viewmodel.profiles
 
 import android.content.Context
+import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.models.auth.ProfileResponse
+import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
+import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.services.UserServices
+import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
 
 /**
  * Created by HUONG HA^P on 4/12/2018.
  */
 class ProfileViewModel{
 
-//    fun updateAvatar(path : String? , onSuccess : () ->Unit, onFailed : (String?) -> Unit) {
-//        UserApi().updateAvatar(path, onResponse = {
-//            if (it.isSuccess()){
-//                onSuccess()
-//            }else{
-//                onFailed(it.getErrorMessage())
-//            }
-//        })
-//    }
-//
-//    fun getProfile(onSuccess: (UserResponse) -> Unit, onFailed: (String?) -> Unit) {
-//        UserApi().getProfile( onResponse = {
-//            val userResponse = GsonUtil.fromJson(it.responseContent, UserResponse::class.java)
-//            if (it.isSuccess()) {
-//                userResponse?.let {
-//                    UserServices.saveProfile(userResponse)
-//                    onSuccess(it)
-//                }
-//            } else {
-//                onFailed(it.getErrorMessage())
-//            }
-//        })
-//    }
+    fun updateAvatar(path : String? , onSuccess : (String?) ->Unit, onFailed : (String?) -> Unit) {
+        AuthApi().changeAvatar(UserServices?.userInfo?.id, path, onResponse = {
+            val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
+            profileResponse?.data?.let {
+                UserServices.saveProfile(it)
+                onSuccess(profileResponse?.message)
+            }?: onFailed(BaseApplication.context.getString(R.string.text_error))
+        })
+    }
+
+    fun getProfile(onSuccess: (UserResponse) -> Unit, onFailed: (String?) -> Unit) {
+        AuthApi().getProfile(UserServices?.userInfo?.id,onResponse = {
+            val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
+            profileResponse?.data?.let {
+                onSuccess(it)
+            }?: onFailed(BaseApplication.context.getString(R.string.text_error))
+        })
+    }
 
     fun listProfile(context: Context): ArrayList<ProfileModel> {
         var arrayList = ArrayList<ProfileModel>()
