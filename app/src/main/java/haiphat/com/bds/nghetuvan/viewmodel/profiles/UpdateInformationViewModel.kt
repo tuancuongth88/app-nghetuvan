@@ -21,7 +21,7 @@ class UpdateInformationViewModel : BaseObservable(){
     fun updateInformation(onSuccess: () -> Unit, onFailed: (String?) -> Unit) {
         AuthApi().updateProfile(UserServices?.userInfo?.id, fullName, phone, birthDay, idNumber, onResponse = {
             val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
-            it?.isSuccess()?.let {
+            it?.status?.let {
                 profileResponse?.data?.let {
                     UserServices.saveProfile(profileResponse?.data)
                     onSuccess()

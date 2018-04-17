@@ -17,7 +17,7 @@ class RegisterViewModel {
     fun register(onSuccess : (String) ->Unit, onFailed : (String?) -> Unit){
         AuthApi().register(email, fullName, password, confirmPassword, phone,onResponse = {
             val registerResponse = GsonUtil.fromJson(it.responseContent, BaseResponse::class.java)
-            it?.isSuccess()?.let {
+            it?.status?.let {
                 registerResponse?.message?.let { it1 -> onSuccess(it1) }
             } ?: onFailed(it.getErrorMessage())
         })

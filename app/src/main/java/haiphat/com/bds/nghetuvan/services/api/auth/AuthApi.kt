@@ -76,12 +76,6 @@ class AuthApi : BaseApi() {
         this.upload("change-avatar/" + userId, builder, onResponse)
     }
 
-    fun sendContact(email: String?, phone: String?, content:String?, onResponse: (DgmResponse) -> Unit) {
-        val data = HashMap<String, String>()
-        data.put("email", email ?: "")
-        this.upload("upload-information", data, onResponse)
-    }
-
     fun activeAccount(codeActive:String?, onResponse: (DgmResponse) -> Unit){
         this.upload("active-account/" + codeActive, HashMap<String, String>(), onResponse)
     }

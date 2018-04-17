@@ -1,9 +1,10 @@
 package haiphat.com.bds.nghetuvan.models.news
 
+import haiphat.com.bds.nghetuvan.models.BaseResponse
+
 /**
  * Created by HUONG HA^P on 3/29/2018.
  */
-data class ListCategory(var status: String? = null,
-                        var data: ArrayList<CategoryNewsResponse>? = null,
-                        var message: String? = null
-)
+ class ListCategory : BaseResponse() {
+    var data: ArrayList<CategoryNewsResponse>? = null
+}
