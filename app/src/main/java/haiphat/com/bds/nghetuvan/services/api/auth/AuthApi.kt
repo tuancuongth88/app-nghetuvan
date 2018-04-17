@@ -28,12 +28,13 @@ class AuthApi : BaseApi() {
         this.upload("login", data, onResponse)
     }
 
-    fun register(email: String?, fullName: String?, password: String?, confirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
+    fun register(email: String?, fullName: String?, password: String?, confirmPassword: String?, phone: String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
         data.put("email", email ?: "")
         data.put("fullname", fullName ?: "")
         data.put("password", password ?: "")
         data.put("password_confirmation", confirmPassword ?: "")
+        data.put("phone", phone ?: "")
         this.upload("signup", data, onResponse)
     }
 
@@ -79,5 +80,9 @@ class AuthApi : BaseApi() {
         val data = HashMap<String, String>()
         data.put("email", email ?: "")
         this.upload("upload-information", data, onResponse)
+    }
+
+    fun activeAccount(codeActive:String?, onResponse: (DgmResponse) -> Unit){
+        this.upload("active-account/" + codeActive, HashMap<String, String>(), onResponse)
     }
 }
