@@ -1,6 +1,5 @@
 package haiphat.com.bds.nghetuvan.viewmodel
 
-import haiphat.com.bds.nghetuvan.models.HomePageResponse
 import haiphat.com.bds.nghetuvan.models.auth.ProfileResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices
