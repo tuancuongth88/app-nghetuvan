@@ -49,9 +49,5 @@ open class DgmResponse {
         }
         return messages?.let { it } ?: BaseApplication.context.getString(R.string.text_error)
     }
-
-    fun hasNetwordError(): Boolean {
-        return this.exception != null
-    }
 }
 

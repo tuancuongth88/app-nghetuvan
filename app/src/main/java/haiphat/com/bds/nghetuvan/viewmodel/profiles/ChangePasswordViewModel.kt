@@ -7,7 +7,7 @@ import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
 /**
  * Created by HUONG HA^P on 4/13/2018.
  */
-class ChangePasswordViewModel (){
+class ChangePasswordViewModel{
 
     var oldPassword: String? = null
     var newPassword: String? = null

@@ -22,6 +22,7 @@ class ContactEmailActivity : BaseActivity() {
         dataBindingContactEmail.rippleSave.setOnRippleCompleteListener {
             sendContact()
         }
+        dataBindingContactEmail.contactEmailViewModel = contactEmailViewModel
         dataBindingContactEmail.rippleBack.setOnRippleCompleteListener { this.onBackPressed() }
         return dataBindingContactEmail.root
     }
@@ -29,6 +30,7 @@ class ContactEmailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHeaderVisibility(View.GONE)
+        contactEmailViewModel.setData()
     }
 
     private fun sendContact() {
@@ -37,6 +39,8 @@ class ContactEmailActivity : BaseActivity() {
             contactEmailViewModel.email = dataBindingContactEmail.telEmail.text.toString()
             contactEmailViewModel.phone = dataBindingContactEmail.telPhone.text.toString()
             contactEmailViewModel.content = dataBindingContactEmail.telContent.text.toString()
+            contactEmailViewModel.name = dataBindingContactEmail.telName.text.toString()
+            contactEmailViewModel.address = dataBindingContactEmail.telAddress.text.toString()
             contactEmailViewModel.sendContact(onSuccess = {
                 ShowLoading.dismiss()
                 ShowAlert.fail(pContext = this@ContactEmailActivity, dialogTitle = getString(R.string.alert_title_inform), message = getString(R.string.contact_email_successfull))

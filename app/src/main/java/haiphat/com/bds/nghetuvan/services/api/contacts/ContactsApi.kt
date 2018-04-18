@@ -28,6 +28,6 @@ class ContactsApi : BaseApi() {
         data.put("phone", phone ?: "")
         data.put("description", description ?: "")
         data.put("address", address ?: "")
-        this.upload("upload-information", data, onResponse)
+        this.upload("send-email", data, onResponse)
     }
 }
