@@ -66,11 +66,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </haiphat.com.bds.nghetuvan.utils.RippleView>
-        </android.support.constraint.ConstraintLayout>
 
-        <View
-            android:id="@+id/viewLine"
-            style="@style/viewLine" />
+        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/clContent"
