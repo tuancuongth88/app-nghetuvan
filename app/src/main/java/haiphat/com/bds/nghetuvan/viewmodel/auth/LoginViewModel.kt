@@ -22,8 +22,8 @@ class LoginViewModel {
                 authResponse?.data?.let {
                     UserServices.saveUserInfo(authResponse?.data)
                     onSuccess()
-                }?: onFailed(BaseApplication.context.getString(R.string.text_error))
-            } ?: authResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
+                }
+            } ?: onFailed(it.getErrorMessage())
 
         })
     }

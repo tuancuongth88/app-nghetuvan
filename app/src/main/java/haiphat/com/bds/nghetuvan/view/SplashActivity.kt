@@ -49,6 +49,7 @@ class SplashActivity : AppCompatActivity() {
         val intent = intent
         if (Intent.ACTION_VIEW != intent.action) {
             controlOpenMainScreen()
+            return
         }
         if (intent.data.path.contains("/user/activation")) {
             var codeActive = intent.data.lastPathSegment

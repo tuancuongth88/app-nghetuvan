@@ -37,11 +37,11 @@ open class DgmResponse {
 
     fun getErrorMessage(): String? {
         if (TextUtils.isEmpty(responseContent)) {
-            return if (statusCode == 0) {
+            if (statusCode == 0) {
                 if (exception is TimeoutException || exception is SocketTimeoutException) {
-                    BaseApplication.context.getString(R.string.text_cannot_connect_to_server)
+                    return BaseApplication.context.getString(R.string.text_cannot_connect_to_server)
                 } else {
-                    BaseApplication.context.getString(R.string.text_no_internet_connection)
+                    return BaseApplication.context.getString(R.string.text_no_internet_connection)
                 }
             } else {
                 null
