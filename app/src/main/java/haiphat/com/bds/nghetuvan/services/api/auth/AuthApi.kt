@@ -59,12 +59,13 @@ class AuthApi : BaseApi() {
         this.get(queryString, onResponse)
     }
 
-    fun changePassword(oldPassword: String?, newPassword: String?, confirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
+    fun changePassword(userId: String?, oldPassword: String?, newPassword: String?, newConfirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
-        data.put("oldPassword", oldPassword ?: "")
-        data.put("newPassword", newPassword ?: "")
-        data.put("confirmPassword", confirmPassword ?: "")
-        this.upload("upload-information", data, onResponse)
+        data.put("old_password", oldPassword ?: "")
+        data.put("new_password", newPassword ?: "")
+        data.put("new_password_confirmation", newConfirmPassword ?: "")
+        val queryString = this.parseUrlQueryStringWithParams("change-password/" +userId, data)
+        this.upload("change-password/" + userId, data, onResponse)
     }
 
     fun changeAvatar(userId: String?, path: String?, onResponse: (DgmResponse) -> Unit) {
