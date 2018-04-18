@@ -46,7 +46,7 @@ class ContactEmailActivity : BaseActivity() {
                 ShowAlert.fail(pContext = this@ContactEmailActivity, dialogTitle = getString(R.string.alert_title_inform), message = getString(R.string.contact_email_successfull))
             }, onFailed = {
                 ShowLoading.dismiss()
-                ShowAlert.fail(pContext = this@ContactEmailActivity, message = getString(R.string.text_error))
+                ShowAlert.fail(pContext = this@ContactEmailActivity, message = it)
             })
         }
     }

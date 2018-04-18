@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
+import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
@@ -44,6 +45,7 @@ class BaseNewsFragment : BaseFragment() {
             ShowLoading.dismiss()
         }, onFailed = {
             ShowLoading.dismiss()
+            ShowAlert.fail(pContext = activity, message = it)
         })
     }
 

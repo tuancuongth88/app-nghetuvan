@@ -55,7 +55,7 @@ class SettingActivity : BaseActivity() {
             }, 1000)
         }, onFailed = {
             ShowLoading.dismiss()
-            ShowAlert.fail(pContext = this@SettingActivity, message = getString(R.string.text_error))
+            ShowAlert.fail(pContext = this@SettingActivity, message = it)
         })
     }
 }

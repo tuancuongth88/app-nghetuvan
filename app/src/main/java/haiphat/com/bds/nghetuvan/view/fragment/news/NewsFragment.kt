@@ -61,7 +61,7 @@ class NewsFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
             initNewsAdapter(it)
         }, onFailed = {
             dataBindingFragmentNews.swipeRefreshLayout.isRefreshing = false
-            ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
+            ShowAlert.fail(pContext = activity, message = it)
         })
     }
 

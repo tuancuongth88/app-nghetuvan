@@ -25,8 +25,8 @@ class UpdateInformationViewModel : BaseObservable(){
                 profileResponse?.data?.let {
                     UserServices.saveProfile(profileResponse?.data)
                     onSuccess()
-                }?: onFailed(BaseApplication.context.getString(R.string.text_error))
-            } ?: profileResponse?.let { onFailed(it.message) } ?: onFailed(it.getErrorMessage())
+                }
+            } ?: onFailed(it.getErrorMessage())
 
         })
     }

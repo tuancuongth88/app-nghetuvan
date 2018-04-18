@@ -21,7 +21,7 @@ class ProfileViewModel{
             profileResponse?.data?.let {
                 UserServices.saveProfile(it)
                 onSuccess(profileResponse?.message)
-            }?: onFailed(BaseApplication.context.getString(R.string.text_error))
+            }?: onFailed(it.getErrorMessage())
         })
     }
 
@@ -30,7 +30,7 @@ class ProfileViewModel{
             val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
             profileResponse?.data?.let {
                 onSuccess(it)
-            }?: onFailed(BaseApplication.context.getString(R.string.text_error))
+            }?: onFailed(it.getErrorMessage())
         })
     }
 

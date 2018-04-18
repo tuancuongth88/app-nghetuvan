@@ -17,7 +17,8 @@ open class DgmResponse {
     var statusCode: Int? = 0
     var responseContent: String? = null
     var exception: Exception? = null
-    var messages : String? = null
+    var messages: String? = null
+
     constructor(exception: Exception) {
         this.exception = exception
     }
@@ -36,18 +37,15 @@ open class DgmResponse {
     }
 
     fun getErrorMessage(): String? {
-        if (TextUtils.isEmpty(responseContent)) {
-            if (statusCode == 0) {
-                if (exception is TimeoutException || exception is SocketTimeoutException) {
-                    return BaseApplication.context.getString(R.string.text_cannot_connect_to_server)
-                } else {
-                    return BaseApplication.context.getString(R.string.text_no_internet_connection)
-                }
+        if (TextUtils.isEmpty(responseContent) && statusCode == 0) {
+            if (exception is TimeoutException || exception is SocketTimeoutException) {
+                return BaseApplication.context.getString(R.string.text_cannot_connect_to_server)
             } else {
-                null
+                return BaseApplication.context.getString(R.string.text_no_internet_connection)
             }
         }
         return messages?.let { it } ?: BaseApplication.context.getString(R.string.text_error)
+
     }
 }
 

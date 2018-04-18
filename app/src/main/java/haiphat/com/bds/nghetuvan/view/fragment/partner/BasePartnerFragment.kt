@@ -64,7 +64,7 @@ class BasePartnerFragment : BaseFragment() {
             ShowLoading.dismiss()
         }, onFailed = {
             ShowLoading.dismiss()
-            ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
+            ShowAlert.fail(pContext = activity, message = it)
         })
     }
 
@@ -115,7 +115,7 @@ class BasePartnerFragment : BaseFragment() {
                 initPartnerAdapter(it)
             }, onFailed = {
                 dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
-                ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
+                ShowAlert.fail(pContext = activity, message = it)
             })
         }
 
