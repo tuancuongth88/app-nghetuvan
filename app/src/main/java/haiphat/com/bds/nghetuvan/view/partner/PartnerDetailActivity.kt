@@ -36,7 +36,6 @@ class PartnerDetailActivity : BaseActivity() {
             onBackPressed()
         }
         dataBindingDetailPartner.rippleSetting.setOnRippleCompleteListener {
-            //Intent share facebook
             CommonUtil.shareAppLinkViaFacebook(this, "https://www.facebook.com/dacsanamthuccaobang/?ref=all_category_pyml_rhc")
 
         }

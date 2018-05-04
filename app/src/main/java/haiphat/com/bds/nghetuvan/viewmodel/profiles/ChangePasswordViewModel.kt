@@ -18,9 +18,11 @@ class ChangePasswordViewModel {
     fun changePassword(onSuccess: () -> Unit, onFailed: (String?) -> Unit) {
         AuthApi().changePassword(UserServices.userInfo?.id, oldPassword, newPassword, confirmPassword, onResponse = {
             var dataResponse = GsonUtil.fromJson(it.responseContent, BaseResponse::class.java)
-            dataResponse?.status?.let {
+            if (dataResponse?.status == true) {
                 onSuccess()
-            } ?: onFailed(it.getErrorMessage())
+            } else {
+                onFailed(it.getErrorMessage())
+            }
         })
     }
 

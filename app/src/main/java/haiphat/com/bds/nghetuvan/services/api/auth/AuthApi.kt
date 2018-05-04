@@ -64,7 +64,6 @@ class AuthApi : BaseApi() {
         data.put("old_password", oldPassword ?: "")
         data.put("new_password", newPassword ?: "")
         data.put("new_password_confirmation", newConfirmPassword ?: "")
-        val queryString = this.parseUrlQueryStringWithParams("change-password/" +userId, data)
         this.upload("change-password/" + userId, data, onResponse)
     }
 
