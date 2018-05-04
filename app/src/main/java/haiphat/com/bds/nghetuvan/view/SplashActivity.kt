@@ -7,17 +7,9 @@ import android.os.Looper
 import android.support.v7.app.AppCompatActivity
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.services.UserServices
-import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
-import android.content.pm.PackageManager
-import android.provider.SyncStateContract.Helpers.update
-import com.facebook.FacebookSdk.getApplicationContext
-import android.content.pm.PackageInfo
-import android.app.Activity
-import android.util.Base64
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
+import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
 import haiphat.com.bds.nghetuvan.viewmodel.SplashViewModel
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 
 class SplashActivity : AppCompatActivity() {

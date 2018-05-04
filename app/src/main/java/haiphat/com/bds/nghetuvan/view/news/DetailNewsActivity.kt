@@ -42,7 +42,7 @@ class DetailNewsActivity : BaseActivity() {
             onBackPressed()
         }
         dataBindingDetailNews.rippleSetting.setOnRippleCompleteListener {
-            CommonUtil.shareAppLinkViaFacebook("https://developers.facebook.com")
+            CommonUtil.shareAppLinkViaFacebook(this,"https://developers.facebook.com")
         }
         return dataBindingDetailNews.root
     }

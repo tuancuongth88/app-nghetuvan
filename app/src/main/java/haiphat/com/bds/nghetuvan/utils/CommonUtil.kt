@@ -6,7 +6,9 @@ import haiphat.com.bds.nghetuvan.models.HomePageCategoryType
 import android.support.v4.content.ContextCompat.startActivity
 import android.content.Intent
 import android.net.Uri
-import com.facebook.share.model.ShareLinkContent
+import android.support.v4.content.ContextCompat.startActivity
+
+
 
 
 
@@ -35,10 +37,11 @@ class CommonUtil {
             return ret
         }
 
-        fun shareAppLinkViaFacebook(urlToShare: String) {
-            val content = ShareLinkContent.Builder()
-                    .setContentUrl(Uri.parse(urlToShare))
-                    .build()
+        fun shareAppLinkViaFacebook(activity : Activity, urlToShare: String) {
+            val share = Intent(android.content.Intent.ACTION_SEND)
+            share.type = "text/plain"
+            share.putExtra(Intent.EXTRA_TEXT, urlToShare)
+            activity.startActivity(share)
         }
     }
 }

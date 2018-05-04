@@ -9,6 +9,7 @@ import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityPartnerDetailBinding
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
@@ -36,6 +37,7 @@ class PartnerDetailActivity : BaseActivity() {
         }
         dataBindingDetailPartner.rippleSetting.setOnRippleCompleteListener {
             //Intent share facebook
+            CommonUtil.shareAppLinkViaFacebook(this, "https://www.facebook.com/dacsanamthuccaobang/?ref=all_category_pyml_rhc")
 
         }
         return dataBindingDetailPartner.root

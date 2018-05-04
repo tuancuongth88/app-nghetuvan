@@ -87,13 +87,13 @@
 
                     <TextView
                         android:id="@+id/tvName"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:ellipsize="end"
                         android:fontFamily="sans-serif"
                         android:maxLines="1"
-                        android:text="Hải phat"
+                        android:singleLine="true"
+                        android:text="Hải phat techtoginadf"
                         android:textColor="@color/colorWhite"
                         android:textSize="24sp"
                         android:textStyle="normal"
