@@ -47,9 +47,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setNavigationIcon(R.drawable.ic_menu)
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(Gravity.LEFT)
-            UserServices.userInfo?.let {
-                updateUINavigation(it)
-            }
         }
         imgSearch.setOnClickListener { clickSearch() }
         supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment.newInstance()).commitAllowingStateLoss()
@@ -59,6 +56,9 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun initView() {
         navigationLayout = layoutInflater.inflate(R.layout.nav_header_home, null)
         val recyclerView = navigationLayout.rvNavItem
+        UserServices.userInfo?.let {
+            updateUINavigation(it)
+        }
         navigationLayout.clUser.setOnClickListener {
             var fragmentProfile = ProfileFragment()
             supportFragmentManager.beginTransaction().replace(R.id.flContent, fragmentProfile).commitAllowingStateLoss()
