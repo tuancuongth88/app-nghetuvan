@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
+import android.widget.ImageButton
 import android.widget.TextView
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.NavItemProfileAdapter
@@ -25,6 +26,7 @@ import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
 import haiphat.com.bds.nghetuvan.view.fragment.profile.ProfileFragment
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
+import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
@@ -47,6 +49,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setNavigationIcon(R.drawable.ic_menu)
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(Gravity.LEFT)
+            getProfile()
         }
         imgSearch.setOnClickListener { clickSearch() }
         supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment.newInstance()).commitAllowingStateLoss()
@@ -104,17 +107,21 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setTitleTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
     }
 
+    private fun getProfile(){
+        ProfileViewModel().getProfile(onSuccess = {
+            updateUINavigation(it)
+        }, onFailed = {})
+    }
+
     private fun updateUINavigation(userResponse: UserResponse?) {
         navigationLayout.rivAvatar.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
         navigationLayout.tvName.text = userResponse?.fullname
         navigationLayout.tvEmail.text = userResponse?.email
     }
 
-
     private fun clickSearch() {
-        //call api search
-    }
 
+    }
 
     fun showDialogLogOut() {
         ShowAlert.confirm(this@HomeActivity, message = getString(R.string.profile_logout_confirm), onClick = {
