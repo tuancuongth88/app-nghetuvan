@@ -62,9 +62,6 @@
         <activity android:name=".view.news.DetailNewsActivity" />
         <activity android:name=".view.partner.PartnerDetailActivity" />
         <activity android:name=".view.profile.ContactEmailActivity" />
-        <activity
-            android:name=".view.fragment.contact.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- <provider android:authorities="com.facebook.app.FacebookContentProvider1487886458000394" -->
         <!-- android:name="com.facebook.FacebookContentProvider" -->

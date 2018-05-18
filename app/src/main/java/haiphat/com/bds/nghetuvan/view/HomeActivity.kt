@@ -11,7 +11,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import android.widget.ImageButton
 import android.widget.TextView
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.NavItemProfileAdapter
@@ -24,6 +23,7 @@ import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
 import haiphat.com.bds.nghetuvan.view.fragment.profile.ProfileFragment
+import haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.ProjectWarehouseFragment
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
@@ -76,6 +76,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     fragment = HomeFragment.newInstance()
                     toolbar.title = getString(R.string.title_action_bar_home)
 
+                }
+                getString(R.string.title_action_bar_duan) ->{
+                    fragment = ProjectWarehouseFragment()
+                    toolbar.title = ""
                 }
                 getString(R.string.title_action_bar_partner) -> {
                     fragment = BasePartnerFragment()

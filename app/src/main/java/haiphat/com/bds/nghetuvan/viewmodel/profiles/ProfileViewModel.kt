@@ -10,9 +10,6 @@ import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
 
-/**
- * Created by HUONG HA^P on 4/12/2018.
- */
 class ProfileViewModel{
 
     fun updateAvatar(path : String? , onSuccess : (String?) ->Unit, onFailed : (String?) -> Unit) {

@@ -143,7 +143,7 @@ class ProfileFragment : BaseFragment(){
         imageUri = context?.let {
             FileProvider.getUriForFile(it, it.packageName,
                     File(Environment.getExternalStorageDirectory(), System.currentTimeMillis().toString() + ".jpg"))
-        }!!
+        }
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
         startActivityForResult(intent, REQUEST_CAMERA)
     }
