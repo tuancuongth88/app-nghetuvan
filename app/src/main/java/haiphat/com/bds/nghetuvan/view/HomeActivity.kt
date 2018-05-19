@@ -92,7 +92,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 getString(R.string.title_action_bar_contact) -> {
                     startActivity(Intent(this@HomeActivity, ContactEmailActivity::class.java))
                 }
-
                 getString(R.string.log_out) -> {
                     showDialogLogOut()
                 }

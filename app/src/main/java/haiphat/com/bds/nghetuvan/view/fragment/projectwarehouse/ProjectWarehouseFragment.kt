@@ -11,11 +11,12 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.project.ProjectWarehouseAdapter
 import haiphat.com.bds.nghetuvan.databinding.FragmentProjectWarehouseBinding
 import haiphat.com.bds.nghetuvan.models.project.ProjectWarehouseResponse
+import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.project.ProjectWarehouseViewModel
 
-class ProjectWarehouseFragment : BaseFragment(){
+class ProjectWarehouseFragment: BaseFragment(){
 
     private lateinit var dataBindingFragmentProjectWarehouse: FragmentProjectWarehouseBinding
     private var projectWarehouseViewModel = ProjectWarehouseViewModel()
@@ -29,7 +30,6 @@ class ProjectWarehouseFragment : BaseFragment(){
     private fun initViewAdapter(list: ArrayList<ProjectWarehouseResponse>){
         var recyclerView = dataBindingFragmentProjectWarehouse.rvProjectWarehouse
         var adapter = ProjectWarehouseAdapter(list, onClick = {
-
         })
         val linearLayoutManager = LinearLayoutManager(activity)
         recyclerView?.layoutManager = linearLayoutManager
@@ -41,7 +41,7 @@ class ProjectWarehouseFragment : BaseFragment(){
         projectWarehouseViewModel.getItemProjectWarehouse(onSuccess = {
             initViewAdapter(it)
         }, onFailed = {
-
+            ShowAlert.fail(pContext = context, message = it)
         })
     }
 

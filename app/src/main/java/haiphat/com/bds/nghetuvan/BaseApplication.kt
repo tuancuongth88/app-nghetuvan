@@ -42,7 +42,7 @@ class BaseApplication : MultiDexApplication() {
             }
 
             override fun onActivityCreated(p0: Activity?, p1: Bundle?) {
-                p0?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                p0?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
 
         })
