@@ -139,7 +139,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
         //TODO call api search course
         val currentFragment = getCurrentFragment()
-        if (currentFragment != null && currentFragment?.isAdded && currentFragment?.isVisible && currentFragment is BaseFragment) {
+        if (currentFragment != null && currentFragment.isAdded && currentFragment.isVisible && currentFragment is BaseFragment) {
 //            (currentFragment as BaseFragment).onSearchClick(edSearch.text.toString())
         }
         return true

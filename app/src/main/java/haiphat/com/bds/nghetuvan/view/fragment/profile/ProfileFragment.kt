@@ -77,7 +77,7 @@ class ProfileFragment : BaseFragment(){
     }
     
     private fun initView(){
-        val recyclerView = dataBindingFragmentProfile?.rvProfile
+        val recyclerView = dataBindingFragmentProfile.rvProfile
         var adapter = context?.let { profileViewModel.listProfile(it) }?.let {
             ProfileAdapter(it, onClick = {
                 when (it.name) {
@@ -99,14 +99,14 @@ class ProfileFragment : BaseFragment(){
             })
         }
         val linearLayoutManager = LinearLayoutManager(activity)
-        recyclerView?.layoutManager = linearLayoutManager
-        recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = adapter
+        recyclerView.layoutManager = linearLayoutManager
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = adapter
     }
     private fun bindData(userResponse: UserResponse?) {
-        dataBindingFragmentProfile?.rivAvatar?.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
-        dataBindingFragmentProfile?.tvName?.text = userResponse?.fullname
-        dataBindingFragmentProfile?.tvEmail?.text = userResponse?.email
+        dataBindingFragmentProfile.rivAvatar.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
+        dataBindingFragmentProfile.tvName.text = userResponse?.fullname
+        dataBindingFragmentProfile.tvEmail.text = userResponse?.email
     }
 
     private fun changeAvatar(pathTofFile: String) {
@@ -149,7 +149,8 @@ class ProfileFragment : BaseFragment(){
     }
 
     private fun openGallery() {
-        val intent = Intent()
+        val intent =
+                Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, getString(R.string.change_image_select_file)), SELECT_FILE)

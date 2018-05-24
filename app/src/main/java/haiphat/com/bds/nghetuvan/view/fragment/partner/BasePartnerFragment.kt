@@ -74,7 +74,7 @@ class BasePartnerFragment : BaseFragment() {
         var listCategoryPartner = ArrayList<CategoryPartnerResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return ContentFragment.newInstance(listCategoryPartner?.get(position)?.id)
+            return ContentFragment.newInstance(listCategoryPartner.get(position).id)
         }
 
         override fun getCount(): Int {
@@ -82,7 +82,7 @@ class BasePartnerFragment : BaseFragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return return listCategoryPartner?.get(position).name
+            return return listCategoryPartner.get(position).name
         }
     }
 

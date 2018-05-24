@@ -13,18 +13,18 @@ import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
 class ProfileViewModel{
 
     fun updateAvatar(path : String? , onSuccess : (String?) ->Unit, onFailed : (String?) -> Unit) {
-        AuthApi().changeAvatar(UserServices?.userInfo?.id, path, onResponse = {
-            val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
+        AuthApi().changeAvatar(UserServices.userInfo?.id, path, onResponse = {
+            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
             profileResponse?.data?.let {
                 UserServices.saveProfile(it)
-                onSuccess(profileResponse?.message)
+                onSuccess(profileResponse.message)
             }?: onFailed(it.getErrorMessage())
         })
     }
 
     fun getProfile(onSuccess: (UserResponse) -> Unit, onFailed: (String?) -> Unit) {
-        AuthApi().getProfile(UserServices?.userInfo?.id,onResponse = {
-            val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
+        AuthApi().getProfile(UserServices.userInfo?.id,onResponse = {
+            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
             profileResponse?.data?.let {
                 onSuccess(it)
             }?: onFailed(it.getErrorMessage())

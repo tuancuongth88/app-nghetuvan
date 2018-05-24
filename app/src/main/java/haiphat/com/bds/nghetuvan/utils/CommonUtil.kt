@@ -1,16 +1,9 @@
 package haiphat.com.bds.nghetuvan.utils
 
 import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import haiphat.com.bds.nghetuvan.models.HomePageCategoryType
-import android.support.v4.content.ContextCompat.startActivity
-import android.content.Intent
-import android.net.Uri
-import android.support.v4.content.ContextCompat.startActivity
-
-
-
-
 
 
 /**

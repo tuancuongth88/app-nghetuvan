@@ -54,7 +54,7 @@ class BaseNewsFragment : BaseFragment() {
         var listItemNews = ArrayList<CategoryNewsResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return NewsFragment.newInstance(listItemNews?.get(position).id)
+            return NewsFragment.newInstance(listItemNews.get(position).id)
         }
 
         override fun getCount(): Int {
@@ -62,7 +62,7 @@ class BaseNewsFragment : BaseFragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return listItemNews?.get(position).name
+            return listItemNews.get(position).name
         }
     }
 }

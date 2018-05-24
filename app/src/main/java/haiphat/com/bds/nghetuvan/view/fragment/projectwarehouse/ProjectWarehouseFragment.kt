@@ -32,9 +32,9 @@ class ProjectWarehouseFragment: BaseFragment(){
         var adapter = ProjectWarehouseAdapter(list, onClick = {
         })
         val linearLayoutManager = LinearLayoutManager(activity)
-        recyclerView?.layoutManager = linearLayoutManager
-        recyclerView?.setHasFixedSize(true)
-        recyclerView?.adapter = adapter
+        recyclerView.layoutManager = linearLayoutManager
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = adapter
     }
 
     private fun getItemProjectWarehouse(){

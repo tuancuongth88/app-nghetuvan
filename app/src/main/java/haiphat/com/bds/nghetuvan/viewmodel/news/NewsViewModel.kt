@@ -24,7 +24,7 @@ class NewsViewModel {
     fun getCategoryNews(onSuccess: (ArrayList<CategoryNewsResponse>) -> Unit, onFailed: (String?) -> Unit) {
         NewsApi().getCategory {
             var itemCategoryNews = GsonUtil.fromJson(it.responseContent, ListCategory::class.java)
-            it?.status?.let {
+            it.status?.let {
                 itemCategoryNews?.data?.let { it1 -> onSuccess(it1) }
             } ?: onFailed(it.getErrorMessage())
         }

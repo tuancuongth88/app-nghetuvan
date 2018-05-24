@@ -72,7 +72,7 @@ class AuthApi : BaseApi() {
         builder.setType(MultipartBody.FORM)
         val fileUpload = File(path)
         val fileRequestBody = RequestBody.create(MediaType.parse("image/*"), fileUpload)
-        builder.addFormDataPart("avatar", fileUpload.getName(), fileRequestBody)
+        builder.addFormDataPart("avatar", fileUpload.name, fileRequestBody)
         this.upload("change-avatar/" + userId, builder, onResponse)
     }
 

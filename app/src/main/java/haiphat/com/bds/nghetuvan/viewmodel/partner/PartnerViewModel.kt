@@ -17,7 +17,7 @@ class PartnerViewModel {
     fun getItemPartner(onSuccess : (ArrayList<PartnerResponse>) ->Unit, onFailed : (String?) -> Unit) {
         PartnerApi().getItemNews(id, current.toString(), perPages.toString(), onResponse = {
             var listItemResponse = GsonUtil.fromJson(it.responseContent, ListPartnerResponse::class.java)
-            it?.status?.let {
+            it.status?.let {
                 listItemResponse?.data?.let { it1 ->onSuccess(it1) }
             }?: onFailed(it.getErrorMessage())
         })
@@ -26,7 +26,7 @@ class PartnerViewModel {
     fun getCategoryPartner(onSuccess: (ArrayList<CategoryPartnerResponse>) -> Unit, onFailed: (String?) -> Unit) {
         PartnerApi().getCategory {
             var itemCategoryNews = GsonUtil.fromJson(it.responseContent, ListCategoryPartnerResponse::class.java)
-            it?.status?.let {
+            it.status?.let {
                 itemCategoryNews?.data?.let { it1 -> onSuccess(it1) }
             } ?: onFailed(it.getErrorMessage())
         }

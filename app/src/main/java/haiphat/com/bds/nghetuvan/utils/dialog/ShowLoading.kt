@@ -11,7 +11,7 @@ object ShowLoading {
     private var materialDialog: MaterialDialog? = null
 
     fun show(pContext: Context?) {
-        if (!(this.materialDialog?.isShowing?:false)){
+        if (this.materialDialog?.isShowing != true){
             pContext?.let {
                 materialDialog = MaterialDialog.Builder(it)
                         .content(R.string.text_processing)

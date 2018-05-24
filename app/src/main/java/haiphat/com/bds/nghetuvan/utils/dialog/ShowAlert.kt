@@ -20,7 +20,7 @@ class ShowAlert {
                         .title(dialogTitle ?: it.getString(R.string.alert_title_confirm))
                         .positiveText(dialogOk ?: it.getString(R.string.text_dialog_ok))
                         .negativeText(dialogCancel ?: it.getString(R.string.text_cancel))
-                        .canceledOnTouchOutside(canceledOnTouchOutside ?: false)
+                        .canceledOnTouchOutside(canceledOnTouchOutside == true)
                         .onPositive { _, _ ->  onClick?.let { it.invoke() }  }
                         .content(message ?: "").show()
             }
@@ -36,8 +36,8 @@ class ShowAlert {
                 MaterialDialog.Builder(pContext)
                         .title(dialogTitle ?: it.getString(R.string.alert_title_error))
                         .positiveText(dialogOk ?: it.getString(R.string.text_dialog_ok))
-                        .canceledOnTouchOutside(canceledOnTouchOutside ?: false)
-                        .cancelable(cancelable ?: false)
+                        .canceledOnTouchOutside(canceledOnTouchOutside == true)
+                        .cancelable(cancelable == true)
                         .onPositive { _, _ -> onClick?.let { it.invoke() } }
                         .content(message ?: "").show()
             }

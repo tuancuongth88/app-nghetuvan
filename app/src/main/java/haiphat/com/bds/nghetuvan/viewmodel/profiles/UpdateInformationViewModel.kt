@@ -19,11 +19,11 @@ class UpdateInformationViewModel : BaseObservable(){
     var idNumber: String? = null
 
     fun updateInformation(onSuccess: () -> Unit, onFailed: (String?) -> Unit) {
-        AuthApi().updateProfile(UserServices?.userInfo?.id, fullName, phone, birthDay, idNumber, onResponse = {
-            val profileResponse = GsonUtil.fromJson(it?.responseContent, ProfileResponse::class.java)
-            it?.status?.let {
+        AuthApi().updateProfile(UserServices.userInfo?.id, fullName, phone, birthDay, idNumber, onResponse = {
+            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
+            it.status?.let {
                 profileResponse?.data?.let {
-                    UserServices.saveProfile(profileResponse?.data)
+                    UserServices.saveProfile(profileResponse.data)
                     onSuccess()
                 }
             } ?: onFailed(it.getErrorMessage())

@@ -19,7 +19,7 @@ class NewsCommentViewModel {
     fun getListComment(onSuccess: (ArrayList<NewsCommentResponse>) -> Unit, onFailed: (String?) -> Unit) {
         NewsApi().getListComment(newsId, onResponse = {
             var dataResponse = GsonUtil.fromJson(it.responseContent, ListCommentNewsResponse::class.java)
-            it?.status?.let {
+            it.status?.let {
                 dataResponse?.data?.let { it1 -> onSuccess(it1) }
             } ?: onFailed(it.getErrorMessage())
         })

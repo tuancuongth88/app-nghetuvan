@@ -19,7 +19,7 @@ class NewsInfoFragment : BaseFragment() {
     var newsResponseViewModel = DetailNewsViewModel()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentNewsInfo = DataBindingUtil.inflate(inflater, R.layout.fragment_news_info, container, false)
-        newsResponseViewModel?.content?.let { dataBindingFragmentNewsInfo.htmTextInfo.setHtml(it, HtmlHttpImageGetter(dataBindingFragmentNewsInfo.htmTextInfo)) }
+        newsResponseViewModel.content?.let { dataBindingFragmentNewsInfo.htmTextInfo.setHtml(it, HtmlHttpImageGetter(dataBindingFragmentNewsInfo.htmTextInfo)) }
         return dataBindingFragmentNewsInfo.root
     }
 
@@ -27,7 +27,7 @@ class NewsInfoFragment : BaseFragment() {
     companion object {
         fun newInstance(content: String?, arguments: Bundle? = null): NewsInfoFragment {
             val fragment = NewsInfoFragment()
-            fragment.newsResponseViewModel?.content = content
+            fragment.newsResponseViewModel.content = content
             fragment.arguments = arguments
             return fragment
         }

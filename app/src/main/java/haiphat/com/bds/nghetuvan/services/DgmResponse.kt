@@ -26,7 +26,7 @@ open class DgmResponse {
     constructor(response: Response?) {
         response?.let {
             try {
-                this.responseContent = response?.body()?.string().toString()
+                this.responseContent = response.body()?.string().toString()
                 val baseResponse = GsonUtil.fromJson(responseContent, BaseResponse::class.java)
                 this.status = baseResponse?.status
                 this.messages = baseResponse?.message
