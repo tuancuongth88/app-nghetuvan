@@ -9,9 +9,6 @@ import haiphat.com.bds.nghetuvan.models.auth.LoginResponse
 import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.utils.SharePreferencesLoaders
 
-/**
- * Created by HUONG HA^P on 4/6/2018.
- */
 object UserServices {
 
     var accessToken: String? = null

@@ -10,9 +10,6 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
 import kotlinx.android.synthetic.main.item_profile.view.*
 
-/**
- * Created by HUONG HA^P on 4/12/2018.
- */
 class ProfileAdapter(private val profileActions: ArrayList<ProfileModel>, val onClick: (ProfileModel) -> Unit) : RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {
 
 
@@ -30,6 +27,7 @@ class ProfileAdapter(private val profileActions: ArrayList<ProfileModel>, val on
 
     override fun getItemCount(): Int {
         return profileActions.size
+
     }
 
     class ProfileViewHolder(itemView: ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
