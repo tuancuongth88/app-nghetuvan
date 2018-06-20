@@ -6,12 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.models.convertCourseType
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
-import haiphat.com.bds.nghetuvan.utils.CommonUtil
-import haiphat.com.bds.nghetuvan.utils.extensions.convertToDateTime
-import haiphat.com.bds.nghetuvan.utils.extensions.formatDate
-import haiphat.com.bds.nghetuvan.utils.extensions.formatDateTime
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import kotlinx.android.synthetic.main.item_partner.view.*
 

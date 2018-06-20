@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.models
+package haiphat.com.bds.nghetuvan.models.home
 
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R

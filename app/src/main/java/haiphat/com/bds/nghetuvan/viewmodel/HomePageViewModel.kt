@@ -1,7 +1,7 @@
 package haiphat.com.bds.nghetuvan.viewmodel
 
-import haiphat.com.bds.nghetuvan.models.HomePageCategoryType
-import haiphat.com.bds.nghetuvan.models.HomePageResponse
+import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
+import haiphat.com.bds.nghetuvan.models.home.HomePageResponse
 import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
 
 /**
@@ -13,6 +13,27 @@ class HomePageViewModel {
             onSuccess(mockDataItem())
     }
 
+    fun getHomeCategory(onSuccess : (ArrayList<HomeCategoryResponse>) ->Unit, onFailed : (String?) -> Unit) {
+        onSuccess(mockHomeCategoryItem())
+    }
+
+
+    private fun mockHomeCategoryItem() : ArrayList<HomeCategoryResponse>{
+        var listData = ArrayList<HomeCategoryResponse>()
+        listData.add(HomeCategoryResponse(id = "1", name = "Kho dự án", data = mockDataHomeItem()))
+        listData.add(HomeCategoryResponse(id = "2", name = "Bán hàng online", data = mockDataHomeItem()))
+        listData.add(HomeCategoryResponse(id = "3", name = "dự án", data = mockDataHomeItem()))
+        return listData
+    }
+
+    private fun mockDataHomeItem() : ArrayList<HomePageResponse>{
+      var item = ArrayList<HomePageResponse>()
+        item.add(HomePageResponse(id = "1", name = "BĐS để ở", url = ""))
+        item.add(HomePageResponse(id = "1", name = "BĐS đầu tư", url = ""))
+        item.add(HomePageResponse(id = "1", name = "BĐS Cho thêu", url = ""))
+        item.add(HomePageResponse(id = "1", name = "BĐS nghỉ dưỡng", url = ""))
+        return item
+    }
 
     private fun mockDataItem() : ArrayList<CategoryPartnerResponse>{
         var listData = ArrayList<CategoryPartnerResponse>()

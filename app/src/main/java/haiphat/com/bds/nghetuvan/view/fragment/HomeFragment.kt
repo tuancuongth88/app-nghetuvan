@@ -16,10 +16,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.adapter.home.HomeCategoryAdapter
 import haiphat.com.bds.nghetuvan.adapter.partner.PartnerAdapter
 import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentHomeBinding
+import haiphat.com.bds.nghetuvan.databinding.FragmentHomeContentBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
+import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
@@ -84,20 +87,20 @@ class HomeFragment : BaseFragment() {
 
 
     class ContentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
-        private lateinit var dataBindingFragmentPartner: FragmentPartnerBinding
-        private var partnerViewModel = PartnerViewModel()
+        private lateinit var dataBindingFragmentHomeContent: FragmentHomeContentBinding
+        private var homePageViewModel = HomePageViewModel()
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_partner, container, false)
-            getItemPartner()
-            dataBindingFragmentPartner.swipeRefreshLayout.setOnRefreshListener(this)
-            dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = true
-            return dataBindingFragmentPartner.root
+            dataBindingFragmentHomeContent = DataBindingUtil.inflate(inflater, R.layout.fragment_home_content, container, false)
+            dataBindingFragmentHomeContent.swipeRefreshLayout.setOnRefreshListener(this)
+            dataBindingFragmentHomeContent.swipeRefreshLayout.isRefreshing = true
+            getItemHome()
+            return dataBindingFragmentHomeContent.root
         }
 
-        private fun initPartnerAdapter(list: ArrayList<PartnerResponse>) {
-            var recyclerView = dataBindingFragmentPartner.rvNews
-            var adapter = PartnerAdapter(list, onClick = {
+        private fun initHomeContentAdapter(list: ArrayList<HomeCategoryResponse>) {
+            var recyclerView = dataBindingFragmentHomeContent.rvHomeContent
+            var adapter = HomeCategoryAdapter(list, onClick = {
                 var intent = Intent(activity, PartnerDetailActivity::class.java)
                 intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
                 startActivity(intent)
@@ -106,26 +109,26 @@ class HomeFragment : BaseFragment() {
             recyclerView.adapter = adapter
         }
 
-        private fun getItemPartner() {
-//            partnerViewModel.getItemPartner(onSuccess = {
-//                dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
-//                initPartnerAdapter(it)
-//            }, onFailed = {
-//                dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
-//                ShowAlert.fail(pContext = activity, message = it)
-//            })
+        private fun getItemHome() {
+            homePageViewModel.getHomeCategory(onSuccess = {
+                dataBindingFragmentHomeContent.swipeRefreshLayout.isRefreshing = false
+                initHomeContentAdapter(it)
+            }, onFailed = {
+                dataBindingFragmentHomeContent.swipeRefreshLayout.isRefreshing = false
+                ShowAlert.fail(pContext = activity, message = it)
+            })
         }
 
         override fun onRefresh() {
-            dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = true
-            getItemPartner()
+            dataBindingFragmentHomeContent.swipeRefreshLayout.isRefreshing = true
+            getItemHome()
         }
 
         companion object {
             fun newInstance(id: String?, arguments: Bundle? = null): ContentFragment {
                 val fragment = ContentFragment()
                 fragment.arguments = arguments
-                fragment.partnerViewModel.id = id
+//                fragment.homePageViewModel.id = id
                 return fragment
             }
         }
