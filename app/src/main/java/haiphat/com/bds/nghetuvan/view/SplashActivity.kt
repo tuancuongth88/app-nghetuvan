@@ -20,7 +20,9 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Handler(Looper.getMainLooper()).postDelayed({
-            autoActiveAccount()
+//            autoActiveAccount()
+            var intentHome = Intent(this, HomeActivity::class.java)
+            intentActivity(intentHome)
         }, 2000)
     }
 

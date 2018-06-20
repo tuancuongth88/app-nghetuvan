@@ -52,7 +52,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             getProfile()
         }
         imgSearch.setOnClickListener { clickSearch() }
-        supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment.newInstance()).commitAllowingStateLoss()
+        supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment()).commitAllowingStateLoss()
         initView()
     }
 
@@ -73,7 +73,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             var fragment: Fragment? = null
             when (it.name) {
                 getString(R.string.title_action_bar_home) -> {
-                    fragment = HomeFragment.newInstance()
+                    fragment = HomeFragment()
                     toolbar.title = getString(R.string.title_action_bar_home)
 
                 }
