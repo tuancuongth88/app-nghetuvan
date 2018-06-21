@@ -14,13 +14,13 @@ import haiphat.com.bds.nghetuvan.models.home.HomePageResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.viewmodel.home.ShowListViewModel
 
-class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener{
+class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener {
 
-    private lateinit var dataBingShowListHome : ActivityShowListHomeBinding
+    private lateinit var dataBingShowListHome: ActivityShowListHomeBinding
     var showListViewModel = ShowListViewModel()
 
     override fun getContentView(): View {
-        dataBingShowListHome = DataBindingUtil.inflate(layoutInflater, R.layout.activity_show_list_home, null,false)
+        dataBingShowListHome = DataBindingUtil.inflate(layoutInflater, R.layout.activity_show_list_home, null, false)
         dataBingShowListHome.swipeRefreshLayout.isRefreshing = true
         getItem()
         return dataBingShowListHome.root
@@ -34,25 +34,24 @@ class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListene
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite))
     }
 
-    private fun initAdapter(list : ArrayList<HomePageResponse>){
+    private fun initAdapter(list: ArrayList<HomePageResponse>) {
         var recyclerView = dataBingShowListHome.rvShowListHome
         var adapter = ShowListHomeAdapter(list, onClick = {
             var intent = Intent(this@ShowListHomeActivity, ShowListHomeActivity::class.java)
-//                intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
             startActivity(intent)
         })
         recyclerView.layoutManager = LinearLayoutManager(this@ShowListHomeActivity)
         recyclerView.adapter = adapter
     }
 
-    private fun getItem(){
+    private fun getItem() {
         showListViewModel.getItem(onSuccess = {
             initAdapter(it)
+            dataBingShowListHome.swipeRefreshLayout.isRefreshing = false
         }, onFailed = {
             ShowAlert.fail(pContext = this, message = it)
+            dataBingShowListHome.swipeRefreshLayout.isRefreshing = false
         })
-        dataBingShowListHome.swipeRefreshLayout.isRefreshing = false
-
     }
 
     override fun onRefresh() {

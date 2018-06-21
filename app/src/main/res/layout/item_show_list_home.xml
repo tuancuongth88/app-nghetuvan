@@ -5,7 +5,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="wrap_content">
 
         <haiphat.com.bds.nghetuvan.utils.RippleView
             android:id="@+id/rippleItem"
@@ -35,11 +35,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            tools:text="Tin tức chung"
             app:layout_constraintBottom_toBottomOf="@+id/imgLocation"
             app:layout_constraintEnd_toEndOf="@+id/tvLocation"
             app:layout_constraintStart_toEndOf="@+id/imgLocation"
-            app:layout_constraintTop_toTopOf="@+id/imgLocation" />
+            app:layout_constraintTop_toTopOf="@+id/imgLocation"
+            tools:text="Tin tức chung" />
 
         <ImageView
             android:id="@+id/imgLocation"
@@ -55,10 +55,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            tools:text="Tin tức chung"
             app:layout_constraintBottom_toBottomOf="@+id/imgName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgName"
-            app:layout_constraintTop_toTopOf="@+id/imgName" />
+            app:layout_constraintTop_toTopOf="@+id/imgName"
+            tools:text="Tin tức chung" />
     </android.support.constraint.ConstraintLayout>
 </layout>
