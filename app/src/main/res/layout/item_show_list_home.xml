@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+        <haiphat.com.bds.nghetuvan.utils.RippleView
+            android:id="@+id/rippleItem"
+            style="@style/wrapContent"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/imgCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_defaul_bg_my_course" />
+
+        </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+        <ImageView
+            android:id="@+id/imgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintStart_toStartOf="@+id/rippleItem"
+            app:layout_constraintTop_toBottomOf="@+id/rippleItem" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="Tin tức chung"
+            app:layout_constraintBottom_toBottomOf="@+id/imgLocation"
+            app:layout_constraintEnd_toEndOf="@+id/tvLocation"
+            app:layout_constraintStart_toEndOf="@+id/imgLocation"
+            app:layout_constraintTop_toTopOf="@+id/imgLocation" />
+
+        <ImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintStart_toStartOf="@+id/imgName"
+            app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="Tin tức chung"
+            app:layout_constraintBottom_toBottomOf="@+id/imgName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgName"
+            app:layout_constraintTop_toTopOf="@+id/imgName" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

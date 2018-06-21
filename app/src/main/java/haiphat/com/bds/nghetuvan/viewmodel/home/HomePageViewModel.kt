@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.viewmodel
+package haiphat.com.bds.nghetuvan.viewmodel.home
 
 import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 import haiphat.com.bds.nghetuvan.models.home.HomePageResponse

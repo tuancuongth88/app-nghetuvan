@@ -17,22 +17,16 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.home.HomeCategoryAdapter
-import haiphat.com.bds.nghetuvan.adapter.partner.PartnerAdapter
-import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentHomeBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentHomeContentBinding
-import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
 import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
-import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
-import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.HomeActivity
-import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
-import haiphat.com.bds.nghetuvan.viewmodel.HomePageViewModel
-import haiphat.com.bds.nghetuvan.viewmodel.partner.PartnerViewModel
+import haiphat.com.bds.nghetuvan.view.ShowListHomeActivity
+import haiphat.com.bds.nghetuvan.viewmodel.home.HomePageViewModel
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
@@ -101,8 +95,8 @@ class HomeFragment : BaseFragment() {
         private fun initHomeContentAdapter(list: ArrayList<HomeCategoryResponse>) {
             var recyclerView = dataBindingFragmentHomeContent.rvHomeContent
             var adapter = HomeCategoryAdapter(list, onClick = {
-                var intent = Intent(activity, PartnerDetailActivity::class.java)
-                intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
+                var intent = Intent(activity, ShowListHomeActivity::class.java)
+//                intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
                 startActivity(intent)
             })
             recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -128,7 +122,6 @@ class HomeFragment : BaseFragment() {
             fun newInstance(id: String?, arguments: Bundle? = null): ContentFragment {
                 val fragment = ContentFragment()
                 fragment.arguments = arguments
-//                fragment.homePageViewModel.id = id
                 return fragment
             }
         }

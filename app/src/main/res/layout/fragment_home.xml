@@ -89,7 +89,7 @@
                         android:id="@+id/tvAcreage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
                         android:text="Diện tích"
                         app:layout_constraintEnd_toEndOf="@+id/edSearch"
                         app:layout_constraintStart_toEndOf="@+id/tvPrice"
