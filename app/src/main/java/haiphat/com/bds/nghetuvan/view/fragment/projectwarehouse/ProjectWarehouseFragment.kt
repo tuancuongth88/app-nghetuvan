@@ -13,7 +13,7 @@ import haiphat.com.bds.nghetuvan.databinding.FragmentProjectWarehouseBinding
 import haiphat.com.bds.nghetuvan.models.project.ProjectWarehouseResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.view.BaseFragment
-import haiphat.com.bds.nghetuvan.view.HomeActivity
+import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.project.ProjectWarehouseViewModel
 
 class ProjectWarehouseFragment: BaseFragment(){

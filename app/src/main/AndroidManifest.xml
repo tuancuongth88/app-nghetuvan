@@ -52,7 +52,7 @@
         <activity android:name=".view.auth.RegisterActivity" />
         <activity android:name=".view.auth.ForgotPasswordActivity" />
         <activity
-            android:name=".view.HomeActivity"
+            android:name=".view.home.HomeActivity"
             android:label="@string/title_action_bar_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.profile.SettingActivity" />
@@ -68,7 +68,8 @@
         <activity android:name=".view.news.PostCommentActivity" />
         <activity android:name=".view.profile.UpdateInformationActivity" />
         <activity android:name=".view.profile.ChangePasswordActivity" />
-        <activity android:name=".view.ShowListHomeActivity"></activity>
+        <activity android:name=".view.home.ShowListHomeActivity" />
+        <activity android:name=".view.home.DetailHomeActivity"></activity>
     </application>
 
 </manifest>

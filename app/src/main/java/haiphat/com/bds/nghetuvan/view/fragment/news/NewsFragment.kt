@@ -2,10 +2,7 @@ package haiphat.com.bds.nghetuvan.view.fragment.news
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
-import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -14,17 +11,12 @@ import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.news.NewsAdapter
 import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
-import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentNewsBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
-import haiphat.com.bds.nghetuvan.view.HomeActivity
-import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.news.DetailNewsActivity
-import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 
 /**

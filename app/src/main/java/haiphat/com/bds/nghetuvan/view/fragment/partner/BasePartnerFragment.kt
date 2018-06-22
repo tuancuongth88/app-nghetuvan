@@ -4,8 +4,6 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
@@ -15,28 +13,19 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.adapter.news.NewsAdapter
 import haiphat.com.bds.nghetuvan.adapter.partner.PartnerAdapter
 import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
-import haiphat.com.bds.nghetuvan.databinding.FragmentBaseNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentBasePartnerBinding
-import haiphat.com.bds.nghetuvan.databinding.FragmentNewsBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
-import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
-import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
 import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
-import haiphat.com.bds.nghetuvan.view.HomeActivity
-import haiphat.com.bds.nghetuvan.view.fragment.news.NewsFragment
-import haiphat.com.bds.nghetuvan.view.news.DetailNewsActivity
+import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
-import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 import haiphat.com.bds.nghetuvan.viewmodel.partner.PartnerViewModel
 
 /**

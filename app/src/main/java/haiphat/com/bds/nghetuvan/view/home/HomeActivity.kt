@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view
+package haiphat.com.bds.nghetuvan.view.home
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -19,6 +19,8 @@ import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
+import haiphat.com.bds.nghetuvan.view.BaseActivity
+import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment

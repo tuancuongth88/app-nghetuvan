@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view
+package haiphat.com.bds.nghetuvan.view.home
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -12,6 +12,7 @@ import haiphat.com.bds.nghetuvan.adapter.home.ShowListHomeAdapter
 import haiphat.com.bds.nghetuvan.databinding.ActivityShowListHomeBinding
 import haiphat.com.bds.nghetuvan.models.home.HomePageResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
+import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.viewmodel.home.ShowListViewModel
 
 class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener {

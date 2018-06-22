@@ -24,8 +24,8 @@ import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
-import haiphat.com.bds.nghetuvan.view.HomeActivity
-import haiphat.com.bds.nghetuvan.view.ShowListHomeActivity
+import haiphat.com.bds.nghetuvan.view.home.HomeActivity
+import haiphat.com.bds.nghetuvan.view.home.ShowListHomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.home.HomePageViewModel
 
 /**
