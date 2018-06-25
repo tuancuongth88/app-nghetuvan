@@ -38,7 +38,7 @@ class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListene
     private fun initAdapter(list: ArrayList<HomePageResponse>) {
         var recyclerView = dataBingShowListHome.rvShowListHome
         var adapter = ShowListHomeAdapter(list, onClick = {
-            var intent = Intent(this@ShowListHomeActivity, ShowListHomeActivity::class.java)
+            var intent = Intent(this@ShowListHomeActivity, DetailHomeActivity::class.java)
             startActivity(intent)
         })
         recyclerView.layoutManager = LinearLayoutManager(this@ShowListHomeActivity)

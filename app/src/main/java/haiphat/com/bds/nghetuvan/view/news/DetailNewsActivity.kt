@@ -14,7 +14,6 @@ import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
-import haiphat.com.bds.nghetuvan.viewmodel.news.DetailNewsViewModel
 
 class DetailNewsActivity : BaseActivity() {
 
