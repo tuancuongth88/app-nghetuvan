@@ -22,6 +22,7 @@ class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListene
 
     override fun getContentView(): View {
         dataBingShowListHome = DataBindingUtil.inflate(layoutInflater, R.layout.activity_show_list_home, null, false)
+        dataBingShowListHome.swipeRefreshLayout.setOnRefreshListener(this)
         dataBingShowListHome.swipeRefreshLayout.isRefreshing = true
         getItem()
         return dataBingShowListHome.root
@@ -29,7 +30,7 @@ class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHeaderTitle("Danh sach ")
+        setHeaderTitle("Danh sach")
         baseActivityBinding.tvTitle.setTextColor(ContextCompat.getColor(this, R.color.textLabel))
         baseActivityBinding.imgBack.setImageResource(R.drawable.ic_back_b)
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite))
