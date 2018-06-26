@@ -6,11 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.databinding.FragmentNewsInfoBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentProjectManagementBinding
 import haiphat.com.bds.nghetuvan.view.BaseFragment
-import haiphat.com.bds.nghetuvan.viewmodel.home.HomeInfoViewModel
-import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
 
 /**
  * Created by HUONG HA^P on 3/27/2018.

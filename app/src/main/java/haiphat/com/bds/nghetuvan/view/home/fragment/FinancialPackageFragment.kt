@@ -1,7 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.home.fragment
 
 import android.databinding.DataBindingUtil
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.view.LayoutInflater
