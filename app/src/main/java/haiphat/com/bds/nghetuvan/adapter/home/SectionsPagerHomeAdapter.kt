@@ -8,7 +8,10 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsCommentFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsInfoFragment
+import haiphat.com.bds.nghetuvan.view.home.fragment.DoccumentFragment
+import haiphat.com.bds.nghetuvan.view.home.fragment.FinancialPackageFragment
 import haiphat.com.bds.nghetuvan.view.home.fragment.HomeInfoFragment
+import haiphat.com.bds.nghetuvan.view.home.fragment.ProjectManagementFragment
 
 /**
  * Created by HUONG HA^P on 3/29/2018.
@@ -23,16 +26,16 @@ class SectionsPagerHomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 fragment = HomeInfoFragment.newInstance(newsResponse?.content)
             }
             1 -> {
-                fragment = NewsCommentFragment.newInstance(newsResponse?.id)
+                fragment = ProjectManagementFragment.newInstance(newsResponse?.id)
             }
             2 -> {
-                fragment = NewsCommentFragment.newInstance(newsResponse?.id)
+                fragment = FinancialPackageFragment.newInstance(newsResponse?.id)
             }
             3 -> {
-                fragment = NewsCommentFragment.newInstance(newsResponse?.id)
+                fragment = DoccumentFragment.newInstance(newsResponse?.id)
             }
         }
-        return fragment ?: NewsInfoFragment.newInstance(newsResponse?.content)
+        return fragment ?: HomeInfoFragment.newInstance(newsResponse?.content)
     }
 
     override fun getCount(): Int {
