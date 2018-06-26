@@ -6,9 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
-import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsCommentFragment
-import haiphat.com.bds.nghetuvan.view.fragment.news.detail.NewsInfoFragment
-import haiphat.com.bds.nghetuvan.view.home.fragment.DoccumentFragment
+import haiphat.com.bds.nghetuvan.view.home.fragment.DocumentFragment
 import haiphat.com.bds.nghetuvan.view.home.fragment.FinancialPackageFragment
 import haiphat.com.bds.nghetuvan.view.home.fragment.HomeInfoFragment
 import haiphat.com.bds.nghetuvan.view.home.fragment.ProjectManagementFragment
@@ -32,7 +30,7 @@ class SectionsPagerHomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 fragment = FinancialPackageFragment.newInstance(newsResponse?.id)
             }
             3 -> {
-                fragment = DoccumentFragment.newInstance(newsResponse?.id)
+                fragment = DocumentFragment.newInstance(newsResponse?.id)
             }
         }
         return fragment ?: HomeInfoFragment.newInstance(newsResponse?.content)
