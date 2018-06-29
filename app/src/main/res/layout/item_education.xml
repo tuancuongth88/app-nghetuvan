@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <haiphat.com.bds.nghetuvan.utils.RippleView
+            android:id="@+id/rippleItem"
+            style="@style/wrapContent"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/imgCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_defaul_bg_my_course" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/gradient_buttom"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvTime"
+                app:layout_constraintEnd_toEndOf="@+id/tvTime"
+                app:layout_constraintStart_toStartOf="@+id/tvTime"
+                tools:text="Quản trị kinh doanh" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvOrganizationalUnits"
+                app:layout_constraintEnd_toEndOf="@+id/tvOrganizationalUnits"
+                app:layout_constraintStart_toStartOf="@+id/tvOrganizationalUnits"
+                tools:text="15/10/2018" />
+            <TextView
+                android:id="@+id/tvOrganizationalUnits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="@+id/view2"
+                app:layout_constraintStart_toStartOf="@+id/view2"
+                tools:text="Hải phát tech"
+                android:textColor="@color/colorWhite"
+                />
+        </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

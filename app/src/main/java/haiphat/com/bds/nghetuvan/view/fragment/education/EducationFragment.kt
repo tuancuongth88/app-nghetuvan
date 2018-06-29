@@ -14,26 +14,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.adapter.partner.PartnerAdapter
+import haiphat.com.bds.nghetuvan.adapter.education.EducationAdapter
 import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
-import haiphat.com.bds.nghetuvan.databinding.FragmentBasePartnerBinding
+import haiphat.com.bds.nghetuvan.databinding.FragmentEducationBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
-import haiphat.com.bds.nghetuvan.models.partner.CategoryPartnerResponse
-import haiphat.com.bds.nghetuvan.models.partner.PartnerResponse
+import haiphat.com.bds.nghetuvan.models.education.EducationResponse
+import haiphat.com.bds.nghetuvan.models.education.ItemEducationResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
-import haiphat.com.bds.nghetuvan.viewmodel.partner.PartnerViewModel
+import haiphat.com.bds.nghetuvan.viewmodel.education.EducationViewModel
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
  */
 class EducationFragment : BaseFragment() {
-    private lateinit var dataBindingFragmentPartner: FragmentBasePartnerBinding
-    private var partnerViewModel = PartnerViewModel()
+    private lateinit var dataBindingFragmentPartner: FragmentEducationBinding
+    private var educationViewModel = EducationViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_education, container, false)
@@ -44,9 +44,9 @@ class EducationFragment : BaseFragment() {
 
     private fun getCategory() {
         ShowLoading.show(activity)
-        partnerViewModel.getCategoryPartner(onSuccess = {
+        educationViewModel.getCategoryEducation(onSuccess = {
             val sectionsPagerAdapter = SectionsPagerEducationAdapter(childFragmentManager)
-            sectionsPagerAdapter.listCategoryPartner = it
+            sectionsPagerAdapter.listCategoryEducation = it
             dataBindingFragmentPartner.container.adapter = sectionsPagerAdapter
             dataBindingFragmentPartner.tabs.setupWithViewPager(dataBindingFragmentPartner.container)
             dataBindingFragmentPartner.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
@@ -59,36 +59,36 @@ class EducationFragment : BaseFragment() {
 
     inner class SectionsPagerEducationAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-        var listCategoryPartner = ArrayList<CategoryPartnerResponse>()
+        var listCategoryEducation = ArrayList<EducationResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return ContentFragment.newInstance(listCategoryPartner.get(position).id)
+            return ContentFragment.newInstance(listCategoryEducation.get(position).id)
         }
 
         override fun getCount(): Int {
-            return listCategoryPartner.size
+            return listCategoryEducation.size
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return listCategoryPartner.get(position).name
+            return listCategoryEducation.get(position).name
         }
     }
 
     class ContentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
         private lateinit var dataBindingFragmentPartner: FragmentPartnerBinding
-        private var partnerViewModel = PartnerViewModel()
+        private var educationViewModel = EducationViewModel()
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
             dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_partner, container, false)
-            getItemPartner()
             dataBindingFragmentPartner.swipeRefreshLayout.setOnRefreshListener(this)
             dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = true
+            getItemPartner()
             return dataBindingFragmentPartner.root
         }
 
-        private fun initPartnerAdapter(list: ArrayList<PartnerResponse>) {
+        private fun initPartnerAdapter(list: ArrayList<ItemEducationResponse>) {
             var recyclerView = dataBindingFragmentPartner.rvNews
-            var adapter = PartnerAdapter(list, onClick = {
+            var adapter = EducationAdapter(list, onClick = {
                 var intent = Intent(activity, PartnerDetailActivity::class.java)
                 intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
                 startActivity(intent)
@@ -98,7 +98,7 @@ class EducationFragment : BaseFragment() {
         }
 
         private fun getItemPartner() {
-            partnerViewModel.getItemPartner(onSuccess = {
+            educationViewModel.getItemEducation(onSuccess = {
                 dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
                 initPartnerAdapter(it)
             }, onFailed = {
@@ -116,7 +116,6 @@ class EducationFragment : BaseFragment() {
             fun newInstance(id: String?, arguments: Bundle? = null): ContentFragment {
                 val fragment = ContentFragment()
                 fragment.arguments = arguments
-                fragment.partnerViewModel.id = id
                 return fragment
             }
         }
