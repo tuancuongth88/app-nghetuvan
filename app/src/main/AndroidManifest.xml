@@ -69,7 +69,8 @@
         <activity android:name=".view.profile.UpdateInformationActivity" />
         <activity android:name=".view.profile.ChangePasswordActivity" />
         <activity android:name=".view.home.ShowListHomeActivity" />
-        <activity android:name=".view.home.DetailHomeActivity"></activity>
+        <activity android:name=".view.home.DetailHomeActivity" />
+        <activity android:name=".view.home.TestActivity"></activity>
     </application>
 
 </manifest>

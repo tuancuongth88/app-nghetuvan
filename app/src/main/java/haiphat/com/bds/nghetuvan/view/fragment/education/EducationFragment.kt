@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view.fragment.partner
+package haiphat.com.bds.nghetuvan.view.fragment.education
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -31,12 +31,12 @@ import haiphat.com.bds.nghetuvan.viewmodel.partner.PartnerViewModel
 /**
  * Created by HUONG HA^P on 3/27/2018.
  */
-class BasePartnerFragment : BaseFragment() {
+class EducationFragment : BaseFragment() {
     private lateinit var dataBindingFragmentPartner: FragmentBasePartnerBinding
     private var partnerViewModel = PartnerViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_base_partner, container, false)
+        dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_education, container, false)
         getCategory()
         (activity as HomeActivity).setBackgroundColor(Color.TRANSPARENT)
         return dataBindingFragmentPartner.root
@@ -45,7 +45,7 @@ class BasePartnerFragment : BaseFragment() {
     private fun getCategory() {
         ShowLoading.show(activity)
         partnerViewModel.getCategoryPartner(onSuccess = {
-            val sectionsPagerAdapter = SectionsPagerPartnerAdapter(childFragmentManager)
+            val sectionsPagerAdapter = SectionsPagerEducationAdapter(childFragmentManager)
             sectionsPagerAdapter.listCategoryPartner = it
             dataBindingFragmentPartner.container.adapter = sectionsPagerAdapter
             dataBindingFragmentPartner.tabs.setupWithViewPager(dataBindingFragmentPartner.container)
@@ -57,8 +57,7 @@ class BasePartnerFragment : BaseFragment() {
         })
     }
 
-
-    inner class SectionsPagerPartnerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+    inner class SectionsPagerEducationAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
         var listCategoryPartner = ArrayList<CategoryPartnerResponse>()
 

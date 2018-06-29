@@ -22,6 +22,7 @@ import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
+import haiphat.com.bds.nghetuvan.view.fragment.education.EducationFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
 import haiphat.com.bds.nghetuvan.view.fragment.profile.ProfileFragment
@@ -82,6 +83,10 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 getString(R.string.title_action_bar_duan) ->{
                     fragment = ProjectWarehouseFragment()
                     toolbar.title = ""
+                }
+                getString(R.string.title_action_bar_daotao) ->{
+                    fragment = EducationFragment()
+                    toolbar.title = getString(R.string.title_action_bar_daotao)
                 }
                 getString(R.string.title_action_bar_partner) -> {
                     fragment = BasePartnerFragment()

@@ -26,7 +26,7 @@ class DocumentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var dataBindingFragmentDocument: FragmentDocumentBinding
     private var documentViewModel = DocumentViewModel()
-    private var name : String? = null
+    private var name: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentDocument = DataBindingUtil.inflate(inflater, R.layout.fragment_document, container, false)
@@ -44,11 +44,9 @@ class DocumentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
         var adapter = DocumentAdapter(list, onClick = {
             name = it.name
             requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), IntentActionKeys.REQUEST_SELECT_FILE_PERMISSION)
-
         })
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
-
     }
 
     private fun getItemDocument() {
@@ -77,7 +75,6 @@ class DocumentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
             }
         }
     }
-
 
     companion object {
         fun newInstance(content: String?, arguments: Bundle? = null): DocumentFragment {
