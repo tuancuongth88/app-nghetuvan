@@ -23,7 +23,7 @@ class EducationAdapter(private var listMyCourse: ArrayList<ItemEducationResponse
 
     override fun onBindViewHolder(holder: PartnerViewHolder?, position: Int) {
         holder?.bindItem(listMyCourse[position])
-        holder?.itemView?.setOnClickListener {
+        holder?.itemView?.rippleItem?.setOnRippleCompleteListener{
             onClick(listMyCourse[position])
         }
     }
