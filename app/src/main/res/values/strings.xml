@@ -65,4 +65,5 @@
     <string name="change_image_title">Đổi ảnh đại diện</string>
     <string name="change_image_camera">Sử dụng máy ảnh</string>
     <string name="change_image_gallery">Sử dụng thư viện ảnh</string>
+    <string name="text_tab_education_register">Đăng ký</string>
 </resources>
