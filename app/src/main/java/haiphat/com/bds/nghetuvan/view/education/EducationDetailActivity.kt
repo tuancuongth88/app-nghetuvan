@@ -40,10 +40,6 @@ class EducationDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHeaderVisibility(View.GONE)
-//        var bundle = intent.extras
-//        var newsResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_DETAIL_NEWS), NewsResponse::class.java)
-//        dataBindingEducationDetail.imCourseDetail.fromUrl(newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
-//        dataBindingEducationDetail.tvName.text = newsResponse?.title
         initView()
     }
 
