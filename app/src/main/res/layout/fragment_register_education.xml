@@ -3,73 +3,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout style="@style/matchParent">
+    <android.support.v4.widget.NestedScrollView style="@style/matchParent">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/matchWrap"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Tiêu đề" />
+        <android.support.constraint.ConstraintLayout style="@style/matchParent">
 
-        <TextView
-            android:id="@+id/tvDescription"
-            style="@style/matchWrap"
-            android:layout_width="0dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/tvTitle"
-            app:layout_constraintStart_toStartOf="@+id/tvTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            tools:text="Mô ta ngắn" />
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/matchWrap"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Tiêu đề" />
 
-        <EditText
-            android:id="@+id/edFullName"
-            style="@style/withWrap"
-            android:layout_marginTop="8dp"
-            android:hint="họ và tên"
-            app:layout_constraintEnd_toEndOf="@+id/tvDescription"
-            app:layout_constraintStart_toStartOf="@+id/tvDescription"
-            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/matchWrap"
+                android:layout_width="0dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="Mô ta ngắn" />
 
-        <EditText
-            android:id="@+id/edPhone"
-            style="@style/withWrap"
-            android:layout_marginTop="8dp"
-            android:hint="Số điện thoại"
-            app:layout_constraintEnd_toEndOf="@+id/edFullName"
-            app:layout_constraintStart_toStartOf="@+id/edFullName"
-            app:layout_constraintTop_toBottomOf="@+id/edFullName" />
+            <EditText
+                android:id="@+id/edFullName"
+                style="@style/withWrap"
+                android:layout_marginTop="8dp"
+                android:hint="họ và tên"
+                app:layout_constraintEnd_toEndOf="@+id/tvDescription"
+                app:layout_constraintStart_toStartOf="@+id/tvDescription"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
-        <EditText
-            android:id="@+id/edEmail"
-            style="@style/withWrap"
-            android:layout_marginTop="8dp"
-            android:hint="Email"
-            app:layout_constraintEnd_toEndOf="@+id/edPhone"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/edPhone"
-            app:layout_constraintTop_toBottomOf="@+id/edPhone" />
+            <EditText
+                android:id="@+id/edPhone"
+                style="@style/withWrap"
+                android:layout_marginTop="8dp"
+                android:hint="Số điện thoại"
+                app:layout_constraintEnd_toEndOf="@+id/edFullName"
+                app:layout_constraintStart_toStartOf="@+id/edFullName"
+                app:layout_constraintTop_toBottomOf="@+id/edFullName" />
 
-        <TextView
-            android:id="@+id/tvWhoAreYou"
-            style="@style/matchWrap"
-            android:layout_width="0dp"
-            android:layout_marginTop="8dp"
-            android:text="Bạn là ai?"
-            app:layout_constraintEnd_toEndOf="@+id/edEmail"
-            app:layout_constraintStart_toStartOf="@+id/edEmail"
-            app:layout_constraintTop_toBottomOf="@+id/edEmail" />
+            <EditText
+                android:id="@+id/edEmail"
+                style="@style/withWrap"
+                android:layout_marginTop="8dp"
+                android:hint="Email"
+                app:layout_constraintEnd_toEndOf="@+id/edPhone"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edPhone"
+                app:layout_constraintTop_toBottomOf="@+id/edPhone" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvWhoAreYou"
-            style="@style/widthMatch"
-            app:layout_constraintEnd_toEndOf="@+id/tvWhoAreYou"
-            app:layout_constraintStart_toStartOf="@+id/tvWhoAreYou"
-            tools:layout_editor_absoluteY="261dp" />
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvWhoAreYou"
+                style="@style/matchWrap"
+                android:layout_width="0dp"
+                android:layout_marginTop="8dp"
+                android:text="Bạn là ai?"
+                app:layout_constraintEnd_toEndOf="@+id/edEmail"
+                app:layout_constraintStart_toStartOf="@+id/edEmail"
+                app:layout_constraintTop_toBottomOf="@+id/edEmail" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvWhoAreYou"
+                style="@style/widthMatch"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvWhoAreYou"
+                app:layout_constraintStart_toStartOf="@+id/tvWhoAreYou"
+                app:layout_constraintTop_toBottomOf="@+id/tvWhoAreYou" />
+
+            <Button
+                android:id="@+id/btnSubmit"
+                style="@style/withWrap"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_view_btn_login_email"
+                android:text="Gửi"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="@+id/rvWhoAreYou"
+                app:layout_constraintStart_toStartOf="@+id/rvWhoAreYou"
+                app:layout_constraintTop_toBottomOf="@+id/rvWhoAreYou" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 </layout>

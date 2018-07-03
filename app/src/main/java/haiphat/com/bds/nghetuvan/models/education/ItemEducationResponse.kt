@@ -7,6 +7,7 @@ data class ItemEducationResponse(
         var id : String? = null,
         var title : String? = null,
         var description : String? = null,
+        var content : String? = null,
         var fullName : String?= null,
         var phone : String? = null,
         var email : String? = null,

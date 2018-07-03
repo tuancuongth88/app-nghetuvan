@@ -1,7 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.education
 
 import android.databinding.DataBindingUtil
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -10,17 +9,11 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.adapter.news.SectionsPagerNewsAdapter
-import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityEducationDetailBinding
-import haiphat.com.bds.nghetuvan.models.news.NewsResponse
-import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
-import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.view.fragment.education.InfoEducationFragment
 import haiphat.com.bds.nghetuvan.view.fragment.education.RegisterEducationFragment
-import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 
 class EducationDetailActivity : BaseActivity() {
 
