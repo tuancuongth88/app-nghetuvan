@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <haiphat.com.bds.nghetuvan.utils.RippleView
+        android:id="@+id/rippleItem"
+        style="@style/matchWrap">
+
+        <RadioButton
+            android:id="@+id/rdSelected"
+            style="@style/wrapContent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            style="@style/withWrap"
+            android:layout_marginLeft="32dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="1"
+            android:textColor="@color/textLabel"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/rdSelected"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rdSelected"
+            app:layout_constraintTop_toTopOf="@+id/rdSelected"
+            tools:text="Trang chủ" />
+
+
+    </haiphat.com.bds.nghetuvan.utils.RippleView>
+</layout>
