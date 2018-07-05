@@ -45,7 +45,7 @@ class RegisterEducationFragment : BaseFragment(){
     }
 
     private fun getFormRegisterEducation(){
-        EducationDetailViewModel().getFormRegisterEducation(onSuccess = {
+        educationDetailViewModel.getFormRegisterEducation(onSuccess = {
            setData(it)
         }, onFailed = {
             ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
