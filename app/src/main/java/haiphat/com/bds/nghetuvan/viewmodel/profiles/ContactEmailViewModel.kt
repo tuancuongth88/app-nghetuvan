@@ -6,9 +6,6 @@ import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.contacts.ContactsApi
 
-/**
- * Created by HUONG HA^P on 4/13/2018.
- */
 class ContactEmailViewModel : BaseObservable() {
     var email: String? = null
     var phone: String? = null
@@ -18,7 +15,7 @@ class ContactEmailViewModel : BaseObservable() {
 
     fun sendContact(onSuccess: (String?) -> Unit, onFailed: (String?) -> Unit) {
         ContactsApi().sendContact(name, email, phone, content, address, onResponse = {
-            var profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
+            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
             if (it.status == true) {
                 onSuccess(profileResponse?.message)
             } else {

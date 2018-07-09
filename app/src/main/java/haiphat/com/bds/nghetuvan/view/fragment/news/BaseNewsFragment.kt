@@ -20,9 +20,6 @@ import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsViewModel
 import java.util.*
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class BaseNewsFragment : BaseFragment() {
     private lateinit var dataBindingFragmentNews: FragmentBaseNewsBinding
     private var newsViewModel = NewsViewModel()
@@ -54,7 +51,7 @@ class BaseNewsFragment : BaseFragment() {
         var listItemNews = ArrayList<CategoryNewsResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return NewsFragment.newInstance(listItemNews.get(position).id)
+            return NewsFragment.newInstance(listItemNews[position].id)
         }
 
         override fun getCount(): Int {
@@ -62,7 +59,7 @@ class BaseNewsFragment : BaseFragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return listItemNews.get(position).name
+            return listItemNews[position].name
         }
     }
 }

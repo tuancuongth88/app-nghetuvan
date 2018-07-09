@@ -5,9 +5,6 @@ import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 fun EditText.hideSoftKeyboard(activity: Activity) {
     this.clearFocus()
     this.isCursorVisible = true

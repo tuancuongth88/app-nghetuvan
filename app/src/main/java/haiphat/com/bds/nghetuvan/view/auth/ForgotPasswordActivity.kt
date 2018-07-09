@@ -1,8 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.auth
 
 import android.databinding.DataBindingUtil
-import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import haiphat.com.bds.nghetuvan.R

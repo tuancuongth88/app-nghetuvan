@@ -9,7 +9,7 @@ import android.content.SharedPreferences
 object SharePreferencesLoaders {
     private var sharedPreferences: SharedPreferences? = null
     private var instance: SharePreferencesLoaders? = null
-    val PREFERENCES_NAME = "PREFERENCES_NAME"
+    private val PREFERENCES_NAME = "PREFERENCES_NAME"
 
 
 

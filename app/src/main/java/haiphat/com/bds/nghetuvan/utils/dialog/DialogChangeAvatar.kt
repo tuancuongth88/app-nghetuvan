@@ -7,12 +7,9 @@ import android.os.Bundle
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.DialogChangeProfileImageBinding
 
-/**
- * Created by HUONG HA^P on 4/16/2018.
- */
 class DialogChangeAvatar(activity: Activity?, var onSelectedCamera : ()-> Unit, var onSelectedGallery:()-> Unit) : Dialog(activity) {
 
-    lateinit var bindingChangeImage : DialogChangeProfileImageBinding
+    private lateinit var bindingChangeImage : DialogChangeProfileImageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

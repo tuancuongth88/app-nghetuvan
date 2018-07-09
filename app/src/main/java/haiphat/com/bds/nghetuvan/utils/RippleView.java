@@ -330,11 +330,6 @@ public class RippleView extends ConstraintLayout {
         return isCentered;
     }
 
-    /**
-     * Set if ripple animation has to be centered in its parent view or not, default is False
-     *
-     * @param isCentered
-     */
     public void setCentered(final Boolean isCentered) {
         this.isCentered = isCentered;
     }

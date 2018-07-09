@@ -1,9 +1,6 @@
 package haiphat.com.bds.nghetuvan.viewmodel.auth
 
-import haiphat.com.bds.nghetuvan.BaseApplication
-import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.auth.AuthResponse
-import haiphat.com.bds.nghetuvan.models.auth.LoginResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi

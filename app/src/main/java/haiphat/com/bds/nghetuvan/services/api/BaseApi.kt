@@ -1,9 +1,5 @@
 package haiphat.com.bds.nghetuvan.services.api
 
-/**
- * Created by DEV-01 on 12/25/2017.
- */
-
 import android.text.TextUtils
 import haiphat.com.bds.nghetuvan.services.DgmResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
@@ -11,10 +7,6 @@ import haiphat.com.bds.nghetuvan.services.OkHttpService
 import okhttp3.*
 import java.net.URLEncoder
 import java.util.*
-
-/**
- * Created by digimed on 7/18/17.
- */
 
 abstract class BaseApi {
 
@@ -85,13 +77,13 @@ abstract class BaseApi {
                 OkHttpService.Method.POST, makeUrlEncodeBody(body), null, completed)
     }
 
-    fun request(url: String, method: OkHttpService.Method, pRequestBody: RequestBody?,
+    private fun request(url: String, method: OkHttpService.Method, pRequestBody: RequestBody?,
                 headerBuilder: Headers.Builder?, completed: (DgmResponse)->Unit) {
         OkHttpService.request(url, method, pRequestBody, headerBuilder, completed)
 
     }
 
-    fun request(url: String, method: OkHttpService.Method, pRequestBody: RequestBody, headerBuilder: Headers.Builder): DgmResponse? {
+    private fun request(url: String, method: OkHttpService.Method, pRequestBody: RequestBody, headerBuilder: Headers.Builder): DgmResponse? {
         return OkHttpService.request(url, method, pRequestBody, headerBuilder)
     }
 

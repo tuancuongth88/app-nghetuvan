@@ -1,8 +1,6 @@
 package haiphat.com.bds.nghetuvan.viewmodel.profiles
 
 import android.databinding.BaseObservable
-import haiphat.com.bds.nghetuvan.BaseApplication
-import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.auth.ProfileResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices

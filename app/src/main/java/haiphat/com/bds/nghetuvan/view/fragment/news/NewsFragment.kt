@@ -37,9 +37,9 @@ class NewsFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
 
 
     private fun initNewsAdapter(list: ArrayList<NewsResponse>) {
-        var recyclerView = dataBindingFragmentNews.rvNews
-        var adapter = NewsAdapter(list, onClick = {
-            var intent = Intent(activity, DetailNewsActivity::class.java)
+        val recyclerView = dataBindingFragmentNews.rvNews
+        val adapter = NewsAdapter(list, onClick = {
+            val intent = Intent(activity, DetailNewsActivity::class.java)
             intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
             startActivity(intent)
         })

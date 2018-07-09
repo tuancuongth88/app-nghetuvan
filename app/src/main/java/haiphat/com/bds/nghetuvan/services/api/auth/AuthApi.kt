@@ -9,9 +9,6 @@ import okhttp3.RequestBody
 import java.io.File
 import java.util.*
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class AuthApi : BaseApi() {
     override fun apiUrl(): String? {
         return "user/"
@@ -56,7 +53,8 @@ class AuthApi : BaseApi() {
     fun getProfile(id: String?, onResponse: (DgmResponse) -> Unit) {
         val params = HashMap<String, String>()
         val queryString = this.parseUrlQueryStringWithParams("getprofile/" +id, params)
-        this.get(queryString, onResponse)
+//        this.get(queryString, onResponse)
+        this[queryString, onResponse]
     }
 
     fun changePassword(userId: String?, oldPassword: String?, newPassword: String?, newConfirmPassword: String?, onResponse: (DgmResponse) -> Unit) {

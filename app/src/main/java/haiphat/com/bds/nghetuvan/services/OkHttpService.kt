@@ -2,19 +2,11 @@ package haiphat.com.bds.nghetuvan.services
 
 import android.os.Handler
 import android.os.Looper
-import android.text.TextUtils
 import android.util.Log
-import haiphat.com.bds.nghetuvan.BaseApplication
-import haiphat.com.bds.nghetuvan.R
 import okhttp3.*
 import java.io.IOException
-import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
 
-/**
- * Created by DEV-01 on 12/25/2017.
- */
 object OkHttpService {
 
     private var okHttpClient: OkHttpClient? = null

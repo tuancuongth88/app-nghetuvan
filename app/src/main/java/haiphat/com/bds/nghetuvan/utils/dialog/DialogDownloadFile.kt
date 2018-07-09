@@ -16,10 +16,7 @@ import haiphat.com.bds.nghetuvan.databinding.DialogDownloadFileBinding
 import java.io.File
 import java.text.NumberFormat
 
-/**
- * Created by HUONG HA^P on 6/26/2018.
- */
-class DialogDownloadFile(var activity: Activity?, var fullUrl: String?, var fileName: String?) : Dialog(activity) {
+class DialogDownloadFile(var activity: Activity?, private var fullUrl: String?, private var fileName: String?) : Dialog(activity) {
 
     private var bindingDocumentDownload: DialogDownloadFileBinding? = null
     private var downloadThread: Thread? = null

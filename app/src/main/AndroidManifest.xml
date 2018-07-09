@@ -71,7 +71,7 @@
         <activity android:name=".view.home.ShowListHomeActivity" />
         <activity android:name=".view.home.DetailHomeActivity" />
         <activity android:name=".view.home.TestActivity" />
-        <activity android:name=".view.education.EducationDetailActivity"></activity>
+        <activity android:name=".view.education.EducationDetailActivity"/>
     </application>
 
 </manifest>

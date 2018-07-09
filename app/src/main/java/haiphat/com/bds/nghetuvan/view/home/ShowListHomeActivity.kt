@@ -18,7 +18,7 @@ import haiphat.com.bds.nghetuvan.viewmodel.home.ShowListViewModel
 class ShowListHomeActivity : BaseActivity(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var dataBingShowListHome: ActivityShowListHomeBinding
-    var showListViewModel = ShowListViewModel()
+    private var showListViewModel = ShowListViewModel()
 
     override fun getContentView(): View {
         dataBingShowListHome = DataBindingUtil.inflate(layoutInflater, R.layout.activity_show_list_home, null, false)

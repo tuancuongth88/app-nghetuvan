@@ -10,9 +10,6 @@ import haiphat.com.bds.nghetuvan.models.home.HomePageResponse
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import kotlinx.android.synthetic.main.item_home.view.*
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class HomeAdapter(private val listHomePage: ArrayList<HomePageResponse>?, val onClick: (HomePageResponse) -> Unit) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
 

@@ -10,9 +10,6 @@ import haiphat.com.bds.nghetuvan.models.education.ItemEducationResponse
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import kotlinx.android.synthetic.main.item_education.view.*
 
-/**
- * Created by HUONG HA^P on 3/28/2018.
- */
 class EducationAdapter(private var listMyCourse: ArrayList<ItemEducationResponse>, private var onClick: (ItemEducationResponse) -> Unit) : RecyclerView.Adapter<EducationAdapter.PartnerViewHolder>() {
 
 

@@ -66,13 +66,13 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             updateUINavigation(it)
         }
         navigationLayout.clUser.setOnClickListener {
-            var fragmentProfile = ProfileFragment()
+            val fragmentProfile = ProfileFragment()
             supportFragmentManager.beginTransaction().replace(R.id.flContent, fragmentProfile).commitAllowingStateLoss()
             toolbar.title = ""
             imgSearch.visibility = View.GONE
             drawerLayout.closeDrawer(GravityCompat.START)
         }
-        var adapter = NavItemProfileAdapter(navItemViewModel.listNavItemProfile(this), onClick = {
+        val adapter = NavItemProfileAdapter(navItemViewModel.listNavItemProfile(this), onClick = {
             var fragment: Fragment? = null
             when (it.name) {
                 getString(R.string.title_action_bar_home) -> {

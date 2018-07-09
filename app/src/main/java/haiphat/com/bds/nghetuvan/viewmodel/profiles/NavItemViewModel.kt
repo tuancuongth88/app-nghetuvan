@@ -9,7 +9,7 @@ import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
  */
 class NavItemViewModel {
     fun listNavItemProfile(context: Context): ArrayList<ProfileModel> {
-        var arrayList = ArrayList<ProfileModel>()
+        val arrayList = ArrayList<ProfileModel>()
         arrayList.add(ProfileModel(R.drawable.ic_home, context.getString(R.string.title_action_bar_home)))
         arrayList.add(ProfileModel(R.drawable.ic_du_an, context.getString(R.string.title_action_bar_duan)))
         arrayList.add(ProfileModel(R.drawable.ic_gio_hang, context.getString(R.string.title_action_bar_bh_online)))

@@ -4,9 +4,6 @@ import android.content.Context
 import com.afollestad.materialdialogs.MaterialDialog
 import haiphat.com.bds.nghetuvan.R
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class ShowAlert {
     companion object {
         fun confirm(pContext: Context?,

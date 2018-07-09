@@ -19,7 +19,7 @@ class HomePageViewModel {
 
 
     private fun mockHomeCategoryItem() : ArrayList<HomeCategoryResponse>{
-        var listData = ArrayList<HomeCategoryResponse>()
+        val listData = ArrayList<HomeCategoryResponse>()
         listData.add(HomeCategoryResponse(id = "1", name = "Kho dự án", data = mockDataHomeItem()))
         listData.add(HomeCategoryResponse(id = "2", name = "Bán hàng online", data = mockDataHomeItem()))
         listData.add(HomeCategoryResponse(id = "3", name = "dự án", data = mockDataHomeItem()))
@@ -27,7 +27,7 @@ class HomePageViewModel {
     }
 
     private fun mockDataHomeItem() : ArrayList<HomePageResponse>{
-      var item = ArrayList<HomePageResponse>()
+      val item = ArrayList<HomePageResponse>()
         item.add(HomePageResponse(id = "1", name = "BĐS để ở", url = ""))
         item.add(HomePageResponse(id = "1", name = "BĐS đầu tư", url = ""))
         item.add(HomePageResponse(id = "1", name = "BĐS Cho thêu", url = ""))
@@ -36,7 +36,7 @@ class HomePageViewModel {
     }
 
     private fun mockDataItem() : ArrayList<CategoryPartnerResponse>{
-        var listData = ArrayList<CategoryPartnerResponse>()
+        val listData = ArrayList<CategoryPartnerResponse>()
         listData.add(CategoryPartnerResponse(id = "1", name = "Chủ đầu tư"))
         listData.add(CategoryPartnerResponse(id = "2", name = "Chuyên viên tư vấn"))
         listData.add(CategoryPartnerResponse(id = "3", name = "tin tức chung"))

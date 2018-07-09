@@ -28,9 +28,6 @@ import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.partner.PartnerViewModel
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class BasePartnerFragment : BaseFragment() {
     private lateinit var dataBindingFragmentPartner: FragmentBasePartnerBinding
     private var partnerViewModel = PartnerViewModel()
@@ -63,7 +60,7 @@ class BasePartnerFragment : BaseFragment() {
         var listCategoryPartner = ArrayList<CategoryPartnerResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return ContentFragment.newInstance(listCategoryPartner.get(position).id)
+            return ContentFragment.newInstance(listCategoryPartner[position].id)
         }
 
         override fun getCount(): Int {
@@ -71,7 +68,7 @@ class BasePartnerFragment : BaseFragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return listCategoryPartner.get(position).name
+            return listCategoryPartner[position].name
         }
     }
 
@@ -88,9 +85,9 @@ class BasePartnerFragment : BaseFragment() {
         }
 
         private fun initPartnerAdapter(list: ArrayList<PartnerResponse>) {
-            var recyclerView = dataBindingFragmentPartner.rvNews
-            var adapter = PartnerAdapter(list, onClick = {
-                var intent = Intent(activity, PartnerDetailActivity::class.java)
+            val recyclerView = dataBindingFragmentPartner.rvNews
+            val adapter = PartnerAdapter(list, onClick = {
+                val intent = Intent(activity, PartnerDetailActivity::class.java)
                 intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
                 startActivity(intent)
             })

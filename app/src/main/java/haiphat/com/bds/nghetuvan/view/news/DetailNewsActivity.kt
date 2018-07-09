@@ -49,8 +49,8 @@ class DetailNewsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHeaderVisibility(View.GONE)
-        var bundle = intent.extras
-        var newsResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_DETAIL_NEWS), NewsResponse::class.java)
+        val bundle = intent.extras
+        val newsResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_DETAIL_NEWS), NewsResponse::class.java)
         dataBindingDetailNews.imCovert.fromUrl(newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
         dataBindingDetailNews.tvName.text = newsResponse?.title
         dataBindingDetailNews.tvTitle.text = newsResponse?.title

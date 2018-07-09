@@ -9,9 +9,6 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 import kotlinx.android.synthetic.main.item_document.view.*
 
-/**
- * Created by HUONG HA^P on 6/20/2018.
- */
 class DocumentAdapter(private val listHomePage: ArrayList<HomeCategoryResponse>, val onClick: (HomeCategoryResponse) -> Unit) : RecyclerView.Adapter<DocumentAdapter.DocumentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): DocumentViewHolder {

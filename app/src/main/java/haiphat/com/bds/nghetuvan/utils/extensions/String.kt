@@ -1,6 +1,5 @@
 package haiphat.com.bds.nghetuvan.utils.extensions
 
-import android.util.Patterns
 import java.text.SimpleDateFormat
 import java.util.*
 

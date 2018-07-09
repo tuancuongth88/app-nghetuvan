@@ -5,9 +5,6 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.TextView
 
-/**
- * Created by DEV-01 on 12/27/2017.
- */
 class EditTextHelper {
     fun removeError(textView: TextView) {
         setError(textView, null)

@@ -19,9 +19,6 @@ import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.viewmodel.home.DocumentViewModel
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class DocumentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var dataBindingFragmentDocument: FragmentDocumentBinding
@@ -40,8 +37,8 @@ class DocumentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener {
         list?.let {
             dataBindingFragmentDocument.tvNoData.visibility = View.GONE
         }
-        var recyclerView = dataBindingFragmentDocument.rvDocument
-        var adapter = DocumentAdapter(list, onClick = {
+        val recyclerView = dataBindingFragmentDocument.rvDocument
+        val adapter = DocumentAdapter(list, onClick = {
             name = it.name
             requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), IntentActionKeys.REQUEST_SELECT_FILE_PERMISSION)
         })

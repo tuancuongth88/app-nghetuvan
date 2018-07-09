@@ -28,9 +28,6 @@ import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import haiphat.com.bds.nghetuvan.view.home.ShowListHomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.home.HomePageViewModel
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class HomeFragment : BaseFragment() {
     private lateinit var dataBindingFragmentHome: FragmentHomeBinding
     private var homePageViewModel = HomePageViewModel()
@@ -67,7 +64,7 @@ class HomeFragment : BaseFragment() {
         var listCategoryPartner = ArrayList<CategoryPartnerResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return ContentFragment.newInstance(listCategoryPartner.get(position).id)
+            return ContentFragment.newInstance(listCategoryPartner[position].id)
         }
 
         override fun getCount(): Int {
@@ -75,7 +72,7 @@ class HomeFragment : BaseFragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return return listCategoryPartner.get(position).name
+            return return listCategoryPartner[position].name
         }
     }
 
@@ -93,9 +90,9 @@ class HomeFragment : BaseFragment() {
         }
 
         private fun initHomeContentAdapter(list: ArrayList<HomeCategoryResponse>) {
-            var recyclerView = dataBindingFragmentHomeContent.rvHomeContent
-            var adapter = HomeCategoryAdapter(list, onClick = {
-                var intent = Intent(activity, ShowListHomeActivity::class.java)
+            val recyclerView = dataBindingFragmentHomeContent.rvHomeContent
+            val adapter = HomeCategoryAdapter(list, onClick = {
+                val intent = Intent(activity, ShowListHomeActivity::class.java)
 //                intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
                 startActivity(intent)
             })

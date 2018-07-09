@@ -8,9 +8,6 @@ import android.support.multidex.MultiDex
 import android.support.multidex.MultiDexApplication
 import haiphat.com.bds.nghetuvan.utils.SharePreferencesLoaders
 
-/**
- * Created by DEV-01 on 12/20/2017.
- */
 class BaseApplication : MultiDexApplication() {
 
     companion object{

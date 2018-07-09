@@ -5,10 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import haiphat.com.bds.nghetuvan.models.home.HomePageCategoryType
 
-
-/**
- * Created by HUONG HA^P on 3/29/2018.
- */
 class CommonUtil {
 
     companion object {

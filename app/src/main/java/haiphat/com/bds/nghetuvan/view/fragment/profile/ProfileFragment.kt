@@ -37,15 +37,15 @@ import haiphat.com.bds.nghetuvan.view.profile.UpdateInformationActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
 import java.io.File
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class ProfileFragment : BaseFragment(){
 
     private lateinit var dataBindingFragmentProfile: FragmentProfileBinding
     private var profileViewModel = ProfileViewModel()
-    private val REQUEST_CAMERA = 1888
-    private val SELECT_FILE = 1889
+    companion object {
+        private const val REQUEST_CAMERA = 1888
+        private const val SELECT_FILE = 1889
+
+    }
     private var imageUri: Uri? = null
 
 

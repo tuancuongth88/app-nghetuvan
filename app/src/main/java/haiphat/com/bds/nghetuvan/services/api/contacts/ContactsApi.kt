@@ -3,15 +3,8 @@ package haiphat.com.bds.nghetuvan.services.api.contacts
 import haiphat.com.bds.nghetuvan.services.Config
 import haiphat.com.bds.nghetuvan.services.DgmResponse
 import haiphat.com.bds.nghetuvan.services.api.BaseApi
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import java.io.File
-import java.util.HashMap
+import java.util.*
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class ContactsApi : BaseApi() {
     override fun apiUrl(): String? {
         return "contact/"

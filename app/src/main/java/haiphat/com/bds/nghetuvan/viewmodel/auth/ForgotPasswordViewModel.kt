@@ -2,14 +2,8 @@ package haiphat.com.bds.nghetuvan.viewmodel.auth
 
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.models.auth.AuthResponse
-import haiphat.com.bds.nghetuvan.services.GsonUtil
-import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class ForgotPasswordViewModel {
     var email : String? = null
 

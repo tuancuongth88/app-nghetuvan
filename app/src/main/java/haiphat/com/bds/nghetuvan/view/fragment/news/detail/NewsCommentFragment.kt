@@ -3,8 +3,6 @@ package haiphat.com.bds.nghetuvan.view.fragment.news.detail
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -17,7 +15,6 @@ import haiphat.com.bds.nghetuvan.databinding.FragmentNewsCommentBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsCommentResponse
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.news.PostCommentActivity
 import haiphat.com.bds.nghetuvan.viewmodel.news.NewsCommentViewModel
@@ -36,7 +33,7 @@ class NewsCommentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener
         dataBindingFragmentNewsComment.swipeRefreshLayout.setOnRefreshListener(this)
         dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = true
         dataBindingFragmentNewsComment.rippleComment.setOnRippleCompleteListener {
-            var intent = Intent(activity, PostCommentActivity::class.java)
+            val intent = Intent(activity, PostCommentActivity::class.java)
             intent.putExtra(IntentActionKeys.KEY_NEWS_ID, newsCommentViewModel.newsId)
             startActivityForResult(intent, IntentActionKeys.SCREEN_POST_COMMENT)
         }
@@ -47,9 +44,9 @@ class NewsCommentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener
     }
 
     private fun initNewsCommentAdapter(list: ArrayList<NewsCommentResponse>) {
-        var recyclerview = dataBindingFragmentNewsComment.rvNewsComment
+        val recyclerview = dataBindingFragmentNewsComment.rvNewsComment
         recyclerview.layoutManager = LinearLayoutManager(activity)
-        var adapter = NewsDetailCommentAdapter(list)
+        val adapter = NewsDetailCommentAdapter(list)
         recyclerview.adapter = adapter
     }
 

@@ -3,9 +3,6 @@ package haiphat.com.bds.nghetuvan.models.home
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 
-/**
- * Created by HUONG HA^P on 3/28/2018.
- */
 enum class HomePageCategoryType(var type : Int) {
     Undefined(0),
     HomeInvestor(1),

@@ -4,20 +4,16 @@ import android.text.TextUtils
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.BaseResponse
-import haiphat.com.bds.nghetuvan.models.ErrorModel
 import okhttp3.Response
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeoutException
 
-/**
- * Created by DEV-01 on 12/19/2017.
- */
 open class DgmResponse {
     var status: Boolean? = false
-    var statusCode: Int? = 0
+    private var statusCode: Int? = 0
     var responseContent: String? = null
-    var exception: Exception? = null
-    var messages: String? = null
+    private var exception: Exception? = null
+    private var messages: String? = null
 
     constructor(exception: Exception) {
         this.exception = exception

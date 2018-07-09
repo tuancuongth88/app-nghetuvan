@@ -12,9 +12,6 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.FragmentFinancialPackageBinding
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class FinancialPackageFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener {
 
     private lateinit var dataBindingFragmentFinancialPackage: FragmentFinancialPackageBinding

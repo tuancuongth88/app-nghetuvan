@@ -38,8 +38,8 @@ class HistoryTransactionsActivity : BaseActivity() {
     }
 
     private fun initPartnerAdapter(list : ArrayList<PartnerResponse>){
-        var recyclerView = dataBindingPartner.rvPartner
-        var adapter = PartnerAdapter(list, onClick = {
+        val recyclerView = dataBindingPartner.rvPartner
+        val adapter = PartnerAdapter(list, onClick = {
             startActivity(Intent(this@HistoryTransactionsActivity, PartnerDetailActivity::class.java))
         })
         recyclerView.layoutManager = LinearLayoutManager(this)

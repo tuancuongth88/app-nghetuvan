@@ -5,10 +5,7 @@ import android.text.TextWatcher
 import android.widget.TextView
 import haiphat.com.bds.nghetuvan.utils.helper.EditTextHelper
 
-/**
- * Created by DEV-01 on 12/27/2017.
- */
-abstract class BaseRule<V : TextView>(protected var view: V, var errorMessage: CharSequence) : TextWatcher {
+abstract class BaseRule<V : TextView>(protected var view: V, private var errorMessage: CharSequence) : TextWatcher {
 
     protected abstract val isValid: Boolean
 
@@ -22,7 +19,7 @@ abstract class BaseRule<V : TextView>(protected var view: V, var errorMessage: C
         return result
     }
 
-    protected fun onUpdatedResultValidation(isError: Boolean) {
+    private fun onUpdatedResultValidation(isError: Boolean) {
         if (isError) {
             EditTextHelper().removeError(this.view)
         } else {

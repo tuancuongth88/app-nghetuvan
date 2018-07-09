@@ -10,9 +10,6 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 import kotlinx.android.synthetic.main.item_home_category.view.*
 
-/**
- * Created by HUONG HA^P on 6/20/2018.
- */
 class HomeCategoryAdapter (private val listHomePage: ArrayList<HomeCategoryResponse>, val onClick: (HomeCategoryResponse) -> Unit) : RecyclerView.Adapter<HomeCategoryAdapter.HomeCategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HomeCategoryViewHolder {
@@ -35,7 +32,7 @@ class HomeCategoryAdapter (private val listHomePage: ArrayList<HomeCategoryRespo
         fun bindItem(homeCategoryResponse: HomeCategoryResponse) {
             itemView.tvName.text = homeCategoryResponse.name
             val recyclerView = itemView.rvHomeItem
-            var adapter = HomeAdapter(homeCategoryResponse.data, onClick = {
+            val adapter = HomeAdapter(homeCategoryResponse.data, onClick = {
 //                var intent = Intent(itemView.context, PartnerDetailActivity::class.java)
 //                itemView.context.startActivity(intent)
             })

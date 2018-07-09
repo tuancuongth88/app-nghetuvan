@@ -1,7 +1,6 @@
 package haiphat.com.bds.nghetuvan.viewmodel.profiles
 
 import android.content.Context
-import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.auth.ProfileResponse
 import haiphat.com.bds.nghetuvan.models.auth.UserResponse

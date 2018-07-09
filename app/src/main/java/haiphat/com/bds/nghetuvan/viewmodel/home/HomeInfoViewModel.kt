@@ -1,8 +1,5 @@
 package haiphat.com.bds.nghetuvan.viewmodel.home
 
-/**
- * Created by HUONG HA^P on 6/25/2018.
- */
 class HomeInfoViewModel{
     var content : String = "Eco Dream bàn giao căn hộ hoàn thiện nội thất\n" +
             "Sàn phòng khách và phòng ngủ lát gỗ công nghiệp dày 12mm, thiết bị điện Schneider, phòng vệ sinh gắn bình nóng lạnh, trang thiết bị Toto.\n" +

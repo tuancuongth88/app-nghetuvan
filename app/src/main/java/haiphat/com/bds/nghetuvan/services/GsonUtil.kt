@@ -2,9 +2,6 @@ package haiphat.com.bds.nghetuvan.services
 
 import com.google.gson.Gson
 
-/**
- * Created by DEV-01 on 12/19/2017.
- */
 class GsonUtil {
 
     companion object {

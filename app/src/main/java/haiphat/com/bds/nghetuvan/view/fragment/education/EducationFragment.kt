@@ -15,23 +15,17 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.education.EducationAdapter
-import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentEducationBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
 import haiphat.com.bds.nghetuvan.models.education.EducationResponse
 import haiphat.com.bds.nghetuvan.models.education.ItemEducationResponse
-import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.education.EducationDetailActivity
 import haiphat.com.bds.nghetuvan.view.home.HomeActivity
-import haiphat.com.bds.nghetuvan.view.partner.PartnerDetailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.education.EducationViewModel
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class EducationFragment : BaseFragment() {
     private lateinit var dataBindingFragmentPartner: FragmentEducationBinding
     private var educationViewModel = EducationViewModel()
@@ -63,7 +57,7 @@ class EducationFragment : BaseFragment() {
         var listCategoryEducation = ArrayList<EducationResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return ContentFragment.newInstance(listCategoryEducation.get(position).id)
+            return ContentFragment.newInstance(listCategoryEducation[position].id)
         }
 
         override fun getCount(): Int {
@@ -71,7 +65,7 @@ class EducationFragment : BaseFragment() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return listCategoryEducation.get(position).name
+            return listCategoryEducation[position].name
         }
     }
 
@@ -88,9 +82,9 @@ class EducationFragment : BaseFragment() {
         }
 
         private fun initPartnerAdapter(list: ArrayList<ItemEducationResponse>) {
-            var recyclerView = dataBindingFragmentPartner.rvNews
-            var adapter = EducationAdapter(list, onClick = {
-                var intent = Intent(activity, EducationDetailActivity::class.java)
+            val recyclerView = dataBindingFragmentPartner.rvNews
+            val adapter = EducationAdapter(list, onClick = {
+                val intent = Intent(activity, EducationDetailActivity::class.java)
                 startActivity(intent)
             })
             recyclerView.layoutManager = LinearLayoutManager(activity)

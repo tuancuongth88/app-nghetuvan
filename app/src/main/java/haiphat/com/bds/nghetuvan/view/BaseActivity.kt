@@ -15,9 +15,6 @@ import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityHeaderBaseBinding
 import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var baseActivityBinding: ActivityHeaderBaseBinding
