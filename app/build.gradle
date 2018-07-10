@@ -54,4 +54,6 @@ dependencies {
     compile 'org.sufficientlysecure:html-textview:3.5'
 //    compile 'com.facebook.android:facebook-android-sdk:4.29.0'
     compile 'com.soundcloud.android:android-crop:1.0.1@aar'
+    // show table view
+    compile 'com.evrencoskun.library:tableview:0.8.8'
 }

@@ -1,6 +1,7 @@
 package haiphat.com.bds.nghetuvan.view.home
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -24,6 +25,7 @@ import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.education.EducationFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
+import haiphat.com.bds.nghetuvan.view.fragment.online.OnlineSalesFragment
 import haiphat.com.bds.nghetuvan.view.fragment.partner.BasePartnerFragment
 import haiphat.com.bds.nghetuvan.view.fragment.profile.ProfileFragment
 import haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.ProjectWarehouseFragment
@@ -78,11 +80,14 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 getString(R.string.title_action_bar_home) -> {
                     fragment = HomeFragment()
                     toolbar.title = getString(R.string.title_action_bar_home)
-
                 }
                 getString(R.string.title_action_bar_duan) ->{
                     fragment = ProjectWarehouseFragment()
                     toolbar.title = ""
+                }
+                getString(R.string.title_action_bar_bh_online) ->{
+                    fragment = OnlineSalesFragment()
+                    toolbar.title = getString(R.string.title_action_bar_bh_online)
                 }
                 getString(R.string.title_action_bar_daotao) ->{
                     fragment = EducationFragment()

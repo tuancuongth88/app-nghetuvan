@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.item_profile.view.*
 
 class ProfileAdapter(private val profileActions: ArrayList<ProfileModel>, val onClick: (ProfileModel) -> Unit) : RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ProfileViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_profile, parent, false)
         return ProfileViewHolder(binding)

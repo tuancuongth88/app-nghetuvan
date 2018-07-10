@@ -10,7 +10,6 @@
             <org.sufficientlysecure.htmltextview.HtmlTextView
                 android:id="@+id/htmTextInfo"
                 style="@style/matchParent"
-
                 android:text="Chưa có dữ liệu nào cả" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
