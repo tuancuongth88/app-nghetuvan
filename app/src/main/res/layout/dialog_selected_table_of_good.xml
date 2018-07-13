@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        style="@style/matchWrap"
+        android:background="@color/colorWhite">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvSelectedTableOfGoods"
+            style="@style/matchWrap"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -5,6 +5,5 @@ package haiphat.com.bds.nghetuvan.models.online
  */
 data class TypeTableOfGoodsResponse(
         var id  :String ? = null,
-        var name : String ? = null,
-        var data : ArrayList<BuildingResponse> ?= null
+        var name : String ? = null
 )

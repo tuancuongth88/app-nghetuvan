@@ -2,7 +2,6 @@ package haiphat.com.bds.nghetuvan.viewmodel.onlineSales
 
 import haiphat.com.bds.nghetuvan.models.news.ListNewsResponse
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
-import haiphat.com.bds.nghetuvan.models.online.BuildingResponse
 import haiphat.com.bds.nghetuvan.models.online.TypeTableOfGoodsResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.api.onlineSales.OnlineSalesApi
@@ -20,21 +19,31 @@ class OnlineSalesViewModel {
         })
     }
 
-    fun getTypeTableOfGoods(onSuccess: (ArrayList<TypeTableOfGoodsResponse>) -> Unit, onFailed: (String?) -> Unit) {
-        OnlineSalesApi().getTypeTableOfGoods {
-            it.status?.let {
+    fun getProjectTableOfGoods(onSuccess: (ArrayList<TypeTableOfGoodsResponse>) -> Unit, onFailed: (String?) -> Unit) {
+//        OnlineSalesApi().getTypeTableOfGoods {
+//            it.status?.let {
                 onSuccess(mockDataTypeTableOfGoods())
-            } ?: onFailed(it.getErrorMessage())
-        }
+//            } ?: onFailed(it.getErrorMessage())
+//        }
+    }
+
+    fun getBuildingTableOfGoods(projectId : Int? ,onSuccess: (ArrayList<TypeTableOfGoodsResponse>) -> Unit, onFailed: (String?) -> Unit) {
+        onSuccess(mockDataBuilding())
+    }
+
+    private fun mockDataBuilding() : ArrayList<TypeTableOfGoodsResponse> {
+        var building = ArrayList<TypeTableOfGoodsResponse>()
+        building.add(TypeTableOfGoodsResponse(id = "1", name = "CT 1"))
+        building.add(TypeTableOfGoodsResponse(id = "2", name = "CT 2"))
+        building.add(TypeTableOfGoodsResponse(id = "3", name = "CT 3"))
+        return building
     }
 
     private fun mockDataTypeTableOfGoods(): ArrayList<TypeTableOfGoodsResponse> {
         var data = ArrayList<TypeTableOfGoodsResponse>()
-        var building = ArrayList<BuildingResponse>()
-        building.add(BuildingResponse(id = "1", name = "CT 1"))
-        building.add(BuildingResponse(id = "2", name = "CT 2"))
-        building.add(BuildingResponse(id = "3", name = "CT 3"))
-        data.add(TypeTableOfGoodsResponse(id = "1", name = "Chung cư", data = building))
+        data.add(TypeTableOfGoodsResponse(id = "1", name = "Chung cư"))
+        data.add(TypeTableOfGoodsResponse(id = "2", name = "Biet thự "))
+        data.add(TypeTableOfGoodsResponse(id = "3", name = "Đất nền"))
         return data
     }
 
