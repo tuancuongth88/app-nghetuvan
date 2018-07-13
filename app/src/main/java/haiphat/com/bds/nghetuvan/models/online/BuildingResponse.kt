@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.models.onlineSales
+package haiphat.com.bds.nghetuvan.models.online
 
 /**
  * Created by sivan on 7/13/2018.

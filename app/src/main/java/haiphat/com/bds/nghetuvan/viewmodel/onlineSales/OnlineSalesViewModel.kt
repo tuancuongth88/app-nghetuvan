@@ -1,11 +1,9 @@
 package haiphat.com.bds.nghetuvan.viewmodel.onlineSales
 
-import haiphat.com.bds.nghetuvan.models.news.CategoryNewsResponse
-import haiphat.com.bds.nghetuvan.models.news.ListCategory
 import haiphat.com.bds.nghetuvan.models.news.ListNewsResponse
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
-import haiphat.com.bds.nghetuvan.models.onlineSales.BuildingResponse
-import haiphat.com.bds.nghetuvan.models.onlineSales.TypeTableOfGoodsResponse
+import haiphat.com.bds.nghetuvan.models.online.BuildingResponse
+import haiphat.com.bds.nghetuvan.models.online.TypeTableOfGoodsResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.api.onlineSales.OnlineSalesApi
 
