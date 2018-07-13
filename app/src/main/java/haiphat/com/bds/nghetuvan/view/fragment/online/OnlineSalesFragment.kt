@@ -37,6 +37,8 @@ class OnlineSalesFragment : BaseFragment(){
         })
     }
 
+
+
     private fun getTableGoods(){
         ShowLoading.show(context)
         onlineSalesViewModel.getTableOfGoods(onSuccess = {
