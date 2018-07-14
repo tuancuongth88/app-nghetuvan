@@ -1,6 +1,5 @@
 package haiphat.com.bds.nghetuvan.view.fragment.online
 
-import android.app.Dialog
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
