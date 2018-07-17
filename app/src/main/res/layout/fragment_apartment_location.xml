@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img"
+            style="@style/matchWrap"
+            android:src="@drawable/ic_defaul_bg_my_course"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.fragment.online
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
@@ -18,6 +19,7 @@ import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import android.widget.TableRow.LayoutParams;
+import haiphat.com.bds.nghetuvan.view.online.DetailOnlineSalesActivity
 import haiphat.com.bds.nghetuvan.viewmodel.onlineSales.OnlineSalesViewModel
 
 
@@ -125,7 +127,7 @@ class OnlineSalesFragment : BaseFragment() {
         recyclableTextView?.width = widthInPercentOfScreenWidth * screenWidth / 100
         recyclableTextView?.height = fixedHeightInPixels
         recyclableTextView?.setOnClickListener {
-            ShowAlert.confirm(pContext = context, message = text)
+            startActivity(Intent(activity, DetailOnlineSalesActivity::class.java))
         }
         return recyclableTextView as TextView
     }

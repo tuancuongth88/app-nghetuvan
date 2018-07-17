@@ -6,35 +6,33 @@ import android.support.v4.app.FragmentPagerAdapter
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
-import haiphat.com.bds.nghetuvan.view.home.fragment.DocumentFragment
-import haiphat.com.bds.nghetuvan.view.home.fragment.FinancialPackageFragment
-import haiphat.com.bds.nghetuvan.view.home.fragment.HomeInfoFragment
-import haiphat.com.bds.nghetuvan.view.home.fragment.ProjectManagementFragment
+import haiphat.com.bds.nghetuvan.view.fragment.online.ApartmentLocationFragment
+import haiphat.com.bds.nghetuvan.view.fragment.online.OnlineSalesInfoFragment
 
 class SectionsPagerDetailOnlineSalesAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    var newsResponse : NewsResponse? =null
 
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when (position) {
             0 -> {
-                fragment = HomeInfoFragment.newInstance(newsResponse?.content)
+                fragment = OnlineSalesInfoFragment()
             }
-            1 -> {
-                fragment = ProjectManagementFragment.newInstance(newsResponse?.id)
+            1, 2 -> {
+                fragment = ApartmentLocationFragment()
             }
         }
-        return fragment ?: HomeInfoFragment.newInstance(newsResponse?.content)
+        return fragment ?: OnlineSalesInfoFragment()
     }
 
     override fun getCount(): Int {
-        return 2
+        return 3
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
         when (position) {
             0 -> return BaseApplication.context.getString(R.string.text_tab_news_info)
             1 -> return "Vị trí căn hộ"
+            2 -> return "Phản hồi 3D"
         }
         return null
     }
