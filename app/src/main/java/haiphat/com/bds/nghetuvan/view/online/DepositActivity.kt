@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.online
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,8 +10,8 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.ActivityDepositBinding
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.view.BaseFragment
-import haiphat.com.bds.nghetuvan.view.fragment.online.EnterCustomersInformationFragment
-import haiphat.com.bds.nghetuvan.view.fragment.online.FindingCustomersFragment
+import haiphat.com.bds.nghetuvan.view.fragment.online.EnterCustomerInformationFragment
+import haiphat.com.bds.nghetuvan.view.fragment.online.FindingCustomerFragment
 
 class DepositActivity : BaseActivity() {
 
@@ -20,12 +21,15 @@ class DepositActivity : BaseActivity() {
     override fun getContentView(): View {
         dataBindingDeposit = DataBindingUtil.inflate(layoutInflater, R.layout.activity_deposit, null, false)
         dataBindingDeposit.rbFindingCustomers.setOnClickListener {
-            val fragmentFindingCustomers = FindingCustomersFragment()
+            val fragmentFindingCustomers = FindingCustomerFragment()
             this.displayDepositActivities(fragmentFindingCustomers)
         }
         dataBindingDeposit.rbEnterCustomersInformation.setOnClickListener {
-            val fragmentEnterCustomersInformation = EnterCustomersInformationFragment()
+            val fragmentEnterCustomersInformation = EnterCustomerInformationFragment()
             this.displayDepositActivities(fragmentEnterCustomersInformation)
+        }
+        dataBindingDeposit.rippleContinue.setOnRippleCompleteListener {
+            startActivity(Intent(this@DepositActivity, ViewCustomerInformationActivity::class.java))
         }
         return dataBindingDeposit.root
     }
@@ -37,7 +41,7 @@ class DepositActivity : BaseActivity() {
         baseActivityBinding.imgBack.setImageResource(R.drawable.ic_back_b)
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite))
 
-        val fragmentFindingCustomers = FindingCustomersFragment()
+        val fragmentFindingCustomers = FindingCustomerFragment()
         this.displayDepositActivities(fragmentFindingCustomers)
 
     }

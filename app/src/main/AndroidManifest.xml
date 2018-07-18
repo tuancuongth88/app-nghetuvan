@@ -73,7 +73,8 @@
         <activity android:name=".view.home.TestActivity" />
         <activity android:name=".view.education.EducationDetailActivity" />
         <activity android:name=".view.online.DetailOnlineSalesActivity" />
-        <activity android:name=".view.online.DepositActivity"></activity>
+        <activity android:name=".view.online.DepositActivity" />
+        <activity android:name=".view.online.ViewCustomerInformationActivity"></activity>
     </application>
 
 </manifest>
