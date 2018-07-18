@@ -67,7 +67,7 @@
                             android:id="@+id/tvTitle"
                             style="@style/wrapContent"
                             android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/rippleSetting"
+                            android:layout_toLeftOf="@+id/rippleDeposit"
                             android:layout_toRightOf="@+id/rippleBack"
                             android:ellipsize="end"
                             android:maxLines="1"
@@ -78,7 +78,7 @@
                             tools:text="Category name" />
 
                         <haiphat.com.bds.nghetuvan.utils.RippleView
-                            android:id="@+id/rippleSetting"
+                            android:id="@+id/rippleDeposit"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_alignParentRight="true">

@@ -6,27 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.databinding.FragmentNewsInfoBinding
+import haiphat.com.bds.nghetuvan.databinding.FragmentApartmentLocationBinding
+import haiphat.com.bds.nghetuvan.utils.extensions.fromUrlFixData
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.viewmodel.home.HomeInfoViewModel
-import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
 
 class ApartmentLocationFragment : BaseFragment() {
-    private lateinit var dataBindingFragmentNewsInfo: FragmentNewsInfoBinding
-    private var homeInfoViewModel = HomeInfoViewModel()
+    private lateinit var dataBindingFragmentApartmentLoaction: FragmentApartmentLocationBinding
+    private val url : String = "https://file1.batdongsan.com.vn/guestthumb745x510.20140627114319717.jpg"
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dataBindingFragmentNewsInfo = DataBindingUtil.inflate(inflater, R.layout.fragment_news_info, container, false)
-        homeInfoViewModel.content?.let { dataBindingFragmentNewsInfo.htmTextInfo.setHtml(it, HtmlHttpImageGetter(dataBindingFragmentNewsInfo.htmTextInfo)) }
-        return dataBindingFragmentNewsInfo.root
-    }
+        dataBindingFragmentApartmentLoaction = DataBindingUtil.inflate(inflater, R.layout.fragment_apartment_location, container, false)
+        dataBindingFragmentApartmentLoaction.img.fromUrlFixData(url = url, placeHolder = R.drawable.ic_defaul_bg_my_course)
 
 
-    companion object {
-        fun newInstance(content: String?, arguments: Bundle? = null): ApartmentLocationFragment {
-            val fragment = ApartmentLocationFragment()
-//            fragment.newsResponseViewModel.content = content
-            fragment.arguments = arguments
-            return fragment
-        }
+        return dataBindingFragmentApartmentLoaction.root
     }
 }

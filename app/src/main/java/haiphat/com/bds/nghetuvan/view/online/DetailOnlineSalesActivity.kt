@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.online
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -15,6 +16,14 @@ class DetailOnlineSalesActivity : BaseActivity() {
     override fun getContentView(): View {
         dataBindingDetailOnlineSales = DataBindingUtil.inflate(layoutInflater, R.layout.activity_detail_online_sales, null, false)
         setSupportActionBar(dataBindingDetailOnlineSales.toolbar)
+
+        dataBindingDetailOnlineSales.rippleBack.setOnRippleCompleteListener {
+            onBackPressed()
+        }
+
+        dataBindingDetailOnlineSales.rippleDeposit.setOnRippleCompleteListener{
+            startActivity(Intent(this@DetailOnlineSalesActivity, DepositActivity::class.java))
+        }
 
         return dataBindingDetailOnlineSales.root
     }
