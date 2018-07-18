@@ -6,10 +6,44 @@
     <android.support.constraint.ConstraintLayout
         style="@style/matchParent"
         tools:context="haiphat.com.bds.nghetuvan.view.profile.SettingActivity">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilSearch"
+            style="@style/withWrap"
+            android:theme="@style/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="màn hình tìm kiếm khách hàng"/>
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetSearch"
+                style="@style/matchWrap"
+                android:gravity="center"
+                android:hint="Nhập tên khách hàng"
+                android:inputType="text"
+                android:textColor="@color/colorWhite"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_email}"
+                app:validateEmailErrorMessage="@{@string/text_validate_email_invalid}"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPrice"
+            style="@style/withWrap"
+            android:theme="@style/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tilSearch">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tetPrice"
+                style="@style/matchWrap"
+                android:gravity="center"
+                android:hint="Nhập Giá tiền"
+                android:inputType="number"
+                android:textColor="@color/colorWhite"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_email}"
+                app:validateEmailErrorMessage="@{@string/text_validate_email_invalid}"
+                />
+        </android.support.design.widget.TextInputLayout>
+
     </android.support.constraint.ConstraintLayout>
 </layout>

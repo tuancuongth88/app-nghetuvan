@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.constraint.ConstraintLayout style="@style/matchParent">
@@ -26,11 +27,29 @@
 
         <FrameLayout
             android:id="@+id/flContent"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/withWrap"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <haiphat.com.bds.nghetuvan.utils.RippleView
+            android:id="@+id/rippleContinue"
+            style="@style/matchWrap"
+            android:layout_margin="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_view_btn_login_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flContent">
+
+            <TextView
+                style="@style/wrapContent"
+                android:padding="10dp"
+                android:text="Tiếp tục"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </haiphat.com.bds.nghetuvan.utils.RippleView>
     </android.support.constraint.ConstraintLayout>
 </layout>
