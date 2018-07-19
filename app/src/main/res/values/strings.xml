@@ -66,4 +66,11 @@
     <string name="change_image_camera">Sử dụng máy ảnh</string>
     <string name="change_image_gallery">Sử dụng thư viện ảnh</string>
     <string name="text_tab_education_register">Đăng ký</string>
+    //payment gateways
+    <string name="text_pay_full_name"> &lt;b>Họ và tên:&lt;/b> %s</string>
+    <string name="text_pay_address">&lt;b>Địa chỉ:&lt;/b> %s</string>
+    <string name="text_pay_cmtnd">&lt;b>Số CMTND:&lt;/b> %s</string>
+    <string name="text_pay_phone">&lt;b>Số ĐT:&lt;/b> %s</string>
+    <string name="text_pay_email">&lt;b>Email:&lt;/b> %s</string>
+    <string name="text_pay_price">&lt;b>Sô tiền học:&lt;/b> %s</string>
 </resources>

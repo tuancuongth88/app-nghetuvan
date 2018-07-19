@@ -1,5 +1,7 @@
 package haiphat.com.bds.nghetuvan.utils.extensions
 
+import android.text.Html
+import android.text.Spanned
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -31,4 +33,8 @@ fun String.formatDateTime(typeDate : String): String {
     val simpleDateFormat = SimpleDateFormat(typeDate)
     simpleDateFormat.timeZone = TimeZone.getTimeZone("GMT")
     return simpleDateFormat.format(date)
+}
+
+fun String.toHtml(): Spanned? {
+    return Html.fromHtml(this)
 }
