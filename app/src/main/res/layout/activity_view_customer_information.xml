@@ -1,85 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.constraint.ConstraintLayout style="@style/matchParent">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/clContent"
+        style="@style/matchParent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/tvFullName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Họ và tên: "
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/clHeader"
+            style="@style/withWrap"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_radius_white"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Địa chỉ: "
-            app:layout_constraintEnd_toEndOf="@+id/tvFullName"
-            app:layout_constraintStart_toStartOf="@+id/tvFullName"
-            app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
+            <TextView
+                android:id="@+id/tvFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Họ và tên: "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tvCMTND"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Số CMTND: "
-            app:layout_constraintEnd_toEndOf="@+id/tvAddress"
-            app:layout_constraintStart_toStartOf="@+id/tvAddress"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Địa chỉ: "
+                app:layout_constraintEnd_toEndOf="@+id/tvFullName"
+                app:layout_constraintStart_toStartOf="@+id/tvFullName"
+                app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Email: "
-            app:layout_constraintEnd_toEndOf="@+id/tvCMTND"
-            app:layout_constraintStart_toStartOf="@+id/tvCMTND"
-            app:layout_constraintTop_toBottomOf="@+id/tvCMTND" />
+            <TextView
+                android:id="@+id/tvCMTND"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Số CMTND: "
+                app:layout_constraintEnd_toEndOf="@+id/tvAddress"
+                app:layout_constraintStart_toStartOf="@+id/tvAddress"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
 
-        <TextView
-            android:id="@+id/tvPrice"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Số tiền đặt cọc: "
-            app:layout_constraintEnd_toEndOf="@+id/tvEmail"
-            app:layout_constraintStart_toStartOf="@+id/tvEmail"
-            app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Email: "
+                app:layout_constraintEnd_toEndOf="@+id/tvCMTND"
+                app:layout_constraintStart_toStartOf="@+id/tvCMTND"
+                app:layout_constraintTop_toBottomOf="@+id/tvCMTND" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Số tiền đặt cọc: "
+                app:layout_constraintEnd_toEndOf="@+id/tvEmail"
+                app:layout_constraintStart_toStartOf="@+id/tvEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp"
             android:text="Chọn hình thức thanh toán"
-            app:layout_constraintEnd_toEndOf="@+id/tvEmail"
-            app:layout_constraintStart_toStartOf="@+id/tvEmail"
-            app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/clHeader"
+            app:layout_constraintStart_toStartOf="@+id/clHeader"
+            app:layout_constraintTop_toBottomOf="@+id/clHeader" />
+
         <TextView
             android:id="@+id/tvTypePay"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="16sp"
             android:text="Chọn hình thức thanh toán"
-            app:layout_constraintEnd_toEndOf="@+id/tvEmail"
-            app:layout_constraintStart_toStartOf="@+id/tvEmail"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/clHeader"
+            app:layout_constraintStart_toStartOf="@+id/clHeader"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
         <CheckBox
             android:id="@+id/cbAccept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Tôi đồng ý với điều khoản và chính sách"
-            app:layout_constraintTop_toBottomOf="@+id/tvTypePay"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTypePay" />
 
 
         <haiphat.com.bds.nghetuvan.utils.RippleView
@@ -90,6 +111,7 @@
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/rippleContinue"
+            app:layout_constraintStart_toStartOf="@+id/tvTypePay"
             app:layout_constraintTop_toBottomOf="@+id/cbAccept">
 
             <TextView
@@ -105,7 +127,7 @@
             android:id="@+id/rippleContinue"
             style="@style/withWrap"
             android:background="@drawable/bg_view_btn_login_email"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvTypePay"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toRightOf="@+id/rippleBack"
             app:layout_constraintTop_toTopOf="@+id/rippleBack">

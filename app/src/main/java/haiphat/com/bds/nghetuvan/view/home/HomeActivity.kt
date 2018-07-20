@@ -1,7 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.home
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.NavigationView
