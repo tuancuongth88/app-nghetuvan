@@ -15,5 +15,6 @@ class IntentActionKeys {
         const val UPDATE_ACCOUNT_INFORMATION = 111
         const val SCREEN_POST_COMMENT = 110
         const val KEY_RELOAD_DATA = 1124
+        const val KEY_PAYMENT_GATEWAYS = 123
     }
 }

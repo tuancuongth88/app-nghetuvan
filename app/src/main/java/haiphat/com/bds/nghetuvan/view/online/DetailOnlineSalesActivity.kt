@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.online.SectionsPagerDetailOnlineSalesAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityDetailOnlineSalesBinding
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 
@@ -22,7 +23,7 @@ class DetailOnlineSalesActivity : BaseActivity() {
         }
 
         dataBindingDetailOnlineSales.rippleDeposit.setOnRippleCompleteListener{
-            startActivity(Intent(this@DetailOnlineSalesActivity, DepositActivity::class.java))
+            startActivityForResult(Intent(this@DetailOnlineSalesActivity, DepositActivity::class.java), IntentActionKeys.KEY_PAYMENT_GATEWAYS)
         }
 
         return dataBindingDetailOnlineSales.root

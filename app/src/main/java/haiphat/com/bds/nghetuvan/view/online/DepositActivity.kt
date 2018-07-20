@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityDepositBinding
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.view.BaseFragment
@@ -29,7 +30,7 @@ class DepositActivity : BaseActivity() {
             this.displayDepositActivities(fragmentEnterCustomersInformation)
         }
         dataBindingDeposit.rippleContinue.setOnRippleCompleteListener {
-            startActivity(Intent(this@DepositActivity, ViewCustomerInformationActivity::class.java))
+            startActivityForResult(Intent(this@DepositActivity, ViewCustomerInformationActivity::class.java), IntentActionKeys.KEY_PAYMENT_GATEWAYS)
         }
         return dataBindingDeposit.root
     }
@@ -56,5 +57,15 @@ class DepositActivity : BaseActivity() {
 
     override fun getCurrentFragment(): BaseFragment? {
         return supportFragmentManager.findFragmentById(R.id.flContent) as? BaseFragment
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            IntentActionKeys.KEY_PAYMENT_GATEWAYS ->{
+                if(resultCode == IntentActionKeys.KEY_RELOAD_DATA)
+                finish()
+            }
+        }
     }
 }
