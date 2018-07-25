@@ -10,6 +10,7 @@ import java.io.File
 import java.util.*
 
 class AuthApi : BaseApi() {
+
     override fun apiUrl(): String? {
         return "user/"
     }

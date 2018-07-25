@@ -18,7 +18,6 @@ class DepositActivity : BaseActivity() {
 
     private lateinit var dataBindingDeposit : ActivityDepositBinding
 
-
     override fun getContentView(): View {
         dataBindingDeposit = DataBindingUtil.inflate(layoutInflater, R.layout.activity_deposit, null, false)
         dataBindingDeposit.rbFindingCustomers.setOnClickListener {
@@ -47,7 +46,7 @@ class DepositActivity : BaseActivity() {
 
     }
 
-    fun displayDepositActivities(depositActivitiesFragment: Fragment) {
+    private fun displayDepositActivities(depositActivitiesFragment: Fragment) {
         val fragmentManager = this.supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right)
