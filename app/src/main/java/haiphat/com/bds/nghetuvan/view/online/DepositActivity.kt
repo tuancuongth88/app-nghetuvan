@@ -40,7 +40,6 @@ class DepositActivity : BaseActivity() {
         baseActivityBinding.tvTitle.setTextColor(ContextCompat.getColor(this, R.color.textLabel))
         baseActivityBinding.imgBack.setImageResource(R.drawable.ic_back_b)
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite))
-
         val fragmentFindingCustomers = FindingCustomerFragment()
         this.displayDepositActivities(fragmentFindingCustomers)
 
