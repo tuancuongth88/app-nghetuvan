@@ -1,8 +1,10 @@
 package haiphat.com.bds.nghetuvan.view.fragment.online
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.view.Gravity
@@ -49,83 +51,93 @@ class OnlineSalesFragment : BaseFragment() {
         return dataBindingFragmentOnlineSales.root
     }
 
-    private fun initView(){
+    @SuppressLint("ResourceType")
+    private fun initView() {
         val wrapWrapTableRowParams = TableRow.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         val fixedColumnWidths = intArrayOf(20, 20, 20, 20, 20)
         val scrollableColumnWidths = intArrayOf(20, 20, 20, 30, 30)
         val fixedRowHeight = 150
         val fixedHeaderHeight = 150
-
         var row = TableRow(context)
-        //header (fixed vertically)
-//        val header = findViewById(R.id.table_header) as TableLayout
-        row.setLayoutParams(wrapWrapTableRowParams)
-        row.setGravity(Gravity.CENTER)
-        row.setBackgroundColor(Color.YELLOW)
-        row.addView(makeTableRowWithText("can 1", fixedColumnWidths[0], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 2", fixedColumnWidths[1], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 3", fixedColumnWidths[2], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 4", fixedColumnWidths[3], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 5", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 6", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 7", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 8", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 9", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 10", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 11", fixedColumnWidths[0], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 12", fixedColumnWidths[1], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 13", fixedColumnWidths[2], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 14", fixedColumnWidths[3], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 15", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 16", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 17", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 18", fixedColumnWidths[4], fixedHeaderHeight))
-        row.addView(makeTableRowWithText("can 19", fixedColumnWidths[4], fixedHeaderHeight))
-//        row.addView(makeTableRowWithText("can 20", fixedColumnWidths[4], fixedHeaderHeight))
+        row.layoutParams = wrapWrapTableRowParams
+        row.gravity = Gravity.CENTER
+        row.setBackgroundColor(Color.parseColor("#f68121"))
+        row.addView(makeTableRowWithText("can 1", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 2", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 3", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 4", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 5", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 6", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 7", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 8", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 9", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 10", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 11", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 11", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 12", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 13", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 15", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 16", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 17", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 18", fixedColumnWidths[1], fixedHeaderHeight, false))
+        row.addView(makeTableRowWithText("can 19", fixedColumnWidths[1], fixedHeaderHeight, false))
         dataBindingFragmentOnlineSales.scrollablePart.addView(row)
-//        val fixedColumn = findViewById(R.id.fixed_column) as TableLayout
-        //rest of the table (within a scroll view)
-//        val scrollablePart = findViewById(R.id.scrollable_part) as TableLayout
         for (i in 1..21) {
-            val fixedView = makeTableRowWithText("Tang " + i, scrollableColumnWidths[0], fixedRowHeight)
-            fixedView.setBackgroundColor(Color.BLUE)
-            dataBindingFragmentOnlineSales.fixedColumn.addView(fixedView)
+            if (i == 1) {
+                val fixedView = makeTableRowWithText("T/C", scrollableColumnWidths[0], fixedRowHeight, false)
+                fixedView.setBackgroundColor(Color.parseColor("#a52d2d"))
+                dataBindingFragmentOnlineSales.fixedColumn.addView(fixedView)
+            } else {
+                var count = i - 1
+                val fixedView = makeTableRowWithText("Tầng " + count, scrollableColumnWidths[0], fixedRowHeight, false)
+                fixedView.setBackgroundColor(Color.parseColor("#a52d2d"))
+                dataBindingFragmentOnlineSales.fixedColumn.addView(fixedView)
+            }
             row = TableRow(context)
-            row.setLayoutParams(wrapWrapTableRowParams)
-            row.setGravity(Gravity.CENTER)
+            row.layoutParams = wrapWrapTableRowParams
+            row.gravity = Gravity.CENTER
             row.setBackgroundColor(Color.WHITE)
-            row.addView(makeTableRowWithText("value 1", scrollableColumnWidths[1], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 2", scrollableColumnWidths[2], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 3", scrollableColumnWidths[3], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 4", scrollableColumnWidths[4], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 5", scrollableColumnWidths[1], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 6", scrollableColumnWidths[2], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 7", scrollableColumnWidths[3], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 8", scrollableColumnWidths[4], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 9", scrollableColumnWidths[1], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 10", scrollableColumnWidths[2], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 11", scrollableColumnWidths[3], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 12", scrollableColumnWidths[4], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 13", scrollableColumnWidths[1], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 14", scrollableColumnWidths[2], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 15", scrollableColumnWidths[3], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 16", scrollableColumnWidths[4], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 17", scrollableColumnWidths[4], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 18", scrollableColumnWidths[4], fixedRowHeight))
-            row.addView(makeTableRowWithText("value 19", scrollableColumnWidths[4], fixedRowHeight))
-//            row.addView(makeTableRowWithText("value 20", scrollableColumnWidths[4], fixedRowHeight))
+            row.addView(makeTableRowWithText("101", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("102", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("103", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("104", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("105", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("106", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("107", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("108", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("109", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1010", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1011", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1012", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1013", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1014", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1015", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1016", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1017", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1018", scrollableColumnWidths[1], fixedRowHeight, true))
+            row.addView(makeTableRowWithText("1019", scrollableColumnWidths[1], fixedRowHeight, true))
+//            row.addView(makeTableRowWithText("1020", scrollableColumnWidths[4], fixedRowHeight))
             dataBindingFragmentOnlineSales.scrollablePart.addView(row)
         }
     }
 
-    private fun makeTableRowWithText(text: String, widthInPercentOfScreenWidth: Int, fixedHeightInPixels: Int): TextView {
+    private fun makeTableRowWithText(text: String, widthInPercentOfScreenWidth: Int, fixedHeightInPixels: Int, type : Boolean): TextView {
         val screenWidth = resources.displayMetrics.widthPixels
         recyclableTextView = TextView(context)
         recyclableTextView?.text = text
-        recyclableTextView?.setTextColor(Color.BLACK)
-        recyclableTextView?.setTextSize(20f)
+        when(type){
+            true ->{
+                recyclableTextView?.setTextColor(Color.BLACK)
+            }
+            false ->{
+                recyclableTextView?.setTextColor(Color.WHITE)
+                recyclableTextView?.typeface = Typeface.DEFAULT_BOLD
+            }
+        }
+        recyclableTextView?.textSize = 20f
         recyclableTextView?.width = widthInPercentOfScreenWidth * screenWidth / 100
         recyclableTextView?.height = fixedHeightInPixels
+        recyclableTextView?.gravity = Gravity.CENTER
         recyclableTextView?.setOnClickListener {
             startActivity(Intent(activity, DetailOnlineSalesActivity::class.java))
         }

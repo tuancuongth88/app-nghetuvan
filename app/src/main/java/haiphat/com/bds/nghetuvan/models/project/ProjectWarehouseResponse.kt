@@ -6,6 +6,6 @@ package haiphat.com.bds.nghetuvan.models.project
 data class ProjectWarehouseResponse (
         var name: String? = null,
         var url : String? = null,
-        var localtion : String? =null,
+        var location : String? =null,
         var type : Int? = 0
 )

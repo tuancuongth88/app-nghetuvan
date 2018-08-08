@@ -2,6 +2,7 @@ package haiphat.com.bds.nghetuvan.adapter.project
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -34,7 +35,7 @@ class ProjectWarehouseAdapter(private val list: ArrayList<ProjectWarehouseRespon
             itemView.imgProjectWarehouse.fromUrl(url = "", placeHolder = R.drawable.ic_defaul_bg_my_course)
             itemView.tvName.text = profileModel.name
             itemView.txtType.text = profileModel.type.toString()
-            itemView.txtLocation.text = profileModel.localtion
+            itemView.txtLocation.text = profileModel.location
         }
     }
 }
