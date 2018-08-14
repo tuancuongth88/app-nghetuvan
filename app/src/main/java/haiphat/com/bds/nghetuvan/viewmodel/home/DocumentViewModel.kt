@@ -2,7 +2,7 @@ package haiphat.com.bds.nghetuvan.viewmodel.home
 
 import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 
-class DocumentViewModel {
+class   DocumentViewModel {
 
     fun getItemDocument(onSuccess : (ArrayList<HomeCategoryResponse>) ->Unit, onFailed : (String?) -> Unit) {
         onSuccess(mockItemDocument())

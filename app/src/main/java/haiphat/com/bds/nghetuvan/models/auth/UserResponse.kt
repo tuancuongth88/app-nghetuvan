@@ -11,4 +11,6 @@ class UserResponse {
     var phone: String? = null
     var birthday : String? = null
     var identity : String? = null
+    var type : Int? = 0
+
 }

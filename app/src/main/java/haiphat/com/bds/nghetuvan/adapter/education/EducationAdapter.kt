@@ -11,14 +11,12 @@ import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import kotlinx.android.synthetic.main.item_education.view.*
 
 class EducationAdapter(private var listMyCourse: ArrayList<ItemEducationResponse>, private var onClick: (ItemEducationResponse) -> Unit) : RecyclerView.Adapter<EducationAdapter.PartnerViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): PartnerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartnerViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_education, parent, false)
         return PartnerViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PartnerViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: PartnerViewHolder, position: Int) {
         holder?.bindItem(listMyCourse[position])
         holder?.itemView?.rippleItem?.setOnRippleCompleteListener{
             onClick(listMyCourse[position])

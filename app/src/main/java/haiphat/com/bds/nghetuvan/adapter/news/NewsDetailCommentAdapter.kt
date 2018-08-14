@@ -18,14 +18,12 @@ import kotlinx.android.synthetic.main.item_news_detail_comment.view.*
  * Created by DEV-01 on 12/29/2017.
  */
 class NewsDetailCommentAdapter(private val list: ArrayList<NewsCommentResponse>) : RecyclerView.Adapter<NewsDetailCommentAdapter.NewsCommentViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NewsCommentViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsCommentViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_news_detail_comment, parent, false)
         return NewsCommentViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: NewsCommentViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: NewsCommentViewHolder, position: Int) {
         holder?.bindItem(list[position])
     }
 

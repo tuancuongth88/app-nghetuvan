@@ -2,7 +2,6 @@ package haiphat.com.bds.nghetuvan.adapter.project
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
-import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,13 +12,12 @@ import kotlinx.android.synthetic.main.item_project_warehouse.view.*
 
 
 class ProjectWarehouseAdapter(private val list: ArrayList<ProjectWarehouseResponse>, val onClick: (ProjectWarehouseResponse) -> Unit) : RecyclerView.Adapter<ProjectWarehouseAdapter.ProjectWarehouseViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ProjectWarehouseAdapter.ProjectWarehouseViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectWarehouseViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_project_warehouse, parent, false)
         return ProjectWarehouseViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ProjectWarehouseAdapter.ProjectWarehouseViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ProjectWarehouseViewHolder, position: Int) {
         holder?.itemView?.setOnClickListener {
             onClick(list[position])
         }

@@ -9,21 +9,22 @@ import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
 import kotlinx.android.synthetic.main.item_nav_profile.view.*
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import haiphat.com.bds.nghetuvan.utils.RippleView
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
  */
 class NavItemProfileAdapter(private val profileActions: ArrayList<ProfileModel>, val onClick: (ProfileModel) -> Unit) : RecyclerView.Adapter<NavItemProfileAdapter.NavItemViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NavItemViewHolder {
-        val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_nav_profile, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NavItemViewHolder {
+        val binding = LayoutInflater.from(parent.context).inflate(R.layout.item_nav_profile, parent, false)
         return NavItemViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: NavItemViewHolder?, position: Int) {
-
-        holder?.itemView?.rippleItem?.setOnRippleCompleteListener {
+    override fun onBindViewHolder(holder: NavItemViewHolder, position: Int) {
+        holder?.rippleItem?.setOnRippleCompleteListener {
             onClick(profileActions[position])
         }
         holder?.bindItem(profileActions[position])
@@ -33,15 +34,20 @@ class NavItemProfileAdapter(private val profileActions: ArrayList<ProfileModel>,
         return profileActions.size
     }
 
-    class NavItemViewHolder(itemView: ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
+    class NavItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        private val tvInfoAccount = itemView.findViewById<TextView>(R.id.tvInfoAccount)
+        private val imgInfoAccount = itemView.findViewById<ImageView>(R.id.imgInfoAccount)
+        var rippleItem = itemView.findViewById<RippleView>(R.id.rippleItem)
+
         fun bindItem(profileModel: ProfileModel) {
             if (profileModel.name == itemView.context.getString(R.string.log_out)) {
-                itemView?.tvInfoAccount?.setTextColor(ContextCompat.getColor(itemView.context, R.color.textLabelForgotPassword))
+                tvInfoAccount?.setTextColor(ContextCompat.getColor(itemView.context, R.color.textLabelForgotPassword))
             } else {
-                itemView?.tvInfoAccount?.setTextColor(ContextCompat.getColor(itemView.context, R.color.textLabel))
+                tvInfoAccount?.setTextColor(ContextCompat.getColor(itemView.context, R.color.textLabel))
             }
-            itemView.imgInfoAccount.setImageResource(profileModel.imgResource ?: 0)
-            itemView.tvInfoAccount.text = profileModel.name
+            imgInfoAccount.setImageResource(profileModel.imgResource ?: 0)
+            tvInfoAccount.text = profileModel.name
         }
     }
 }

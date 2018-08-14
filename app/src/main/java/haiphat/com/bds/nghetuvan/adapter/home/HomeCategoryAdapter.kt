@@ -11,13 +11,12 @@ import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 import kotlinx.android.synthetic.main.item_home_category.view.*
 
 class HomeCategoryAdapter (private val listHomePage: ArrayList<HomeCategoryResponse>, val onClick: (HomeCategoryResponse) -> Unit) : RecyclerView.Adapter<HomeCategoryAdapter.HomeCategoryViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HomeCategoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoryViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_home_category, parent, false)
         return HomeCategoryViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HomeCategoryViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: HomeCategoryViewHolder, position: Int) {
         holder?.itemView?.rippleShow?.setOnRippleCompleteListener {
             onClick(listHomePage[position])
         }

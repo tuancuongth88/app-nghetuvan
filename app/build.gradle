@@ -30,29 +30,26 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation 'com.android.support:support-v4:27.0.2'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     // okhttp library for connect API
-    compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'
-    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.8.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
     compile 'com.google.code.gson:gson:2.8.2'
     //
-    kapt 'com.android.databinding:compiler:3.0.1'
+    kapt 'com.android.databinding:compiler:3.1.4'
     compile 'com.android.support:multidex:1.0.3'
-    compile 'com.android.support:design:27.0.2'
+    compile 'com.android.support:design:27.1.1'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
-    implementation 'com.android.support:recyclerview-v7:27.0.2'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
     compile 'com.makeramen:roundedimageview:2.2.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     // load html text view
     compile 'org.sufficientlysecure:html-textview:3.5'
-//    compile 'com.facebook.android:facebook-android-sdk:4.29.0'
+//    compile 'com.facebook.android:facebook-android-sdk:4.34.0'
     compile 'com.soundcloud.android:android-crop:1.0.1@aar'
     // show table view
     compile 'com.evrencoskun.library:tableview:0.8.8'

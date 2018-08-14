@@ -10,13 +10,12 @@ import haiphat.com.bds.nghetuvan.models.home.HomeCategoryResponse
 import kotlinx.android.synthetic.main.item_document.view.*
 
 class DocumentAdapter(private val listHomePage: ArrayList<HomeCategoryResponse>, val onClick: (HomeCategoryResponse) -> Unit) : RecyclerView.Adapter<DocumentAdapter.DocumentViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): DocumentViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DocumentViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_document, parent, false)
         return DocumentViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: DocumentViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: DocumentViewHolder, position: Int) {
         holder?.itemView?.rippleDownload?.setOnRippleCompleteListener {
             onClick(listHomePage[position])
         }

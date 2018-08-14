@@ -14,14 +14,12 @@ import kotlinx.android.synthetic.main.item_show_list_home.view.*
  * Created by HUONG HA^P on 3/27/2018.
  */
 class ShowListHomeAdapter(private val listHomePage: ArrayList<HomePageResponse>?, val onClick: (HomePageResponse) -> Unit) : RecyclerView.Adapter<ShowListHomeAdapter.ShowListHomeViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ShowListHomeViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowListHomeViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_show_list_home, parent, false)
         return ShowListHomeViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ShowListHomeViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ShowListHomeViewHolder, position: Int) {
         holder?.itemView?.rippleItem?.setOnRippleCompleteListener {
             listHomePage?.get(position)?.let { it1 -> onClick(it1) }
         }

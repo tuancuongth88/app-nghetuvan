@@ -47,7 +47,7 @@ class OnlineSalesFragment : BaseFragment() {
         dataBindingFragmentOnlineSales.rippleSearch.setOnRippleCompleteListener {
             getTableGoods()
         }
-        initView()
+
         return dataBindingFragmentOnlineSales.root
     }
 
@@ -182,6 +182,7 @@ class OnlineSalesFragment : BaseFragment() {
         ShowLoading.show(context)
         onlineSalesViewModel.getTableOfGoods(onSuccess = {
             ShowLoading.dismiss()
+            initView()
         }, onFailed = {
             ShowAlert.fail(pContext = context, message = it)
             ShowLoading.dismiss()

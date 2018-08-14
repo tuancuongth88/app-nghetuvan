@@ -27,7 +27,7 @@ class NewsCommentViewModel {
 
     fun postComment(onSuccess: (String?) -> Unit, onFailed: (String?) -> Unit){
         NewsApi().postComment(newsId, UserServices.userInfo?.id, parentId.toString(), content,onResponse = {
-            if (it.status == true){
+            if (it.status == 200){
                 onSuccess(BaseApplication.context.getString(R.string.text_post_comment_successfull))
             }else{
                 onFailed(it.getErrorMessage())

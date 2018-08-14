@@ -10,13 +10,12 @@ import haiphat.com.bds.nghetuvan.models.online.TypeTableOfGoodsResponse
 import kotlinx.android.synthetic.main.item_selected_table_of_goods.view.*
 
 class InfoOnlineSalesAdapter(private val listHomePage: ArrayList<TypeTableOfGoodsResponse>) : RecyclerView.Adapter<InfoOnlineSalesAdapter.TableOfGoodsViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): TableOfGoodsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableOfGoodsViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_selected_table_of_goods, parent, false)
         return TableOfGoodsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: TableOfGoodsViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: TableOfGoodsViewHolder, position: Int) {
         holder?.bindItem(listHomePage[position])
     }
 

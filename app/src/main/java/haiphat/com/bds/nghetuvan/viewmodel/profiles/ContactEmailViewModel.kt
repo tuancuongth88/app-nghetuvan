@@ -16,7 +16,7 @@ class ContactEmailViewModel : BaseObservable() {
     fun sendContact(onSuccess: (String?) -> Unit, onFailed: (String?) -> Unit) {
         ContactsApi().sendContact(name, email, phone, content, address, onResponse = {
             val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
-            if (it.status == true) {
+            if (it.status == 200) {
                 onSuccess(profileResponse?.message)
             } else {
                 onFailed(it.getErrorMessage())

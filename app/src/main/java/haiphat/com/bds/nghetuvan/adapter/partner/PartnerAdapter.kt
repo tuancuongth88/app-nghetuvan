@@ -14,14 +14,12 @@ import kotlinx.android.synthetic.main.item_partner.view.*
  * Created by HUONG HA^P on 3/28/2018.
  */
 class PartnerAdapter(private var listMyCourse: ArrayList<PartnerResponse>, private var onClick: (PartnerResponse) -> Unit) : RecyclerView.Adapter<PartnerAdapter.PartnerViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): PartnerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartnerViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_partner, parent, false)
         return PartnerViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PartnerViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: PartnerViewHolder, position: Int) {
         holder?.bindItem(listMyCourse[position])
         holder?.itemView?.setOnClickListener {
             onClick(listMyCourse[position])

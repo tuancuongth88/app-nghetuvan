@@ -14,14 +14,12 @@ import kotlinx.android.synthetic.main.item_news.view.*
  * Created by HUONG HA^P on 3/28/2018.
  */
 class NewsAdapter(private var listMyCourse: ArrayList<NewsResponse>, private var onClick: (NewsResponse) -> Unit) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NewsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_news, parent, false)
         return NewsViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder?.bindItem(listMyCourse[position])
         holder?.itemView?.setOnClickListener {
             onClick(listMyCourse[position])

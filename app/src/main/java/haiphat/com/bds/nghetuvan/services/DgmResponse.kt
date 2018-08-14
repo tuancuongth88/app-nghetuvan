@@ -9,8 +9,7 @@ import java.net.SocketTimeoutException
 import java.util.concurrent.TimeoutException
 
 open class DgmResponse {
-    var status: Boolean? = false
-    private var statusCode: Int? = 0
+    var status: Int? = 0
     var responseContent: String? = null
     private var exception: Exception? = null
     private var messages: String? = null
@@ -20,20 +19,36 @@ open class DgmResponse {
     }
 
     constructor(response: Response?) {
+//        response?.let {
+//            try {
+//                this.responseContent = response.body()?.string().toString()
+//                val baseResponse = GsonUtil.fromJson(responseContent, BaseResponse::class.java)
+////                this.status = baseResponse?.status
+//                this.messages = baseResponse?.message
+//            } catch (ex: Exception) {
+//                this.exception = ex
+//            }
+//        }
+
         response?.let {
-            try {
-                this.responseContent = response.body()?.string().toString()
-                val baseResponse = GsonUtil.fromJson(responseContent, BaseResponse::class.java)
-                this.status = baseResponse?.status
-                this.messages = baseResponse?.message
-            } catch (ex: Exception) {
-                this.exception = ex
-            }
+            this.status = response.code()
+        }
+        try {
+            this.responseContent = response?.body()?.string().toString()
+        } catch (ex: Exception) {
+            this.exception = ex
         }
     }
 
+    fun isSuccess(): Boolean {
+        return status in 200..299
+    }
+
     fun getErrorMessage(): String? {
-        if (TextUtils.isEmpty(responseContent) && statusCode == 0) {
+        if (status == 401) {
+            return null
+        }
+        if (TextUtils.isEmpty(responseContent) && status == 0) {
             if (exception is TimeoutException || exception is SocketTimeoutException) {
                 return BaseApplication.context.getString(R.string.text_cannot_connect_to_server)
             } else {

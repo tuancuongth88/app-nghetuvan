@@ -1,7 +1,5 @@
 package haiphat.com.bds.nghetuvan.models.auth
 
-import haiphat.com.bds.nghetuvan.models.BaseResponse
-
-class AuthResponse : BaseResponse() {
+class AuthResponse {
     var data: LoginResponse? = null
 }

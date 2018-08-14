@@ -15,13 +15,14 @@ class LoginViewModel {
     fun loginEmail(onSuccess : () ->Unit, onFailed : (String?) -> Unit){
         AuthApi().login(email, password, onResponse = {
             val authResponse = GsonUtil.fromJson(it.responseContent, AuthResponse::class.java)
-            it.status?.let {
+            if (it.isSuccess()){
                 authResponse?.data?.let {
                     UserServices.saveUserInfo(authResponse.data)
                     onSuccess()
                 }
-            } ?: onFailed(it.getErrorMessage())
-
+            }else{
+                onFailed(it.getErrorMessage())
+            }
         })
     }
 }
