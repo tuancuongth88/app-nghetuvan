@@ -7,12 +7,12 @@ import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices
-import haiphat.com.bds.nghetuvan.services.api.auth.AuthApi
+import haiphat.com.bds.nghetuvan.services.api.auth.UserApi
 
 class ProfileViewModel{
 
     fun updateAvatar(path : String? , onSuccess : (String?) ->Unit, onFailed : (String?) -> Unit) {
-        AuthApi().changeAvatar(UserServices.userInfo?.id, path, onResponse = {
+        UserApi().changeAvatar(UserServices.userInfo?.id, path, onResponse = {
             val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
             profileResponse?.data?.let {
                 UserServices.saveProfile(it)
@@ -22,7 +22,7 @@ class ProfileViewModel{
     }
 
     fun getProfile(onSuccess: (UserResponse) -> Unit, onFailed: (String?) -> Unit) {
-        AuthApi().getProfile(UserServices.userInfo?.id,onResponse = {
+        UserApi().getProfile(UserServices.userInfo?.id,onResponse = {
             val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
             profileResponse?.data?.let {
                 onSuccess(it)

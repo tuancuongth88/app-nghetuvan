@@ -13,9 +13,11 @@ object UserServices {
 
     var accessToken: String? = null
     var userInfo: UserResponse? = null
+    var refreshToken: String? = null
 
     init {
         this.accessToken = SharePreferencesLoaders.getValue(SharePreferencesKeys.ACCESS_TOKEN, null)
+        this.refreshToken = SharePreferencesLoaders.getValue(SharePreferencesKeys.REFRESH_TOKEN, null)
         var strJson = SharePreferencesLoaders.getValue(SharePreferencesKeys.USER_INFO, null)
         strJson?.let {
             userInfo = GsonUtil.fromJson(strJson, UserResponse::class.java)
@@ -23,11 +25,12 @@ object UserServices {
     }
 
     fun saveUserInfo(loginResponse: LoginResponse?) {
-        this.accessToken = loginResponse?.token
-        this.userInfo = loginResponse?.user
-        SharePreferencesLoaders.saveValue(SharePreferencesKeys.USER_INFO, userInfo?.let { GsonUtil.toJson(it) })
+        this.accessToken = loginResponse?.access_token
+        this.refreshToken = loginResponse?.refresh_token
         SharePreferencesLoaders.saveValue(SharePreferencesKeys.ACCESS_TOKEN, this.accessToken)
+        SharePreferencesLoaders.saveValue(SharePreferencesKeys.REFRESH_TOKEN, this.refreshToken)
     }
+
     fun saveProfile(userResponse: UserResponse?){
         this.userInfo = userResponse
         SharePreferencesLoaders.saveValue(SharePreferencesKeys.USER_INFO, userInfo?.let { GsonUtil.toJson(it) })

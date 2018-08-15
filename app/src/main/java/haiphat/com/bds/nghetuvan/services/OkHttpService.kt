@@ -3,6 +3,7 @@ package haiphat.com.bds.nghetuvan.services
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import haiphat.com.bds.nghetuvan.services.api.auth.OauthApi
 import okhttp3.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -106,6 +107,27 @@ object OkHttpService {
             request = builder.build() //overwrite old request
             val response = chain.proceed(request) //perform request, here original request will be executed
             if (response.code() == 401) { //if unauthorized
+                okHttpClient?.let {
+                    synchronized(it) {
+                        //perform all 401 in sync blocks, to avoid multiply token updates
+                        val currentToken = UserServices.accessToken //get currently stored token
+                        if (currentToken != null && currentToken == token) { //compare current token with token that was stored before, if it was not updated - do update
+                            val dgmResponse = OauthApi().refreshTokenSynchronous(UserServices.refreshToken)
+                            if (dgmResponse?.isSuccess() ?: false){
+                                UserServices.logout()
+                                return response
+                            }
+                            if (dgmResponse?.hasNetwordError()!!) {
+                                return response
+                            }
+                        }
+                        UserServices.accessToken?.let {
+                            setAuthHeader(builder, it) //set auth token to updated
+                            request = builder.build()
+                            return chain.proceed(request)
+                        }
+                    }
+                }
                 UserServices.logout()
             }
             return response

@@ -69,7 +69,7 @@
                 style="@style/matchWrap"
                 android:gravity="center"
                 android:hint="Nhập Email"
-                android:text="@{loginViewModel.email}"
+                android:text="@{loginViewModel.username}"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/colorWhite"
                 app:validateRequiredErrorMessage="@{@string/text_validate_require_field_email}"

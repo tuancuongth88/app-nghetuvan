@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun loginEmail(){
         if (Validator().validate(dataBindingLogin)){
-            loginViewModel.email = dataBindingLogin.tetEmail.text.toString().trim()
+            loginViewModel.username = dataBindingLogin.tetEmail.text.toString().trim()
             loginViewModel.password = dataBindingLogin.tetPassword.text.toString().trim()
             ShowLoading.show(this@LoginActivity)
             loginViewModel.loginEmail(onSuccess = {

@@ -19,17 +19,6 @@ open class DgmResponse {
     }
 
     constructor(response: Response?) {
-//        response?.let {
-//            try {
-//                this.responseContent = response.body()?.string().toString()
-//                val baseResponse = GsonUtil.fromJson(responseContent, BaseResponse::class.java)
-////                this.status = baseResponse?.status
-//                this.messages = baseResponse?.message
-//            } catch (ex: Exception) {
-//                this.exception = ex
-//            }
-//        }
-
         response?.let {
             this.status = response.code()
         }
@@ -57,6 +46,10 @@ open class DgmResponse {
         }
         return messages?.let { it } ?: BaseApplication.context.getString(R.string.text_error)
 
+    }
+
+    fun hasNetwordError(): Boolean {
+        return this.exception != null
     }
 }
 

@@ -1,9 +1,8 @@
 package haiphat.com.bds.nghetuvan.models.auth
 
-/**
- * Created by HUONG HA^P on 3/27/2018.
- */
 class LoginResponse {
-    var token: String? = null
-    var user: UserResponse? = null
+//    var data: LoginResponse? = null
+    var access_token : String? = null
+    var expires_in :Int? =0
+    var refresh_token : String? =null
 }

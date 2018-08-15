@@ -9,7 +9,7 @@ import okhttp3.RequestBody
 import java.io.File
 import java.util.*
 
-class AuthApi : BaseApi() {
+class UserApi : BaseApi() {
 
     override fun apiUrl(): String? {
         return "user/"
@@ -17,13 +17,6 @@ class AuthApi : BaseApi() {
 
     override fun getEndPoint(): String? {
         return Config.API_URL
-    }
-
-    fun login(email: String?, password: String?, onResponse: (DgmResponse) -> Unit) {
-        val data = HashMap<String, String>()
-        data.put("email", email ?: "")
-        data.put("password", password ?: "")
-        this.upload("login", data, onResponse)
     }
 
     fun register(email: String?, fullName: String?, password: String?, confirmPassword: String?, phone: String?, onResponse: (DgmResponse) -> Unit) {
