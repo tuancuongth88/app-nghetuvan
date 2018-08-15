@@ -4,6 +4,7 @@ import android.text.TextUtils
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.BaseResponse
+import haiphat.com.bds.nghetuvan.models.ErrorModel
 import okhttp3.Response
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeoutException
@@ -12,7 +13,7 @@ open class DgmResponse {
     var status: Int? = 0
     var responseContent: String? = null
     private var exception: Exception? = null
-    private var messages: String? = null
+    var message : String? = null
 
     constructor(exception: Exception) {
         this.exception = exception
@@ -24,6 +25,9 @@ open class DgmResponse {
         }
         try {
             this.responseContent = response?.body()?.string().toString()
+            val baseResponse = GsonUtil.fromJson(responseContent, ErrorModel::class.java)
+            this.message = baseResponse?.message
+
         } catch (ex: Exception) {
             this.exception = ex
         }
@@ -35,7 +39,7 @@ open class DgmResponse {
 
     fun getErrorMessage(): String? {
         if (status == 401) {
-            return null
+            return message?.let { it } ?: BaseApplication.context.getString(R.string.text_error)
         }
         if (TextUtils.isEmpty(responseContent) && status == 0) {
             if (exception is TimeoutException || exception is SocketTimeoutException) {
@@ -44,7 +48,7 @@ open class DgmResponse {
                 return BaseApplication.context.getString(R.string.text_no_internet_connection)
             }
         }
-        return messages?.let { it } ?: BaseApplication.context.getString(R.string.text_error)
+        return message?.let { it } ?: BaseApplication.context.getString(R.string.text_error)
 
     }
 

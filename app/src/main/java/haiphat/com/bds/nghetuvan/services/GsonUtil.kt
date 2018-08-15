@@ -5,12 +5,12 @@ import com.google.gson.Gson
 class GsonUtil {
 
     companion object {
+
         fun <T> fromJson(json: String?, returnType: Class<T>): T? {
             var ret: T? = null
-            val gson = Gson()
             if (json != null) {
                 try {
-                    ret = gson.fromJson(json, returnType)
+                    ret = Gson().fromJson(json, returnType)
                 } catch (ex: Exception) {
                     ex.printStackTrace()
                 }
@@ -26,9 +26,8 @@ class GsonUtil {
          */
         fun toJson(pObject: Any): String? {
             var ret: String? = null
-            val gson = Gson()
             try {
-                ret = gson.toJson(pObject)
+                ret = Gson().toJson(pObject)
             } catch (ex: Exception) {
                 ex.printStackTrace()
             }
