@@ -7,6 +7,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'nghe_tu_van'
+            keyPassword 'haiphattech@!.123'
+            storeFile file('keystore/nghe_tu_van.jks')
+            storePassword 'haiphattech@!.123'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "haiphat.com.bds.nghetuvan"
@@ -32,7 +40,7 @@ dependencies {
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v13'
     }
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -52,7 +60,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     // load html text view
     compile 'org.sufficientlysecure:html-textview:3.5'
-//    compile 'com.facebook.android:facebook-android-sdk:4.34.0'
+    //    compile 'com.facebook.android:facebook-android-sdk:4.34.0'
     compile 'com.soundcloud.android:android-crop:1.0.1@aar'
     // show table view
     compile 'com.evrencoskun.library:tableview:0.8.8'
