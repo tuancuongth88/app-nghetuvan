@@ -21,12 +21,13 @@ class ProfileViewModel{
         })
     }
 
-    fun getProfile(onSuccess: (UserResponse) -> Unit, onFailed: (String?) -> Unit) {
-        UserApi().getProfile(UserServices.userInfo?.id,onResponse = {
-            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
-            profileResponse?.data?.let {
-                onSuccess(it)
-            }?: onFailed(it.getErrorMessage())
+    fun getProfile(onSuccess: (UserResponse?) -> Unit, onFailed: (String?) -> Unit) {
+        UserApi().getProfile(onResponse = {
+            val profileResponse = GsonUtil.fromJson(it.responseContent, UserResponse::class.java)
+            if (it.isSuccess()){
+                UserServices.saveProfile(profileResponse)
+                onSuccess(profileResponse)
+            }else{ onFailed(it.getErrorMessage())}
         })
     }
 

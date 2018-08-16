@@ -44,19 +44,19 @@ class UserApi : BaseApi() {
         this.upload("update-info-user/" + userId, data, onResponse)
     }
 
-    fun getProfile(id: String?, onResponse: (DgmResponse) -> Unit) {
+    fun getProfile(onResponse: (DgmResponse) -> Unit) {
         val params = HashMap<String, String>()
-        val queryString = this.parseUrlQueryStringWithParams("getprofile/" +id, params)
-//        this.get(queryString, onResponse)
+        val queryString = this.parseUrlQueryStringWithParams("user-profile", params)
         this[queryString, onResponse]
     }
 
-    fun changePassword(userId: String?, oldPassword: String?, newPassword: String?, newConfirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
+    fun changePassword(oldPassword: String?, newPassword: String?, newConfirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
-        data.put("old_password", oldPassword ?: "")
-        data.put("new_password", newPassword ?: "")
-        data.put("new_password_confirmation", newConfirmPassword ?: "")
-        this.upload("change-password/" + userId, data, onResponse)
+//        data.put("email", email ?: "")
+        data.put("current_password", oldPassword ?: "")
+        data.put("password", newPassword ?: "")
+        data.put("password_confirmation", newConfirmPassword ?: "")
+        this.upload("change-password", data, onResponse)
     }
 
     fun changeAvatar(userId: String?, path: String?, onResponse: (DgmResponse) -> Unit) {

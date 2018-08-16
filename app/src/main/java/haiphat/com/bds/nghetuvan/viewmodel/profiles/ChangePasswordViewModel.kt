@@ -11,14 +11,20 @@ class ChangePasswordViewModel {
     var newPassword: String? = null
     var confirmPassword: String? = null
 
-    fun changePassword(onSuccess: () -> Unit, onFailed: (String?) -> Unit) {
-        UserApi().changePassword(UserServices.userInfo?.id, oldPassword, newPassword, confirmPassword, onResponse = {
+    fun changePassword(onSuccess: (String?) -> Unit, onFailed: (String?) -> Unit) {
+        UserApi().changePassword(oldPassword, newPassword, confirmPassword, onResponse = {
             val dataResponse = GsonUtil.fromJson(it.responseContent, BaseResponse::class.java)
-            if (dataResponse?.status == true) {
-                onSuccess()
-            } else {
+            if (it.isSuccess()){
+                onSuccess(dataResponse?.message)
+            }else{
                 onFailed(it.getErrorMessage())
             }
+
+//            if (dataResponse?.status == true) {
+//                onSuccess()
+//            } else {
+//                onFailed(it.getErrorMessage())
+//            }
         })
     }
 

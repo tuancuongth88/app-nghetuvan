@@ -40,7 +40,7 @@ class ChangePasswordActivity : BaseActivity() {
             ShowLoading.show(this@ChangePasswordActivity)
             changePasswordViewModel.changePassword(onSuccess = {
                 ShowLoading.dismiss()
-                ShowAlert.fail(this, dialogTitle = getString(R.string.alert_title_inform), message = getString(R.string.change_password_successfull), onClick = {
+                ShowAlert.fail(this, dialogTitle = getString(R.string.alert_title_inform), message = it, onClick = {
                     setResult(IntentActionKeys.KEY_RELOAD_DATA)
                     finish()
                 })
