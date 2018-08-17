@@ -15,16 +15,17 @@ class UpdateInformationViewModel : BaseObservable(){
     var birthDay: String? = null
     var phone: String? = null
     var idNumber: String? = null
+    var address : String? = null
 
-    fun updateInformation(onSuccess: () -> Unit, onFailed: (String?) -> Unit) {
-        UserApi().updateProfile(UserServices.userInfo?.id, fullName, phone, birthDay, idNumber, onResponse = {
-            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
-            it.status?.let {
-                profileResponse?.data?.let {
-                    UserServices.saveProfile(profileResponse.data)
-                    onSuccess()
-                }
-            } ?: onFailed(it.getErrorMessage())
+    fun updateInformation(onSuccess: (String?) -> Unit, onFailed: (String?) -> Unit) {
+        UserApi().updateProfile(UserServices.userInfo?.id, fullName, phone, birthDay, idNumber, address, onResponse = {
+//            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
+            if (it.isSuccess()){
+//                UserServices.saveProfile(profileResponse?.data)
+                onSuccess(it?.message)
+            }else{
+                onFailed(it.message)
+            }
 
         })
     }

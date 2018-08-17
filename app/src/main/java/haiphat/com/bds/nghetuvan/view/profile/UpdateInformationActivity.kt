@@ -42,7 +42,7 @@ class UpdateInformationActivity : BaseActivity() {
             ShowLoading.show(this@UpdateInformationActivity)
             updateInformationViewModel.updateInformation(onSuccess = {
                 ShowLoading.dismiss()
-                ShowAlert.fail(this, dialogTitle = getString(R.string.alert_title_inform),message = getString(R.string.update_information_successfull), onClick = {
+                ShowAlert.fail(this, dialogTitle = getString(R.string.alert_title_inform),message = it, onClick = {
                     setResult(IntentActionKeys.KEY_RELOAD_DATA)
                     finish()
                 })

@@ -2,6 +2,7 @@ package haiphat.com.bds.nghetuvan.services.api.auth
 
 import haiphat.com.bds.nghetuvan.services.Config
 import haiphat.com.bds.nghetuvan.services.DgmResponse
+import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.BaseApi
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -35,13 +36,14 @@ class UserApi : BaseApi() {
         this.upload("forgotPassword", data, onResponse)
     }
 
-    fun updateProfile(userId : String?, fullName: String?, phone: String?, birthDay: String?, idNumber: String?, onResponse: (DgmResponse) -> Unit) {
+    fun updateProfile(userId : String?, fullName: String?, phone: String?, birthDay: String?, identity: String?, address : String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
         data.put("fullname", fullName ?: "")
         data.put("phone", phone ?: "")
         data.put("birthday", birthDay ?: "")
-        data.put("identity", idNumber ?: "")
-        this.upload("update-info-user/" + userId, data, onResponse)
+        data.put("address", address ?: "")
+        data.put("identity", identity ?: "")
+        this.upload("edit/" + userId, data, onResponse)
     }
 
     fun getProfile(onResponse: (DgmResponse) -> Unit) {
@@ -50,9 +52,9 @@ class UserApi : BaseApi() {
         this[queryString, onResponse]
     }
 
-    fun changePassword(oldPassword: String?, newPassword: String?, newConfirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
+    fun changePassword(email: String?,oldPassword: String?, newPassword: String?, newConfirmPassword: String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
-//        data.put("email", email ?: "")
+        data.put("email", email?: "")
         data.put("current_password", oldPassword ?: "")
         data.put("password", newPassword ?: "")
         data.put("password_confirmation", newConfirmPassword ?: "")
