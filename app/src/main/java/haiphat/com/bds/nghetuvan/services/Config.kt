@@ -7,5 +7,4 @@ class Config {
         const val CLIENT_ID = "2"
         const val CLIENT_SECRET = "tbSp7MgFTTYGPBxYILmTAofarMBeZuO9jo2EuLL3"
     }
-
 }

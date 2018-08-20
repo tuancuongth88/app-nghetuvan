@@ -67,7 +67,7 @@ class UserApi : BaseApi() {
         val fileUpload = File(path)
         val fileRequestBody = RequestBody.create(MediaType.parse("image/*"), fileUpload)
         builder.addFormDataPart("avatar", fileUpload.name, fileRequestBody)
-        this.upload("change-avatar/" + userId, builder, onResponse)
+        this.upload("upload-avatar/" + userId, builder, onResponse)
     }
 
     fun activeAccount(codeActive:String?, onResponse: (DgmResponse) -> Unit){

@@ -54,7 +54,7 @@ class ProfileFragment : BaseFragment(){
         initView()
         (activity as HomeActivity).setBackgroundColor(Color.TRANSPARENT)
         UserServices.userInfo?.let {
-            bindData(it)
+            CommonUtil.setDataUploadAvatar(dataBindingFragmentProfile.rivAvatar, dataBindingFragmentProfile.tvName, dataBindingFragmentProfile.tvEmail,it)
         }
         dataBindingFragmentProfile.rivAvatar.setOnClickListener {
             var dialogChangeImage = DialogChangeAvatar(activity, onSelectedCamera = {
@@ -101,20 +101,13 @@ class ProfileFragment : BaseFragment(){
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
     }
-    private fun bindData(userResponse: UserResponse?) {
-        dataBindingFragmentProfile.rivAvatar.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
-        dataBindingFragmentProfile.tvName.text = userResponse?.fullname
-        dataBindingFragmentProfile.tvEmail.text = userResponse?.email
-    }
 
     private fun changeAvatar(pathTofFile: String) {
         ShowLoading.show(activity)
         profileViewModel.updateAvatar(pathTofFile, onSuccess = {
             ShowLoading.dismiss()
             ShowAlert.fail(pContext = context,dialogTitle = getString(R.string.alert_title_inform), message = it, onClick = {
-                UserServices.userInfo?.let {
-                    bindData(it)
-                }
+                CommonUtil.getProfile(dataBindingFragmentProfile.rivAvatar, dataBindingFragmentProfile.tvName, dataBindingFragmentProfile.tvEmail)
             })
         }, onFailed = {
             ShowAlert.fail(pContext = context, message = it)
@@ -174,7 +167,7 @@ class ProfileFragment : BaseFragment(){
             IntentActionKeys.UPDATE_ACCOUNT_INFORMATION ->{
                 if (resultCode == IntentActionKeys.KEY_RELOAD_DATA){
                     UserServices.userInfo?.let {
-                        bindData(it)
+                        CommonUtil.setDataUploadAvatar(dataBindingFragmentProfile.rivAvatar, dataBindingFragmentProfile.tvName, dataBindingFragmentProfile.tvEmail,it)
                     }
                 }
             }

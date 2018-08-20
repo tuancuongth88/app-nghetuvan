@@ -17,6 +17,7 @@ import haiphat.com.bds.nghetuvan.adapter.NavItemProfileAdapter
 import haiphat.com.bds.nghetuvan.databinding.ActivityHomeBinding
 import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.services.UserServices
+import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
@@ -53,7 +54,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setNavigationIcon(R.drawable.ic_menu)
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(Gravity.LEFT)
-            getProfile()
+            CommonUtil.getProfile(navigationLayout.rivAvatar, navigationLayout.tvName, navigationLayout.tvEmail)
         }
         imgSearch.setOnClickListener { clickSearch() }
         supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment()).commitAllowingStateLoss()
@@ -64,7 +65,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         navigationLayout = layoutInflater.inflate(R.layout.nav_header_home, null)
         val recyclerView = navigationLayout.rvNavItem
         UserServices.userInfo?.let {
-            updateUINavigation(it)
+            CommonUtil.setDataUploadAvatar(navigationLayout.rivAvatar, navigationLayout.tvName,navigationLayout.tvEmail, it)
         }
         navigationLayout.clUser.setOnClickListener {
             val fragmentProfile = ProfileFragment()
@@ -119,18 +120,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         val dm = resources.displayMetrics
         this.bindingMain.navView.addView(navigationLayout, dm.widthPixels * (3 / 2), ViewGroup.LayoutParams.MATCH_PARENT)
         toolbar.setTitleTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
-    }
-
-    private fun getProfile(){
-        ProfileViewModel().getProfile(onSuccess = {
-            updateUINavigation(it)
-        }, onFailed = {})
-    }
-
-    private fun updateUINavigation(userResponse: UserResponse?) {
-        navigationLayout.rivAvatar.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
-        navigationLayout.tvName.text = userResponse?.fullname
-        navigationLayout.tvEmail.text = userResponse?.email
     }
 
     private fun clickSearch() {

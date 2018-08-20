@@ -2,9 +2,7 @@ package haiphat.com.bds.nghetuvan.models.news
 
 import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 
-/**
- * Created by HUONG HA^P on 3/29/2018.
- */
+
 data class NewsCommentResponse(
         var id: String? = null,
         var news_id : String? = null,

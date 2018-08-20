@@ -3,6 +3,7 @@ package haiphat.com.bds.nghetuvan.viewmodel.profiles
 import android.content.Context
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.auth.ProfileResponse
+import haiphat.com.bds.nghetuvan.models.auth.UploadAvatarResponse
 import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
 import haiphat.com.bds.nghetuvan.services.GsonUtil
@@ -13,11 +14,13 @@ class ProfileViewModel{
 
     fun updateAvatar(path : String? , onSuccess : (String?) ->Unit, onFailed : (String?) -> Unit) {
         UserApi().changeAvatar(UserServices.userInfo?.id, path, onResponse = {
-            val profileResponse = GsonUtil.fromJson(it.responseContent, ProfileResponse::class.java)
-            profileResponse?.data?.let {
-                UserServices.saveProfile(it)
-                onSuccess(profileResponse.message)
-            }?: onFailed(it.getErrorMessage())
+            val response = GsonUtil.fromJson(it.responseContent, UploadAvatarResponse::class.java)
+            if(it.isSuccess()){
+                onSuccess(response?.data?.message)
+            }else{
+                onFailed(it.getErrorMessage())
+            }
+
         })
     }
 
