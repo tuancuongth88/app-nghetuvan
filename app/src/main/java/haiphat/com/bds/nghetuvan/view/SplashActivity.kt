@@ -9,6 +9,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
+import haiphat.com.bds.nghetuvan.view.home.CategoryHomeActivity
 import haiphat.com.bds.nghetuvan.view.home.HomeActivity
 import haiphat.com.bds.nghetuvan.viewmodel.SplashViewModel
 
@@ -29,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun controlOpenMainScreen() {
         val bundle = intent.extras
-        var intent = Intent(this, LoginActivity::class.java)
+        var intent = Intent(this, CategoryHomeActivity::class.java)
         UserServices.accessToken?.let {
             intent = Intent(this, HomeActivity::class.java)
         }

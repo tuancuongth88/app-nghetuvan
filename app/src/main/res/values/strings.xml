@@ -28,6 +28,7 @@
     <string name="text_validate_require_field_address">Địa chỉ không được để trống</string>
 
     <string name="log_out">Thoát</string>
+    <string name="log_in">Đăng nhập</string>
 
     <string name="title_screen_news">Tin tức chung</string>
     <string name="title_screen_partner">Đối tác</string>

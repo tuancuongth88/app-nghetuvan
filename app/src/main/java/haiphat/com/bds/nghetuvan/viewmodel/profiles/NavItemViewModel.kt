@@ -3,6 +3,7 @@ package haiphat.com.bds.nghetuvan.viewmodel.profiles
 import android.content.Context
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
+import haiphat.com.bds.nghetuvan.services.UserServices
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
@@ -17,7 +18,11 @@ class NavItemViewModel {
         arrayList.add(ProfileModel(R.drawable.ic_doi_tac, context.getString(R.string.title_action_bar_partner)))
         arrayList.add(ProfileModel(R.drawable.ic_tin_tuc, context.getString(R.string.title_action_bar_news)))
         arrayList.add(ProfileModel(R.drawable.ic_lien_he, context.getString(R.string.title_action_bar_contact)))
-        arrayList.add(ProfileModel(R.drawable.ic_logout, context.getString(R.string.log_out)))
+        if (UserServices.userInfo == null){
+            arrayList.add(ProfileModel(R.drawable.ic_logout, context.getString(R.string.log_in)))
+        }else {
+            arrayList.add(ProfileModel(R.drawable.ic_logout, context.getString(R.string.log_out)))
+        }
         return arrayList
     }
 }

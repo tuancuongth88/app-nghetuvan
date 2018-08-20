@@ -71,7 +71,7 @@
         <activity android:name=".view.profile.ChangePasswordActivity" />
         <activity android:name=".view.home.ShowListHomeActivity" />
         <activity android:name=".view.home.DetailHomeActivity" />
-        <activity android:name=".view.home.TestActivity" />
+        <activity android:name=".view.home.CategoryHomeActivity" />
         <activity android:name=".view.education.EducationDetailActivity" />
         <activity android:name=".view.online.DetailOnlineSalesActivity" />
         <activity android:name=".view.online.DepositActivity" />

@@ -54,7 +54,9 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setNavigationIcon(R.drawable.ic_menu)
         toolbar.setNavigationOnClickListener {
             drawerLayout.openDrawer(Gravity.LEFT)
-            CommonUtil.getProfile(navigationLayout.rivAvatar, navigationLayout.tvName, navigationLayout.tvEmail)
+            UserServices.accessToken?.let {
+                CommonUtil.getProfile(navigationLayout.rivAvatar, navigationLayout.tvName, navigationLayout.tvEmail)
+            }
         }
         imgSearch.setOnClickListener { clickSearch() }
         supportFragmentManager.beginTransaction().replace(R.id.flContent, HomeFragment()).commitAllowingStateLoss()
@@ -62,10 +64,13 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun initView() {
+
         navigationLayout = layoutInflater.inflate(R.layout.nav_header_home, null)
         val recyclerView = navigationLayout.rvNavItem
-        UserServices.userInfo?.let {
-            CommonUtil.setDataUploadAvatar(navigationLayout.rivAvatar, navigationLayout.tvName,navigationLayout.tvEmail, it)
+        if (UserServices.userInfo == null){
+            navigationLayout.clUser.visibility = View.GONE
+        }else{
+            CommonUtil.setDataUploadAvatar(navigationLayout.rivAvatar, navigationLayout.tvName,navigationLayout.tvEmail, UserServices.userInfo)
         }
         navigationLayout.clUser.setOnClickListener {
             val fragmentProfile = ProfileFragment()

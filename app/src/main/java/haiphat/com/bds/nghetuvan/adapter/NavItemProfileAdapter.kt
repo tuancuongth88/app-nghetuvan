@@ -41,7 +41,7 @@ class NavItemProfileAdapter(private val profileActions: ArrayList<ProfileModel>,
         var rippleItem = itemView.findViewById<RippleView>(R.id.rippleItem)
 
         fun bindItem(profileModel: ProfileModel) {
-            if (profileModel.name == itemView.context.getString(R.string.log_out)) {
+            if (profileModel.name == itemView.context.getString(R.string.log_out) || profileModel.name == itemView.context.getString(R.string.log_in)) {
                 tvInfoAccount?.setTextColor(ContextCompat.getColor(itemView.context, R.color.textLabelForgotPassword))
             } else {
                 tvInfoAccount?.setTextColor(ContextCompat.getColor(itemView.context, R.color.textLabel))
