@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -11,76 +12,242 @@
 
     <android.support.constraint.ConstraintLayout
         style="@style/matchParent"
-        android:background="@drawable/ic_background_auth">
+        android:background="@color/colorWhite">
 
-        <View
-            style="@style/matchParent"
-            android:alpha="0.5"
-            android:background="#6069a5" />
-
-
-        <include
-            android:id="@+id/logo"
-            layout="@layout/logo_view"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="25dp"
+        <ImageView
+            android:id="@+id/imgLogo"
+            style="@style/wrapContent"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_logo_login"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            style="@style/wrapContent"
-            android:layout_marginTop="24dp"
-            android:text="Hệ thống giải pháp bất động sản"
-            android:textAllCaps="true"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:textStyle="bold"
+        <View
+            android:id="@+id/view"
+            style="@style/viewLine"
+            android:layout_width="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+            app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvView"
             style="@style/wrapContent"
-            android:layout_marginTop="5dp"
-            android:text="Số 1 việt nam"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/text_login_fast_access"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhite"
-            android:textSize="35sp"
-            android:textStyle="bold"
+            android:textColor="@color/textLabel"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <LinearLayout
+            android:id="@+id/lnLoginFast"
+            style="@style/withWrap"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvView">
+
+            <haiphat.com.bds.nghetuvan.utils.RippleView
+                android:id="@+id/ripDevelopers"
+                style="@style/logInNow"
+                android:layout_marginRight="2.5dp"
+                android:background="@drawable/bg_radius_white">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    style="@style/wrapContent"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_development_unit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_login_developers"
+                    android:textSize="8sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+            <haiphat.com.bds.nghetuvan.utils.RippleView
+                android:id="@+id/ripPartner"
+                style="@style/logInNow"
+                android:layout_marginLeft="2.5dp"
+                android:layout_marginRight="2.5dp"
+                android:background="@drawable/bg_radius_white">
+
+                <ImageView
+                    android:id="@+id/imgPartner"
+                    style="@style/wrapContent"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_collaborative_partner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_login_partner"
+                    android:textSize="8sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgPartner" />
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+            <haiphat.com.bds.nghetuvan.utils.RippleView
+                android:id="@+id/ripCustomers"
+                style="@style/logInNow"
+                android:layout_marginLeft="2.5dp"
+                android:layout_marginRight="2.5dp"
+                android:background="@drawable/bg_radius_white">
+
+                <ImageView
+                    android:id="@+id/imgCustomers"
+                    style="@style/wrapContent"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_real_estate_clients"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_login_customers"
+                    android:textSize="8sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgCustomers" />
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+            <haiphat.com.bds.nghetuvan.utils.RippleView
+                android:id="@+id/ripConsultants"
+                style="@style/logInNow"
+                android:layout_marginLeft="2.5dp"
+                android:layout_marginRight="2.5dp"
+                android:background="@drawable/bg_radius_white">
+
+                <ImageView
+                    android:id="@+id/imgConsultants"
+                    style="@style/wrapContent"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_consultants"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_login_consultants"
+                    android:textSize="8sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgConsultants" />
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+            <haiphat.com.bds.nghetuvan.utils.RippleView
+                android:id="@+id/ripInvestors"
+                style="@style/logInNow"
+                android:layout_marginLeft="2.5dp"
+                android:background="@drawable/bg_radius_white">
+
+                <ImageView
+                    android:id="@+id/imgInvestors"
+                    style="@style/wrapContent"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_investors"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_login_investors"
+                    android:textSize="8sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgInvestors" />
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvLogInNow"
+            style="@style/wrapContent"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/text_login_log_in_now"
+            android:textAllCaps="true"
+            android:textColor="@color/textLabel"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lnLoginFast" />
+
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilEmail"
             style="@style/withWrap"
-            android:layout_marginTop="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:theme="@style/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvName">
+            app:layout_constraintTop_toBottomOf="@+id/tvLogInNow">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/tetEmail"
                 style="@style/matchWrap"
-                android:gravity="center"
                 android:hint="Nhập Email"
-                android:text="@{loginViewModel.username}"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/colorWhite"
-                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_email}"
+                android:text="@{loginViewModel.username}"
+                android:textColor="@color/textLabel"
                 app:validateEmailErrorMessage="@{@string/text_validate_email_invalid}"
-                />
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_email}" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilPassword"
             style="@style/withWrap"
-            android:layout_marginTop="10dp"
             android:theme="@style/textInputLayout"
             app:layout_constraintEnd_toEndOf="@+id/tilEmail"
             app:layout_constraintStart_toStartOf="@+id/tilEmail"
@@ -89,19 +256,16 @@
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/tetPassword"
                 style="@style/matchWrap"
-                android:gravity="center"
                 android:hint="Nhập password"
-                android:text="@{loginViewModel.password}"
                 android:inputType="textPassword"
-                android:textColor="@color/colorWhite"
-                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_password}"
-                />
+                android:text="@{loginViewModel.password}"
+                android:textColor="@color/textLabel"
+                app:validateRequiredErrorMessage="@{@string/text_validate_require_field_password}" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btnLogin"
             style="@style/withWrap"
-            android:layout_margin="20dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_view_btn_login_email"
             android:text="Đăng nhập"
@@ -111,33 +275,28 @@
             app:layout_constraintStart_toStartOf="@+id/tilEmail"
             app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/clBottom"
+        <TextView
+            android:id="@+id/txtForgotPassword"
             style="@style/wrapContent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
+            android:text="Quên mật khẩu?"
+            android:textColor="@color/txtLabelGray"
             app:layout_constraintEnd_toEndOf="@+id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+        <TextView
+            android:id="@+id/tvRegister"
+            style="@style/withWrap"
+            android:layout_width="wrap_content"
+            android:text="Đăng ký"
+            android:textColor="@color/txtLabelGray"
             app:layout_constraintStart_toStartOf="@+id/btnLogin"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin">
+            app:layout_constraintTop_toTopOf="@+id/txtForgotPassword" />
 
-            <TextView
-                android:id="@+id/txtForgotPassword"
-                style="@style/wrapContent"
-                android:layout_marginRight="5dp"
-                android:alpha="0.5"
-                android:text="Quên mật khẩu?"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintEnd_toStartOf="@+id/btnRegister" />
-
-            <TextView
-                android:id="@+id/tvRegister"
-                style="@style/withWrap"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="Đăng ký"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toEndOf="@+id/txtForgotPassword" />
-        </android.support.constraint.ConstraintLayout>
+        <ImageView
+            style="@style/wrapContent"
+            android:src="@drawable/ic_background_splash"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

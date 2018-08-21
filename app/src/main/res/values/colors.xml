@@ -23,4 +23,5 @@
     <color name="assignmentTitle">#15b8ca</color>
     <color name="textTitlePollResult">#15b8ca</color>
     <color name="bgChartOne">#fbad5a</color>
+    <color name="txtLabelGray">#4c000000</color>
 </resources>

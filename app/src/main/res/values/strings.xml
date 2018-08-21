@@ -29,6 +29,15 @@
 
     <string name="log_out">Thoát</string>
     <string name="log_in">Đăng nhập</string>
+    //screen login activity
+    <string name="text_login_fast_access">Truy cập nhanh</string>
+    <string name="text_login_developers">đơn vị\nphát triển</string>
+    <string name="text_login_partner">Hợp tác \nđối tác</string>
+    <string name="text_login_customers">Khách hàng \nbất động sản</string>
+    <string name="text_login_consultants">Chuyên viên \ntư vấn</string>
+    <string name="text_login_investors">Nhà \nđầu tư</string>
+    <string name="text_login_log_in_now">Đăng nhập ngày</string>
+
 
     <string name="title_screen_news">Tin tức chung</string>
     <string name="title_screen_partner">Đối tác</string>

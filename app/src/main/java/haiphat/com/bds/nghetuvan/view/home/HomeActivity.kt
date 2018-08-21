@@ -22,6 +22,7 @@ import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.view.BaseFragment
+import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
 import haiphat.com.bds.nghetuvan.view.fragment.HomeFragment
 import haiphat.com.bds.nghetuvan.view.fragment.education.EducationFragment
 import haiphat.com.bds.nghetuvan.view.fragment.news.BaseNewsFragment
@@ -112,6 +113,11 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 getString(R.string.log_out) -> {
                     showDialogLogOut()
                 }
+                getString(R.string.log_in) -> {
+                    startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+                    finish()
+                }
+
             }
             fragment?.let {
                 supportFragmentManager.beginTransaction().replace(R.id.flContent, fragment).commitAllowingStateLoss()

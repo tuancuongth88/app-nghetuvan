@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun controlOpenMainScreen() {
         val bundle = intent.extras
-        var intent = Intent(this, CategoryHomeActivity::class.java)
+        var intent = Intent(this, LoginActivity::class.java)
         UserServices.accessToken?.let {
             intent = Intent(this, HomeActivity::class.java)
         }
