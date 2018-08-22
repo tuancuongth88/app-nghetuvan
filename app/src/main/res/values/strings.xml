@@ -56,6 +56,10 @@
     <string name="txt_nav_prerogative">Đặc quyền nghề tư vấn</string>
     <string name="title_action_bar_duan">Kho dự án</string>
 
+    // kho hang bat dong san
+    <string name="txt_warehouse_real_estate_view_detail">Xem chi tiết</string>
+    <string name="txt_warehouse_real_estate_view_table_of_goods">Xem bảng hàng</string>
+
 
 
 

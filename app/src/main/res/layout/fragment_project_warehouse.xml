@@ -1,34 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        style="@style/matchParent"
-        android:background="@color/colorWhite">
+    <android.support.constraint.ConstraintLayout style="@style/matchParent"
+        android:layout_marginTop="58dp">
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvProjectWarehouse"
+            style="@style/matchWrap" />
+    </android.support.constraint.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
-            style="@style/matchParent"
-            tools:context="haiphat.com.bds.nghetuvan.view.profile.SettingActivity">
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/clHeader"
-                android:layout_width="match_parent"
-                android:background="@color/colorAccent"
-                android:layout_height="250dp">
-
-
-
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvProjectWarehouse"
-                style="@style/matchWrap"
-                android:nestedScrollingEnabled="false"
-                app:layout_constraintTop_toBottomOf="@+id/clHeader" />
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v4.widget.NestedScrollView>
 </layout>

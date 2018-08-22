@@ -32,10 +32,9 @@ class NewsAdapter(private var listMyCourse: ArrayList<NewsResponse>, private var
 
     class NewsViewHolder(itemView: ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
         fun bindItem(newsResponse: NewsResponse) {
-            itemView.rivLogo.fromUrl(newsResponse.image_url, placeHolder = R.drawable.ic_defaut_avatar)
+            itemView.imgCover.fromUrl(newsResponse.image_url, placeHolder = R.drawable.ic_defaut_avatar)
             itemView.tvName.text = newsResponse.title
-            itemView.tvNewsType.text = newsResponse.author
-            itemView.tvFeedback.text = itemView.context.getString(R.string.text_news_total_feedback, newsResponse.total_comment.toString())
+            itemView.tvDescription.text = newsResponse.decription
         }
     }
 }

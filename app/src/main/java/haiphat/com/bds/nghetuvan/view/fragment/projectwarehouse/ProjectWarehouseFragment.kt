@@ -3,6 +3,7 @@ package haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,9 @@ class ProjectWarehouseFragment: BaseFragment(){
     private var projectWarehouseViewModel = ProjectWarehouseViewModel()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentProjectWarehouse = DataBindingUtil.inflate(inflater, R.layout.fragment_project_warehouse, container, false)
-        (activity as HomeActivity).setBackgroundColor(Color.TRANSPARENT)
+        context?.let {
+            (activity as HomeActivity).setBackgroundColor(ContextCompat.getColor(it, R.color.colorPrimary))
+        }
         getItemProjectWarehouse()
         return dataBindingFragmentProjectWarehouse.root
     }

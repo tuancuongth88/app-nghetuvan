@@ -96,9 +96,9 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     fragment = HomeFragment()
                     toolbar.title = getString(R.string.title_action_bar_home)
                 }
-                getString(R.string.title_action_bar_duan) ->{
+                getString(R.string.txt_nav_warehouse_real_estate) ->{
                     fragment = ProjectWarehouseFragment()
-                    toolbar.title = ""
+                    toolbar.title = getString(R.string.txt_nav_warehouse_real_estate)
                 }
                 getString(R.string.txt_nav_table_of_goods) ->{
                     fragment = OnlineSalesFragment()

@@ -1,58 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <haiphat.com.bds.nghetuvan.utils.RippleView
-        android:id="@+id/rippleItem"
-        style="@style/wrapContent"
-        android:padding="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_item_white">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/clContent"
-            style="@style/wrapContent">
 
-            <ImageView
-                android:id="@+id/imgProjectWarehouse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_defaul_bg_my_course" />
+        <ImageView
+            android:id="@+id/imgProjectWarehouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_defaul_bg_my_course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="@drawable/gradient_buttom"
-                app:layout_constraintBottom_toBottomOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="5dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:background="@color/backgroundButtonYellow"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/imgProjectWarehouse"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="marquee"
+            android:fontFamily="sans-serif-medium"
+            android:singleLine="true"
+            android:textColor="@color/textLabel"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/imgProjectWarehouse"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/imgProjectWarehouse"
+            tools:text="VINHOMES DRAGON BAY BÁN HẾT SẠCH" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/withWrap"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="2sp"
+            android:maxLines="3"
+            android:textColor="@color/textLabel"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi magnam qui fugit culpa tenetur, quis repellat vero totam quibusdam laborum." />
+
+        <haiphat.com.bds.nghetuvan.utils.RippleView
+            android:id="@+id/ripDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_radius_white"
+            app:layout_constraintStart_toStartOf="@+id/tvDescription"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
-                android:id="@+id/tvName"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                tools:text="Tin tức chung"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
+                android:textColor="#474747"
+                android:textSize="14sp"
+
+                android:text="@string/txt_warehouse_real_estate_view_detail" />
+        </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+        <haiphat.com.bds.nghetuvan.utils.RippleView
+            android:id="@+id/ripViewTableOfGoods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/bg_view_btn_login_email"
+            app:layout_constraintBottom_toBottomOf="@+id/ripDetail"
+            app:layout_constraintEnd_toEndOf="@+id/tvDescription"
+            app:layout_constraintTop_toTopOf="@+id/ripDetail">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5dp"
                 android:textColor="@color/colorWhite"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:textSize="14sp"
+                android:text="@string/txt_warehouse_real_estate_view_table_of_goods" />
+        </haiphat.com.bds.nghetuvan.utils.RippleView>
 
-        </android.support.constraint.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/txtType"
-            style="@style/matchWrap"
-            android:text="chung cư"
-            android:textColor="@color/textLabel"
-            app:layout_constraintTop_toBottomOf="@id/clContent" />
-
-        <TextView
-            android:id="@+id/txtLocation"
-            style="@style/matchWrap"
-            android:text="Hà nội"
-            android:textColor="@color/textLabel"
-            app:layout_constraintTop_toBottomOf="@id/txtType" />
     </haiphat.com.bds.nghetuvan.utils.RippleView>
-
 </layout>

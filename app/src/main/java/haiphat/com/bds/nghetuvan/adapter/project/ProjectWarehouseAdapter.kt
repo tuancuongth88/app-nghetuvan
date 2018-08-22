@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.project.ProjectWarehouseResponse
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
+import haiphat.com.bds.nghetuvan.utils.extensions.fromUrlFixData
 import kotlinx.android.synthetic.main.item_project_warehouse.view.*
 
 
@@ -30,10 +31,9 @@ class ProjectWarehouseAdapter(private val list: ArrayList<ProjectWarehouseRespon
 
     class ProjectWarehouseViewHolder(itemView: ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
         fun bindItem(profileModel: ProjectWarehouseResponse) {
-            itemView.imgProjectWarehouse.fromUrl(url = "", placeHolder = R.drawable.ic_defaul_bg_my_course)
+            itemView.imgProjectWarehouse.fromUrlFixData(url = profileModel.url, placeHolder = R.drawable.ic_defaul_bg_my_course)
             itemView.tvName.text = profileModel.name
-            itemView.txtType.text = profileModel.type.toString()
-            itemView.txtLocation.text = profileModel.location
+            itemView.tvDescription.text = profileModel.decription
         }
     }
 }

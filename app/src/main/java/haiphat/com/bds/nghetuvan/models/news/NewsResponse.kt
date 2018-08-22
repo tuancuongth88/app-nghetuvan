@@ -10,5 +10,6 @@ data class NewsResponse(var id: String?= null,
                         var author : String? = null,
                         var content: String? = null,
                         var image_url: String? = null,
-                        var total_comment : Int? =0
+                        var total_comment : Int? =0,
+                        var decription : String? =null
 )
