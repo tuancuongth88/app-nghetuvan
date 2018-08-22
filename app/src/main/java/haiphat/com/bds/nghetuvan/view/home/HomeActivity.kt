@@ -65,7 +65,9 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     private fun initView() {
         navigationLayout = layoutInflater.inflate(R.layout.nav_header_home, null)
-        CommonUtil.getProfile(navigationLayout.rivAvatar, navigationLayout.tvName, navigationLayout.tvEmail)
+        UserServices.accessToken?.let {
+            CommonUtil.getProfile(navigationLayout.rivAvatar, navigationLayout.tvName, navigationLayout.tvEmail)
+        }
         if (UserServices.accessToken == null){
             navigationLayout.clUser.visibility = View.GONE
         }else{
