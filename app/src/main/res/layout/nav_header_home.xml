@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v4.widget.NestedScrollView
@@ -14,119 +15,133 @@
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/clUser"
-                style="@style/matchWrap"
-                android:layout_height="150dp"
-                android:background="#db6927">
+                style="@style/matchWrap">
 
-                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
-                <!--android:id="@+id/rippleWallet"-->
-                <!--style="@style/navRipple"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent">-->
-
-                <!--<ImageView-->
-                <!--style="@style/navImage"-->
-                <!--android:src="@drawable/ic_control_exo_setting" />-->
-                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
-
-                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
-                <!--android:id="@+id/rippleTransactionHistory"-->
-                <!--style="@style/navRipple"-->
-                <!--app:layout_constraintStart_toEndOf="@+id/rippleWallet"-->
-                <!--app:layout_constraintTop_toTopOf="@+id/rippleWallet">-->
-
-                <!--<ImageView-->
-                <!--style="@style/navImage"-->
-                <!--android:src="@drawable/ic_control_exo_setting" />-->
-                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
-
-                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
-                <!--android:id="@+id/rippleProfile"-->
-                <!--style="@style/navRipple"-->
-                <!--app:layout_constraintStart_toEndOf="@+id/rippleTransactionHistory"-->
-                <!--app:layout_constraintTop_toTopOf="@+id/rippleWallet">-->
-
-                <!--<ImageView-->
-                <!--style="@style/navImage"-->
-                <!--android:src="@drawable/ic_control_exo_setting" />-->
-                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
-
-                <!--<haiphat.com.bds.nghetuvan.utils.RippleView-->
-                <!--android:id="@+id/rippleSetting"-->
-                <!--style="@style/navRipple"-->
-                <!--app:layout_constraintStart_toEndOf="@+id/rippleProfile"-->
-                <!--app:layout_constraintTop_toTopOf="@+id/rippleWallet">-->
-
-                <!--<ImageView-->
-                <!--style="@style/navImage"-->
-                <!--android:src="@drawable/ic_control_exo_setting" />-->
-                <!--</haiphat.com.bds.nghetuvan.utils.RippleView>-->
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/rivAvatar"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_defaut_avatar"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:riv_corner_radius="80dp" />
 
                 <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constraintLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/rivAvatar"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="@+id/rivAvatar">
 
                     <TextView
                         android:id="@+id/tvName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
                         android:ellipsize="end"
-                        android:fontFamily="sans-serif"
+                        android:fontFamily="sans-serif-medium"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:text="Hải phat techtoginadf"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="24sp"
-                        android:textStyle="normal"
-
-                        />
+                        tools:text="Hải phat tech"
+                        android:textColor="@color/textLabel"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tvEmail"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/tvEmail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="sans-serif"
-                        android:letterSpacing="0.04"
-                        android:text="hai.phat@haiphattech.com"
-                        android:textColor="@color/colorWhite"
+                        tools:text="hai.phat@haiphattech.com"
+                        android:textColor="@color/textLabel"
                         android:textSize="12sp"
                         android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tvName"
                         app:layout_constraintTop_toBottomOf="@+id/tvName" />
                 </android.support.constraint.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tvTileProfile"
+                    style="@style/withWrap"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/txt_nav_profile"
+                    android:textColor="#3b3b3b"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/rivAvatar"
+                    app:layout_constraintTop_toBottomOf="@+id/rivAvatar" />
+
+                <View
+                    android:id="@+id/view"
+                    style="@style/viewLine"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvTileProfile"
+                    app:layout_constraintStart_toStartOf="@+id/tvTileProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTileProfile" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvNavItemProfile"
+                    style="@style/withWrap"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintEnd_toEndOf="@+id/view"
+                    app:layout_constraintStart_toStartOf="@+id/view"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
             </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvSystemUtility"
+                style="@style/withWrap"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/txt_nav_system_utility"
+                android:textColor="#3b3b3b"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clUser" />
+
+            <View
+                android:id="@+id/vSystemUtility"
+                style="@style/viewLine"
+                android:layout_width="0dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvSystemUtility"
+                app:layout_constraintStart_toStartOf="@+id/tvSystemUtility"
+                app:layout_constraintTop_toBottomOf="@+id/tvSystemUtility" />
 
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvNavItem"
                 style="@style/matchWrap"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="25dp"
                 android:focusable="false"
-
                 android:focusableInTouchMode="false"
                 android:nestedScrollingEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/clUser" />
+                app:layout_constraintTop_toBottomOf="@+id/vSystemUtility" />
 
 
         </android.support.constraint.ConstraintLayout>

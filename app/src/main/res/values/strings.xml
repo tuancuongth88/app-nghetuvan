@@ -27,8 +27,12 @@
     <string name="text_validate_require_field_content">Nội dung không được để trống</string>
     <string name="text_validate_require_field_address">Địa chỉ không được để trống</string>
 
+    // base field
+    <string name="input_text_email">Nhập email</string>
+    <string name="input_text_password">Nhập mật khẩu</string>
     <string name="log_out">Thoát</string>
     <string name="log_in">Đăng nhập</string>
+
     //screen login activity
     <string name="text_login_fast_access">Truy cập nhanh</string>
     <string name="text_login_developers">đơn vị\nphát triển</string>
@@ -37,6 +41,22 @@
     <string name="text_login_consultants">Chuyên viên \ntư vấn</string>
     <string name="text_login_investors">Nhà \nđầu tư</string>
     <string name="text_login_log_in_now">Đăng nhập ngày</string>
+    <string name="text_login_forgot_password">Quên mật khẩu?</string>
+    <string name="text_login_register">Đăng ký</string>
+
+    // screen navigator home.
+    <string name="txt_nav_profile">Hồ sơ cá nhân</string>
+    <string name="txt_nav_system_utility">Tiện ích hệ thống</string>
+    <string name="txt_nav_account_information">Thông tin tài khoản</string>
+    <string name="txt_nav_transaction_history">Lịch sử giao dịch</string>
+    <string name="txt_nav_customer_management">Quản lý khách hàng ký gửi</string>
+    <string name="txt_nav_warehouse_real_estate">kho hàng bất động sản</string>
+    <string name="txt_nav_table_of_goods">Bảng hàng online</string>
+    <string name="txt_nav_education_training">Huấn luyện - đào tạo</string>
+    <string name="txt_nav_prerogative">Đặc quyền nghề tư vấn</string>
+    <string name="title_action_bar_duan">Kho dự án</string>
+
+
 
 
     <string name="title_screen_news">Tin tức chung</string>
@@ -58,9 +78,9 @@
     <string name="title_action_bar_news">Tin tức</string>
     <string name="title_action_bar_partner">Đối tác</string>
     <string name="title_action_bar_home">Trang chủ</string>
-    <string name="title_action_bar_duan">Kho dự án</string>
-    <string name="title_action_bar_bh_online">Bán hàng online</string>
-    <string name="title_action_bar_daotao">Đào tạo</string>
+
+
+
     <string name="text_news_total_feedback">%s Phản hồi</string>
     <string name="text_post_comment_successfull">Gửi bình luận thành công!</string>
     <string name="text_forgot_password_send_email">Gửi Email</string>

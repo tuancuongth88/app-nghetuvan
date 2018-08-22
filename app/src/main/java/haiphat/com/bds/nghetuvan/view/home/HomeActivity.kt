@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
@@ -15,11 +16,10 @@ import android.widget.TextView
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.NavItemProfileAdapter
 import haiphat.com.bds.nghetuvan.databinding.ActivityHomeBinding
-import haiphat.com.bds.nghetuvan.models.auth.UserResponse
+import haiphat.com.bds.nghetuvan.models.profiles.ProfileModel
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
-import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.view.auth.LoginActivity
@@ -32,7 +32,6 @@ import haiphat.com.bds.nghetuvan.view.fragment.profile.ProfileFragment
 import haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.ProjectWarehouseFragment
 import haiphat.com.bds.nghetuvan.view.profile.ContactEmailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.NavItemViewModel
-import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
@@ -67,8 +66,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private fun initView() {
 
         navigationLayout = layoutInflater.inflate(R.layout.nav_header_home, null)
-        val recyclerView = navigationLayout.rvNavItem
-        if (UserServices.userInfo == null){
+        if (UserServices.accessToken == null){
             navigationLayout.clUser.visibility = View.GONE
         }else{
             CommonUtil.setDataUploadAvatar(navigationLayout.rivAvatar, navigationLayout.tvName,navigationLayout.tvEmail, UserServices.userInfo)
@@ -80,7 +78,18 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             imgSearch.visibility = View.GONE
             drawerLayout.closeDrawer(GravityCompat.START)
         }
-        val adapter = NavItemProfileAdapter(navItemViewModel.listNavItemProfile(this), onClick = {
+
+
+        navItemAdapter(navigationLayout.rvNavItemProfile, navItemViewModel.listNavItemProfile(this))
+        navItemAdapter(navigationLayout.rvNavItem, navItemViewModel.listSystemUnitily(this))
+
+        val dm = resources.displayMetrics
+        this.bindingMain.navView.addView(navigationLayout, dm.widthPixels * (3 / 2), ViewGroup.LayoutParams.MATCH_PARENT)
+        toolbar.setTitleTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
+    }
+
+    private fun navItemAdapter(recyclerView: RecyclerView, list : ArrayList<ProfileModel>){
+        val adapter = NavItemProfileAdapter(list, onClick = {
             var fragment: Fragment? = null
             when (it.name) {
                 getString(R.string.title_action_bar_home) -> {
@@ -91,13 +100,13 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     fragment = ProjectWarehouseFragment()
                     toolbar.title = ""
                 }
-                getString(R.string.title_action_bar_bh_online) ->{
+                getString(R.string.txt_nav_table_of_goods) ->{
                     fragment = OnlineSalesFragment()
-                    toolbar.title = getString(R.string.title_action_bar_bh_online)
+                    toolbar.title = getString(R.string.txt_nav_table_of_goods)
                 }
-                getString(R.string.title_action_bar_daotao) ->{
+                getString(R.string.txt_nav_education_training) ->{
                     fragment = EducationFragment()
-                    toolbar.title = getString(R.string.title_action_bar_daotao)
+                    toolbar.title = getString(R.string.txt_nav_education_training)
                 }
                 getString(R.string.title_action_bar_partner) -> {
                     fragment = BasePartnerFragment()
@@ -128,9 +137,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         recyclerView?.layoutManager = linearLayoutManager
         recyclerView?.setHasFixedSize(true)
         recyclerView?.adapter = adapter
-        val dm = resources.displayMetrics
-        this.bindingMain.navView.addView(navigationLayout, dm.widthPixels * (3 / 2), ViewGroup.LayoutParams.MATCH_PARENT)
-        toolbar.setTitleTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
     }
 
     private fun clickSearch() {

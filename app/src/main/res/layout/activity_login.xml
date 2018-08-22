@@ -237,7 +237,7 @@
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/tetEmail"
                 style="@style/matchWrap"
-                android:hint="Nhập Email"
+                android:hint="@string/input_text_email"
                 android:inputType="textEmailAddress"
                 android:text="@{loginViewModel.username}"
                 android:textColor="@color/textLabel"
@@ -256,7 +256,7 @@
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/tetPassword"
                 style="@style/matchWrap"
-                android:hint="Nhập password"
+                android:hint="@string/input_text_password"
                 android:inputType="textPassword"
                 android:text="@{loginViewModel.password}"
                 android:textColor="@color/textLabel"
@@ -278,8 +278,8 @@
         <TextView
             android:id="@+id/txtForgotPassword"
             style="@style/wrapContent"
-            android:layout_marginTop="16dp"
-            android:text="Quên mật khẩu?"
+            android:layout_marginTop="10dp"
+            android:text="@string/text_login_forgot_password"
             android:textColor="@color/txtLabelGray"
             app:layout_constraintEnd_toEndOf="@+id/btnLogin"
             app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
@@ -288,7 +288,7 @@
             android:id="@+id/tvRegister"
             style="@style/withWrap"
             android:layout_width="wrap_content"
-            android:text="Đăng ký"
+            android:text="@string/text_login_register"
             android:textColor="@color/txtLabelGray"
             app:layout_constraintStart_toStartOf="@+id/btnLogin"
             app:layout_constraintTop_toTopOf="@+id/txtForgotPassword" />
