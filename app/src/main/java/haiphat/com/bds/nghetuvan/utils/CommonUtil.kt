@@ -41,7 +41,7 @@ class CommonUtil {
 
         fun getProfile(rivAvatar: RoundedImageView, tvName : TextView, tvEmail: TextView){
             ProfileViewModel().getProfile(onSuccess = {
-                rivAvatar.fromUrl(it?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
+                rivAvatar.fromUrl(it?.avatar, placeHolder = R.drawable.ic_menu_user)
                 tvName.text = it?.fullname
                 tvEmail.text = it?.email
             }, onFailed = {})

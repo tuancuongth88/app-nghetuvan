@@ -64,13 +64,15 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun initView() {
-
         navigationLayout = layoutInflater.inflate(R.layout.nav_header_home, null)
+        CommonUtil.getProfile(navigationLayout.rivAvatar, navigationLayout.tvName, navigationLayout.tvEmail)
         if (UserServices.accessToken == null){
             navigationLayout.clUser.visibility = View.GONE
         }else{
+            navItemAdapter(navigationLayout.rvNavItemProfile, navItemViewModel.listNavItemProfile(this))
             CommonUtil.setDataUploadAvatar(navigationLayout.rivAvatar, navigationLayout.tvName,navigationLayout.tvEmail, UserServices.userInfo)
         }
+        navItemAdapter(navigationLayout.rvNavItem, navItemViewModel.listSystemUnitily(this))
         navigationLayout.clUser.setOnClickListener {
             val fragmentProfile = ProfileFragment()
             supportFragmentManager.beginTransaction().replace(R.id.flContent, fragmentProfile).commitAllowingStateLoss()
@@ -78,10 +80,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             imgSearch.visibility = View.GONE
             drawerLayout.closeDrawer(GravityCompat.START)
         }
-
-
-        navItemAdapter(navigationLayout.rvNavItemProfile, navItemViewModel.listNavItemProfile(this))
-        navItemAdapter(navigationLayout.rvNavItem, navItemViewModel.listSystemUnitily(this))
 
         val dm = resources.displayMetrics
         this.bindingMain.navView.addView(navigationLayout, dm.widthPixels * (3 / 2), ViewGroup.LayoutParams.MATCH_PARENT)
