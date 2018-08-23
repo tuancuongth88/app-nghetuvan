@@ -1,7 +1,5 @@
 package haiphat.com.bds.nghetuvan.viewmodel.profiles
 
-import haiphat.com.bds.nghetuvan.models.BaseResponse
-import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.services.UserServices
 import haiphat.com.bds.nghetuvan.services.api.auth.UserApi
 

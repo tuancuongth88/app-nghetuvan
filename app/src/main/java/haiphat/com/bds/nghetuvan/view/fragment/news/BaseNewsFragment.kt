@@ -35,7 +35,9 @@ class BaseNewsFragment : BaseFragment() {
         ShowLoading.show(activity)
         newsViewModel.getCategoryNews(onSuccess = {
             val sectionsPagerAdapter = SectionsPagerNewsAdapter(childFragmentManager)
-            sectionsPagerAdapter.listItemNews = it
+            it?.let {
+                sectionsPagerAdapter.listItemNews = it
+            }
             dataBindingFragmentNews.container.adapter = sectionsPagerAdapter
             dataBindingFragmentNews.tabs.setupWithViewPager(dataBindingFragmentNews.container)
             dataBindingFragmentNews.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
@@ -51,7 +53,7 @@ class BaseNewsFragment : BaseFragment() {
         var listItemNews = ArrayList<CategoryNewsResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return NewsFragment.newInstance(listItemNews[position].id)
+            return NewsFragment.newInstance(listItemNews[position].id.toString())
         }
 
         override fun getCount(): Int {

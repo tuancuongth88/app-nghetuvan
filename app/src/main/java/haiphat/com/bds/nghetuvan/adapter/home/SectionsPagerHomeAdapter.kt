@@ -24,13 +24,13 @@ class SectionsPagerHomeAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 fragment = HomeInfoFragment.newInstance(newsResponse?.content)
             }
             1 -> {
-                fragment = ProjectManagementFragment.newInstance(newsResponse?.id)
+                fragment = ProjectManagementFragment.newInstance(newsResponse?.id.toString())
             }
             2 -> {
-                fragment = FinancialPackageFragment.newInstance(newsResponse?.id)
+                fragment = FinancialPackageFragment.newInstance(newsResponse?.id.toString())
             }
             3 -> {
-                fragment = DocumentFragment.newInstance(newsResponse?.id)
+                fragment = DocumentFragment.newInstance(newsResponse?.id.toString())
             }
         }
         return fragment ?: HomeInfoFragment.newInstance(newsResponse?.content)

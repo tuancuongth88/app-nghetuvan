@@ -11,18 +11,17 @@ class NewsApi : BaseApi() {
     }
 
     override fun getEndPoint(): String? {
-        return Config.API_URL
+        return Config.API_URL_MEDIA
     }
 
     fun getCategory(onResponse: (DgmResponse) -> Unit) {
-        this["category-news", onResponse]
+        this["categories", onResponse]
     }
 
-    fun getItemNews(id: String?, current: String?, perpages : String, onResponse: (DgmResponse) -> Unit) {
+    fun getItemNews(id: String?, pages : String, onResponse: (DgmResponse) -> Unit) {
         val params = HashMap<String, String>()
-        params.put("current", current ?: "")
-        params.put("perpages", perpages)
-        val queryString = this.parseUrlQueryStringWithParams("news-by-category/"+id+"?{current}&{perpages}", params)
+        params.put("page", pages)
+        val queryString = this.parseUrlQueryStringWithParams("category/"+id+"?{page}", params)
         this[queryString, onResponse]
     }
 

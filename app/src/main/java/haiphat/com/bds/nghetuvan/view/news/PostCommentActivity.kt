@@ -38,18 +38,18 @@ class PostCommentActivity : BaseActivity() {
 
 
     private fun postComment() {
-        ShowLoading.show(this@PostCommentActivity)
-        newsCommentViewModel.content = dataBindingPostComment.edContent.text.toString()
-        newsCommentViewModel.postComment(onSuccess = {
-            ShowLoading.dismiss()
-            ShowAlert.fail(pContext = this, dialogTitle = getString(R.string.alert_title_inform), message = it, onClick = {
-                setResult(IntentActionKeys.KEY_RELOAD_DATA)
-                finish()
-            })
-        }, onFailed = {
-            ShowLoading.dismiss()
-            ShowAlert.fail(pContext = this, message = it)
-        })
+//        ShowLoading.show(this@PostCommentActivity)
+//        newsCommentViewModel.content = dataBindingPostComment.edContent.text.toString()
+//        newsCommentViewModel.postComment(onSuccess = {
+//            ShowLoading.dismiss()
+//            ShowAlert.fail(pContext = this, dialogTitle = getString(R.string.alert_title_inform), message = it, onClick = {
+//                setResult(IntentActionKeys.KEY_RELOAD_DATA)
+//                finish()
+//            })
+//        }, onFailed = {
+//            ShowLoading.dismiss()
+//            ShowAlert.fail(pContext = this, message = it)
+//        })
     }
 
 }

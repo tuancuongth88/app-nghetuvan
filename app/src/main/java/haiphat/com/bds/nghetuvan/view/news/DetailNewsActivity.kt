@@ -13,6 +13,7 @@ import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
+import haiphat.com.bds.nghetuvan.utils.extensions.fromUrlFixData
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 
 class DetailNewsActivity : BaseActivity() {
@@ -51,9 +52,11 @@ class DetailNewsActivity : BaseActivity() {
         setHeaderVisibility(View.GONE)
         val bundle = intent.extras
         val newsResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_DETAIL_NEWS), NewsResponse::class.java)
-        dataBindingDetailNews.imCovert.fromUrl(newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
-        dataBindingDetailNews.tvName.text = newsResponse?.title
-        dataBindingDetailNews.tvTitle.text = newsResponse?.title
+        dataBindingDetailNews.imCovert.fromUrlFixData("http://media.haiphatland.com.vn" + newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
+        dataBindingDetailNews.tvName.text = newsResponse?.name
+        dataBindingDetailNews.tvTitle.text = newsResponse?.name
+
+
         val sectionsPagerAdapter = SectionsPagerNewsAdapter(supportFragmentManager)
         sectionsPagerAdapter.newsResponse = newsResponse
                 dataBindingDetailNews.container.adapter = sectionsPagerAdapter

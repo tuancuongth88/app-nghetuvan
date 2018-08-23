@@ -112,13 +112,14 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     fragment = BasePartnerFragment()
                     toolbar.title = getString(R.string.title_action_bar_partner)
                 }
-                getString(R.string.title_action_bar_news) -> {
+                getString(R.string.txt_nav_transaction_history) -> {
                     fragment = BaseNewsFragment()
                     toolbar.title = getString(R.string.title_action_bar_news)
                 }
                 getString(R.string.title_action_bar_contact) -> {
                     startActivity(Intent(this@HomeActivity, ContactEmailActivity::class.java))
                 }
+
                 getString(R.string.log_out) -> {
                     showDialogLogOut()
                 }

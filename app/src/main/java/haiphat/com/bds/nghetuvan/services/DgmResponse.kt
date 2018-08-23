@@ -3,7 +3,6 @@ package haiphat.com.bds.nghetuvan.services
 import android.text.TextUtils
 import haiphat.com.bds.nghetuvan.BaseApplication
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.models.BaseResponse
 import haiphat.com.bds.nghetuvan.models.ErrorModel
 import okhttp3.Response
 import java.net.SocketTimeoutException
@@ -25,8 +24,8 @@ open class DgmResponse {
         }
         try {
             this.responseContent = response?.body()?.string().toString()
-            val baseResponse = GsonUtil.fromJson(responseContent, ErrorModel::class.java)
-            this.message = baseResponse?.message
+            val response = GsonUtil.fromJson(responseContent, ErrorModel::class.java)
+            this.message = response?.message
 
         } catch (ex: Exception) {
             this.exception = ex

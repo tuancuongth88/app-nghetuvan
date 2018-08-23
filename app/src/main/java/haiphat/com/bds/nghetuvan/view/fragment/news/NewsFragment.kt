@@ -36,11 +36,11 @@ class NewsFragment : BaseFragment() , SwipeRefreshLayout.OnRefreshListener{
     }
 
 
-    private fun initNewsAdapter(list: ArrayList<NewsResponse>) {
+    private fun initNewsAdapter(list: ArrayList<NewsResponse>?) {
         val recyclerView = dataBindingFragmentNews.rvNews
         val adapter = NewsAdapter(list, onClick = {
             val intent = Intent(activity, DetailNewsActivity::class.java)
-            intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
+            intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, it?.let { it1 -> GsonUtil.toJson(it1) })
             startActivity(intent)
         })
         recyclerView.layoutManager = LinearLayoutManager(activity)

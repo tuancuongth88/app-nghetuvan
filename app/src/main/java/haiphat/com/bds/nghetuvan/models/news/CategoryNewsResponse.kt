@@ -1,5 +1,5 @@
 package haiphat.com.bds.nghetuvan.models.news
 
-data class CategoryNewsResponse(var id: String? = null,
-                                var name: String? = null
-)
+import haiphat.com.bds.nghetuvan.models.BaseResponse
+
+class CategoryNewsResponse : BaseResponse()

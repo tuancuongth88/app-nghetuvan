@@ -37,7 +37,7 @@ class SettingActivity : BaseActivity() {
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite))
     }
 
-    private fun initNewsAdapter(list : ArrayList<NewsResponse>){
+    private fun initNewsAdapter(list : ArrayList<NewsResponse>?){
         var recyclerView = dataBindingNews.rvNews
         var adapter = NewsAdapter(list, onClick = {
             startActivity(Intent(this@SettingActivity, DetailNewsActivity::class.java))

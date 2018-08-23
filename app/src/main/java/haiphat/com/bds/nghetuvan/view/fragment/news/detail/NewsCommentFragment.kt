@@ -51,13 +51,13 @@ class NewsCommentFragment : BaseFragment(), SwipeRefreshLayout.OnRefreshListener
     }
 
     private fun getItemComment() {
-        newsCommentViewModel.getListComment(onSuccess = {
-            initNewsCommentAdapter(it)
-            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
-        }, onFailed = {
-            ShowAlert.fail(pContext = activity, message = it)
-            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
-        })
+//        newsCommentViewModel.getListComment(onSuccess = {
+//            initNewsCommentAdapter(it)
+//            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
+//        }, onFailed = {
+//            ShowAlert.fail(pContext = activity, message = it)
+//            dataBindingFragmentNewsComment.swipeRefreshLayout.isRefreshing = false
+//        })
     }
 
 

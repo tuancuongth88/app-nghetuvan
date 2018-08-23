@@ -1,8 +1,8 @@
 package haiphat.com.bds.nghetuvan.models.auth
 
-import haiphat.com.bds.nghetuvan.models.BaseResponse
+import haiphat.com.bds.nghetuvan.models.ErrorModel
 
 class UploadAvatarResponse {
 
-    var data : BaseResponse? =null
+    var data : ErrorModel? =null
 }
