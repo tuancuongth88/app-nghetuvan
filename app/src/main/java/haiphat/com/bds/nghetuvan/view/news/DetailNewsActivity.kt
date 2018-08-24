@@ -10,6 +10,7 @@ import haiphat.com.bds.nghetuvan.databinding.ActivityDetailNewBinding
 import haiphat.com.bds.nghetuvan.models.news.NewsResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
+import haiphat.com.bds.nghetuvan.utils.extensions.formatDateTime
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrlFixData
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
@@ -53,6 +54,8 @@ class DetailNewsActivity : BaseActivity() {
         dataBindingDetailNews.imCovert.fromUrlFixData("http://media.haiphatland.com.vn" + newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
         dataBindingDetailNews.tvName.text = newsResponse?.name
         dataBindingDetailNews.tvTitle.text = newsResponse?.name
+        dataBindingDetailNews.tvTime.text = newsResponse?.created_at?.formatDateTime("dd/MM/yyyy") ?: "Ngày 15 tháng 08 năm 2018"
+        dataBindingDetailNews.tvAuthor.text = newsResponse?.author?.name
         newsResponse?.content?.let { dataBindingDetailNews.htmTextContent.setHtml(it, HtmlHttpImageGetter(dataBindingDetailNews.htmTextContent)) }
 
     }

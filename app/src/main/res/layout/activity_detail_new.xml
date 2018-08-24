@@ -117,13 +117,44 @@
                         android:textSize="18sp"
                         android:textStyle="normal"
                         tools:text="Khoá học lập trình và thiết kế web ngôn ngữ ASP.net " />
+                    
+                    <ImageView
+                        android:id="@+id/imgTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/ic_clock"
+                        />
+                    
                     <TextView
                         android:id="@+id/tvTime"
-                        style="@style/matchWrap"
+                        style="@style/wrapContent"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentBottom="true"
-                        android:text="thứ 6, 30/10/2018 | 10:00 GMT +7"
+                        android:layout_toRightOf="@+id/imgTime"
+                        tools:text="time"
                         android:textColor="@color/colorWhite"
                         android:textSize="10sp" />
+
+                    <ImageView
+                        android:id="@+id/imgAuthor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/tvTime"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/ic_clock" />
+
+                    <TextView
+                        android:id="@+id/tvAuthor"
+                        style="@style/wrapContent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/imgAuthor"
+                        android:layout_alignParentBottom="true"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp"
+                        tools:text="Tác giả" />
+                    
                 </RelativeLayout>
 
             </android.support.design.widget.CollapsingToolbarLayout>
