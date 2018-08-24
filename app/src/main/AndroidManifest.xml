@@ -55,7 +55,9 @@
         <activity
             android:name=".view.home.HomeActivity"
             android:label="@string/title_action_bar_home"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            />
         <activity android:name=".view.profile.SettingActivity" />
         <activity android:name=".view.profile.HistoryTransactionsActivity" />
         <activity android:name=".view.news.DetailNewsActivity" />

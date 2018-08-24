@@ -1,0 +1,4 @@
+            keyAlias 'nghe_tu_van'
+            keyPassword 'haiphattech@!.123'
+            storeFile file('keystore/nghe_tu_van.jks')
+            storePassword 'haiphattech@!.123

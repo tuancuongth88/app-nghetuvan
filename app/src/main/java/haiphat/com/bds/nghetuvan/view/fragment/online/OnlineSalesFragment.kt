@@ -2,6 +2,7 @@ package haiphat.com.bds.nghetuvan.view.fragment.online
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.graphics.Typeface
@@ -47,9 +48,12 @@ class OnlineSalesFragment : BaseFragment() {
         dataBindingFragmentOnlineSales.rippleSearch.setOnRippleCompleteListener {
             getTableGoods()
         }
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
 
         return dataBindingFragmentOnlineSales.root
     }
+
+
 
     @SuppressLint("ResourceType")
     private fun initView() {
