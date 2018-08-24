@@ -43,7 +43,9 @@ class BasePartnerFragment : BaseFragment() {
         ShowLoading.show(activity)
         partnerViewModel.getCategoryPartner(onSuccess = {
             val sectionsPagerAdapter = SectionsPagerPartnerAdapter(childFragmentManager)
-            sectionsPagerAdapter.listCategoryPartner = it
+            it?.let {
+                sectionsPagerAdapter.listCategoryPartner = it
+            }
             dataBindingFragmentPartner.container.adapter = sectionsPagerAdapter
             dataBindingFragmentPartner.tabs.setupWithViewPager(dataBindingFragmentPartner.container)
             dataBindingFragmentPartner.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
@@ -84,11 +86,11 @@ class BasePartnerFragment : BaseFragment() {
             return dataBindingFragmentPartner.root
         }
 
-        private fun initPartnerAdapter(list: ArrayList<PartnerResponse>) {
+        private fun initPartnerAdapter(list: ArrayList<PartnerResponse>?) {
             val recyclerView = dataBindingFragmentPartner.rvNews
             val adapter = PartnerAdapter(list, onClick = {
                 val intent = Intent(activity, PartnerDetailActivity::class.java)
-                intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, GsonUtil.toJson(it))
+                intent.putExtra(IntentActionKeys.KEY_DETAIL_NEWS, it?.let { it1 -> GsonUtil.toJson(it1) })
                 startActivity(intent)
             })
             recyclerView.layoutManager = LinearLayoutManager(activity)

@@ -15,7 +15,6 @@ class NewsViewModel {
     fun getItemNews(onSuccess: (ArrayList<NewsResponse>?) -> Unit, onFailed: (String?) -> Unit) {
         NewsApi().getItemNews(id, page.toString(), onResponse = {
             var response = GsonUtil.fromJson(it.responseContent, ListNewsResponse::class.java)
-
             if (it.isSuccess()){
                 onSuccess(response?.data)
             }else{

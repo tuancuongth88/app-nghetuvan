@@ -37,7 +37,7 @@ class HistoryTransactionsActivity : BaseActivity() {
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite))
     }
 
-    private fun initPartnerAdapter(list : ArrayList<PartnerResponse>){
+    private fun initPartnerAdapter(list : ArrayList<PartnerResponse>?){
         val recyclerView = dataBindingPartner.rvPartner
         val adapter = PartnerAdapter(list, onClick = {
             startActivity(Intent(this@HistoryTransactionsActivity, PartnerDetailActivity::class.java))
