@@ -9,6 +9,6 @@ data class PartnerResponse(var image_url: String? = null,
                            var phone: String? = null,
                            var detail: String? = null,
                            var email : String? = null,
-                           var category : CategoryPartnerResponse? = null,
-                           var created_at  :String? = null
+                           var category : CategoryPartnerResponse? = null
+//                           var created_at  :String? = null
 ):BaseResponse()

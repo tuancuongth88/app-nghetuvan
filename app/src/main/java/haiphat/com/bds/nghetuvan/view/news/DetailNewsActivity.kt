@@ -54,7 +54,7 @@ class DetailNewsActivity : BaseActivity() {
         dataBindingDetailNews.imCovert.fromUrlFixData("http://media.haiphatland.com.vn" + newsResponse?.image_url, placeHolder = R.drawable.ic_defaul_bg_my_course)
         dataBindingDetailNews.tvName.text = newsResponse?.name
         dataBindingDetailNews.tvTitle.text = newsResponse?.name
-        dataBindingDetailNews.tvTime.text = newsResponse?.created_at?.formatDateTime("dd/MM/yyyy") ?: "Ngày 15 tháng 08 năm 2018"
+//        dataBindingDetailNews.tvTime.text = newsResponse?.created_at?.formatDateTime("dd/MM/yyyy") ?: "Ngày 15 tháng 08 năm 2018"
         dataBindingDetailNews.tvAuthor.text = newsResponse?.author?.name
         newsResponse?.content?.let { dataBindingDetailNews.htmTextContent.setHtml(it, HtmlHttpImageGetter(dataBindingDetailNews.htmTextContent)) }
 

@@ -54,7 +54,9 @@
     <string name="txt_nav_table_of_goods">Bảng hàng online</string>
     <string name="txt_nav_education_training">Huấn luyện - đào tạo</string>
     <string name="txt_nav_prerogative">Đặc quyền nghề tư vấn</string>
-    <string name="title_action_bar_duan">Kho dự án</string>
+    <!--<string name="title_action_bar_duan">Kho dự án</string>-->
+    <string name="txt_nav_news">Tin tức</string>
+    <string name="txt_nav_partner">Đối tác</string>
 
     // kho hang bat dong san
     <string name="txt_warehouse_real_estate_view_detail">Xem chi tiết</string>
@@ -79,8 +81,7 @@
     <string name="title_screen_reply_create_discussion">Bình luận</string>
     <string name="discussion_training_course_detail_comment_successfully">Gửi email thành công</string>
     <string name="title_action_bar_contact">Liên hệ</string>
-    <string name="title_action_bar_news">Tin tức</string>
-    <string name="title_action_bar_partner">Đối tác</string>
+
     <string name="title_action_bar_home">Trang chủ</string>
 
 

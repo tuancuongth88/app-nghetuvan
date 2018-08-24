@@ -108,13 +108,13 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     fragment = EducationFragment()
                     toolbar.title = getString(R.string.txt_nav_education_training)
                 }
-                getString(R.string.txt_nav_customer_management) -> {
+                getString(R.string.txt_nav_partner) -> {
                     fragment = BasePartnerFragment()
-                    toolbar.title = getString(R.string.title_action_bar_partner)
+                    toolbar.title = getString(R.string.txt_nav_partner)
                 }
-                getString(R.string.txt_nav_transaction_history) -> {
+                getString(R.string.txt_nav_news) -> {
                     fragment = BaseNewsFragment()
-                    toolbar.title = getString(R.string.title_action_bar_news)
+                    toolbar.title = getString(R.string.txt_nav_news)
                 }
                 getString(R.string.title_action_bar_contact) -> {
                     startActivity(Intent(this@HomeActivity, ContactEmailActivity::class.java))

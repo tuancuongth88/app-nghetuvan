@@ -23,6 +23,8 @@ class NavItemViewModel {
         list.add(ProfileModel(R.drawable.ic_nav_warehouse_real_estate, context.getString(R.string.txt_nav_warehouse_real_estate)))
         list.add(ProfileModel(R.drawable.ic_table_of_goods, context.getString(R.string.txt_nav_table_of_goods)))
         list.add(ProfileModel(R.drawable.ic_educational_training, context.getString(R.string.txt_nav_education_training)))
+        list.add(ProfileModel(R.drawable.ic_nav_warehouse_real_estate, context.getString(R.string.txt_nav_news)))
+        list.add(ProfileModel(R.drawable.ic_table_of_goods, context.getString(R.string.txt_nav_partner)))
         list.add(ProfileModel(R.drawable.ic_prerogative, context.getString(R.string.txt_nav_prerogative)))
         if (UserServices.userInfo == null){
             list.add(ProfileModel(R.drawable.ic_log_out, context.getString(R.string.log_in)))

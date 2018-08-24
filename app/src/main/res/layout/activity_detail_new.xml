@@ -120,10 +120,10 @@
                     
                     <ImageView
                         android:id="@+id/imgTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/ic_clock"
+                        android:src="@drawable/ic_clock_white"
                         />
                     
                     <TextView
@@ -138,12 +138,12 @@
 
                     <ImageView
                         android:id="@+id/imgAuthor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
                         android:layout_marginLeft="15dp"
                         android:layout_toRightOf="@+id/tvTime"
                         android:layout_alignParentBottom="true"
-                        android:src="@drawable/ic_clock" />
+                        android:src="@drawable/ic_author_white" />
 
                     <TextView
                         android:id="@+id/tvAuthor"
