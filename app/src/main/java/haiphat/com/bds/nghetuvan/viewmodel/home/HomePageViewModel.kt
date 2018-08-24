@@ -37,11 +37,11 @@ class HomePageViewModel {
 
     private fun mockDataItem() : ArrayList<CategoryPartnerResponse>{
         val listData = ArrayList<CategoryPartnerResponse>()
-        listData.add(CategoryPartnerResponse(id = "1", name = "Chủ đầu tư"))
-        listData.add(CategoryPartnerResponse(id = "2", name = "Chuyên viên tư vấn"))
-        listData.add(CategoryPartnerResponse(id = "3", name = "tin tức chung"))
-        listData.add(CategoryPartnerResponse(id = "4", name = "Ngân hàng"))
-        listData.add(CategoryPartnerResponse(id = "5", name = "tin sự kiện"))
+//        listData.add(CategoryPartnerResponse(id = "1", name = "Chủ đầu tư"))
+//        listData.add(CategoryPartnerResponse(id = "2", name = "Chuyên viên tư vấn"))
+//        listData.add(CategoryPartnerResponse(id = "3", name = "tin tức chung"))
+//        listData.add(CategoryPartnerResponse(id = "4", name = "Ngân hàng"))
+//        listData.add(CategoryPartnerResponse(id = "5", name = "tin sự kiện"))
         return listData
     }
 }

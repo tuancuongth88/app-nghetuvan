@@ -7,22 +7,21 @@ import java.util.HashMap
 
 class PartnerApi : BaseApi() {
     override fun apiUrl(): String? {
-        return "partner/"
+        return "partners/"
     }
 
     override fun getEndPoint(): String? {
-        return Config.API_URL
+        return Config.API_URL_MEDIA
     }
 
     fun getCategory(onResponse: (DgmResponse) -> Unit) {
-        this["category-partner", onResponse]
+        this["categories", onResponse]
     }
 
-    fun getItemNews(id: String?, current: String?, perPages : String,  onResponse: (DgmResponse) -> Unit) {
+    fun getItemNews(id: String?, page : String,  onResponse: (DgmResponse) -> Unit) {
         val params = HashMap<String, String>()
-        params.put("current", current ?: "")
-        params.put("perpages", perPages)
-        val queryString = this.parseUrlQueryStringWithParams("partner-by-category/" +id+ "?{current}&{perpages}", params)
+        params.put("page", page)
+        val queryString = this.parseUrlQueryStringWithParams("category/" +id+ "?{page}", params)
         this[queryString, onResponse]
     }
 

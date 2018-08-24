@@ -108,7 +108,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                     fragment = EducationFragment()
                     toolbar.title = getString(R.string.txt_nav_education_training)
                 }
-                getString(R.string.title_action_bar_partner) -> {
+                getString(R.string.txt_nav_customer_management) -> {
                     fragment = BasePartnerFragment()
                     toolbar.title = getString(R.string.title_action_bar_partner)
                 }

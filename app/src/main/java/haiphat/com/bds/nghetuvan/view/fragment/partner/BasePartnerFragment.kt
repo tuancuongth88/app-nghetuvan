@@ -60,7 +60,7 @@ class BasePartnerFragment : BaseFragment() {
         var listCategoryPartner = ArrayList<CategoryPartnerResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return ContentFragment.newInstance(listCategoryPartner[position].id)
+            return ContentFragment.newInstance(listCategoryPartner[position].id.toString())
         }
 
         override fun getCount(): Int {
