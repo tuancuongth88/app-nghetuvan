@@ -8,6 +8,7 @@ class IntentActionKeys {
         const val FORCE_LOGOUT_ACTION = "FORCE_LOGOUT_ACTION"
         const val KEY_DETAIL_NEWS = "KEY_DETAIL_NEWS"
         const val KEY_NEWS_ID = "KEY_NEWS_ID"
+        const val KEY_PROJECT_WARE_HOUSE = "KEY_PROJECT_WARE_HOUSE"
 
 
         const val REQUEST_CAMERA_PERMISSION = 112

@@ -63,8 +63,6 @@
     <string name="txt_warehouse_real_estate_view_table_of_goods">Xem bảng hàng</string>
 
 
-
-
     <string name="title_screen_news">Tin tức chung</string>
     <string name="title_screen_partner">Đối tác</string>
     <string name="text_partner_price">%s USD</string>
@@ -83,7 +81,6 @@
     <string name="title_action_bar_contact">Liên hệ</string>
 
     <string name="title_action_bar_home">Trang chủ</string>
-
 
 
     <string name="text_news_total_feedback">%s Phản hồi</string>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar"
+            style="@style/matchWrap"
+
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar_layout"
+                    style="@style/matchWrap"
+                    android:layout_height="200dp"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <ImageView
+                        android:id="@+id/imCovert"
+                        style="@style/matchParent"
+                        android:background="@drawable/ic_defaul_bg_my_course"
+                        android:scaleType="centerCrop" />
+                    <View
+                        style="@style/matchParent"
+                        android:background="@color/bgView"
+                        />
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:layout_collapseMode="pin"
+                        app:layout_scrollFlags="scroll|enterAlways"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <haiphat.com.bds.nghetuvan.utils.RippleView
+                                android:id="@+id/rippleBack"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp">
+
+                                <ImageView
+                                    android:id="@+id/imgBack"
+                                    style="@style/wrapContent"
+                                    android:src="@drawable/ic_back"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+                            <TextView
+                                android:id="@+id/tvTitle"
+                                style="@style/wrapContent"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/rippleSetting"
+                                android:layout_toRightOf="@+id/rippleBack"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="16sp"
+                                app:layout_collapseMode="parallax"
+                                tools:text="Category name" />
+
+                            <haiphat.com.bds.nghetuvan.utils.RippleView
+                                android:id="@+id/rippleSetting"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentRight="true">
+
+                                <ImageView
+                                    android:id="@+id/imgSetting"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_share"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </haiphat.com.bds.nghetuvan.utils.RippleView>
+                        </RelativeLayout>
+                    </android.support.v7.widget.Toolbar>
+
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/tabs"
+                        style="@style/matchWrap"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        app:tabIndicatorColor="@color/colorPrimaryDark"
+                        app:tabMode="fixed"
+                        app:tabTextAppearance="@style/DetailPressReleaseTabText" />
+                </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            style="@style/matchParent"
+            android:background="@color/bgSelectProfile"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <LinearLayout
+            android:id="@+id/ln_splash_background"
+            style="@style/matchParent"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

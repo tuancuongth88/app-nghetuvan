@@ -21,8 +21,6 @@ class DetailNewsActivity : BaseActivity() {
     override fun getContentView(): View {
         dataBindingDetailNews = DataBindingUtil.inflate(layoutInflater, R.layout.activity_detail_new, null, false)
         setSupportActionBar(dataBindingDetailNews.toolbar)
-
-
         dataBindingDetailNews.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBar, verticalOffset ->
             if (verticalOffset == 0) {
                 dataBindingDetailNews.tvTitle.visibility = View.GONE
