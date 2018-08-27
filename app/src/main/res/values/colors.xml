@@ -27,5 +27,6 @@
     <color name="txtLabelGray">#4c000000</color>
     <color name="bgScreenF2">#f2f2f2</color>
     <color name="bgView">#40000000</color>
+    <color name="txt_project_support_item">#757575</color>
 
 </resources>

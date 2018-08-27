@@ -7,15 +7,13 @@ import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityPostCommentBinding
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
-import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseActivity
-import haiphat.com.bds.nghetuvan.viewmodel.news.NewsCommentViewModel
+import haiphat.com.bds.nghetuvan.viewmodel.project.ProjectSupportViewModel
 
 class PostCommentActivity : BaseActivity() {
 
     private lateinit var dataBindingPostComment: ActivityPostCommentBinding
-    private var newsCommentViewModel = NewsCommentViewModel()
+    private var newsCommentViewModel = ProjectSupportViewModel()
 
     override fun getContentView(): View {
         dataBindingPostComment = DataBindingUtil.inflate(layoutInflater, R.layout.activity_post_comment, null, false)
@@ -29,7 +27,7 @@ class PostCommentActivity : BaseActivity() {
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite))
         baseActivityBinding.imgBack.setImageResource(R.drawable.ic_back_b)
         var bundel = intent.extras
-        newsCommentViewModel.newsId = bundel.getString(IntentActionKeys.KEY_NEWS_ID)
+        newsCommentViewModel.id = bundel.getString(IntentActionKeys.KEY_NEWS_ID)
         baseActivityBinding.rippleRight.visibility = View.VISIBLE
         baseActivityBinding.rippleRight.setOnRippleCompleteListener {
             postComment()
