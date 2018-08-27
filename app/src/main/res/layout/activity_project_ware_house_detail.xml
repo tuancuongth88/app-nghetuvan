@@ -95,8 +95,8 @@
                         style="@style/matchWrap"
                         android:layout_gravity="bottom"
                         android:background="@android:color/transparent"
-                        app:tabIndicatorColor="@color/colorPrimaryDark"
-                        app:tabMode="fixed"
+                        app:tabIndicatorColor="@color/colorPrimary"
+                        app:tabMode="scrollable"
                         app:tabTextAppearance="@style/DetailPressReleaseTabText" />
                 </android.support.design.widget.CollapsingToolbarLayout>
 

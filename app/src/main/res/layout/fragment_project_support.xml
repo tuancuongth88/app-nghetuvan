@@ -9,7 +9,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="haiphat.com.bds.nghetuvan.view.home.HomeActivity"
         tools:showIn="@layout/app_bar_home">
 
         <android.support.v4.widget.SwipeRefreshLayout
@@ -30,27 +29,10 @@
             style="@style/wrapContent"
             android:theme="@style/AppTheme.WhiteAccent"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/rippleComment"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <haiphat.com.bds.nghetuvan.utils.RippleView
-            android:id="@+id/rippleComment"
-            style="@style/matchWrap"
-            android:background="@drawable/bg_radius_white"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <TextView
-                style="@style/wrapContent"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:padding="10dp"
-                android:text="Bình luận"
-                android:textColor="@color/textLabel"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </haiphat.com.bds.nghetuvan.utils.RippleView>
 
     </android.support.constraint.ConstraintLayout>
 

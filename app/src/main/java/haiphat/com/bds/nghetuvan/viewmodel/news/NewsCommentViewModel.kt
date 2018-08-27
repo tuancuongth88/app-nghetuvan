@@ -6,7 +6,6 @@ package haiphat.com.bds.nghetuvan.viewmodel.news
 class NewsCommentViewModel {
     var content: String? = null
     var newsId: String? = null
-    var parentId : Int? =0
 
 //    fun getListComment(onSuccess: (ArrayList<NewsCommentResponse>) -> Unit, onFailed: (String?) -> Unit) {
 //        NewsApi().getListComment(newsId, onResponse = {

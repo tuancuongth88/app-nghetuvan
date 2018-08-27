@@ -1,4 +1,4 @@
-package haiphat.com.bds.nghetuvan.view.fragment.news.detail
+package haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.detail
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -14,7 +14,7 @@ import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
 /**
  * Created by HUONG HA^P on 3/27/2018.
  */
-class NewsInfoFragment : BaseFragment() {
+class ProjectInfoFragment : BaseFragment() {
     private lateinit var dataBindingFragmentNewsInfo: FragmentNewsInfoBinding
     var newsResponseViewModel = DetailNewsViewModel()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -25,8 +25,8 @@ class NewsInfoFragment : BaseFragment() {
 
 
     companion object {
-        fun newInstance(content: String?, arguments: Bundle? = null): NewsInfoFragment {
-            val fragment = NewsInfoFragment()
+        fun newInstance(content: String?, arguments: Bundle? = null): ProjectInfoFragment {
+            val fragment = ProjectInfoFragment()
             fragment.newsResponseViewModel.content = content
             fragment.arguments = arguments
             return fragment

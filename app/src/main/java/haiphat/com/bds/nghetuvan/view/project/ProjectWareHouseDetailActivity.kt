@@ -2,8 +2,10 @@ package haiphat.com.bds.nghetuvan.view.project
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.adapter.project.SectionsPagerProjectAdapter
 import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityProjectWareHouseDetailBinding
 import haiphat.com.bds.nghetuvan.models.project.ProjectWarehouseResponse
@@ -30,6 +32,10 @@ class ProjectWareHouseDetailActivity : BaseActivity() {
         val projectResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_PROJECT_WARE_HOUSE), ProjectWarehouseResponse::class.java)
         dataBingProject.imCovert.fromUrlFixData(projectResponse?.url, placeHolder = R.drawable.ic_defaul_bg_my_course)
         dataBingProject.tvTitle.text = projectResponse?.name
+        val sectionsPagerAdapter = SectionsPagerProjectAdapter(supportFragmentManager)
+        sectionsPagerAdapter.projectResponse = projectResponse
+        dataBingProject.container.adapter = sectionsPagerAdapter
+        dataBingProject.tabs.setupWithViewPager(dataBingProject.container)
 
     }
 }
