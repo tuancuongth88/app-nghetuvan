@@ -107,5 +107,30 @@
         <item name="android:layout_weight">1</item>
     </style>
 
+    <style name="itemProjectUtilities" parent="matchWrap">
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_radius_white</item>
+    </style>
+
+    <style name="imageProjectUtilities" parent="wrapContent">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <style name="txtProjectUtilities" parent="wrapContent">
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/txt_item_project_utilities</item>
+        <item name="android:textSize">14sp</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+    </style>
 
 </resources>

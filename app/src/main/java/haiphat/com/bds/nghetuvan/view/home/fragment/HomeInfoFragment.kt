@@ -6,16 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.databinding.FragmentNewsInfoBinding
+import haiphat.com.bds.nghetuvan.databinding.FragmentProjectInfoBinding
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.viewmodel.home.HomeInfoViewModel
 import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
 
 class HomeInfoFragment : BaseFragment() {
-    private lateinit var dataBindingFragmentNewsInfo: FragmentNewsInfoBinding
+    private lateinit var dataBindingFragmentNewsInfo: FragmentProjectInfoBinding
     private var homeInfoViewModel = HomeInfoViewModel()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dataBindingFragmentNewsInfo = DataBindingUtil.inflate(inflater, R.layout.fragment_news_info, container, false)
+        dataBindingFragmentNewsInfo = DataBindingUtil.inflate(inflater, R.layout.fragment_project_info, container, false)
         homeInfoViewModel.content?.let { dataBindingFragmentNewsInfo.htmTextInfo.setHtml(it, HtmlHttpImageGetter(dataBindingFragmentNewsInfo.htmTextInfo)) }
         return dataBindingFragmentNewsInfo.root
     }

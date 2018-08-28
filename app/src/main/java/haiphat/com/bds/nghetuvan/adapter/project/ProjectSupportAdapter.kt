@@ -10,17 +10,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.project.ProjectSupportResponse
-import haiphat.com.bds.nghetuvan.utils.extensions.formatDateTime
-import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrlFixData
-import kotlinx.android.synthetic.main.item_news_detail_comment.view.*
+import kotlinx.android.synthetic.main.item_project_support.view.*
 
 /**
  * Created by DEV-01 on 12/29/2017.
  */
 class ProjectSupportAdapter(private val list: ArrayList<ProjectSupportResponse>?) : RecyclerView.Adapter<ProjectSupportAdapter.ProjectSupportViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectSupportViewHolder {
-        val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_news_detail_comment, parent, false)
+        val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_project_support, parent, false)
         return ProjectSupportViewHolder(binding)
     }
 

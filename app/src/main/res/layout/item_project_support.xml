@@ -60,7 +60,7 @@
             android:layout_width="0dp"
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintEnd_toEndOf="@+id/tvContent"
             app:layout_constraintStart_toStartOf="@+id/tvContent"
             app:layout_constraintTop_toBottomOf="@+id/tvContent">
@@ -69,7 +69,7 @@
                 android:id="@+id/imgTime"
                 android:layout_width="12dp"
                 android:layout_height="15dp"
-                android:src="@drawable/ic_time"
+                android:src="@drawable/ic_project_phone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,7 +81,6 @@
                 android:layout_marginLeft="5dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
-                android:gravity="center_vertical"
                 android:maxLines="1"
                 android:textColor="@color/textItemMyCourse"
                 android:textSize="16sp"
@@ -106,25 +105,26 @@
                 android:id="@+id/imgReply"
                 android:layout_width="12dp"
                 android:layout_height="15dp"
-                android:src="@drawable/ic_reply"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                android:layout_marginTop="3dp"
+                android:src="@drawable/ic_project_email"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
-                android:text="thang.nt@haiphatland.com.vn"
                 android:textColor="@color/textItemMyCourse"
                 android:textSize="16sp"
                 android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imgReply"
-                app:layout_constraintTop_toTopOf="@+id/imgReply" />
+                tools:text="email@gmail.com" />
         </android.support.constraint.ConstraintLayout>
 
         <View

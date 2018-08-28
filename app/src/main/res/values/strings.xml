@@ -68,6 +68,13 @@
     <string name="txt_project_table_utilities">Tiện ích dự án</string>
     <string name="txt_project_table_support">Hỗ trợ dự án</string>
 
+    // chi tiết của 1 dự án
+
+    <string name="txt_project_utilities_set_calendar">Đặt lịch \nthăm quan nhà mẫu</string>
+    <string name="txt_project_utilities_check_table_of_goods">Check \nbảng hàng online</string>
+    <string name="txt_project_utilities_bank_interest">Tính Lãi vay \nngân hàng</string>
+    <string name="txt_project_utilities_payment">Tính \ntiền độ nộp tiền</string>
+
 
 
     <string name="title_screen_news">Tin tức chung</string>

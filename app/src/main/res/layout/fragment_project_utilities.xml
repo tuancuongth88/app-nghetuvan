@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.widget.NestedScrollView style="@style/matchParent">
+
+        <android.support.constraint.ConstraintLayout
+            style="@style/matchParent"
+            android:background="@color/colorWhite">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                style="@style/matchWrap"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <haiphat.com.bds.nghetuvan.utils.RippleView
+                    android:id="@+id/ripSetCalendar"
+                    style="@style/itemProjectUtilities"
+                    android:layout_marginRight="8dp">
+
+                    <ImageView
+                        android:id="@+id/imgCalendar"
+                        style="@style/imageProjectUtilities"
+                        android:src="@drawable/ic_project_calendar" />
+
+                    <TextView
+                        style="@style/txtProjectUtilities"
+                        app:layout_constraintTop_toBottomOf="@+id/imgCalendar"
+                        android:text="@string/txt_project_utilities_set_calendar" />
+
+                </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+                <haiphat.com.bds.nghetuvan.utils.RippleView
+                    android:id="@+id/ripCheckTableOfGoods"
+                    style="@style/itemProjectUtilities"
+                    android:layout_marginLeft="8dp">
+
+                    <ImageView
+                        android:id="@+id/imgCheck"
+                        style="@style/imageProjectUtilities"
+                        android:src="@drawable/ic_project_check" />
+
+                    <TextView
+                        style="@style/txtProjectUtilities"
+                        app:layout_constraintTop_toBottomOf="@+id/imgCheck"
+                        android:text="@string/txt_project_utilities_check_table_of_goods" />
+
+                </haiphat.com.bds.nghetuvan.utils.RippleView>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/matchWrap"
+                android:layout_width="0dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <haiphat.com.bds.nghetuvan.utils.RippleView
+                    android:id="@+id/ripBankInterest"
+                    style="@style/itemProjectUtilities"
+                    android:layout_marginRight="8dp">
+
+                    <ImageView
+                        android:id="@+id/imgBankInterest"
+                        style="@style/imageProjectUtilities"
+                        android:src="@drawable/ic_project_bank_interest" />
+
+                    <TextView
+                        style="@style/txtProjectUtilities"
+                        app:layout_constraintTop_toBottomOf="@+id/imgBankInterest"
+                        android:text="@string/txt_project_utilities_bank_interest" />
+
+                </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+                <haiphat.com.bds.nghetuvan.utils.RippleView
+                    android:id="@+id/ripPayment"
+                    style="@style/itemProjectUtilities"
+                    android:layout_marginLeft="8dp">
+
+                    <ImageView
+                        android:id="@+id/imgPayment"
+                        style="@style/imageProjectUtilities"
+                        android:src="@drawable/ic_project_payment" />
+
+                    <TextView
+                        style="@style/txtProjectUtilities"
+                        app:layout_constraintTop_toBottomOf="@+id/imgPayment"
+                        android:text="@string/txt_project_utilities_payment" />
+
+                </haiphat.com.bds.nghetuvan.utils.RippleView>
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

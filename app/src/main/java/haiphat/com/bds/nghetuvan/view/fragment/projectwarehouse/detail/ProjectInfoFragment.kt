@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
-import haiphat.com.bds.nghetuvan.databinding.FragmentNewsInfoBinding
+import haiphat.com.bds.nghetuvan.databinding.FragmentProjectInfoBinding
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.viewmodel.news.DetailNewsViewModel
 import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
@@ -15,10 +15,10 @@ import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter
  * Created by HUONG HA^P on 3/27/2018.
  */
 class ProjectInfoFragment : BaseFragment() {
-    private lateinit var dataBindingFragmentNewsInfo: FragmentNewsInfoBinding
+    private lateinit var dataBindingFragmentNewsInfo: FragmentProjectInfoBinding
     var newsResponseViewModel = DetailNewsViewModel()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dataBindingFragmentNewsInfo = DataBindingUtil.inflate(inflater, R.layout.fragment_news_info, container, false)
+        dataBindingFragmentNewsInfo = DataBindingUtil.inflate(inflater, R.layout.fragment_project_info, container, false)
         newsResponseViewModel.content?.let { dataBindingFragmentNewsInfo.htmTextInfo.setHtml(it, HtmlHttpImageGetter(dataBindingFragmentNewsInfo.htmTextInfo)) }
         return dataBindingFragmentNewsInfo.root
     }

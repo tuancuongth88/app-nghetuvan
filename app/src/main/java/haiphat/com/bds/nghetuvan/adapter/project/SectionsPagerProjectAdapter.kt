@@ -8,6 +8,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.project.ProjectWarehouseResponse
 import haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.detail.ProjectSupportFragment
 import haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.detail.ProjectInfoFragment
+import haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.detail.ProjectUtilitiesFragment
 
 /**
  * Created by HUONG HA^P on 3/29/2018.
@@ -28,7 +29,7 @@ class SectionsPagerProjectAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm
                 fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
             }
             4 -> {
-                fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
+                fragment = ProjectUtilitiesFragment.newInstance(projectResponse?.name)
             }
             5 -> {
                 fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
