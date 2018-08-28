@@ -76,7 +76,8 @@
         <activity android:name=".view.online.DetailOnlineSalesActivity" />
         <activity android:name=".view.online.DepositActivity" />
         <activity android:name=".view.online.ViewCustomerInformationActivity" />
-        <activity android:name=".view.project.ProjectWareHouseDetailActivity"></activity>
+        <activity android:name=".view.project.ProjectWareHouseDetailActivity" />
+        <activity android:name=".view.project.ProjectSetCalendarActivity"></activity>
     </application>
 
 </manifest>

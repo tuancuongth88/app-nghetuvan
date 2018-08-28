@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.fragment.projectwarehouse.detail
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.FragmentProjectUtilitiesBinding
 import haiphat.com.bds.nghetuvan.utils.RippleView
 import haiphat.com.bds.nghetuvan.view.BaseFragment
+import haiphat.com.bds.nghetuvan.view.project.ProjectSetCalendarActivity
 
 /**
  * Created by HUONG HA^P on 3/27/2018.
@@ -32,25 +34,17 @@ class ProjectUtilitiesFragment : BaseFragment(), RippleView.OnRippleCompleteList
     override fun onComplete(rippleView: RippleView?) {
         when(rippleView){
             dataBindingFragmentProjectUtilities.ripSetCalendar ->{
-
+                startActivity(Intent(activity, ProjectSetCalendarActivity::class.java))
             }
             dataBindingFragmentProjectUtilities.ripCheckTableOfGoods ->{
-
+                startActivity(Intent(activity, ProjectSetCalendarActivity::class.java))
             }
             dataBindingFragmentProjectUtilities.ripBankInterest ->{
-
+                startActivity(Intent(activity, ProjectSetCalendarActivity::class.java))
             }
             dataBindingFragmentProjectUtilities.ripPayment ->{
-
+                startActivity(Intent(activity, ProjectSetCalendarActivity::class.java))
             }
-        }
-    }
-
-    companion object {
-        fun newInstance(name: String?, arguments: Bundle? = null): ProjectUtilitiesFragment {
-            val fragment = ProjectUtilitiesFragment()
-            fragment.arguments = arguments
-            return fragment
         }
     }
 }

@@ -29,7 +29,7 @@ class SectionsPagerProjectAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm
                 fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
             }
             4 -> {
-                fragment = ProjectUtilitiesFragment.newInstance(projectResponse?.name)
+                fragment = ProjectUtilitiesFragment()
             }
             5 -> {
                 fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
