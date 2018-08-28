@@ -2,6 +2,7 @@ package haiphat.com.bds.nghetuvan.view.project
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
 import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
@@ -22,6 +23,17 @@ class ProjectWareHouseDetailActivity : BaseActivity() {
         dataBingProject = DataBindingUtil.inflate(layoutInflater, R.layout.activity_project_ware_house_detail, null, false)
         dataBingProject.rippleBack.setOnRippleCompleteListener { onBackPressed() }
         dataBingProject.rippleSetting.setOnRippleCompleteListener { CommonUtil.shareAppLinkViaFacebook(this,"https://developers.facebook.com") }
+        dataBingProject.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBar, verticalOffset ->
+            if (verticalOffset == 0) {
+                dataBingProject.tabsCollapsing.visibility = View.GONE
+            } else if (Math.abs(verticalOffset) >= appBar.totalScrollRange) {
+                dataBingProject.tabsCollapsing.visibility = View.VISIBLE
+                dataBingProject.tabs.visibility = View.GONE
+            } else {
+                dataBingProject.tabsCollapsing.visibility = View.GONE
+                dataBingProject.tabs.visibility = View.VISIBLE
+            }
+        })
         return dataBingProject.root
     }
 
@@ -36,6 +48,7 @@ class ProjectWareHouseDetailActivity : BaseActivity() {
         sectionsPagerAdapter.projectResponse = projectResponse
         dataBingProject.container.adapter = sectionsPagerAdapter
         dataBingProject.tabs.setupWithViewPager(dataBingProject.container)
+        dataBingProject.tabsCollapsing.setupWithViewPager(dataBingProject.container)
 
     }
 }
