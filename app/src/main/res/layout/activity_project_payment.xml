@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.widget.NestedScrollView style="@style/matchParent">
+
+        <android.support.constraint.ConstraintLayout
+            style="@style/matchParent"
+            android:background="@color/colorWhite">
+
+            <EditText
+                android:id="@+id/edLoanNumber"
+                style="@style/withWrap"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_edit_white"
+                android:drawableLeft="@drawable/ic_clock_back"
+                android:hint="SỐ tiền vay"
+                android:inputType="number"
+                android:padding="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                android:layout_marginRight="24dp"
+                android:background="@drawable/bg_edit_color_accent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/edLoanNumber"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edLoanNumber"
+                app:layout_constraintTop_toTopOf="@+id/edLoanNumber"
+                tools:text="VND" />
+
+            <EditText
+                android:id="@+id/edBorrowedTime"
+                style="@style/withWrap"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_edit_white"
+                android:drawableLeft="@drawable/ic_calendar_back"
+                android:hint="Thời gian vay"
+                android:inputType="number"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/edLoanNumber"
+                app:layout_constraintStart_toStartOf="@+id/edLoanNumber"
+                app:layout_constraintTop_toBottomOf="@+id/edLoanNumber" />
+
+            <TextView
+                android:id="@+id/txtMonth"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_edit_color_accent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/edBorrowedTime"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/edBorrowedTime"
+                app:layout_constraintTop_toTopOf="@+id/edBorrowedTime"
+                tools:text="Tháng" />
+
+
+            <EditText
+                android:id="@+id/lnDisbursementDate"
+                style="@style/withWrap"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_edit_white"
+                android:drawableLeft="@drawable/ic_calendar_back"
+                android:hint="Ngày giải ngân"
+                android:inputType="datetime"
+                android:padding="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/txtMonth"
+                app:layout_constraintStart_toStartOf="@+id/edBorrowedTime"
+                app:layout_constraintTop_toBottomOf="@+id/txtMonth"></EditText>
+
+            <TextView
+                android:id="@+id/txtDisbursementDate"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_edit_color_accent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/lnDisbursementDate"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/lnDisbursementDate"
+                app:layout_constraintTop_toTopOf="@+id/lnDisbursementDate"
+                tools:text="Ngày" />
+
+
+            <EditText
+                android:id="@+id/edType"
+                style="@style/withWrap"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_edit_radius_white"
+                android:drawableLeft="@drawable/ic_calendar_back"
+                android:drawableRight="@drawable/ic_dow"
+                android:hint="Chọn hình thức vay"
+                android:inputType="datetime"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtDisbursementDate"
+                app:layout_constraintStart_toStartOf="@+id/lnDisbursementDate"
+                app:layout_constraintTop_toBottomOf="@+id/lnDisbursementDate" />
+
+            <TextView
+                android:id="@+id/tvInterest"
+                style="@style/withWrap"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/txt_item_project_utilities"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/edType"
+                app:layout_constraintStart_toStartOf="@+id/edType"
+                app:layout_constraintTop_toBottomOf="@+id/edType"
+                android:text="Bài toán lãi suất" />
+
+            <LinearLayout
+                android:id="@+id/lnType"
+                style="@style/withWrap"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvInterest"
+                app:layout_constraintStart_toStartOf="@+id/tvInterest"
+                app:layout_constraintTop_toBottomOf="@+id/tvInterest">
+
+                <LinearLayout
+                    android:id="@+id/clInitialBalance"
+                    style="@style/matchWrap">
+
+                    <EditText
+                        android:id="@+id/ed1"
+                        style="@style/matchWrap"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_edit_white"
+                        android:drawableLeft="@drawable/ic_calendar_back"
+                        android:hint="lãi suất"
+                        android:inputType="datetime"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toStartOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/txt1" />
+
+                    <TextView
+                        android:id="@+id/txt1"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_edit_color_accent"
+                        android:gravity="center"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        tools:text="%Năm" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/clOutstandingDebt"
+                    style="@style/matchWrap"
+                    android:orientation="vertical"
+                    >
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvGrace"
+                style="@style/withWrap"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/txt_item_project_utilities"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/lnType"
+                app:layout_constraintStart_toStartOf="@+id/lnType"
+                app:layout_constraintTop_toBottomOf="@+id/lnType"
+                android:text="Bài toán lãi suất" />
+            />
+
+
+            <Switch
+                android:id="@+id/switchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/edTimeGrace"
+                app:layout_constraintStart_toStartOf="@+id/edBorrowedTime"
+                app:layout_constraintTop_toTopOf="@+id/edTimeGrace" />
+
+            <EditText
+                android:id="@+id/edTimeGrace"
+                style="@style/withWrap"
+                android:layout_height="41dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_edit_white"
+                android:drawableLeft="@drawable/ic_calendar_back"
+                android:hint="Ngày giải ngân"
+                android:inputType="datetime"
+                android:padding="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/tvTimeGrace"
+                app:layout_constraintStart_toEndOf="@+id/switchView"
+                app:layout_constraintTop_toBottomOf="@+id/tvGrace" />
+
+            <TextView
+                android:id="@+id/tvTimeGrace"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_edit_color_accent"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/edTimeGrace"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/edTimeGrace"
+                tools:text="Tháng" />
+
+            <haiphat.com.bds.nghetuvan.utils.RippleView
+                android:id="@+id/ripRegister"
+                style="@style/withWrap"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_view_btn_login_email"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvTimeGrace"
+                app:layout_constraintStart_toStartOf="@+id/switchView"
+                app:layout_constraintTop_toBottomOf="@+id/edTimeGrace">
+
+                <TextView
+                    style="@style/wrapContent"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="10dp"
+                    android:text="Tính bài toán tài chính"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="0dp" />
+            </haiphat.com.bds.nghetuvan.utils.RippleView>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

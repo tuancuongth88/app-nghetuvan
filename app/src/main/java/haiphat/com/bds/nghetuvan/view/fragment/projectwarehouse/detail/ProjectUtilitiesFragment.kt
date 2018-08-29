@@ -10,6 +10,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.FragmentProjectUtilitiesBinding
 import haiphat.com.bds.nghetuvan.utils.RippleView
 import haiphat.com.bds.nghetuvan.view.BaseFragment
+import haiphat.com.bds.nghetuvan.view.project.ProjectPaymentActivity
 import haiphat.com.bds.nghetuvan.view.project.ProjectSetCalendarActivity
 
 /**
@@ -40,7 +41,7 @@ class ProjectUtilitiesFragment : BaseFragment(), RippleView.OnRippleCompleteList
                 startActivity(Intent(activity, ProjectSetCalendarActivity::class.java))
             }
             dataBindingFragmentProjectUtilities.ripBankInterest ->{
-                startActivity(Intent(activity, ProjectSetCalendarActivity::class.java))
+                startActivity(Intent(activity, ProjectPaymentActivity::class.java))
             }
             dataBindingFragmentProjectUtilities.ripPayment ->{
                 startActivity(Intent(activity, ProjectSetCalendarActivity::class.java))
