@@ -112,7 +112,7 @@
                 android:drawableRight="@drawable/ic_dow"
                 android:hint="Chọn hình thức vay"
                 android:inputType="text"
-                android:enabled="false"
+                android:focusable="false"
                 android:padding="10dp"
                 android:drawablePadding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/txtDisbursementDate"
