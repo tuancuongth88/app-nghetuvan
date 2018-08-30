@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.ActivityProjectSetCalendarBinding
+import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 
 class ProjectSetCalendarActivity : BaseActivity() {
@@ -14,6 +15,12 @@ class ProjectSetCalendarActivity : BaseActivity() {
 
     override fun getContentView(): View {
         dataBingProjectSetCalendar = DataBindingUtil.inflate(layoutInflater, R.layout.activity_project_set_calendar, null, false)
+        dataBingProjectSetCalendar.edDate.setOnClickListener {
+            CommonUtil.showDatePickerDialog(this, dataBingProjectSetCalendar.edDate)
+        }
+        dataBingProjectSetCalendar.edTime.setOnClickListener {
+            CommonUtil.showTimePickerDialog(this, dataBingProjectSetCalendar.edTime)
+        }
         return dataBingProjectSetCalendar.root
     }
 

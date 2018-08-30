@@ -2,6 +2,7 @@ package haiphat.com.bds.nghetuvan.utils
 
 import android.app.Activity
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.widget.EditText
@@ -14,6 +15,7 @@ import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class CommonUtil {
 
@@ -66,6 +68,15 @@ class CommonUtil {
                 editText?.setText(dateFormatter.format(newDate.time))
             }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH))
             fromDatePickerDialog.show()
+        }
+
+        fun showTimePickerDialog(activity: Activity, edTime : EditText?){
+            var calendar = Calendar.getInstance()
+            val timePickerDialog = TimePickerDialog(activity, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                edTime?.setText( hourOfDay.toString() + ":" + minute)
+            }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true)
+            timePickerDialog.show()
+
         }
 
     }
