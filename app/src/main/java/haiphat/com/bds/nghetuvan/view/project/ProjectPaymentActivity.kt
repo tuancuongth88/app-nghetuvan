@@ -6,13 +6,21 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.ActivityProjectPaymentBinding
+import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 
+
 class ProjectPaymentActivity : BaseActivity() {
-    private lateinit var dataBingProjectPayment : ActivityProjectPaymentBinding
+    private lateinit var dataBingProjectPayment: ActivityProjectPaymentBinding
+
+
 
     override fun getContentView(): View {
         dataBingProjectPayment = DataBindingUtil.inflate(layoutInflater, R.layout.activity_project_payment, null, false)
+
+        dataBingProjectPayment.lnDisbursementDate.setOnClickListener {
+            CommonUtil.showDatePickerDialog(this@ProjectPaymentActivity, dataBingProjectPayment.lnDisbursementDate)
+        }
         return dataBingProjectPayment.root
     }
 
@@ -22,3 +30,7 @@ class ProjectPaymentActivity : BaseActivity() {
         setHeaderTitle("Tính lãi suất vay dự án")
     }
 }
+
+
+
+

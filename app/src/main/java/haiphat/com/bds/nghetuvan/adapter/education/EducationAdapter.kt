@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.education.ItemEducationResponse
+import haiphat.com.bds.nghetuvan.utils.extensions.formatDateTime
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import kotlinx.android.synthetic.main.item_education.view.*
 

@@ -1,8 +1,10 @@
 package haiphat.com.bds.nghetuvan.utils
 
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.widget.EditText
 import android.widget.TextView
 import com.makeramen.roundedimageview.RoundedImageView
 import haiphat.com.bds.nghetuvan.R
@@ -10,6 +12,8 @@ import haiphat.com.bds.nghetuvan.models.auth.UserResponse
 import haiphat.com.bds.nghetuvan.models.home.HomePageCategoryType
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.viewmodel.profiles.ProfileViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CommonUtil {
 
@@ -52,5 +56,17 @@ class CommonUtil {
             tvName.text = userResponse?.fullname
             tvEmail.text = userResponse?.email
         }
+
+        fun showDatePickerDialog(activity: Activity?, editText: EditText?) {
+            val newCalendar = Calendar.getInstance()
+            var dateFormatter = SimpleDateFormat("dd-MM-yyyy", Locale.US)
+            val fromDatePickerDialog = DatePickerDialog(activity, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                val newDate = Calendar.getInstance()
+                newDate.set(year, monthOfYear, dayOfMonth)
+                editText?.setText(dateFormatter.format(newDate.time))
+            }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH))
+            fromDatePickerDialog.show()
+        }
+
     }
 }
