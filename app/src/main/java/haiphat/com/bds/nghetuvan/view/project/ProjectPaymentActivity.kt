@@ -10,6 +10,7 @@ import haiphat.com.bds.nghetuvan.databinding.ActivityProjectPaymentBinding
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.DialogChangeAvatar
 import haiphat.com.bds.nghetuvan.view.BaseActivity
+import haiphat.com.bds.nghetuvan.viewmodel.project.ProjectPaymentViewModel
 
 
 class ProjectPaymentActivity : BaseActivity() {
@@ -36,6 +37,10 @@ class ProjectPaymentActivity : BaseActivity() {
         }
         dataBingProjectPayment.switchView.setOnCheckedChangeListener { compoundButton, isChecked ->
             dataBingProjectPayment.edTimeGrace.isEnabled = isChecked
+        }
+
+        dataBingProjectPayment.ripRegister.setOnRippleCompleteListener {
+            ProjectPaymentViewModel().getTableInterest()
         }
         return dataBingProjectPayment.root
     }
