@@ -2,8 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.constraint.Constraints style="@style/matchWrap">
-
         <haiphat.com.bds.nghetuvan.utils.RippleView
             android:id="@+id/rippleItem"
             style="@style/matchWrap">
@@ -86,5 +84,4 @@
                 app:layout_constraintTop_toBottomOf="@+id/lnHeader" />
 
         </haiphat.com.bds.nghetuvan.utils.RippleView>
-    </android.support.constraint.Constraints>
 </layout>

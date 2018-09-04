@@ -16,14 +16,5 @@
             style="@style/matchWrap"
             app:layout_constraintTop_toBottomOf="@+id/header" />
 
-        <TextView
-            android:id="@+id/tvNoData"
-            style="@style/wrapContent"
-            android:text="Không có dư liệu"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/rvInterestRateSpreadsheet" />
-
     </android.support.constraint.ConstraintLayout>
 </layout>

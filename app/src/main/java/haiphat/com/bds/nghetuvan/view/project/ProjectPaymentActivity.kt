@@ -41,7 +41,7 @@ class ProjectPaymentActivity : BaseActivity() {
         }
 
         dataBingProjectPayment.ripRegister.setOnRippleCompleteListener {
-            ProjectPaymentViewModel().getTableInterest()
+//            ProjectPaymentViewModel().getTableInterest()
             val intent = Intent(this@ProjectPaymentActivity, InterestRateSpreadsheetActivity::class.java)
             startActivity(intent)
         }
