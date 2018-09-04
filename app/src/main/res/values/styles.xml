@@ -133,4 +133,17 @@
         <item name="layout_constraintStart_toStartOf">parent</item>
     </style>
 
+
+    <style name="vHeight">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/viewBgLine</item>
+    </style>
+    <style name="txtItemBank" parent="matchWrap">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

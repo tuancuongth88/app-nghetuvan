@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.Constraints style="@style/matchWrap">
+
+        <haiphat.com.bds.nghetuvan.utils.RippleView
+            android:id="@+id/rippleItem"
+            style="@style/matchWrap">
+
+            <LinearLayout
+                android:id="@+id/lnHeader"
+                style="@style/matchWrap"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/view0"
+                    style="@style/vHeight" />
+
+                <TextView
+                    android:id="@+id/tvSTT"
+                    style="@style/txtItemBank"
+                    android:layout_weight="1.05"
+                    android:text="STT" />
+
+                <View
+                    android:id="@+id/view1"
+                    style="@style/vHeight" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    style="@style/txtItemBank"
+                    android:layout_weight="1"
+                    android:text="Ngày trả" />
+
+                <View
+                    android:id="@+id/view2"
+                    style="@style/vHeight" />
+
+                <TextView
+                    android:id="@+id/tvOriginalPay"
+                    style="@style/txtItemBank"
+                    android:layout_weight="1"
+                    android:text="Gốc phải trả" />
+
+                <View
+                    android:id="@+id/view3"
+                    style="@style/vHeight" />
+
+                <TextView
+                    android:id="@+id/tvInterest"
+                    style="@style/txtItemBank"
+                    android:layout_weight="1"
+                    android:text="Lãi phải trả" />
+
+                <View
+                    android:id="@+id/view4"
+                    style="@style/vHeight" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    style="@style/txtItemBank"
+                    android:layout_weight="1"
+                    android:text="Tổng phải trả" />
+
+                <View
+                    android:id="@+id/view5"
+                    style="@style/vHeight" />
+
+                <TextView
+                    android:id="@+id/tvRest"
+                    style="@style/txtItemBank"
+                    android:layout_weight="1"
+                    android:text="Tổng phải trả" />
+
+                <View
+                    android:id="@+id/view6"
+                    style="@style/vHeight" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view"
+                style="@style/viewLine"
+                app:layout_constraintTop_toBottomOf="@+id/lnHeader" />
+
+        </haiphat.com.bds.nghetuvan.utils.RippleView>
+    </android.support.constraint.Constraints>
+</layout>

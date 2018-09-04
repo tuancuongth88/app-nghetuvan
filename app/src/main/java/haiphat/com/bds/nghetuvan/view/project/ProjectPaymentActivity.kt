@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.project
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -41,6 +42,8 @@ class ProjectPaymentActivity : BaseActivity() {
 
         dataBingProjectPayment.ripRegister.setOnRippleCompleteListener {
             ProjectPaymentViewModel().getTableInterest()
+            val intent = Intent(this@ProjectPaymentActivity, InterestRateSpreadsheetActivity::class.java)
+            startActivity(intent)
         }
         return dataBingProjectPayment.root
     }

@@ -21,7 +21,7 @@ class ProjectPaymentViewModel {
             else -> {
                 var payDay = disbursementDate
                 for (i in 1 .. gracePeriod){
-                     payDay = addMonth(disbursementDate, i-1)
+                    payDay = addMonth(disbursementDate, i-1)
                     list.add(TableInterest(payDay = payDay,originalPay = 0f, interest = 0f, total = 0f, rest = totalCash.toFloat()))
                 }
                 getTableInterest(borrowedTime - gracePeriod, payDay, true)

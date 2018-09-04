@@ -78,7 +78,8 @@
         <activity android:name=".view.online.ViewCustomerInformationActivity" />
         <activity android:name=".view.project.ProjectWareHouseDetailActivity" />
         <activity android:name=".view.project.ProjectSetCalendarActivity" />
-        <activity android:name=".view.project.ProjectPaymentActivity"></activity>
+        <activity android:name=".view.project.ProjectPaymentActivity" />
+        <activity android:name=".view.project.InterestRateSpreadsheetActivity"></activity>
     </application>
 
 </manifest>

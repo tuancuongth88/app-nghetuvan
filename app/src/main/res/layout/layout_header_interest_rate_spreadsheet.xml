@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <View
+        android:id="@+id/view10"
+        style="@style/viewLine" />
+    <LinearLayout
+        android:id="@+id/lnHeader"
+        style="@style/matchWrap"
+        android:background="@color/backgroundButtonYellow"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/view0"
+            style="@style/vHeight" />
+
+        <TextView
+            android:id="@+id/tvSTT"
+            style="@style/txtItemBank"
+            android:layout_weight="1.05"
+            android:fontFamily="sans-serif-medium"
+            android:text="STT"
+            android:textColor="@color/colorWhite" />
+
+        <View
+            android:id="@+id/view1"
+            style="@style/vHeight" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            style="@style/txtItemBank"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Ngày trả"
+            android:textColor="@color/colorWhite" />
+
+        <View
+            android:id="@+id/view2"
+            style="@style/vHeight" />
+
+        <TextView
+            android:id="@+id/tvOriginalPay"
+            style="@style/txtItemBank"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Gốc phải trả"
+            android:textColor="@color/colorWhite" />
+
+        <View
+            android:id="@+id/view3"
+            style="@style/vHeight" />
+
+        <TextView
+            android:id="@+id/tvInterest"
+            style="@style/txtItemBank"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Lãi phải trả"
+            android:textColor="@color/colorWhite" />
+
+        <View
+            android:id="@+id/view4"
+            style="@style/vHeight" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            style="@style/txtItemBank"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="Tổng phải trả"
+            android:textColor="@color/colorWhite" />
+
+        <View
+            android:id="@+id/view5"
+            style="@style/vHeight" />
+
+        <TextView
+            android:id="@+id/tvRest"
+            style="@style/txtItemBank"
+            android:layout_weight="1"
+            android:textStyle=""
+            android:fontFamily="sans-serif-medium"
+            android:text="Tổng phải trả"
+            android:textColor="@color/colorWhite" />
+
+        <View
+            android:id="@+id/view6"
+            style="@style/vHeight" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        style="@style/viewLine" />
+
+</LinearLayout>
