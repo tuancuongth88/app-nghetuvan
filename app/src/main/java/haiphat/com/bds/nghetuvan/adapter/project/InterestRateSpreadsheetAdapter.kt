@@ -5,12 +5,15 @@ package haiphat.com.bds.nghetuvan.adapter.project
  */
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.models.project.InterestRateSpreadsheetResponse
+import haiphat.com.bds.nghetuvan.utils.extensions.formatCurrency
 import kotlinx.android.synthetic.main.item_table_interest_rate_spreadsheet.view.*
+import java.util.*
 
 /**
  * Created by DEV-01 on 12/29/2017.
@@ -22,7 +25,7 @@ class InterestRateSpreadsheetAdapter(private val list: ArrayList<InterestRateSpr
     }
 
     override fun onBindViewHolder(holder: InterestRateSpreadsheetViewHolder, position: Int) {
-        holder?.bindItem(list?.get(position), position + 1)
+        holder?.bindItem(list?.get(position), position)
     }
 
     override fun getItemCount(): Int {
@@ -33,10 +36,11 @@ class InterestRateSpreadsheetAdapter(private val list: ArrayList<InterestRateSpr
         fun bindItem(interestRateSpreadsheetResponse: InterestRateSpreadsheetResponse?, position: Int) {
             itemView.tvSTT.text = position.toString()
             itemView.tvDate.text = interestRateSpreadsheetResponse?.payDay
-            itemView.tvOriginalPay.text = interestRateSpreadsheetResponse?.originalPay?.toString()
-            itemView.tvInterest.text = interestRateSpreadsheetResponse?.interest?.toString()
-            itemView.tvRest.text = interestRateSpreadsheetResponse?.rest?.toString()
-            itemView.tvTotal.text = interestRateSpreadsheetResponse?.total?.toString()
+            itemView.tvOriginalPay.text = interestRateSpreadsheetResponse?.originalPay?.formatCurrency()
+            itemView.tvInterest.text = interestRateSpreadsheetResponse?.interest?.formatCurrency()
+            itemView.tvRest.text = interestRateSpreadsheetResponse?.rest?.formatCurrency()
+            itemView.tvTotal.text = interestRateSpreadsheetResponse?.total?.formatCurrency()
+
         }
     }
 }

@@ -61,11 +61,6 @@
         <activity android:name=".view.news.DetailNewsActivity" />
         <activity android:name=".view.partner.PartnerDetailActivity" />
         <activity android:name=".view.profile.ContactEmailActivity" />
-
-        <!-- <provider android:authorities="com.facebook.app.FacebookContentProvider1487886458000394" -->
-        <!-- android:name="com.facebook.FacebookContentProvider" -->
-        <!-- android:exported="true"/> -->
-
         <activity android:name=".view.news.PostCommentActivity" />
         <activity android:name=".view.profile.UpdateInformationActivity" />
         <activity android:name=".view.profile.ChangePasswordActivity" />
@@ -79,7 +74,9 @@
         <activity android:name=".view.project.ProjectWareHouseDetailActivity" />
         <activity android:name=".view.project.ProjectSetCalendarActivity" />
         <activity android:name=".view.project.ProjectPaymentActivity" />
-        <activity android:name=".view.project.InterestRateSpreadsheetActivity"></activity>
+        <activity
+            android:name=".view.project.InterestRateSpreadsheetActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

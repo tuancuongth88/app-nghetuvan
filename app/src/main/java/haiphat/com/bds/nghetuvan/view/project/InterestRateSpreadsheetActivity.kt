@@ -1,5 +1,6 @@
 package haiphat.com.bds.nghetuvan.view.project
 
+import android.content.pm.ActivityInfo
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -27,6 +28,7 @@ class InterestRateSpreadsheetActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent))
         setHeaderTitle("Tính lãi suất vay dự án")
+//        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         projectPaymentViewModel.getTableInterest()
         initAdapter(projectPaymentViewModel.list)
     }

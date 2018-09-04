@@ -139,9 +139,9 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/viewBgLine</item>
     </style>
-    <style name="txtItemBank" parent="matchWrap">
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
+    <style name="txtItemBank" parent="wrapContent">
+        <item name="android:layout_width">@dimen/interest_rate_spreadsheet_with</item>
+        <item name="android:padding">10dp</item>
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center</item>
     </style>
