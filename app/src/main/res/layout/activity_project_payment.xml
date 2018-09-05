@@ -9,7 +9,7 @@
             style="@style/matchParent"
             android:background="@color/colorWhite">
 
-            <EditText
+            <faranjit.currency.edittext.CurrencyEditText
                 android:id="@+id/edLoanNumber"
                 style="@style/withWrap"
                 android:layout_marginLeft="24dp"
@@ -19,8 +19,9 @@
                 android:drawableLeft="@drawable/ic_payment_loan"
                 android:drawablePadding="10dp"
                 android:hint="SỐ tiền vay"
-                android:inputType="phone"
+                android:inputType="numberDecimal"
                 android:padding="10dp"
+                app:showSymbol="false"
                 app:layout_constraintEnd_toStartOf="@+id/textView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

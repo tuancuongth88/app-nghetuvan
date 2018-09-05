@@ -1,14 +1,13 @@
 package haiphat.com.bds.nghetuvan.viewmodel.project
 
 import haiphat.com.bds.nghetuvan.models.project.InterestRateSpreadsheetResponse
-import haiphat.com.bds.nghetuvan.services.GsonUtil
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 class ProjectPaymentViewModel {
-    var totalCash: Int = 90000000
+    var totalCash: Float = 9000000000f
     var borrowedTime: Int = 36
     var disbursementDate: String = "30-01-2018"
     var gracePeriod: Int = 9
@@ -24,7 +23,7 @@ class ProjectPaymentViewModel {
                 var payDay = disbursementDate
                 for (i in 1 .. gracePeriod){
                     payDay = addMonth(disbursementDate, i-1)
-                    list.add(InterestRateSpreadsheetResponse(payDay = payDay,originalPay = 0f, interest = 0f, total = 0f, rest = totalCash.toFloat()))
+                    list.add(InterestRateSpreadsheetResponse(payDay = payDay,originalPay = 0f, interest = 0f, total = 0f, rest = totalCash))
                 }
                 getTableInterest(borrowedTime - gracePeriod, payDay, true)
 
@@ -41,7 +40,6 @@ class ProjectPaymentViewModel {
             var payDay = if (isGrace) addMonth(date, i) else addMonth(date, i - 1)
             list.add(InterestRateSpreadsheetResponse(payDay = payDay,originalPay = originalPay, interest = interest, total = total, rest = rest))
         }
-        print("json: " + GsonUtil.toJson(list))
         return list
     }
 
