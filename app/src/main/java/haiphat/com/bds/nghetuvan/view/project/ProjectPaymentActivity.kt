@@ -10,13 +10,15 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.ActivityProjectPaymentBinding
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.DialogChangeAvatar
+import haiphat.com.bds.nghetuvan.utils.extensions.formatCurrency
+import haiphat.com.bds.nghetuvan.utils.validation.Validator
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 import haiphat.com.bds.nghetuvan.viewmodel.project.ProjectPaymentViewModel
 
 
 class ProjectPaymentActivity : BaseActivity() {
     private lateinit var dataBingProjectPayment: ActivityProjectPaymentBinding
-
+    private var projectPaymentViewModel = ProjectPaymentViewModel()
 
     override fun getContentView(): View {
         dataBingProjectPayment = DataBindingUtil.inflate(layoutInflater, R.layout.activity_project_payment, null, false)
@@ -41,18 +43,29 @@ class ProjectPaymentActivity : BaseActivity() {
         }
 
         dataBingProjectPayment.ripRegister.setOnRippleCompleteListener {
-//            ProjectPaymentViewModel().getTableInterest()
-            val intent = Intent(this@ProjectPaymentActivity, InterestRateSpreadsheetActivity::class.java)
-            startActivity(intent)
+            if (Validator().validate(dataBingProjectPayment)) {
+                val intent = Intent(this@ProjectPaymentActivity, InterestRateSpreadsheetActivity::class.java)
+                intent.putExtra("TONG_TIEN", dataBingProjectPayment.edLoanNumber.text.toString())
+                intent.putExtra("THOI_GIAN_VAY", dataBingProjectPayment.edBorrowedTime.text.toString())
+                intent.putExtra("NGAY_GIAI_NGAN", dataBingProjectPayment.lnDisbursementDate.text.toString())
+                intent.putExtra("LAI_SUAT", dataBingProjectPayment.ed1.text.toString())
+                if (dataBingProjectPayment.edTimeGrace.text.isEmpty()){
+                    intent.putExtra("AN_HAN", "0")
+                }else {
+                    intent.putExtra("AN_HAN", dataBingProjectPayment.edTimeGrace.text.toString())
+                }
+//                intent.putExtra("LOAI_VAY", dataBingProjectPayment.edType.text.toString())
+                startActivity(intent)
+            }
         }
         return dataBingProjectPayment.root
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent))
         setHeaderTitle("Tính lãi suất vay dự án")
+
     }
 }
 

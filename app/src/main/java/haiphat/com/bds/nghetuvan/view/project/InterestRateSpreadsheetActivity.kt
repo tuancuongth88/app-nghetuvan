@@ -29,6 +29,13 @@ class InterestRateSpreadsheetActivity : BaseActivity() {
         setHeaderBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent))
         setHeaderTitle("Tính lãi suất vay dự án")
 //        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+
+        var bundle = intent.extras
+        projectPaymentViewModel.totalCash = bundle.getString("TONG_TIEN").toFloat()
+        projectPaymentViewModel.borrowedTime = bundle.getString("THOI_GIAN_VAY").toInt()
+        projectPaymentViewModel.disbursementDate = bundle.getString("NGAY_GIAI_NGAN")
+        projectPaymentViewModel.interest = bundle.getString("LAI_SUAT").toFloat()
+        projectPaymentViewModel.gracePeriod = bundle.getString("AN_HAN").toInt()
         projectPaymentViewModel.getTableInterest()
         initAdapter(projectPaymentViewModel.list)
     }

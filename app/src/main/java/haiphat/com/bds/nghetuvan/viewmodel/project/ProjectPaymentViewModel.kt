@@ -7,11 +7,12 @@ import kotlin.collections.ArrayList
 
 
 class ProjectPaymentViewModel {
-    var totalCash: Float = 9000000000f
-    var borrowedTime: Int = 36
-    var disbursementDate: String = "30-01-2018"
-    var gracePeriod: Int = 9
-    var interest: Float = 9f
+    var totalCash: Float = 0f
+    var borrowedTime: Int = 0
+    var disbursementDate: String = ""
+    var gracePeriod: Int = 0
+    var interest: Float = 0f
+    var type: Int = 0
     var list = ArrayList<InterestRateSpreadsheetResponse>()
 
     fun getTableInterest() {

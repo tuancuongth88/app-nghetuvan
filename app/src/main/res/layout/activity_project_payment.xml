@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <android.support.v4.widget.NestedScrollView style="@style/matchParent">
 
         <android.support.constraint.ConstraintLayout
             style="@style/matchParent"
             android:background="@color/colorWhite">
 
-            <faranjit.currency.edittext.CurrencyEditText
+            <EditText
                 android:id="@+id/edLoanNumber"
                 style="@style/withWrap"
                 android:layout_marginLeft="24dp"
@@ -86,7 +87,7 @@
                 android:padding="10dp"
                 app:layout_constraintEnd_toStartOf="@+id/txtMonth"
                 app:layout_constraintStart_toStartOf="@+id/edBorrowedTime"
-                app:layout_constraintTop_toBottomOf="@+id/txtMonth"></EditText>
+                app:layout_constraintTop_toBottomOf="@+id/txtMonth"/>
 
             <TextView
                 android:id="@+id/txtDisbursementDate"
@@ -211,6 +212,7 @@
                 android:hint="Ngày giải ngân"
                 android:inputType="datetime"
                 android:padding="10dp"
+                android:focusable="false"
                 app:layout_constraintEnd_toStartOf="@+id/tvTimeGrace"
                 app:layout_constraintStart_toEndOf="@+id/switchView"
                 app:layout_constraintTop_toBottomOf="@+id/tvGrace" />
