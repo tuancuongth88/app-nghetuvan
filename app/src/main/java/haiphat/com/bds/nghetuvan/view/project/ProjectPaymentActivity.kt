@@ -10,6 +10,7 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.databinding.ActivityProjectPaymentBinding
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.DialogChangeAvatar
+import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.extensions.formatCurrency
 import haiphat.com.bds.nghetuvan.utils.validation.Validator
 import haiphat.com.bds.nghetuvan.view.BaseActivity
@@ -29,10 +30,10 @@ class ProjectPaymentActivity : BaseActivity() {
 
         dataBingProjectPayment.edType.setOnClickListener {
             var dialogChangeImage = DialogChangeAvatar(this, onSelectedCamera = {
-                dataBingProjectPayment.edType.setText("Dư nợ giảm dần")
+                dataBingProjectPayment.edType.setText("1")
 
             }, onSelectedGallery = {
-                dataBingProjectPayment.edType.setText("Dư Ban đầu")
+                dataBingProjectPayment.edType.setText("2")
             })
             dialogChangeImage.setCanceledOnTouchOutside(false)
             dialogChangeImage.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -43,7 +44,7 @@ class ProjectPaymentActivity : BaseActivity() {
         }
 
         dataBingProjectPayment.ripRegister.setOnRippleCompleteListener {
-            if (Validator().validate(dataBingProjectPayment)) {
+            if (!validate()) {
                 val intent = Intent(this@ProjectPaymentActivity, InterestRateSpreadsheetActivity::class.java)
                 intent.putExtra("TONG_TIEN", dataBingProjectPayment.edLoanNumber.text.toString())
                 intent.putExtra("THOI_GIAN_VAY", dataBingProjectPayment.edBorrowedTime.text.toString())
@@ -54,11 +55,23 @@ class ProjectPaymentActivity : BaseActivity() {
                 }else {
                     intent.putExtra("AN_HAN", dataBingProjectPayment.edTimeGrace.text.toString())
                 }
-//                intent.putExtra("LOAI_VAY", dataBingProjectPayment.edType.text.toString())
+                intent.putExtra("LOAI_VAY", dataBingProjectPayment.edType.text.toString())
                 startActivity(intent)
+            }else{
+                ShowAlert.fail(this, dialogTitle = getString(R.string.alert_title_inform), message = "Nhập đầy đủ thông tin")
             }
         }
         return dataBingProjectPayment.root
+    }
+
+    private fun validate(): Boolean{
+        var isCheck : Boolean = false
+        if (dataBingProjectPayment.edLoanNumber.text.isEmpty() || dataBingProjectPayment.edBorrowedTime.text.isEmpty()
+                || dataBingProjectPayment.lnDisbursementDate.text.isEmpty()|| dataBingProjectPayment.ed1.text.isEmpty()
+        || dataBingProjectPayment.edType.text.isEmpty()){
+            isCheck = true
+        }
+        return isCheck
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

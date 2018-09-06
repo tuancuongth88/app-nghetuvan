@@ -36,6 +36,7 @@ class InterestRateSpreadsheetActivity : BaseActivity() {
         projectPaymentViewModel.disbursementDate = bundle.getString("NGAY_GIAI_NGAN")
         projectPaymentViewModel.interest = bundle.getString("LAI_SUAT").toFloat()
         projectPaymentViewModel.gracePeriod = bundle.getString("AN_HAN").toInt()
+        projectPaymentViewModel.type = bundle.getString("LOAI_VAY").toInt()
         projectPaymentViewModel.getTableInterest()
         initAdapter(projectPaymentViewModel.list)
     }
