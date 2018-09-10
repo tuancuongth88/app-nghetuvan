@@ -36,10 +36,10 @@ class EducationApi(var type : Int) : BaseApi(){
         this["hot", onResponse]
     }
 
-    fun postRegisterEducation(id : String?, fullName : String?, phone : String?, email : String?, onResponse: (DgmResponse) -> Unit) {
+    fun postRegisterEducation(subject_id : String?, fullName : String?, phone : String?, email : String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
-        data.put("id", id ?: "")
-        data.put("fullName", fullName ?: "")
+        data.put("subject_id", subject_id ?: "")
+        data.put("fullname", fullName ?: "")
         data.put("phone", phone ?: "")
         data.put("email", email ?: "")
         this.post("subjects/register", data, onResponse)

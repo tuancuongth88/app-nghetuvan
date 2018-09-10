@@ -34,6 +34,7 @@
                 style="@style/withWrap"
                 android:layout_marginTop="8dp"
                 android:hint="họ và tên"
+                android:inputType="text"
                 app:layout_constraintEnd_toEndOf="@+id/tvDescription"
                 app:layout_constraintStart_toStartOf="@+id/tvDescription"
                 app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
@@ -43,6 +44,7 @@
                 style="@style/withWrap"
                 android:layout_marginTop="8dp"
                 android:hint="Số điện thoại"
+                android:inputType="number"
                 app:layout_constraintEnd_toEndOf="@+id/edFullName"
                 app:layout_constraintStart_toStartOf="@+id/edFullName"
                 app:layout_constraintTop_toBottomOf="@+id/edFullName" />
@@ -52,6 +54,7 @@
                 style="@style/withWrap"
                 android:layout_marginTop="8dp"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="@+id/edPhone"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/edPhone"
@@ -64,7 +67,7 @@
                 android:layout_marginBottom="24dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/bg_view_btn_login_email"
-                android:text="Gửi"
+                android:text="Đăng ký khóa học"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
