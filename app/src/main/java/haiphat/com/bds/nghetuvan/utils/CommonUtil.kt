@@ -54,7 +54,7 @@ class CommonUtil {
         }
 
         fun setDataUploadAvatar(rivAvatar: RoundedImageView, tvName : TextView, tvEmail: TextView, userResponse: UserResponse?){
-            rivAvatar.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_defaut_avatar)
+            rivAvatar.fromUrl(userResponse?.avatar, placeHolder = R.drawable.ic_menu_user)
             tvName.text = userResponse?.fullname
             tvEmail.text = userResponse?.email
         }
@@ -76,8 +76,6 @@ class CommonUtil {
                 edTime?.setText( hourOfDay.toString() + ":" + minute)
             }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true)
             timePickerDialog.show()
-
         }
-
     }
 }

@@ -14,7 +14,7 @@ class EducationViewModel {
     var numberRecord: String? = null
 
     fun getCategoryEducation(onSuccess: (ArrayList<BaseResponse>?) -> Unit?, onFailed: (String?) -> Unit?) {
-        EducationApi().getCategroyItems {
+        EducationApi().getCategoryItems {
             var response = GsonUtil.fromJson(it.responseContent, ListCategoryEducationResponse::class.java)
             if (it.isSuccess()) {
                 response?.let { onSuccess(it.data) } ?: onFailed(it.getErrorMessage())
