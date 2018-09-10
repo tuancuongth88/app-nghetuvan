@@ -10,8 +10,11 @@ import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.education.RegisterEducationAdapter
 import haiphat.com.bds.nghetuvan.databinding.FragmentRegisterEducationBinding
 import haiphat.com.bds.nghetuvan.models.education.EducationResponse
+import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
+import haiphat.com.bds.nghetuvan.utils.extensions.toHtml
 import haiphat.com.bds.nghetuvan.view.BaseFragment
+import haiphat.com.bds.nghetuvan.view.education.EducationDetailActivity
 import haiphat.com.bds.nghetuvan.viewmodel.education.EducationDetailViewModel
 
 class RegisterEducationFragment : BaseFragment(){
@@ -19,36 +22,29 @@ class RegisterEducationFragment : BaseFragment(){
     private lateinit var dataBindingFragmentRegisterEducation: FragmentRegisterEducationBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentRegisterEducation = DataBindingUtil.inflate(inflater, R.layout.fragment_register_education, container, false)
-        getFormRegisterEducation()
+        initView((activity as EducationDetailActivity).setData())
         dataBindingFragmentRegisterEducation.btnSubmit.setOnClickListener {
             submitForm()
         }
         return dataBindingFragmentRegisterEducation.root
     }
 
-    private fun setData(data : EducationResponse){
-        dataBindingFragmentRegisterEducation.tvTitle.text = data.title
-        dataBindingFragmentRegisterEducation.tvDescription.text = data.description
-        var recyclerView = dataBindingFragmentRegisterEducation.rvWhoAreYou
-        var adapter = RegisterEducationAdapter(data?.item, onClick = {
-        })
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = adapter
+    private fun initView(data : EducationResponse?){
+        dataBindingFragmentRegisterEducation.tvTitle.text = data?.name
+        dataBindingFragmentRegisterEducation.tvDescription.text = data?.description?.toHtml()
     }
 
     private fun submitForm(){
+        educationDetailViewModel.id = (activity as EducationDetailActivity).setData()?.id.toString()
+        educationDetailViewModel.email = dataBindingFragmentRegisterEducation.edEmail.text.toString()
+        educationDetailViewModel.fullName = dataBindingFragmentRegisterEducation.edFullName.text.toString()
+        educationDetailViewModel.phone = dataBindingFragmentRegisterEducation.edPhone.text.toString()
         educationDetailViewModel.submitFormEducation(onSuccess = {
-            ShowAlert.fail(pContext = activity, dialogTitle = getString(R.string.alert_title_inform),message = getString(R.string.alert_title_success))
+            ShowAlert.fail(pContext = activity, dialogTitle = getString(R.string.alert_title_inform),message = it)
         }, onFailed = {
-            ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
+            ShowAlert.fail(pContext = activity, message = it)
         })
     }
 
-    private fun getFormRegisterEducation(){
-        educationDetailViewModel.getFormRegisterEducation(onSuccess = {
-           setData(it)
-        }, onFailed = {
-            ShowAlert.fail(pContext = activity, message = getString(R.string.text_error))
-        })
-    }
+
 }

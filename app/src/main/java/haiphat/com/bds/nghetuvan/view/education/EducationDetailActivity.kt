@@ -36,20 +36,23 @@ class EducationDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHeaderVisibility(View.GONE)
-        var bundle = intent.extras
-        var education = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_ITEM_EDUCATION), EducationResponse::class.java)
-        initView(education)
+        initView()
     }
 
-    private fun initView(educationResponse: EducationResponse?){
-        val sectionsPagerAdapter = SectionsPagerEducationAdapter(supportFragmentManager, educationResponse)
+    private fun initView(){
+        val sectionsPagerAdapter = SectionsPagerEducationAdapter(supportFragmentManager)
         dataBindingEducationDetail.container.adapter = sectionsPagerAdapter
         dataBindingEducationDetail.tabs.setupWithViewPager(dataBindingEducationDetail.container)
         dataBindingEducationDetail.tabs.setTabTextColors(ContextCompat.getColor(this, R.color.colorWhite), ContextCompat.getColor(this, R.color.colorWhite))
-
     }
 
-    inner class SectionsPagerEducationAdapter(fm: FragmentManager, educationResponse: EducationResponse?) : FragmentPagerAdapter(fm) {
+    fun setData() : EducationResponse?{
+        var bundle = intent.extras
+        var education = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_ITEM_EDUCATION), EducationResponse::class.java)
+        return education
+    }
+
+    inner class SectionsPagerEducationAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             var fragment: Fragment? = null
             when (position) {

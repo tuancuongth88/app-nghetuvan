@@ -57,36 +57,20 @@
                 app:layout_constraintStart_toStartOf="@+id/edPhone"
                 app:layout_constraintTop_toBottomOf="@+id/edPhone" />
 
-            <TextView
-                android:id="@+id/tvWhoAreYou"
-                style="@style/matchWrap"
-                android:layout_width="0dp"
-                android:layout_marginTop="8dp"
-                android:text="Bạn là ai?"
-                app:layout_constraintEnd_toEndOf="@+id/edEmail"
-                app:layout_constraintStart_toStartOf="@+id/edEmail"
-                app:layout_constraintTop_toBottomOf="@+id/edEmail" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvWhoAreYou"
-                style="@style/widthMatch"
-                android:nestedScrollingEnabled="false"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/tvWhoAreYou"
-                app:layout_constraintStart_toStartOf="@+id/tvWhoAreYou"
-                app:layout_constraintTop_toBottomOf="@+id/tvWhoAreYou" />
 
             <Button
                 android:id="@+id/btnSubmit"
                 style="@style/withWrap"
+                android:layout_marginBottom="24dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/bg_view_btn_login_email"
                 android:text="Gửi"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
-                app:layout_constraintEnd_toEndOf="@+id/rvWhoAreYou"
-                app:layout_constraintStart_toStartOf="@+id/rvWhoAreYou"
-                app:layout_constraintTop_toBottomOf="@+id/rvWhoAreYou" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/edEmail"
+                app:layout_constraintStart_toStartOf="@+id/edEmail"
+                app:layout_constraintTop_toBottomOf="@+id/edEmail" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>

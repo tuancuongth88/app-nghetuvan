@@ -79,7 +79,7 @@ class EducationFragment : BaseFragment() {
             dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_partner, container, false)
             dataBindingFragmentPartner.swipeRefreshLayout.setOnRefreshListener(this)
             dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = true
-            getItemPartner()
+            getItemEducations()
             return dataBindingFragmentPartner.root
         }
 
@@ -94,7 +94,7 @@ class EducationFragment : BaseFragment() {
             recyclerView.adapter = adapter
         }
 
-        private fun getItemPartner() {
+        private fun getItemEducations() {
             educationViewModel.getItemEducation(onSuccess = {
                 dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = false
                 initPartnerAdapter(it)
@@ -106,12 +106,13 @@ class EducationFragment : BaseFragment() {
 
         override fun onRefresh() {
             dataBindingFragmentPartner.swipeRefreshLayout.isRefreshing = true
-            getItemPartner()
+            getItemEducations()
         }
 
         companion object {
             fun newInstance(id: Int?, arguments: Bundle? = null): ContentFragment {
                 val fragment = ContentFragment()
+                fragment.educationViewModel.id = id
                 fragment.arguments = arguments
                 return fragment
             }
