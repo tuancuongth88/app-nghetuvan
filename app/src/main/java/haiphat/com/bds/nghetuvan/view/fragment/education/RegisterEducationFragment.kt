@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.education.RegisterEducationAdapter
 import haiphat.com.bds.nghetuvan.databinding.FragmentRegisterEducationBinding
-import haiphat.com.bds.nghetuvan.models.education.ItemEducationResponse
+import haiphat.com.bds.nghetuvan.models.education.EducationResponse
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.view.BaseFragment
 import haiphat.com.bds.nghetuvan.viewmodel.education.EducationDetailViewModel
@@ -26,7 +26,7 @@ class RegisterEducationFragment : BaseFragment(){
         return dataBindingFragmentRegisterEducation.root
     }
 
-    private fun setData(data : ItemEducationResponse){
+    private fun setData(data : EducationResponse){
         dataBindingFragmentRegisterEducation.tvTitle.text = data.title
         dataBindingFragmentRegisterEducation.tvDescription.text = data.description
         var recyclerView = dataBindingFragmentRegisterEducation.rvWhoAreYou

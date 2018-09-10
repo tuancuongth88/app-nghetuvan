@@ -15,10 +15,12 @@ import android.view.View
 import android.view.ViewGroup
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.education.EducationAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.FragmentEducationBinding
 import haiphat.com.bds.nghetuvan.databinding.FragmentPartnerBinding
+import haiphat.com.bds.nghetuvan.models.BaseResponse
 import haiphat.com.bds.nghetuvan.models.education.EducationResponse
-import haiphat.com.bds.nghetuvan.models.education.ItemEducationResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowAlert
 import haiphat.com.bds.nghetuvan.utils.dialog.ShowLoading
 import haiphat.com.bds.nghetuvan.view.BaseFragment
@@ -41,7 +43,7 @@ class EducationFragment : BaseFragment() {
         ShowLoading.show(activity)
         educationViewModel.getCategoryEducation(onSuccess = {
             val sectionsPagerAdapter = SectionsPagerEducationAdapter(childFragmentManager)
-            sectionsPagerAdapter.listCategoryEducation = it
+            it?.let { sectionsPagerAdapter.listCategoryEducation = it }
             dataBindingFragmentPartner.container.adapter = sectionsPagerAdapter
             dataBindingFragmentPartner.tabs.setupWithViewPager(dataBindingFragmentPartner.container)
             dataBindingFragmentPartner.tabs.setTabTextColors(ContextCompat.getColor(context!!, R.color.colorWhite), ContextCompat.getColor(context!!, R.color.colorWhite))
@@ -54,10 +56,10 @@ class EducationFragment : BaseFragment() {
 
     inner class SectionsPagerEducationAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
-        var listCategoryEducation = ArrayList<EducationResponse>()
+        var listCategoryEducation = ArrayList<BaseResponse>()
 
         override fun getItem(position: Int): Fragment {
-            return ContentFragment.newInstance(listCategoryEducation[position].id)
+            return ContentFragment.newInstance(listCategoryEducation?.get(position)?.id)
         }
 
         override fun getCount(): Int {
@@ -81,10 +83,11 @@ class EducationFragment : BaseFragment() {
             return dataBindingFragmentPartner.root
         }
 
-        private fun initPartnerAdapter(list: ArrayList<ItemEducationResponse>) {
+        private fun initPartnerAdapter(list: ArrayList<EducationResponse>?) {
             val recyclerView = dataBindingFragmentPartner.rvNews
             val adapter = EducationAdapter(list, onClick = {
                 val intent = Intent(activity, EducationDetailActivity::class.java)
+                intent.putExtra(IntentActionKeys.KEY_ITEM_EDUCATION, it?.let { it1 -> GsonUtil.toJson(it1) })
                 startActivity(intent)
             })
             recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -107,7 +110,7 @@ class EducationFragment : BaseFragment() {
         }
 
         companion object {
-            fun newInstance(id: String?, arguments: Bundle? = null): ContentFragment {
+            fun newInstance(id: Int?, arguments: Bundle? = null): ContentFragment {
                 val fragment = ContentFragment()
                 fragment.arguments = arguments
                 return fragment
