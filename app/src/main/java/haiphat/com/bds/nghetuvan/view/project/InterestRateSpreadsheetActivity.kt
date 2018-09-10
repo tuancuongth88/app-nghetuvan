@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import haiphat.com.bds.nghetuvan.R
 import haiphat.com.bds.nghetuvan.adapter.project.InterestRateSpreadsheetAdapter
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityInterestRateSpreadsheetBinding
 import haiphat.com.bds.nghetuvan.models.project.InterestRateSpreadsheetResponse
 import haiphat.com.bds.nghetuvan.view.BaseActivity
@@ -31,12 +32,12 @@ class InterestRateSpreadsheetActivity : BaseActivity() {
 //        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
 
         var bundle = intent.extras
-        projectPaymentViewModel.totalCash = bundle.getString("TONG_TIEN").toFloat()
-        projectPaymentViewModel.borrowedTime = bundle.getString("THOI_GIAN_VAY").toInt()
-        projectPaymentViewModel.disbursementDate = bundle.getString("NGAY_GIAI_NGAN")
-        projectPaymentViewModel.interest = bundle.getString("LAI_SUAT").toFloat()
-        projectPaymentViewModel.gracePeriod = bundle.getString("AN_HAN").toInt()
-        projectPaymentViewModel.type = bundle.getString("LOAI_VAY").toInt()
+        projectPaymentViewModel.totalCash = bundle.getString(IntentActionKeys.KEY_INPUT_TOTAL_AMOUNT).toFloat()
+        projectPaymentViewModel.borrowedTime = bundle.getString(IntentActionKeys.KEY_INPUT_TOTAL_BORROWED_TIME).toInt()
+        projectPaymentViewModel.disbursementDate = bundle.getString(IntentActionKeys.KEY_INPUT_TOTAL_DISBURSEMENT_DATE)
+        projectPaymentViewModel.interest = bundle.getString(IntentActionKeys.KEY_INPUT_TOTAL_INTEREST_RATE).toFloat()
+        projectPaymentViewModel.gracePeriod = bundle.getString(IntentActionKeys.KEY_INPUT_TOTAL_LIMITATION).toInt()
+        projectPaymentViewModel.type = bundle.getString(IntentActionKeys.KEY_INPUT_TOTAL_TYPE).toInt()
         projectPaymentViewModel.getTableInterest()
         initAdapter(projectPaymentViewModel.list)
     }

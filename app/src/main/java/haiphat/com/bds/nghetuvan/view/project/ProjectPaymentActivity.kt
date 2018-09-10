@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.Window
 import haiphat.com.bds.nghetuvan.R
+import haiphat.com.bds.nghetuvan.constants.IntentActionKeys
 import haiphat.com.bds.nghetuvan.databinding.ActivityProjectPaymentBinding
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
 import haiphat.com.bds.nghetuvan.utils.dialog.DialogChangeAvatar
@@ -46,16 +47,16 @@ class ProjectPaymentActivity : BaseActivity() {
         dataBingProjectPayment.ripRegister.setOnRippleCompleteListener {
             if (!validate()) {
                 val intent = Intent(this@ProjectPaymentActivity, InterestRateSpreadsheetActivity::class.java)
-                intent.putExtra("TONG_TIEN", dataBingProjectPayment.edLoanNumber.text.toString())
-                intent.putExtra("THOI_GIAN_VAY", dataBingProjectPayment.edBorrowedTime.text.toString())
-                intent.putExtra("NGAY_GIAI_NGAN", dataBingProjectPayment.lnDisbursementDate.text.toString())
-                intent.putExtra("LAI_SUAT", dataBingProjectPayment.ed1.text.toString())
+                intent.putExtra(IntentActionKeys.KEY_INPUT_TOTAL_AMOUNT, dataBingProjectPayment.edLoanNumber.text.toString())
+                intent.putExtra(IntentActionKeys.KEY_INPUT_TOTAL_BORROWED_TIME, dataBingProjectPayment.edBorrowedTime.text.toString())
+                intent.putExtra(IntentActionKeys.KEY_INPUT_TOTAL_DISBURSEMENT_DATE, dataBingProjectPayment.lnDisbursementDate.text.toString())
+                intent.putExtra(IntentActionKeys.KEY_INPUT_TOTAL_INTEREST_RATE, dataBingProjectPayment.ed1.text.toString())
                 if (dataBingProjectPayment.edTimeGrace.text.isEmpty()){
-                    intent.putExtra("AN_HAN", "0")
+                    intent.putExtra(IntentActionKeys.KEY_INPUT_TOTAL_LIMITATION, "0")
                 }else {
-                    intent.putExtra("AN_HAN", dataBingProjectPayment.edTimeGrace.text.toString())
+                    intent.putExtra(IntentActionKeys.KEY_INPUT_TOTAL_LIMITATION, dataBingProjectPayment.edTimeGrace.text.toString())
                 }
-                intent.putExtra("LOAI_VAY", dataBingProjectPayment.edType.text.toString())
+                intent.putExtra(IntentActionKeys.KEY_INPUT_TOTAL_TYPE, dataBingProjectPayment.edType.text.toString())
                 startActivity(intent)
             }else{
                 ShowAlert.fail(this, dialogTitle = getString(R.string.alert_title_inform), message = "Nhập đầy đủ thông tin")
