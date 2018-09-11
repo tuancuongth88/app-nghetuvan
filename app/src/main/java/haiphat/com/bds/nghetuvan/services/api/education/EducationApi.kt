@@ -36,6 +36,13 @@ class EducationApi(var type : Int) : BaseApi(){
         this["hot", onResponse]
     }
 
+    fun getCourseContent(id : String?, onResponse: (DgmResponse) -> Unit){
+        val data = HashMap<String, String>()
+        data.put("id", id ?: "")
+        val queryString = this.parseUrlQueryStringWithParams("lessons/detail?{id}", data)
+        this[queryString, onResponse]
+    }
+
     fun postRegisterEducation(subject_id : String?, fullName : String?, phone : String?, email : String?, onResponse: (DgmResponse) -> Unit) {
         val data = HashMap<String, String>()
         data.put("subject_id", subject_id ?: "")

@@ -36,5 +36,15 @@ class EducationViewModel {
         })
     }
 
+    fun getHotItems(onSuccess: (ArrayList<EducationResponse>?) -> Unit?, onFailed: (String?) -> Unit?) {
+        EducationApi(Config.CRM).getEducationHot(onResponse = {
+            var response = GsonUtil.fromJson(it.responseContent, ListEducationResponse::class.java)
+            if (it.isSuccess()) {
+                response?.let { onSuccess(it?.data) } ?: onFailed(it.getErrorMessage())
+            } else {
+                onFailed(it.getErrorMessage())
+            }
+        })
+    }
 
 }
