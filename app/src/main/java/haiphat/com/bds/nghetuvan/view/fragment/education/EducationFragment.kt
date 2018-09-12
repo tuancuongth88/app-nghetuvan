@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,7 @@ class EducationFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBindingFragmentPartner = DataBindingUtil.inflate(inflater, R.layout.fragment_education, container, false)
         getCategory()
+        getEducationHot()
         (activity as HomeActivity).setBackgroundColor(Color.TRANSPARENT)
         return dataBindingFragmentPartner.root
     }
@@ -50,6 +52,13 @@ class EducationFragment : BaseFragment() {
             ShowLoading.dismiss()
         }, onFailed = {
             ShowLoading.dismiss()
+            ShowAlert.fail(pContext = activity, message = it)
+        })
+    }
+
+    private fun getEducationHot(){
+        educationViewModel.getHotItems(onSuccess = {
+        }, onFailed = {
             ShowAlert.fail(pContext = activity, message = it)
         })
     }
