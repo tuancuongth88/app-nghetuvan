@@ -1,24 +1,26 @@
 package haiphat.com.bds.nghetuvan.viewmodel.project
 
+import haiphat.com.bds.nghetuvan.models.project.ListProjectWarehouseResponse
 import haiphat.com.bds.nghetuvan.models.project.ProjectWarehouseResponse
+import haiphat.com.bds.nghetuvan.services.GsonUtil
+import haiphat.com.bds.nghetuvan.services.api.project.ProjectApi
 
 /**
  * Created by HUONG HA^P on 5/17/2018.
  */
 class ProjectWarehouseViewModel {
 
-    fun getItemProjectWarehouse(onSuccess : (ArrayList<ProjectWarehouseResponse>) ->Unit, onFailed : (String?) -> Unit) {
-        onSuccess(mockProjectWarehouse())
+    var page : Int ?= 1
+
+    fun getItemProjects(onSuccess : (ArrayList<ProjectWarehouseResponse>?) ->Unit, onFailed : (String?) -> Unit) {
+        ProjectApi().getProject(onResponse = {
+            var response = GsonUtil.fromJson(it.responseContent, ListProjectWarehouseResponse::class.java)
+            if (it.isSuccess()){
+                onSuccess(response?.data)
+            }else{
+                onFailed(it.getErrorMessage())
+            }
+        })
     }
 
-
-    private fun mockProjectWarehouse() : ArrayList<ProjectWarehouseResponse>{
-        var list = ArrayList<ProjectWarehouseResponse>()
-        list.add(ProjectWarehouseResponse(name = "dự án mới ", url = "http://a9.vietbao.vn/images/vn999/170/2018/01/20180129-bo-tui-kinh-nghiem-vang-khi-mua-bat-dong-san-cao-cap-2018-1.jpg", decription = "12 hai ba trung ha noi", type = 1))
-        list.add(ProjectWarehouseResponse(name = "dự án mới ", url = "http://a9.vietbao.vn/images/vn999/170/2018/01/20180129-bo-tui-kinh-nghiem-vang-khi-mua-bat-dong-san-cao-cap-2018-1.jpg", decription = "12 hai ba trung ha noi", type = 1))
-        list.add(ProjectWarehouseResponse(name = "dự án mới ", url = "http://a9.vietbao.vn/images/vn999/170/2018/01/20180129-bo-tui-kinh-nghiem-vang-khi-mua-bat-dong-san-cao-cap-2018-1.jpg", decription = "12 hai ba trung ha noi", type = 1))
-        list.add(ProjectWarehouseResponse(name = "dự án mới ", url = "http://a9.vietbao.vn/images/vn999/170/2018/01/20180129-bo-tui-kinh-nghiem-vang-khi-mua-bat-dong-san-cao-cap-2018-1.jpg", decription = "12 hai ba trung ha noi", type = 1))
-        list.add(ProjectWarehouseResponse(name = "dự án mới ", url = "http://a9.vietbao.vn/images/vn999/170/2018/01/20180129-bo-tui-kinh-nghiem-vang-khi-mua-bat-dong-san-cao-cap-2018-1.jpg", decription = "12 hai ba trung ha noi", type = 1))
-        return list
-    }
 }

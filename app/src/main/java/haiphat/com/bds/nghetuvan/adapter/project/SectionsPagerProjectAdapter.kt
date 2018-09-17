@@ -20,22 +20,22 @@ class SectionsPagerProjectAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm
         var fragment: Fragment? = null
         when (position) {
             0, 1 -> {
-                fragment = ProjectInfoFragment.newInstance(projectResponse?.decription)
+                fragment = ProjectInfoFragment.newInstance(projectResponse?.description)
             }
             2 -> {
-                fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
+                fragment = ProjectSupportFragment.newInstance(projectResponse?.description)
             }
             3 -> {
-                fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
+                fragment = ProjectSupportFragment.newInstance(projectResponse?.description)
             }
             4 -> {
                 fragment = ProjectUtilitiesFragment()
             }
             5 -> {
-                fragment = ProjectSupportFragment.newInstance(projectResponse?.decription)
+                fragment = ProjectSupportFragment.newInstance(projectResponse?.description)
             }
         }
-        return fragment ?: ProjectInfoFragment.newInstance(projectResponse?.decription)
+        return fragment ?: ProjectInfoFragment.newInstance(projectResponse?.description)
     }
 
     override fun getCount(): Int {

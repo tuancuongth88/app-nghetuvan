@@ -12,6 +12,7 @@ import haiphat.com.bds.nghetuvan.databinding.ActivityProjectWareHouseDetailBindi
 import haiphat.com.bds.nghetuvan.models.project.ProjectWarehouseResponse
 import haiphat.com.bds.nghetuvan.services.GsonUtil
 import haiphat.com.bds.nghetuvan.utils.CommonUtil
+import haiphat.com.bds.nghetuvan.utils.extensions.fromUrl
 import haiphat.com.bds.nghetuvan.utils.extensions.fromUrlFixData
 import haiphat.com.bds.nghetuvan.view.BaseActivity
 
@@ -42,7 +43,7 @@ class ProjectWareHouseDetailActivity : BaseActivity() {
         setHeaderVisibility(View.GONE)
         val bundle = intent.extras
         val projectResponse = GsonUtil.fromJson(bundle.getString(IntentActionKeys.KEY_PROJECT_WARE_HOUSE), ProjectWarehouseResponse::class.java)
-        dataBingProject.imCovert.fromUrlFixData(projectResponse?.url, placeHolder = R.drawable.ic_defaul_bg_my_course)
+        dataBingProject.imCovert.fromUrl(projectResponse?.image_url?.get(0), placeHolder = R.drawable.ic_defaul_bg_my_course)
         dataBingProject.tvTitle.text = projectResponse?.name
         val sectionsPagerAdapter = SectionsPagerProjectAdapter(supportFragmentManager)
         sectionsPagerAdapter.projectResponse = projectResponse

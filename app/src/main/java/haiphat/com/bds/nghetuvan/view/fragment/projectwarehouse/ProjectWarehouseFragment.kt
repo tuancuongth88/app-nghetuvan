@@ -34,11 +34,13 @@ class ProjectWarehouseFragment: BaseFragment(){
         return dataBindingFragmentProjectWarehouse.root
     }
 
-    private fun initViewAdapter(list: ArrayList<ProjectWarehouseResponse>){
+    private fun initViewAdapter(list: ArrayList<ProjectWarehouseResponse>?){
         var recyclerView = dataBindingFragmentProjectWarehouse.rvProjectWarehouse
         var adapter = ProjectWarehouseAdapter(list, onClick = {
             val intent = Intent(activity, ProjectWareHouseDetailActivity::class.java)
-            intent.putExtra(IntentActionKeys.KEY_PROJECT_WARE_HOUSE, GsonUtil.toJson(it))
+            it?.let {
+                intent.putExtra(IntentActionKeys.KEY_PROJECT_WARE_HOUSE, GsonUtil.toJson(it))
+            }
             startActivity(intent)
         })
         val linearLayoutManager = LinearLayoutManager(activity)
@@ -48,7 +50,7 @@ class ProjectWarehouseFragment: BaseFragment(){
     }
 
     private fun getItemProjectWarehouse(){
-        projectWarehouseViewModel.getItemProjectWarehouse(onSuccess = {
+        projectWarehouseViewModel.getItemProjects(onSuccess = {
             initViewAdapter(it)
         }, onFailed = {
             ShowAlert.fail(pContext = context, message = it)

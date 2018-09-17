@@ -12,7 +12,7 @@ import haiphat.com.bds.nghetuvan.utils.extensions.fromUrlFixData
 import kotlinx.android.synthetic.main.item_project_warehouse.view.*
 
 
-class ProjectWarehouseAdapter(private val list: ArrayList<ProjectWarehouseResponse>, val onClick: (ProjectWarehouseResponse) -> Unit) : RecyclerView.Adapter<ProjectWarehouseAdapter.ProjectWarehouseViewHolder>() {
+class ProjectWarehouseAdapter(private val list: ArrayList<ProjectWarehouseResponse>?, val onClick: (ProjectWarehouseResponse?) -> Unit) : RecyclerView.Adapter<ProjectWarehouseAdapter.ProjectWarehouseViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectWarehouseViewHolder {
         val binding: ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context), R.layout.item_project_warehouse, parent, false)
         return ProjectWarehouseViewHolder(binding)
@@ -20,20 +20,20 @@ class ProjectWarehouseAdapter(private val list: ArrayList<ProjectWarehouseRespon
 
     override fun onBindViewHolder(holder: ProjectWarehouseViewHolder, position: Int) {
         holder?.itemView?.setOnClickListener {
-            onClick(list[position])
+            onClick(list?.get(position))
         }
-        holder?.bindItem(list[position])
+        holder?.bindItem(list?.get(position))
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return list?.size ?: 0
     }
 
     class ProjectWarehouseViewHolder(itemView: ViewDataBinding) : RecyclerView.ViewHolder(itemView.root) {
-        fun bindItem(profileModel: ProjectWarehouseResponse) {
-            itemView.imgProjectWarehouse.fromUrlFixData(url = profileModel.url, placeHolder = R.drawable.ic_defaul_bg_my_course)
-            itemView.tvName.text = profileModel.name
-            itemView.tvDescription.text = profileModel.decription
+        fun bindItem(profileModel: ProjectWarehouseResponse?) {
+            itemView.imgProjectWarehouse.fromUrl(url = profileModel?.image_url?.get(0), placeHolder = R.drawable.ic_defaul_bg_my_course)
+            itemView.tvName.text = profileModel?.name
+            itemView.tvDescription.text = profileModel?.description
         }
     }
 }
