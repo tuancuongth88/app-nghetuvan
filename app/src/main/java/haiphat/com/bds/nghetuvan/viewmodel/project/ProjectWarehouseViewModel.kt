@@ -13,7 +13,7 @@ class ProjectWarehouseViewModel {
     var page : Int ?= 1
 
     fun getItemProjects(onSuccess : (ArrayList<ProjectWarehouseResponse>?) ->Unit, onFailed : (String?) -> Unit) {
-        ProjectApi().getProject(onResponse = {
+        ProjectApi().getProject(page.toString() ,onResponse = {
             var response = GsonUtil.fromJson(it.responseContent, ListProjectWarehouseResponse::class.java)
             if (it.isSuccess()){
                 onSuccess(response?.data)

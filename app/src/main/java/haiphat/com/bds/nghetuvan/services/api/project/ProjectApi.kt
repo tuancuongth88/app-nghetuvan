@@ -14,10 +14,10 @@ class ProjectApi : BaseApi(){
         return Config.API_URL
     }
 
-    fun getProject(onResponse: (DgmResponse) -> Unit){
-//        val params = HashMap<String, String>()
-//        params.put("page", page ?: "")
-//        val queryString = this.parseUrlQueryStringWithParams("get-projects?{page}", params)
-        this["get-projects", onResponse]
+    fun getProject(page : String?, onResponse: (DgmResponse) -> Unit){
+        val params = HashMap<String, String>()
+        params.put("page", page ?: "")
+        val queryString = this.parseUrlQueryStringWithParams("get-projects?{page}", params)
+        this[queryString, onResponse]
     }
 }
